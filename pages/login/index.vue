@@ -4,19 +4,32 @@
       <h2 class="text-2xl">Vamos começar!</h2>
       <p class="text-quiz-blue-100">É preciso estar logado para continuar</p>
       <quiz-input-text
-        :model.sync="inputValue"
+        :model.sync="model"
         placeholder="Digite um nome de usuário"
         class="bg-quiz-blue-200 w-full mt-4"
       />
-      <quiz-btn class="w-full mt-4">Entrar</quiz-btn>
+      <quiz-btn class="w-full mt-4" @click="loginUser">Entrar</quiz-btn>
     </quiz-card>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useRouter } from "@nuxtjs/composition-api";
+import { storeToRefs } from "pinia";
 import Vue, { ref } from "vue";
+import { useUserDataStore } from "~/store/userData";
 
-const inputValue = ref<string>("");
+const store = useUserDataStore();
+
+const { data } = storeToRefs(store);
+const router = useRouter();
+
+const model = ref<string>("");
+
+function loginUser() {
+  store.login(model.value);
+  router.push("/");
+}
 </script>
 
 <script lang="ts">

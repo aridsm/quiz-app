@@ -38,10 +38,12 @@ export default {
     "@nuxt/typescript-build",
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
+    "@nuxtjs/composition-api/module",
+    "@pinia/nuxt",
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@pinia/nuxt"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

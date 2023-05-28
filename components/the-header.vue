@@ -1,6 +1,6 @@
 <template>
   <header class="fixed w-full bg-quiz-blue-400 border-b-2 border-quiz-blue-300">
-    <div class="max-w-[1200px] w-full mx-auto h-20 flex items-center">
+    <div class="max-w-[1200px] w-full mx-auto h-20 flex items-center px-4">
       <div class="flex items-center gap-12">
         <h1 class="text-2xl"><nuxt-link to="/">Quiz</nuxt-link></h1>
         <nav>
