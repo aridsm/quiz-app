@@ -1,5 +1,73 @@
 <template>
-  <header>Quiz</header>
+  <header class="fixed w-full bg-quiz-blue-400 border-b-2 border-quiz-blue-300">
+    <div class="max-w-[1200px] w-full mx-auto h-20 flex items-center">
+      <div class="flex items-center gap-12">
+        <h1 class="text-2xl"><nuxt-link to="/">Quiz</nuxt-link></h1>
+        <nav>
+          <ul class="flex gap-12">
+            <li>
+              <nuxt-link to="/" class="hover:text-quiz-green-light"
+                >Home</nuxt-link
+              >
+            </li>
+            <li>
+              <quiz-toggle-activator
+                :arrow-indicator="true"
+                hover-class="text-quiz-green-light"
+              >
+                <template #activator>Categorias</template>
+                <template #content>
+                  <ul class="flex flex-col gap-2">
+                    <li v-for="link in links" :key="link.name">
+                      <nuxt-link
+                        :to="link.route"
+                        class="hover:text-quiz-green-light"
+                      >
+                        {{ link.name }}
+                      </nuxt-link>
+                    </li>
+                  </ul>
+                </template>
+              </quiz-toggle-activator>
+            </li>
+            <li>
+              <button class="hover:text-quiz-green-light">Jogar agora</button>
+            </li>
+          </ul>
+        </nav>
+        <button class="hover:text-quiz-green-light">
+          <icon-quiz-search class="w-4" />
+        </button>
+      </div>
+      <header-user-data class="ml-auto" />
+    </div>
+  </header>
 </template>
 
-<script></script>
+<script setup lang="ts">
+import { ref } from "vue";
+
+interface Link {
+  route: string;
+  name: string;
+}
+
+const links = ref<Link[]>([
+  {
+    route: "/quizzes/biology",
+    name: "Biologia",
+  },
+  {
+    route: "/quizzes/geography",
+    name: "Geografia",
+  },
+  {
+    route: "/quizzes/mathematics",
+    name: "Matemática",
+  },
+  {
+    route: "/quizzes/all",
+    name: "Todas as categorias",
+  },
+]);
+</script>

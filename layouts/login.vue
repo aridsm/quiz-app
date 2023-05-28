@@ -4,7 +4,7 @@
     <quiz-page-layout>
       <nuxt />
     </quiz-page-layout>
-    <footer>Feito por Ariane Morelato</footer>
+    <the-footer />
   </div>
 </template>
 

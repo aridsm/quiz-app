@@ -1,10 +1,10 @@
 <template>
   <div>
     <the-header />
-    <quiz-page-layout>
+    <quiz-page-layout class="pt-36">
       <nuxt />
     </quiz-page-layout>
-    <footer>Feito por Ariane Morelato</footer>
+    <the-footer />
   </div>
 </template>
 
