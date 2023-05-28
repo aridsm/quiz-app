@@ -2,11 +2,11 @@
   <div class="flex items-center">
     <div class="flex items-center text-quiz-green-light gap-8 mr-8">
       <div class="flex items-center">
-        <span>214</span>
+        <span>{{ data.coinsCount }}</span>
         <icon-quiz-coins class="w-4 ml-2" />
       </div>
       <div class="flex items-center">
-        <span>8</span>
+        <span>{{ data.friendsCount }}</span>
         <icon-quiz-people class="w-5 ml-2" />
       </div>
     </div>
@@ -34,13 +34,21 @@
     </quiz-toggle-activator>
     <div class="flex flex-col gap-1 ml-3">
       <div class="flex items-center justify-between text-base">
-        <span>User_143</span>
-        <span>LVL 1</span>
+        <span>{{ data.userName }}</span>
+        <span :aria-label="`nível ${data.level}`">LVL. {{ data.level }}</span>
       </div>
       <quiz-progress-bar :value="100" :max-value="250" />
     </div>
     <quiz-toggle-activator class="ml-8">
-      <template #activator><icon-quiz-bell class="w-4" /></template>
+      <template #activator>
+        <div class="relative">
+          <icon-quiz-bell class="w-4" />
+          <div
+            v-if="data.hasNotifications"
+            class="w-2 h-2 bg-quiz-pink absolute left-full -top-1 rounded-full"
+          />
+        </div>
+      </template>
       <template #content>Notificações</template>
     </quiz-toggle-activator>
   </div>
@@ -48,13 +56,19 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { storeToRefs } from "pinia";
 import { ProfileOptions } from "../../enums/profileOptions";
+import { useUserDataStore } from "~/store/userData";
 
 interface Options {
   action: Function;
   name: string;
   id: number;
 }
+
+const userStore = useUserDataStore();
+
+const { data } = storeToRefs(userStore);
 
 const profileOptions = ref<Options[]>([
   {

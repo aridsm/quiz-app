@@ -15,19 +15,17 @@
 
 <script setup lang="ts">
 import { useRouter } from "@nuxtjs/composition-api";
-import { storeToRefs } from "pinia";
 import Vue, { ref } from "vue";
 import { useUserDataStore } from "~/store/userData";
 
-const store = useUserDataStore();
+const userStore = useUserDataStore();
 
-const { data } = storeToRefs(store);
 const router = useRouter();
 
 const model = ref<string>("");
 
 function loginUser() {
-  store.login(model.value);
+  userStore.login(model.value);
   router.push("/");
 }
 </script>

@@ -24,8 +24,9 @@
       />
     </button>
     <quiz-card
+      ref="toggleContent"
       class="absolute left-0 toggle-content min-w-[200px]"
-      :class="{ active: toggleIsOpen }"
+      :class="{ active: toggleIsOpen, 'on-right-side': contentIsOutScreen }"
     >
       <slot name="content" />
     </quiz-card>
@@ -34,6 +35,7 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted, computed } from "vue";
+import QuizCard from "./card.vue";
 
 interface Props {
   arrowIndicator?: boolean;
@@ -48,7 +50,9 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const toggleActivator = ref<HTMLButtonElement | null>(null);
+const toggleContent = ref<InstanceType<typeof QuizCard> | null>(null);
 const toggleIsOpen = ref<boolean>(false);
+const contentIsOutScreen = ref<boolean>(false);
 
 const fixedHoverClasses = computed<string[]>(() => {
   const splitedString = props.hoverClass.split(/(\s+)/);
@@ -73,6 +77,14 @@ function onLeaveElement() {
 
 function openToggleHandler() {
   toggleIsOpen.value = !toggleIsOpen.value;
+  const positions = toggleContent.value?.$el.getBoundingClientRect()!;
+  const width = positions.width;
+  const left = positions.left;
+  const windowWidth = window.innerWidth;
+
+  if (width + left > windowWidth) {
+    contentIsOutScreen.value = true;
+  }
 }
 
 function onCheckClickOutside(event: MouseEvent) {
@@ -123,6 +135,10 @@ onUnmounted(() => {
   @apply opacity-0;
 }
 
+.toggle-content.on-right-side {
+  @apply left-auto -right-1;
+}
+
 .toggle-content.active {
   top: calc(100% + 1rem);
   transition: all 0.1s ease-in;
@@ -133,5 +149,9 @@ onUnmounted(() => {
 .toggle-content::after {
   content: "";
   @apply block w-3 h-3 absolute -top-[6px] left-3 bg-quiz-blue-300 border-l border-t border-quiz-border rotate-45;
+}
+
+.toggle-content.on-right-side::after {
+  @apply left-auto right-3;
 }
 </style>

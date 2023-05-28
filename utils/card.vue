@@ -6,10 +6,4 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-
-export default Vue.extend({
-  name: "QuizCard",
-});
-</script>
+<script lang="ts" setup></script>
