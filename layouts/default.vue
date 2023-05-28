@@ -5,6 +5,7 @@
       <nuxt />
     </quiz-page-layout>
     <the-footer />
+    <the-friends-modal />
   </div>
 </template>
 

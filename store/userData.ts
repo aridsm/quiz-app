@@ -1,8 +1,11 @@
 import { defineStore } from "pinia";
 import { reactive } from "vue";
 import { User } from "../interfaces/User";
+import { useFriends } from "./friends";
 
 export const useUserDataStore = defineStore("userData", () => {
+  const friendsStore = useFriends();
+
   const data = reactive<User>({
     userName: "",
     avatarUrl: "",
@@ -14,7 +17,7 @@ export const useUserDataStore = defineStore("userData", () => {
     isLogged: false,
     soundOn: true,
     soundVolume: 80,
-    friendsCount: 0,
+    friendsCount: friendsStore.friends.length,
     hasNotifications: false,
     totalGamesPlayed: 3,
     categoriesPlayed: {

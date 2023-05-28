@@ -6,9 +6,9 @@
         <nav>
           <ul class="flex gap-12">
             <li>
-              <nuxt-link to="/" class="hover:text-quiz-green-light"
-                >Home</nuxt-link
-              >
+              <nuxt-link to="/" class="hover:text-quiz-green-light">
+                Home
+              </nuxt-link>
             </li>
             <li>
               <quiz-toggle-activator
