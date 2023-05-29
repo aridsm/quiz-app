@@ -1,7 +1,7 @@
 <template>
   <div>
     <the-header />
-    <quiz-page-layout class="pt-36">
+    <quiz-page-layout class="pt-[9.5rem]">
       <nuxt />
     </quiz-page-layout>
     <the-footer />

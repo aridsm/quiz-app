@@ -2,7 +2,7 @@
 
 body {
   font-family: "Staatliches", cursive;
-  @apply bg-quiz-blue-400 text-quiz-white text-lg;
+  @apply bg-quiz-blue-400 text-quiz-white text-[19px];
 }
 
 * {
