@@ -11,7 +11,7 @@
       </div>
     </div>
     <quiz-toggle-activator :arrow-indicator="true" arrow-side="left">
-      <template #activator> <quiz-img-avatar avatar="av-2" /> </template>
+      <template #activator> <quiz-x-avatar avatar="av-2" /> </template>
       <template #content>
         <ul class="flex flex-col gap-2">
           <li v-for="option in profileOptions" :key="option.name">

@@ -1,3 +1,11 @@
+import { QuizCategoryType } from "~/enums/quizCategoryType";
+
+export interface QuizCategory {
+  id: QuizCategoryType;
+  count: number;
+  name: string;
+}
+
 export interface User {
   userName: string;
   avatarUrl: string;
@@ -12,10 +20,6 @@ export interface User {
   friendsCount: number;
   hasNotifications: boolean;
   totalGamesPlayed: number;
-  categoriesPlayed: {
-    geography: number;
-    mathematics: number;
-    biology: number;
-  };
+  categoriesPlayed: QuizCategory[];
   lastGamesPlayed: string[];
 }

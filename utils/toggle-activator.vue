@@ -23,19 +23,19 @@
         }"
       />
     </button>
-    <quiz-card
+    <quiz-x-card
       ref="toggleContent"
       class="absolute left-0 toggle-content min-w-[200px]"
       :class="{ active: toggleIsOpen, 'on-right-side': contentIsOutScreen }"
     >
       <slot name="content" />
-    </quiz-card>
+    </quiz-x-card>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import QuizCard from "./card.vue";
+import QuizCard from "./x-card.vue";
 
 interface Props {
   arrowIndicator?: boolean;

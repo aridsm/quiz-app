@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center">
-    <quiz-card class="p-8 py-10 max-w-lg w-full">
+    <quiz-x-card class="p-8 py-10 max-w-lg w-full">
       <h2 class="text-2xl">Vamos começar!</h2>
       <p class="text-quiz-blue-100">É preciso estar logado para continuar</p>
       <quiz-input-text
@@ -9,7 +9,7 @@
         class="bg-quiz-blue-200 w-full mt-4"
       />
       <quiz-btn class="w-full mt-4" @click="loginUser">Entrar</quiz-btn>
-    </quiz-card>
+    </quiz-x-card>
   </div>
 </template>
 
