@@ -70,7 +70,7 @@ const links = ref<Link[]>([
     name: "Matemática",
   },
   {
-    route: "/quizzes/all",
+    route: "/quizzes",
     name: "Todas as categorias",
   },
 ]);

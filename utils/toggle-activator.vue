@@ -34,8 +34,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted, computed } from "vue";
+import { ref, computed } from "vue";
 import QuizCard from "./x-card.vue";
+import useOutsideClick from "~/utilities/useOutsideClick";
 
 interface Props {
   arrowIndicator?: boolean;
@@ -51,8 +52,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 const toggleActivator = ref<HTMLButtonElement | null>(null);
 const toggleContent = ref<InstanceType<typeof QuizCard> | null>(null);
-const toggleIsOpen = ref<boolean>(false);
 const contentIsOutScreen = ref<boolean>(false);
+
+const { toggleIsOpen } = useOutsideClick(toggleActivator);
 
 const fixedHoverClasses = computed<string[]>(() => {
   const splitedString = props.hoverClass.split(/(\s+)/);
@@ -86,30 +88,6 @@ function openToggleHandler() {
     contentIsOutScreen.value = true;
   }
 }
-
-function onCheckClickOutside(event: MouseEvent) {
-  const target = event.target as HTMLElement;
-  if (
-    target !== toggleActivator.value &&
-    !toggleActivator.value?.contains(target)
-  ) {
-    toggleIsOpen.value = false;
-  }
-}
-
-function closeContentToggle() {
-  toggleIsOpen.value = false;
-}
-
-onMounted(() => {
-  window.addEventListener("click", onCheckClickOutside);
-  window.addEventListener("scroll", closeContentToggle);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("click", onCheckClickOutside);
-  window.removeEventListener("scroll", closeContentToggle);
-});
 </script>
 
 <style scoped>
