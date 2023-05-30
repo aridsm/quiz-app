@@ -24,14 +24,14 @@
               getCategoryData(game.category).name
             }}</span>
 
-            <span class="w-20 text-left ml-8">
+            <span class="w-20 text-left ml-4">
               {{ game.correctQuestions }}/{{ game.totalQuestions }}
             </span>
-            <span class="flex items-center w-20 text-left ml-8">
+            <span class="flex items-center w-20 text-left ml-4">
               {{ game.earnedCoinds }}
               <icon-quiz-coins class="w-4 ml-2" />
             </span>
-            <span class="flex items-center w-20 text-left ml-8">
+            <span class="flex items-center w-20 text-left ml-4">
               {{ game.earnedXp }} XP
             </span>
             <icon-quiz-xmark

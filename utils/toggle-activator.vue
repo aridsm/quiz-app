@@ -16,7 +16,7 @@
       </div>
       <icon-quiz-arrow
         v-if="arrowIndicator"
-        class="text-quiz-white w-3 h-3 icon-arrow -mt-2"
+        class="w-3 h-3 icon-arrow -mt-2 text-inherit"
         :class="{
           'ml-2 side-right': arrowSide === 'right',
           'mr-2 -order-1 side-left': arrowSide === 'left',
@@ -97,12 +97,18 @@ function onCheckClickOutside(event: MouseEvent) {
   }
 }
 
+function closeContentToggle() {
+  toggleIsOpen.value = false;
+}
+
 onMounted(() => {
   window.addEventListener("click", onCheckClickOutside);
+  window.addEventListener("scroll", closeContentToggle);
 });
 
 onUnmounted(() => {
   window.removeEventListener("click", onCheckClickOutside);
+  window.removeEventListener("scroll", closeContentToggle);
 });
 </script>
 
@@ -132,6 +138,7 @@ onUnmounted(() => {
   top: calc(100% + 2rem);
   transition: all 0.1s ease-in;
   pointer-events: none;
+  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.06);
   @apply opacity-0;
 }
 
