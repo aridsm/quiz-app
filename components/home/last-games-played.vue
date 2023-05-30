@@ -20,20 +20,27 @@
             <quiz-x-chip :color="getGameStatusData(game.status).color">{{
               getGameStatusData(game.status).name
             }}</quiz-x-chip>
-            <span class="text-sm text-quiz-blue-100 w-20 text-left ml-12">{{
-              getCategoryData(game.category).name
-            }}</span>
-
-            <span class="w-20 text-left ml-4">
-              {{ game.correctQuestions }}/{{ game.totalQuestions }}
+            <span class="text-sm text-quiz-blue-100 w-20 text-left ml-12">
+              {{ getCategoryData(game.category).name }}
             </span>
-            <span class="flex items-center w-20 text-left ml-4">
+
+            <quiz-x-tooltip title="Acertos" class="w-20 text-left ml-4">
+              {{ game.correctQuestions }}/{{ game.totalQuestions }}
+            </quiz-x-tooltip>
+            <quiz-x-tooltip
+              title="Moedas ganhas"
+              class="w-20 text-left ml-4"
+              activator-classes="flex items-center"
+            >
               {{ game.earnedCoinds }}
               <icon-quiz-coins class="w-4 ml-2" />
-            </span>
-            <span class="flex items-center w-20 text-left ml-4">
+            </quiz-x-tooltip>
+            <quiz-x-tooltip
+              title="Experiência ganha"
+              class="flex items-center w-20 text-left ml-4"
+            >
               {{ game.earnedXp }} XP
-            </span>
+            </quiz-x-tooltip>
             <icon-quiz-xmark
               v-if="game.status === GameStatus.Fail"
               class="w-5 text-quiz-pink"
