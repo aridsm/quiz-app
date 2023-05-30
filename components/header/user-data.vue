@@ -42,7 +42,7 @@
     <quiz-toggle-activator class="ml-8">
       <template #activator>
         <div class="relative">
-          <icon-quiz-bell class="w-4" />
+          <icon-quiz-bell class="w-4 text-quiz-green-light" />
           <div
             v-if="data.hasNotifications"
             class="w-2 h-2 bg-quiz-pink absolute left-full -top-1 rounded-full"

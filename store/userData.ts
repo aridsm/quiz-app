@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { computed, reactive } from "vue";
-import { User, QuizCategory } from "../interfaces/User";
+import { User } from "../interfaces/User";
+import { QuizCategory } from "../interfaces/QuizCategory";
 import { useFriends } from "./friends";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 

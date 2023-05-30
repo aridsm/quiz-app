@@ -69,7 +69,8 @@
         </ul>
       </section>
     </div>
-    <header-quizzes-list />
+    <home-quizzes-list />
+    <home-last-games-played />
   </div>
 </template>
 

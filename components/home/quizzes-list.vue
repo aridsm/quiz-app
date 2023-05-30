@@ -14,8 +14,8 @@
         <quiz-x-quiz-card
           :title="quiz.name"
           :chip="{
-            color: getQuizStyle(quiz.category).color,
-            chipName: getQuizStyle(quiz.category).name,
+            color: getCategoryData(quiz.category).color,
+            chipName: getCategoryData(quiz.category).name,
           }"
           class="w-full"
         />
@@ -27,8 +27,7 @@
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
 import { computed } from "vue";
-import { QuizCategoryType } from "~/enums/quizCategoryType";
-import { ChipColors } from "~/enums/chipColors";
+import getCategoryData from "../../utilities/getCategoryData";
 import { useQuizzes } from "~/store/quizzes";
 
 const store = useQuizzes();
@@ -38,35 +37,6 @@ const { quizzes } = storeToRefs(store);
 const quizzesList = computed(() => {
   return quizzes.value.slice(0, 6);
 });
-
-interface QuizStyles {
-  [key: number]: {
-    name: string;
-    color: number;
-  };
-}
-
-function getQuizStyle(id: number) {
-  const quizzesNames: QuizStyles = {
-    [QuizCategoryType.Biology]: {
-      color: ChipColors.Pink,
-      name: "Biologia",
-    },
-    [QuizCategoryType.Geography]: {
-      color: ChipColors.Green,
-      name: "Geografia",
-    },
-    [QuizCategoryType.Mathematics]: {
-      color: ChipColors.White,
-      name: "Matemática",
-    },
-  };
-
-  const name = quizzesNames[id].name;
-  const color = quizzesNames[id].color;
-
-  return { name, color };
-}
 </script>
 
 <style></style>

@@ -1,10 +1,4 @@
-import { QuizCategoryType } from "~/enums/quizCategoryType";
-
-export interface QuizCategory {
-  id: QuizCategoryType;
-  count: number;
-  name: string;
-}
+import { QuizCategory } from "./QuizCategory";
 
 export interface User {
   userName: string;
