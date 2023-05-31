@@ -11,6 +11,7 @@
     </div>
 
     <quiz-x-card
+      v-if="showResultsList"
       class="opacity-0 absolute w-full search-list"
       :class="{ 'opacity-100': toggleIsOpen }"
     >
@@ -27,11 +28,18 @@
 </template>
 
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
 import { ref } from "vue";
 import { Quiz } from "~/interfaces/Quiz";
 import { useQuizzes } from "~/store/quizzes";
 import useOutsideClick from "~/utilities/useOutsideClick";
+
+interface Props {
+  showResultsList?: boolean;
+}
+
+withDefaults(defineProps<Props>(), {
+  showResultsList: true,
+});
 
 const inputValue = ref<string>("");
 const searchBar = ref<HTMLDivElement | null>(null);
@@ -40,10 +48,11 @@ const results = ref<Quiz[]>([]);
 const { toggleIsOpen } = useOutsideClick(searchBar);
 const quizStore = useQuizzes();
 
-const { quizzes } = storeToRefs(quizStore);
+const emit = defineEmits(["updateSearchValue"]);
 
 function onChangeInputValue(value: string) {
   results.value = quizStore.searchQuizzesByName(value);
+  emit("updateSearchValue", results.value);
   if (value.length) {
     toggleIsOpen.value = true;
   } else {
