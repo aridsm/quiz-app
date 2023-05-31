@@ -9,7 +9,7 @@ interface QuizStyles {
 }
 
 export default function getCategoryData(id: number) {
-  const quizzesNames: QuizStyles = {
+  const quizzesStyles: QuizStyles = {
     [QuizCategoryType.Biology]: {
       color: ChipColors.Pink,
       name: "Biologia",
@@ -24,8 +24,8 @@ export default function getCategoryData(id: number) {
     },
   };
 
-  const name = quizzesNames[id].name;
-  const color = quizzesNames[id].color;
+  const name = quizzesStyles[id].name;
+  const color = quizzesStyles[id].color;
 
-  return { name, color };
+  return { name, color, quizzesStyles };
 }

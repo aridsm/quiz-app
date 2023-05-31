@@ -20,7 +20,7 @@ interface Props {
   model: string;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   placeholder: "Digite...",
   required: false,
   model: "",

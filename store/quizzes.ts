@@ -75,21 +75,32 @@ export const useQuizzes = defineStore("useQuizzes", () => {
     },
   ]);
 
-  function searchQuizzesByName(value: string): Quiz[] {
-    const filteredQuizzes = quizzes.value.filter((quiz: Quiz) => {
-      const includesName = quiz.name
-        .toLowerCase()
-        .includes(value.toLowerCase());
+  function filterBy({
+    category,
+    name = "",
+  }: {
+    category?: QuizCategoryType;
+    name?: string;
+  }) {
+    const filteredByName = quizzes.value.filter((quiz: Quiz) => {
+      const includesName = quiz.name.toLowerCase().includes(name.toLowerCase());
 
       const includesTags = quiz.tags.some((tag: string) =>
-        tag.toLowerCase().includes(value.toLowerCase())
+        tag.toLowerCase().includes(name.toLowerCase())
       );
 
       return includesName || includesTags;
     });
 
-    return filteredQuizzes;
+    let quizzesFiltered: Quiz[] = filteredByName;
+
+    if (category) {
+      quizzesFiltered = filteredByName.filter((quiz: Quiz) => {
+        return quiz.category === category;
+      });
+    }
+    return quizzesFiltered;
   }
 
-  return { quizzes, searchQuizzesByName };
+  return { quizzes, filterBy };
 });

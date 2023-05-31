@@ -2,14 +2,13 @@
   <div class="relative">
     <div ref="searchBar" class="flex items-center relative">
       <quiz-input-text
-        :model="inputValue"
+        :model.sync="inputValue"
         class="bg-quiz-blue-300 w-full"
         placeholder="Procurar quiz..."
         @input="onChangeInputValue"
       />
       <icon-quiz-search class="w-4 absolute right-4 text-quiz-blue-100" />
     </div>
-
     <quiz-x-card
       v-if="showResultsList"
       class="opacity-0 absolute w-full search-list"
@@ -28,17 +27,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { Quiz } from "~/interfaces/Quiz";
 import { useQuizzes } from "~/store/quizzes";
 import useOutsideClick from "~/utilities/useOutsideClick";
 
 interface Props {
   showResultsList?: boolean;
+  category?: QuizCategoryType;
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   showResultsList: true,
+  category: undefined,
 });
 
 const inputValue = ref<string>("");
@@ -48,12 +50,22 @@ const results = ref<Quiz[]>([]);
 const { toggleIsOpen } = useOutsideClick(searchBar);
 const quizStore = useQuizzes();
 
-const emit = defineEmits(["updateSearchValue"]);
+const emit = defineEmits(["onUpdate"]);
 
-function onChangeInputValue(value: string) {
-  results.value = quizStore.searchQuizzesByName(value);
-  emit("updateSearchValue", results.value);
-  if (value.length) {
+watch(
+  () => props.category,
+  () => {
+    onChangeInputValue();
+  }
+);
+
+function onChangeInputValue() {
+  results.value = quizStore.filterBy({
+    name: inputValue.value,
+    category: props.category,
+  });
+  emit("onUpdate", inputValue.value, results.value);
+  if (inputValue.value.length) {
     toggleIsOpen.value = true;
   } else {
     toggleIsOpen.value = false;
