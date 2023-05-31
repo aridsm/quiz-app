@@ -9,48 +9,87 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       name: "Bandeiras de Países",
       category: QuizCategoryType.Geography,
       id: 1,
+      tags: ["geografia", "paises"],
     },
     {
       name: "Matemática Básica",
       category: QuizCategoryType.Mathematics,
       id: 2,
+      tags: [
+        "matematica",
+        "numero",
+        "cálculos",
+        "calculos",
+        "contas",
+        "basica",
+      ],
     },
     {
       name: "Anatomia Humana",
       category: QuizCategoryType.Biology,
       id: 3,
+      tags: ["corpo humano", "corpo", "humano", "ciências", "biologia"],
     },
     {
       name: "Reino Animal",
       category: QuizCategoryType.Biology,
       id: 4,
+      tags: ["animais", "biologia"],
     },
     {
       name: "Bandeiras de Estados do Brasil",
       category: QuizCategoryType.Geography,
       id: 5,
+      tags: ["brazil", "geografia"],
     },
     {
       name: "Raízes e Potências",
       category: QuizCategoryType.Mathematics,
       id: 6,
+      tags: [
+        "raizes",
+        "potencias",
+        "matematica",
+        "calculos",
+        "cálculos",
+        "contas",
+      ],
     },
     {
       name: "Capitais de Países",
       category: QuizCategoryType.Geography,
       id: 7,
+      tags: ["capital", "paises", "geografia"],
     },
     {
       name: "Bandeira de Países",
       category: QuizCategoryType.Biology,
       id: 8,
+      tags: [],
     },
     {
       name: "Capitais de Estados do Brasil",
       category: QuizCategoryType.Geography,
       id: 9,
+      tags: ["brazil", "capital", "geografia"],
     },
   ]);
 
-  return { quizzes };
+  function searchQuizzesByName(value: string): Quiz[] {
+    const filteredQuizzes = quizzes.value.filter((quiz: Quiz) => {
+      const includesName = quiz.name
+        .toLowerCase()
+        .includes(value.toLowerCase());
+
+      const includesTags = quiz.tags.some((tag: string) =>
+        tag.toLowerCase().includes(value.toLowerCase())
+      );
+
+      return includesName || includesTags;
+    });
+
+    return filteredQuizzes;
+  }
+
+  return { quizzes, searchQuizzesByName };
 });

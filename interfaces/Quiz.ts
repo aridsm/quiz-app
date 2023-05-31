@@ -4,4 +4,5 @@ export interface Quiz {
   name: string;
   id: number;
   category: QuizCategoryType;
+  tags: string[];
 }
