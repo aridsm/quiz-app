@@ -7,7 +7,7 @@
     >
       <div class="flex items-center gap-10">
         <h1 class="text-2xl"><nuxt-link to="/">Quiz</nuxt-link></h1>
-        <nav>
+        <nav class="nav-header">
           <ul class="flex gap-12">
             <li>
               <nuxt-link to="/" class="hover:text-quiz-green-light">
@@ -75,3 +75,9 @@ const links = ref<Link[]>([
   },
 ]);
 </script>
+
+<style scoped>
+.nav-header .nuxt-link-exact-active {
+  @apply text-quiz-green-light;
+}
+</style>
