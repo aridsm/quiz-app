@@ -1,15 +1,15 @@
 <template>
   <quiz-x-card
     class="quiz-card py-6 px-20 relative cursor-pointer overflow-hidden transition hover:bg-quiz-blue-200 h-48 flex flex-col justify-center items-start"
+    @click.native="openModalGameSettings"
   >
-    <p class="text-[1.6rem] leading-snug">{{ title }}</p>
-    <router-link
-      to="/"
+    <p class="text-[1.6rem] leading-snug">{{ quiz.name }}</p>
+    <span
       class="play-now-link scale-y-0 h-0 overflow-hidden transition text-quiz-green-light text-left flex items-center justify-start"
     >
       Jogar agora
       <icon-quiz-arrow class="h-4 w-4 text-quiz-green-light -rotate-90 ml-2" />
-    </router-link>
+    </span>
     <quiz-x-chip v-if="chip" class="absolute top-0 right-0" :color="chip.color">
       {{ chip.chipName }}
     </quiz-x-chip>
@@ -17,17 +17,34 @@
 </template>
 
 <script lang="ts" setup>
+import { storeToRefs } from "pinia";
 import { ChipColors } from "~/enums/chipColors";
+import { Quiz } from "~/interfaces/Quiz";
+import { useGameSettings } from "~/store/gameSettings";
+import { useModals } from "~/store/modals";
 
 interface Props {
-  title: string;
+  quiz: Quiz;
   chip?: {
     color: ChipColors;
     chipName: string;
   };
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const storeModals = useModals();
+const storeGameSettings = useGameSettings();
+
+const { gameSettings } = storeToRefs(storeGameSettings);
+
+function openModalGameSettings() {
+  gameSettings.value.category = props.quiz.category;
+  gameSettings.value.quizType = props.quiz.quizType;
+  gameSettings.value.quizName = props.quiz.name;
+  gameSettings.value.isCountry = props.quiz.isCountry;
+  storeModals.modals.modalGameSettingsIsOpen = true;
+}
 </script>
 
 <style scoped>

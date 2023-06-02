@@ -6,6 +6,15 @@
     </quiz-page-layout>
     <the-footer />
     <the-friends-modal />
+    <the-game-settings-modal />
+    <div class="fixed bottom-4 right-4">
+      <button class="flex items-center gap-2">
+        <span class="text-sm text-quiz-green-light">Sair</span>
+        <div class="bg-quiz-green-light rounded-md p-2">
+          <icon-quiz-exit class="w-4 text-quiz-green-dark" />
+        </div>
+      </button>
+    </div>
     <div
       class="w-72 h-72 bg-quiz-blue-100 fixed -top-28 bg-blur pointer-events-none"
     />

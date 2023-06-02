@@ -19,7 +19,16 @@
                 :arrow-indicator="true"
                 hover-class="text-quiz-green-light"
               >
-                <template #activator>Categorias</template>
+                <template #activator>
+                  <span
+                    :class="{
+                      'text-quiz-green-light':
+                        $route.fullPath?.includes('quizzes'),
+                    }"
+                  >
+                    Categorias
+                  </span>
+                </template>
                 <template #content>
                   <ul class="flex flex-col gap-2">
                     <li v-for="link in links" :key="link.name">

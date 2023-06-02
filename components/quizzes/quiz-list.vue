@@ -20,7 +20,7 @@
     <ul v-if="quizzes.length" class="grid grid-cols-2 gap-5">
       <li v-for="quiz in quizzes" :key="quiz.id" class="w-full">
         <quiz-x-quiz-card
-          :title="quiz.name"
+          :quiz="quiz"
           :chip="{
             color: getCategoryData(quiz.category).color,
             chipName: getCategoryData(quiz.category).name,

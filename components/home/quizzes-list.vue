@@ -12,7 +12,7 @@
     <ul class="grid grid-cols-3 gap-5">
       <li v-for="quiz in quizzesList" :key="quiz.name">
         <quiz-x-quiz-card
-          :title="quiz.name"
+          :quiz="quiz"
           :chip="{
             color: getCategoryData(quiz.category).color,
             chipName: getCategoryData(quiz.category).name,

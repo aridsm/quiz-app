@@ -1,11 +1,10 @@
 <template>
   <button
     type="button"
-    class="w-fit inline-block overflow-hidden relative rounded-md bg-quiz-green-light cursor-pointer text-quiz-green-dark hover:text-quiz-white btn"
+    class="w-fit active:scale-95 inline-block overflow-hidden rounded-md transition bg-quiz-pink cursor-pointer text-quiz-white hover:text-quiz-green-dark hover:bg-quiz-green-light"
     @click="$emit('click')"
   >
-    <div class="absolute transition bg-quiz-pink w-0 h-full hover-bg" />
-    <div class="py-3 px-7 z-10 relative">
+    <div class="py-3 px-7 z-10">
       <slot />
     </div>
   </button>
@@ -18,14 +17,3 @@ export default Vue.extend({
   name: "QuizBtn",
 });
 </script>
-
-<style scoped>
-.btn:hover .hover-bg {
-  @apply w-full;
-  transition: all 0.1s ease-in-out;
-}
-
-.btn .hover-bg {
-  transition: all 0.1s ease-in-out;
-}
-</style>
