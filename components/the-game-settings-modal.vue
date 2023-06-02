@@ -1,34 +1,44 @@
 <template>
   <quiz-modal-overlay :model.sync="modals.modalGameSettingsIsOpen">
-    <h3>
-      <span class="text-quiz-white">Nova partida</span>
-      <span class="text-quiz-blue-100">({{ gameSettings.quizName }})</span>
-    </h3>
-    <ol class="my-6 flex flex-col gap-8">
-      <li v-if="gameSettings.quizType">
-        <quiz-x-title>Adivinhar</quiz-x-title>
-        <quiz-x-radios
-          :items="fields.geoQuizTypes"
-          @getSelected="getSelectedGeoQuizType"
-        />
-      </li>
-      <li>
-        <quiz-x-title>Modo de resposta</quiz-x-title>
-        <quiz-x-radios
-          :items="fields.answerModeFields"
-          :selected-value="gameSettings.answerMode"
-          @getSelected="getSelectedAnswerMode"
-        />
-      </li>
-      <li>
-        <quiz-x-title>Número de perguntas</quiz-x-title>
-        <quiz-x-radios
-          :items="fields.numberOfQuestion"
-          @getSelected="getSelectedNumberOfQuestions"
-        />
-      </li>
-    </ol>
-    <quiz-btn class="w-full">Começar</quiz-btn>
+    <div style="width: 32rem">
+      <h3>
+        <span class="text-quiz-white">Nova partida</span>
+        <span class="text-quiz-blue-100">({{ gameSettings.quizName }})</span>
+      </h3>
+      <ol class="my-6 flex flex-col gap-8">
+        <li v-if="gameSettings.quizType">
+          <quiz-x-title>Adivinhar</quiz-x-title>
+          <quiz-x-radios
+            :items="fields.geoQuizTypes"
+            @getSelected="getSelectedGeoQuizType"
+          />
+        </li>
+        <li v-if="gameSettings.acceptAnswerMode">
+          <quiz-x-title>Modo de resposta</quiz-x-title>
+          <quiz-x-radios
+            :items="fields.answerModeFields"
+            :selected-value="gameSettings.answerMode"
+            @getSelected="getSelectedAnswerMode"
+          />
+        </li>
+        <li>
+          <quiz-x-title>Cronômetro (segundos)</quiz-x-title>
+          <quiz-x-radios
+            :items="fields.countdownValues"
+            :selected-value="gameSettings.countdown"
+            @getSelected="getSelectedCountdown"
+          />
+        </li>
+        <li>
+          <quiz-x-title>Número de perguntas</quiz-x-title>
+          <quiz-x-radios
+            :items="fields.numberOfQuestion"
+            @getSelected="getSelectedNumberOfQuestions"
+          />
+        </li>
+      </ol>
+      <quiz-btn class="w-full" @click="startNewGame">Começar</quiz-btn>
+    </div>
   </quiz-modal-overlay>
 </template>
 
@@ -48,18 +58,22 @@ const { modals } = storeToRefs(storeModals);
 const { gameSettings } = storeToRefs(storeGameSettings);
 
 function getSelectedAnswerMode(value: AnswerMode) {
-  console.log(value);
+  gameSettings.value.answerMode = value;
 }
 
 function getSelectedNumberOfQuestions(value: number) {
-  console.log(value);
+  gameSettings.value.numberOfQuestions = value;
 }
 
 function getSelectedGeoQuizType(value: number) {
-  console.log(value);
+  gameSettings.value.geoQuizType = value;
 }
 
-console.log(gameSettings.value);
+function getSelectedCountdown(value: number) {
+  gameSettings.value.countdown = value;
+}
+
+function startNewGame() {}
 
 const fields = computed(() => {
   const answerModeFields = [
@@ -85,6 +99,22 @@ const fields = computed(() => {
     },
     {
       value: 20,
+    },
+  ];
+
+  const countdownValues = [
+    {
+      value: 10,
+    },
+    {
+      value: 20,
+    },
+    {
+      value: 60,
+    },
+    {
+      value: false,
+      name: "Sem cronômetro",
     },
   ];
 
@@ -115,6 +145,6 @@ const fields = computed(() => {
     ];
   }
 
-  return { answerModeFields, numberOfQuestion, geoQuizTypes };
+  return { answerModeFields, numberOfQuestion, countdownValues, geoQuizTypes };
 });
 </script>

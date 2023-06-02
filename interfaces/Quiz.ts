@@ -7,5 +7,6 @@ export interface Quiz {
   category: QuizCategoryType;
   tags: string[];
   quizType: GeographyQuizType | undefined;
-  isCountry: boolean | undefined;
+  isCountry: boolean | undefined; // se é país/estado
+  acceptAnswerMode: boolean; // se o usuário pode escolher o modo de resposta
 }

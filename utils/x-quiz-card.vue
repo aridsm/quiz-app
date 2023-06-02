@@ -43,6 +43,8 @@ function openModalGameSettings() {
   gameSettings.value.quizType = props.quiz.quizType;
   gameSettings.value.quizName = props.quiz.name;
   gameSettings.value.isCountry = props.quiz.isCountry;
+  gameSettings.value.acceptAnswerMode = props.quiz.acceptAnswerMode;
+  gameSettings.value.countdown = false;
   storeModals.modals.modalGameSettingsIsOpen = true;
 }
 </script>

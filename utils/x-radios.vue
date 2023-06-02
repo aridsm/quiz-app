@@ -3,7 +3,7 @@
     <button
       v-for="item in items"
       :key="item.value"
-      class="bg-quiz-blue-200 px-8 py-3 button-select relative hover:text-quiz-green-light flex-1 min-w-max text-base"
+      class="bg-quiz-blue-200 px-8 py-3 button-select relative hover:text-quiz-green-light flex-1"
       :class="{ 'button-select-selected': item.value === selected }"
       @click="() => onChangeSelectedValue(item.value)"
     >
@@ -29,7 +29,9 @@ const props = defineProps<Props>();
 const emit = defineEmits(["getSelected"]);
 
 const selected = ref<any>(
-  props.selectedValue ? props.selectedValue : props.items[0].value
+  props.selectedValue || props.selectedValue === false
+    ? props.selectedValue
+    : props.items[0].value
 );
 
 function onChangeSelectedValue(value: any) {
