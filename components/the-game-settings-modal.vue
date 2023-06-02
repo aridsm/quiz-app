@@ -6,11 +6,11 @@
         <span class="text-quiz-blue-100">({{ gameSettings.quizName }})</span>
       </h3>
       <ol class="my-6 flex flex-col gap-8">
-        <li v-if="gameSettings.quizType">
+        <li v-if="showQuizTypes">
           <quiz-x-title>Adivinhar</quiz-x-title>
           <quiz-x-radios
-            :items="fields.geoQuizTypes"
-            @getSelected="getSelectedGeoQuizType"
+            :items="fields.quizModes"
+            @getSelected="getSelectedQuizMode"
           />
         </li>
         <li v-if="gameSettings.acceptAnswerMode">
@@ -43,19 +43,30 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue";
 import { storeToRefs } from "pinia";
+import { computed } from "vue";
 import { useModals } from "~/store/modals";
 import { useGameSettings } from "~/store/gameSettings";
 import { AnswerMode } from "~/enums/answerMode";
-import { GeographyQuizType } from "~/enums/geographyQuizType";
-import { GeographyAnswerType } from "~/enums/geographyAnswerType";
+import getFields from "~/utilities/getFields";
+import { QuizType } from "~/enums/quizType";
 
 const storeModals = useModals();
 const storeGameSettings = useGameSettings();
 
 const { modals } = storeToRefs(storeModals);
 const { gameSettings } = storeToRefs(storeGameSettings);
+
+const showQuizTypes = computed(() => {
+  return (
+    gameSettings.value.quizId === QuizType.CountryFlag ||
+    gameSettings.value.quizId === QuizType.BrazilStatesFlag
+  );
+});
+
+const fields = computed(() => {
+  return getFields(gameSettings.value);
+});
 
 function getSelectedAnswerMode(value: AnswerMode) {
   gameSettings.value.answerMode = value;
@@ -65,7 +76,7 @@ function getSelectedNumberOfQuestions(value: number) {
   gameSettings.value.numberOfQuestions = value;
 }
 
-function getSelectedGeoQuizType(value: number) {
+function getSelectedQuizMode(value: number) {
   gameSettings.value.geoQuizType = value;
 }
 
@@ -74,77 +85,4 @@ function getSelectedCountdown(value: number) {
 }
 
 function startNewGame() {}
-
-const fields = computed(() => {
-  const answerModeFields = [
-    {
-      value: AnswerMode.WriteAnswer,
-      name: "Digitar resposta",
-    },
-    {
-      value: AnswerMode.MultipleChoice,
-      name: "Múltipla escolha",
-    },
-  ];
-
-  const numberOfQuestion = [
-    {
-      value: 5,
-    },
-    {
-      value: 10,
-    },
-    {
-      value: 15,
-    },
-    {
-      value: 20,
-    },
-  ];
-
-  const countdownValues = [
-    {
-      value: 10,
-    },
-    {
-      value: 20,
-    },
-    {
-      value: 60,
-    },
-    {
-      value: false,
-      name: "Sem cronômetro",
-    },
-  ];
-
-  let geoQuizTypes;
-  const name = gameSettings.value.isCountry ? "País" : "Estado";
-
-  if (gameSettings.value.quizType === GeographyQuizType.Flag) {
-    geoQuizTypes = [
-      {
-        value: GeographyAnswerType.FromFlag,
-        name: `${name} a partir da Bandeira`,
-      },
-      {
-        value: GeographyAnswerType.ToFlag,
-        name: `Bandeira a partir do ${name}`,
-      },
-    ];
-  } else if (gameSettings.value.quizType === GeographyQuizType.Capital) {
-    geoQuizTypes = [
-      {
-        value: GeographyAnswerType.FromCapital,
-        name: `${name} a partir da capital`,
-      },
-      {
-        value: GeographyAnswerType.ToCapital,
-        name: `Capital a partir do ${name}`,
-      },
-    ];
-  }
-
-  return { answerModeFields, numberOfQuestion, countdownValues, geoQuizTypes };
-});
 </script>

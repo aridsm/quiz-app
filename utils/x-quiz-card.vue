@@ -40,7 +40,7 @@ const { gameSettings } = storeToRefs(storeGameSettings);
 
 function openModalGameSettings() {
   gameSettings.value.category = props.quiz.category;
-  gameSettings.value.quizType = props.quiz.quizType;
+  gameSettings.value.quizId = props.quiz.id;
   gameSettings.value.quizName = props.quiz.name;
   gameSettings.value.isCountry = props.quiz.isCountry;
   gameSettings.value.acceptAnswerMode = props.quiz.acceptAnswerMode;

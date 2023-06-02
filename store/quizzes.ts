@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import { GeographyQuizType } from "~/enums/geographyQuizType";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
+import { QuizType } from "~/enums/quizType";
 import { Quiz } from "~/interfaces/Quiz";
 
 export const useQuizzes = defineStore("useQuizzes", () => {
@@ -9,8 +9,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
     {
       name: "Bandeiras de Países",
       category: QuizCategoryType.Geography,
-      id: 1,
-      quizType: GeographyQuizType.Flag,
+      id: QuizType.CountryFlag,
       acceptAnswerMode: true,
       isCountry: true,
       tags: ["geografia", "paises"],
@@ -18,8 +17,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
     {
       name: "Matemática Básica",
       category: QuizCategoryType.Mathematics,
-      id: 2,
-      quizType: undefined,
+      id: QuizType.BasicMaths,
       acceptAnswerMode: true,
       isCountry: undefined,
       tags: [
@@ -34,8 +32,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
     {
       name: "Anatomia Humana",
       category: QuizCategoryType.Biology,
-      id: 3,
-      quizType: undefined,
+      id: QuizType.HumanAnatomy,
       acceptAnswerMode: false,
       isCountry: undefined,
       tags: ["corpo humano", "corpo", "humano", "ciências", "biologia"],
@@ -43,8 +40,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
     {
       name: "Reino Animal",
       category: QuizCategoryType.Biology,
-      id: 4,
-      quizType: undefined,
+      id: QuizType.AnimalKingdom,
       acceptAnswerMode: false,
       isCountry: undefined,
       tags: ["animais", "biologia"],
@@ -52,8 +48,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
     {
       name: "Bandeiras de Estados do Brasil",
       category: QuizCategoryType.Geography,
-      id: 5,
-      quizType: GeographyQuizType.Flag,
+      id: QuizType.BrazilStatesFlag,
       acceptAnswerMode: true,
       isCountry: false,
       tags: ["brazil", "geografia"],
@@ -61,8 +56,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
     {
       name: "Raízes e Potências",
       category: QuizCategoryType.Mathematics,
-      id: 6,
-      quizType: undefined,
+      id: QuizType.RootsAndPowers,
       acceptAnswerMode: true,
       isCountry: undefined,
       tags: [
@@ -75,28 +69,25 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       ],
     },
     {
+      name: "Reino Planta",
+      category: QuizCategoryType.Biology,
+      id: QuizType.PlantaeKingdom,
+      acceptAnswerMode: false,
+      isCountry: undefined,
+      tags: ["plantas", "biologia"],
+    },
+    {
       name: "Capitais de Países",
       category: QuizCategoryType.Geography,
-      id: 7,
-      quizType: GeographyQuizType.Capital,
+      id: QuizType.CountryCapital,
       acceptAnswerMode: true,
       isCountry: true,
       tags: ["capital", "paises", "geografia"],
     },
     {
-      name: "Bandeira de Países",
-      category: QuizCategoryType.Biology,
-      id: 8,
-      quizType: undefined,
-      acceptAnswerMode: false,
-      isCountry: undefined,
-      tags: [],
-    },
-    {
       name: "Capitais de Estados do Brasil",
       category: QuizCategoryType.Geography,
-      id: 9,
-      quizType: GeographyQuizType.Capital,
+      id: QuizType.BrazilStatesCapital,
       acceptAnswerMode: true,
       isCountry: false,
       tags: ["brazil", "capital", "geografia"],
