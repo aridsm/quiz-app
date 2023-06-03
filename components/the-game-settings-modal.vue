@@ -10,14 +10,16 @@
           <quiz-x-title>Adivinhar</quiz-x-title>
           <quiz-x-radios
             :items="fields.quizModes"
+            :selected-value="gameSettings.geoQuizType"
             @getSelected="getSelectedQuizMode"
           />
         </li>
         <li v-if="gameSettings.acceptAnswerMode">
-          <quiz-x-title>Modo de resposta</quiz-x-title>
+          <quiz-x-title> Modo de resposta </quiz-x-title>
           <quiz-x-radios
             :items="fields.answerModeFields"
             :selected-value="gameSettings.answerMode"
+            :disabled="disableAnswerModeField"
             @getSelected="getSelectedAnswerMode"
           />
         </li>
@@ -33,6 +35,7 @@
           <quiz-x-title>Número de perguntas</quiz-x-title>
           <quiz-x-radios
             :items="fields.numberOfQuestion"
+            :selected-value="gameSettings.numberOfQuestions"
             @getSelected="getSelectedNumberOfQuestions"
           />
         </li>
@@ -49,18 +52,27 @@ import { useModals } from "~/store/modals";
 import { useGameSettings } from "~/store/gameSettings";
 import { AnswerMode } from "~/enums/answerMode";
 import getFields from "~/utilities/getFields";
+import { useCurrentGame } from "~/store/currentGame";
+import { QuizCategoryType } from "~/enums/quizCategoryType";
+import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizType } from "~/enums/quizType";
 
 const storeModals = useModals();
 const storeGameSettings = useGameSettings();
+const currentGame = useCurrentGame();
 
 const { modals } = storeToRefs(storeModals);
 const { gameSettings } = storeToRefs(storeGameSettings);
 
 const showQuizTypes = computed(() => {
+  return gameSettings.value.category === QuizCategoryType.Geography;
+});
+
+const disableAnswerModeField = computed(() => {
   return (
-    gameSettings.value.quizId === QuizType.CountryFlag ||
-    gameSettings.value.quizId === QuizType.BrazilStatesFlag
+    (gameSettings.value.quizId === QuizType.BrazilStatesFlag ||
+      gameSettings.value.quizId === QuizType.CountryFlag) &&
+    gameSettings.value.geoQuizType === GeoQuizType.ToFlagCapital
   );
 });
 
@@ -78,11 +90,17 @@ function getSelectedNumberOfQuestions(value: number) {
 
 function getSelectedQuizMode(value: number) {
   gameSettings.value.geoQuizType = value;
+
+  if (disableAnswerModeField.value) {
+    gameSettings.value.answerMode = AnswerMode.MultipleChoice;
+  }
 }
 
 function getSelectedCountdown(value: number) {
   gameSettings.value.countdown = value;
 }
 
-function startNewGame() {}
+function startNewGame() {
+  currentGame.mountQuiz();
+}
 </script>

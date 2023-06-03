@@ -1,3 +1,6 @@
+import { GeoQuizType } from "~/enums/geoQuizType";
+import { QuizType } from "~/enums/quizType";
+
 export interface CurrentGame {
   title: string;
   totalQuestions: number;
@@ -5,5 +8,7 @@ export interface CurrentGame {
   lives: number;
   xpGained: number;
   coinsGained: number;
-  questions: [];
+  questions: any[];
+  quizId: undefined | QuizType;
+  geoQuizType: GeoQuizType | null;
 }

@@ -19,6 +19,8 @@
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
 import { ChipColors } from "~/enums/chipColors";
+import { GeoQuizType } from "~/enums/geoQuizType";
+import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { Quiz } from "~/interfaces/Quiz";
 import { useGameSettings } from "~/store/gameSettings";
 import { useModals } from "~/store/modals";
@@ -44,6 +46,10 @@ function openModalGameSettings() {
   gameSettings.value.quizName = props.quiz.name;
   gameSettings.value.isCountry = props.quiz.isCountry;
   gameSettings.value.acceptAnswerMode = props.quiz.acceptAnswerMode;
+  gameSettings.value.geoQuizType =
+    props.quiz.category === QuizCategoryType.Geography
+      ? GeoQuizType.FromFlagCapital
+      : null;
   gameSettings.value.countdown = false;
   storeModals.modals.modalGameSettingsIsOpen = true;
 }

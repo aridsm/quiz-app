@@ -46,47 +46,28 @@ function getFields(gameSettings: GameSetting) {
     },
   ];
 
-  let quizModes;
-  const name = gameSettings.isCountry ? "País" : "Estado";
+  const local = gameSettings.isCountry ? "País" : "Estado";
+  let type: string = "";
 
-  const modeFlag = [
-    {
-      value: GeoQuizType.FromFlag,
-      name: `${name} a partir da Bandeira`,
-    },
-    {
-      value: GeoQuizType.ToFlag,
-      name: `Bandeira a partir do ${name}`,
-    },
-  ];
-
-  const modeCapital = [
-    {
-      value: GeoQuizType.FromCapital,
-      name: `${name} a partir da capital`,
-    },
-    {
-      value: GeoQuizType.ToCapital,
-      name: `Capital a partir do ${name}`,
-    },
-  ];
-
-  switch (gameSettings.quizId) {
-    case QuizType.BrazilStatesFlag:
-      quizModes = modeFlag;
-      break;
-    case QuizType.CountryFlag:
-      quizModes = modeFlag;
-      break;
-    case QuizType.CountryCapital:
-      quizModes = modeCapital;
-      break;
-    case QuizType.BrazilStatesCapital:
-      quizModes = modeCapital;
-      break;
-    default:
-      quizModes = undefined;
+  if (
+    gameSettings.quizId === QuizType.CountryCapital ||
+    gameSettings.quizId === QuizType.BrazilStatesCapital
+  ) {
+    type = "Capital";
+  } else {
+    type = "Bandeira";
   }
+
+  const quizModes = [
+    {
+      value: GeoQuizType.FromFlagCapital,
+      name: `${local} a partir da ${type}`,
+    },
+    {
+      value: GeoQuizType.ToFlagCapital,
+      name: `${type} a partir do ${local}`,
+    },
+  ];
 
   return { answerModeFields, numberOfQuestion, countdownValues, quizModes };
 }

@@ -1,0 +1,137 @@
+[
+  {
+    "state": "Acre",
+    "capital": "Rio Branco",
+    "flagPath": "/static/brazil_states_flags/acre.png"
+  },
+  {
+    "state": "Rondônia",
+    "capital": "Porto Velho",
+    "flagPath": "/static/brazil_states_flags/rondonia.png"
+  },
+  {
+    "state": "Roraima",
+    "capital": "Boa Vista",
+    "flagPath": "/static/brazil_states_flags/roraima.png"
+  },
+  {
+    "state": "Amazonas",
+    "capital": "Manaus",
+    "flagPath": "/static/brazil_states_flags/amazonas.png"
+  },
+  {
+    "state": "Pará",
+    "capital": "Belém",
+    "flagPath": "/static/brazil_states_flags/para.png"
+  },
+  {
+    "state": "Amapá",
+    "capital": "Macapá",
+    "flagPath": "/static/brazil_states_flags/amapa.png"
+  },
+  {
+    "state": "Tocantins",
+    "capital": "Palmas",
+    "flagPath": "/static/brazil_states_flags/tocantins.png"
+  },
+  {
+    "state": "Maranhão",
+    "capital": "São Luís",
+    "flagPath": "/static/brazil_states_flags/maranhao.png"
+  },
+  {
+    "state": "Piauí",
+    "capital": "Teresina",
+    "flagPath": "/static/brazil_states_flags/piaui.png"
+  },
+  {
+    "state": "Ceará",
+    "capital": "Fortaleza",
+    "flagPath": "/static/brazil_states_flags/ceara.png"
+  },
+  {
+    "state": "Rio Grande do Norte",
+    "capital": "Natal",
+    "flagPath": "/static/brazil_states_flags/rio_grande_do_norte.png"
+  },
+  {
+    "state": "Pernambuco",
+    "capital": "Recife",
+    "flagPath": "/static/brazil_states_flags/pernambuco.png"
+  },
+  {
+    "state": "Paraíba",
+    "capital": "João Pessoa",
+    "flagPath": "/static/brazil_states_flags/paraiba.png"
+  },
+  {
+    "state": "Sergipe",
+    "capital": "Aracaju",
+    "flagPath": "/static/brazil_states_flags/sergipe.png"
+  },
+  {
+    "state": "Alagoas",
+    "capital": "Maceió",
+    "flagPath": "/static/brazil_states_flags/alagoas.png"
+  },
+  {
+    "state": "Bahia",
+    "capital": "Salvador",
+    "flagPath": "/static/brazil_states_flags/bahia.png"
+  },
+  {
+    "state": "Espiríto Santo",
+    "capital": "Vitória",
+    "flagPath": "/static/brazil_states_flags/espirito_santo.png"
+  },
+  {
+    "state": "Rio de Janeiro",
+    "capital": "Rio de Janeiro",
+    "flagPath": "/static/brazil_states_flags/rio_de_janeiro.png"
+  },
+  {
+    "state": "Minas Gerais",
+    "capital": "Belo Horizonte",
+    "flagPath": "/static/brazil_states_flags/minas_gerais.png"
+  },
+  {
+    "state": "São Paulo",
+    "capital": "São Paulo",
+    "flagPath": "/static/brazil_states_flags/sao_paulo.png"
+  },
+  {
+    "state": "Paraná",
+    "capital": "Curitiba",
+    "flagPath": "/static/brazil_states_flags/parana.png"
+  },
+  {
+    "state": "Santa Catarina",
+    "capital": "Florianópolis",
+    "flagPath": "/static/brazil_states_flags/santa_catarina.png"
+  },
+  {
+    "state": "Rio Grande do Sul",
+    "capital": "Porto Alegre",
+    "flagPath": "/static/brazil_states_flags/rio_grande_do_sul.png"
+  },
+  {
+    "state": "Mato Grosso do Sul",
+    "capital": "Campo Grande",
+    "flagPath": "/static/brazil_states_flags/mato_grosso_do_sul.png"
+  },
+  {
+    "state": "Mato Grosso",
+    "capital": "Cuiabá",
+    "flagPath": "/static/brazil_states_flags/mato_grosso.png"
+  },
+  {
+    "state": "Goiás",
+    "capital": "Goiânia",
+    "flagPath": "/static/brazil_states_flags/goias.png"
+  },
+  {
+    "state": "Distrito Federal",
+    "capital": "Brasília",
+    "flagPath": "/static/brazil_states_flags/distrito_federal.png"
+  }
+]

@@ -4,7 +4,11 @@
       v-for="item in items"
       :key="item.value"
       class="bg-quiz-blue-200 px-8 py-3 button-select relative hover:text-quiz-green-light flex-1"
-      :class="{ 'button-select-selected': item.value === selected }"
+      :class="{
+        'button-select-selected': item.value === selectedValue,
+        'text-quiz-blue-100 hover:text-quiz-blue-100 cursor-not-allowed':
+          disabled,
+      }"
       @click="() => onChangeSelectedValue(item.value)"
     >
       {{ item.name ? item.name : item.value }}
@@ -13,8 +17,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-
 interface Item {
   name?: string;
   value: any;
@@ -22,20 +24,17 @@ interface Item {
 
 interface Props {
   items: Item[];
-  selectedValue?: any;
+  selectedValue: any;
+  disabled?: boolean;
 }
 
 const props = defineProps<Props>();
 const emit = defineEmits(["getSelected"]);
 
-const selected = ref<any>(
-  props.selectedValue || props.selectedValue === false
-    ? props.selectedValue
-    : props.items[0].value
-);
-
 function onChangeSelectedValue(value: any) {
-  selected.value = value;
+  if (props.disabled) {
+    return false;
+  }
   emit("getSelected", value);
 }
 </script>
