@@ -18,19 +18,28 @@ function generateOtherAnswers(
   while (otherAnswers.length < totalMultipleChoiceQuestions) {
     const randomIndex = getRandomIndex(itemsCloned.length, usedIndexes);
 
-    if (quizId === QuizType.BrazilStatesCapital) {
-      if (geoQuizType === GeoQuizType.FromFlagCapital) {
-        otherAnswers.push(itemsCloned[randomIndex].state);
-      } else {
-        otherAnswers.push(itemsCloned[randomIndex].capital);
-      }
-    } else if (quizId === QuizType.BrazilStatesFlag) {
-      if (geoQuizType === GeoQuizType.FromFlagCapital) {
-        otherAnswers.push(itemsCloned[randomIndex].state);
-      } else {
-        otherAnswers.push(itemsCloned[randomIndex].flag);
-      }
+    const guessFromFlagOrCapital = geoQuizType === GeoQuizType.FromFlagCapital;
+
+    const guessStateFromFlag =
+      quizId === QuizType.BrazilStatesFlag &&
+      geoQuizType === GeoQuizType.FromStateCountry;
+
+    const guessStateFromCapital =
+      quizId === QuizType.BrazilStatesCapital &&
+      geoQuizType === GeoQuizType.FromStateCountry;
+
+    if (guessFromFlagOrCapital) {
+      otherAnswers.push(itemsCloned[randomIndex].state);
     }
+
+    if (guessStateFromFlag) {
+      otherAnswers.push(itemsCloned[randomIndex].flagPath);
+    }
+
+    if (guessStateFromCapital) {
+      otherAnswers.push(itemsCloned[randomIndex].capital);
+    }
+
     usedIndexes.push(randomIndex);
   }
 
@@ -57,7 +66,7 @@ function generateQuestion(
     otherAnswers = generateOtherAnswers(geoQuizType, quizId, index);
   }
 
-  if (geoQuizType === GeoQuizType.ToFlagCapital) {
+  if (geoQuizType === GeoQuizType.FromStateCountry) {
     return {
       question: `Qual ${type} da unidade federativa abaixo?`,
       item: items[index].state,

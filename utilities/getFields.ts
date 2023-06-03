@@ -46,13 +46,24 @@ function getFields(gameSettings: GameSetting) {
     },
   ];
 
-  const local = gameSettings.isCountry ? "País" : "Estado";
+  const isQuizWithCapital =
+    gameSettings.quizId === QuizType.CountryCapital ||
+    gameSettings.quizId === QuizType.BrazilStatesCapital;
+
+  const isQuizWithCountry =
+    gameSettings.quizId === QuizType.CountryCapital ||
+    gameSettings.quizId === QuizType.CountryFlag;
+
+  let local: string = "";
   let type: string = "";
 
-  if (
-    gameSettings.quizId === QuizType.CountryCapital ||
-    gameSettings.quizId === QuizType.BrazilStatesCapital
-  ) {
+  if (isQuizWithCountry) {
+    local = "País";
+  } else {
+    local = "Estado";
+  }
+
+  if (isQuizWithCapital) {
     type = "Capital";
   } else {
     type = "Bandeira";
@@ -64,7 +75,7 @@ function getFields(gameSettings: GameSetting) {
       name: `${local} a partir da ${type}`,
     },
     {
-      value: GeoQuizType.ToFlagCapital,
+      value: GeoQuizType.FromStateCountry,
       name: `${type} a partir do ${local}`,
     },
   ];

@@ -10,7 +10,6 @@ export const useGameSettings = defineStore("useGameSettings", () => {
     category: null,
     answerMode: AnswerMode.MultipleChoice,
     numberOfQuestions: 5,
-    isCountry: undefined,
     acceptAnswerMode: true,
     countdown: false,
     geoQuizType: null,

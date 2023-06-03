@@ -11,7 +11,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Geography,
       id: QuizType.CountryFlag,
       acceptAnswerMode: true,
-      isCountry: true,
       tags: ["geografia", "paises"],
     },
     {
@@ -19,7 +18,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Mathematics,
       id: QuizType.BasicMaths,
       acceptAnswerMode: true,
-      isCountry: undefined,
       tags: [
         "matematica",
         "numero",
@@ -34,7 +32,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Biology,
       id: QuizType.HumanAnatomy,
       acceptAnswerMode: false,
-      isCountry: undefined,
       tags: ["corpo humano", "corpo", "humano", "ciências", "biologia"],
     },
     {
@@ -42,7 +39,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Biology,
       id: QuizType.AnimalKingdom,
       acceptAnswerMode: false,
-      isCountry: undefined,
       tags: ["animais", "biologia"],
     },
     {
@@ -50,7 +46,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Geography,
       id: QuizType.BrazilStatesFlag,
       acceptAnswerMode: true,
-      isCountry: false,
       tags: ["brazil", "geografia"],
     },
     {
@@ -58,7 +53,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Mathematics,
       id: QuizType.RootsAndPowers,
       acceptAnswerMode: true,
-      isCountry: undefined,
       tags: [
         "raizes",
         "potencias",
@@ -73,7 +67,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Biology,
       id: QuizType.PlantaeKingdom,
       acceptAnswerMode: false,
-      isCountry: undefined,
       tags: ["plantas", "biologia"],
     },
     {
@@ -81,7 +74,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Geography,
       id: QuizType.CountryCapital,
       acceptAnswerMode: true,
-      isCountry: true,
       tags: ["capital", "paises", "geografia"],
     },
     {
@@ -89,7 +81,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Geography,
       id: QuizType.BrazilStatesCapital,
       acceptAnswerMode: true,
-      isCountry: false,
       tags: ["brazil", "capital", "geografia"],
     },
   ]);

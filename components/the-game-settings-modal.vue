@@ -72,7 +72,7 @@ const disableAnswerModeField = computed(() => {
   return (
     (gameSettings.value.quizId === QuizType.BrazilStatesFlag ||
       gameSettings.value.quizId === QuizType.CountryFlag) &&
-    gameSettings.value.geoQuizType === GeoQuizType.ToFlagCapital
+    gameSettings.value.geoQuizType === GeoQuizType.FromStateCountry
   );
 });
 

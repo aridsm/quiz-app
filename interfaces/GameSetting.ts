@@ -9,7 +9,6 @@ export interface GameSetting {
   category: QuizCategoryType | null;
   answerMode: AnswerMode | null;
   numberOfQuestions: number;
-  isCountry: boolean | undefined;
   acceptAnswerMode: boolean;
   countdown: number | false; // segundos
   geoQuizType: GeoQuizType | null;
