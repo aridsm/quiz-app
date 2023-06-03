@@ -16,6 +16,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     quizId: undefined,
     questions: [],
     geoQuizType: null,
+    answerMode: null,
   });
 
   const storeGameSettings = useGameSettings();
@@ -28,6 +29,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.totalQuestions = gameSettings.value.numberOfQuestions;
     currentGame.quizId = gameSettings.value.quizId;
     currentGame.geoQuizType = gameSettings.value.geoQuizType;
+    currentGame.answerMode = gameSettings.value.answerMode;
 
     if (
       currentGame.quizId === QuizType.BrazilStatesCapital ||

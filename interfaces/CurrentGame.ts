@@ -1,3 +1,4 @@
+import { AnswerMode } from "~/enums/answerMode";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizType } from "~/enums/quizType";
 
@@ -11,4 +12,5 @@ export interface CurrentGame {
   questions: any[];
   quizId: undefined | QuizType;
   geoQuizType: GeoQuizType | null;
+  answerMode: null | AnswerMode;
 }

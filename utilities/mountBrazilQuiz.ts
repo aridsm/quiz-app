@@ -1,12 +1,48 @@
 import getRandomIndex from "./getRandomIndex";
 import { QuizType } from "~/enums/quizType";
 import { GeoQuizType } from "~/enums/geoQuizType";
+import { AnswerMode } from "~/enums/answerMode";
+
+function generateOtherAnswers(
+  geoQuizType: GeoQuizType,
+  quizId: QuizType,
+  correctAnswerIndex: number
+) {
+  const otherAnswers: any[] = [];
+  const usedIndexes: number[] = [correctAnswerIndex];
+  const totalMultipleChoiceQuestions = 4;
+
+  const data = require("../quizzes/capitals/brazil.json");
+  const itemsCloned = JSON.parse(JSON.stringify(data));
+
+  while (otherAnswers.length < totalMultipleChoiceQuestions) {
+    const randomIndex = getRandomIndex(itemsCloned.length, usedIndexes);
+
+    if (quizId === QuizType.BrazilStatesCapital) {
+      if (geoQuizType === GeoQuizType.FromFlagCapital) {
+        otherAnswers.push(itemsCloned[randomIndex].state);
+      } else {
+        otherAnswers.push(itemsCloned[randomIndex].capital);
+      }
+    } else if (quizId === QuizType.BrazilStatesFlag) {
+      if (geoQuizType === GeoQuizType.FromFlagCapital) {
+        otherAnswers.push(itemsCloned[randomIndex].state);
+      } else {
+        otherAnswers.push(itemsCloned[randomIndex].flag);
+      }
+    }
+    usedIndexes.push(randomIndex);
+  }
+
+  return otherAnswers;
+}
 
 function generateQuestion(
   geoQuizType: GeoQuizType,
   items: any[],
   index: number,
-  quizId: QuizType
+  quizId: QuizType,
+  answerMode: AnswerMode
 ) {
   let type = "";
   if (quizId === QuizType.BrazilStatesCapital) {
@@ -15,10 +51,17 @@ function generateQuestion(
     type = "a bandeira";
   }
 
+  let otherAnswers: string[] = [];
+
+  if (answerMode === AnswerMode.MultipleChoice) {
+    otherAnswers = generateOtherAnswers(geoQuizType, quizId, index);
+  }
+
   if (geoQuizType === GeoQuizType.ToFlagCapital) {
     return {
       question: `Qual ${type} da unidade federativa abaixo?`,
       item: items[index].state,
+      otherAnswers,
       correctAnswer:
         quizId === QuizType.BrazilStatesCapital
           ? items[index].capital
@@ -32,11 +75,17 @@ function generateQuestion(
           ? items[index].capital
           : items[index].flagPath,
       correctAnswer: items[index].state,
+      otherAnswers,
     };
   }
 }
 
-function mountBrazilQuiz({ totalQuestions, geoQuizType, quizId }: any) {
+function mountBrazilQuiz({
+  totalQuestions,
+  geoQuizType,
+  quizId,
+  answerMode,
+}: any) {
   const items = require("../quizzes/capitals/brazil.json");
   const itemsCloned = JSON.parse(JSON.stringify(items));
 
@@ -50,7 +99,8 @@ function mountBrazilQuiz({ totalQuestions, geoQuizType, quizId }: any) {
       geoQuizType,
       itemsCloned,
       randomIndex,
-      quizId
+      quizId,
+      answerMode
     );
 
     questions.push(question);
