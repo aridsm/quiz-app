@@ -1,0 +1,972 @@
+[
+  {
+    "place": "África do Sul",
+    "capital": ["Pretória", "Bloemfontein", "Cidade do Cabo"],
+    "flagPath": "/static/countries_flags/africa_do_sul.png"
+  },
+  {
+    "place": "Angola",
+    "capital": ["Luanda"],
+    "flagPath": "/static/countries_flags/angola.png"
+  },
+  {
+    "place": "Argélia",
+    "capital": ["Argel"],
+    "flagPath": "/static/countries_flags/argelia.png"
+  },
+  {
+    "place": "Benim",
+    "capital": ["Porto-Novo", "Cotonu"],
+    "flagPath": "/static/countries_flags/benin.png"
+  },
+  {
+    "place": "Botswana",
+    "capital": ["Gaborone"],
+    "flagPath": "/static/countries_flags/botswana.png"
+  },
+  {
+    "place": "Burkina Faso",
+    "capital": ["Ouagadougou"],
+    "flagPath": "/static/countries_flags/burkina_faso.png"
+  },
+  {
+    "place": "Burundi",
+    "capital": ["Bujumbura"],
+    "flagPath": "/static/countries_flags/burundi.png"
+  },
+  {
+    "place": "Cabo Verde",
+    "capital": ["Praia"],
+    "flagPath": "/static/countries_flags/cabo_verde.png"
+  },
+  {
+    "place": "Camarões",
+    "capital": ["Yaoundé"],
+    "flagPath": "/static/countries_flags/camaroes.png"
+  },
+  {
+    "place": "Chade",
+    "capital": ["N'Djamena"],
+    "flagPath": "/static/countries_flags/chade.png"
+  },
+  {
+    "place": "Comores",
+    "capital": ["Moroni"],
+    "flagPath": "/static/countries_flags/comores.png"
+  },
+  {
+    "place": "Costa do Marfim",
+    "capital": ["Yamoussoukro"],
+    "flagPath": "/static/countries_flags/costa_do_marfim.png"
+  },
+  {
+    "place": "Djibouti",
+    "capital": ["Djibouti"],
+    "flagPath": "/static/countries_flags/djibouti.png"
+  },
+  {
+    "place": "Egito",
+    "capital": ["Cairo"],
+    "flagPath": "/static/countries_flags/egito.png"
+  },
+  {
+    "place": "Eritreia",
+    "capital": ["Asmara"],
+    "flagPath": "/static/countries_flags/eritreia.png"
+  },
+  {
+    "place": "Etiópia",
+    "capital": ["Adis-Abeba"],
+    "flagPath": "/static/countries_flags/etiopia.png"
+  },
+  {
+    "place": "Gabão",
+    "capital": ["Libreville"],
+    "flagPath": "/static/countries_flags/gabao.png"
+  },
+  {
+    "place": "Gana",
+    "capital": ["Acra"],
+    "flagPath": "/static/countries_flags/gana.png"
+  },
+  {
+    "place": "Guiné",
+    "capital": ["Conacri"],
+    "flagPath": "/static/countries_flags/guine.png"
+  },
+  {
+    "place": "Guiné Equatorial",
+    "capital": ["Malabo"],
+    "flagPath": "/static/countries_flags/guine_equatorial.png"
+  },
+  {
+    "place": "Guiné-Bissau",
+    "capital": ["Bissau"],
+    "flagPath": "/static/countries_flags/guine_bissau.png"
+  },
+  {
+    "place": "Gâmbia",
+    "capital": ["Banjul"],
+    "flagPath": "/static/countries_flags/gambia.png"
+  },
+  {
+    "place": "Lesoto",
+    "capital": ["Maseru"],
+    "flagPath": "/static/countries_flags/lesoto.png"
+  },
+  {
+    "place": "Libéria",
+    "capital": ["Monróvia"],
+    "flagPath": "/static/countries_flags/liberia.png"
+  },
+  {
+    "place": "Líbia",
+    "capital": ["Trípoli"],
+    "flagPath": "/static/countries_flags/libia.png"
+  },
+  {
+    "place": "Madagáscar",
+    "capital": ["Antananarivo"],
+    "flagPath": "/static/countries_flags/madacasgar.png"
+  },
+  {
+    "place": "Malawi",
+    "capital": ["Lilongwe"],
+    "flagPath": "/static/countries_flags/malawi.png"
+  },
+  {
+    "place": "Mali",
+    "capital": ["Bamako"],
+    "flagPath": "/static/countries_flags/mali.png"
+  },
+  {
+    "place": "Marrocos",
+    "capital": ["Rabat"],
+    "flagPath": "/static/countries_flags/marrocos.png"
+  },
+  {
+    "place": "Mauritânia",
+    "capital": ["Nouakchott"],
+    "flagPath": "/static/countries_flags/mauritania.png"
+  },
+  {
+    "place": "Maurícia",
+    "capital": ["Port Louis"],
+    "flagPath": "/static/countries_flags/mauricia.png"
+  },
+  {
+    "place": "Moçambique",
+    "capital": ["Maputo"],
+    "flagPath": "/static/countries_flags/mocambique.png"
+  },
+  {
+    "place": "Namíbia",
+    "capital": ["Windhoek"],
+    "flagPath": "/static/countries_flags/namibia.png"
+  },
+  {
+    "place": "Nigéria",
+    "capital": ["Abuja"],
+    "flagPath": "/static/countries_flags/nigeria.png"
+  },
+  {
+    "place": "Níger",
+    "capital": ["Niamey"],
+    "flagPath": "/static/countries_flags/niger.png"
+  },
+  {
+    "place": "Quénia",
+    "capital": ["Nairobi"],
+    "flagPath": "/static/countries_flags/quenia.png"
+  },
+  {
+    "place": "República Centro-Africana",
+    "capital": ["Bangui"],
+    "flagPath": "/static/countries_flags/republica_centro_africana.png"
+  },
+  {
+    "place": "República Democrática do Congo",
+    "capital": ["Kinshasa"],
+    "flagPath": "/static/countries_flags/republica_democratica_do_congo.png"
+  },
+  {
+    "place": "República do Congo",
+    "capital": ["Brazzaville"],
+    "flagPath": "/static/countries_flags/republica_do_congo.png"
+  },
+  {
+    "place": "Ruanda",
+    "capital": ["Kigali"],
+    "flagPath": "/static/countries_flags/ruanda.png"
+  },
+  {
+    "place": "Senegal",
+    "capital": ["Dakar"],
+    "flagPath": "/static/countries_flags/senegal.png"
+  },
+  {
+    "place": "Serra Leoa",
+    "capital": ["Freetown"],
+    "flagPath": "/static/countries_flags/serra_leoa.png"
+  },
+  {
+    "place": "Seychelles",
+    "capital": ["Victoria"],
+    "flagPath": "/static/countries_flags/seychelles.png"
+  },
+  {
+    "place": "Somália",
+    "capital": ["Mogadíscio"],
+    "flagPath": "/static/countries_flags/somalia.png"
+  },
+  {
+    "place": "Suazilândia",
+    "capital": ["Lobamba", "Mbabane"],
+    "flagPath": "/static/countries_flags/suazilandia.png"
+  },
+  {
+    "place": "Sudão",
+    "capital": ["Cartum"],
+    "flagPath": "/static/countries_flags/sudao.png"
+  },
+  {
+    "place": "Sudão do Sul",
+    "capital": ["Juba"],
+    "flagPath": "/static/countries_flags/sudao_do_sul.png"
+  },
+  {
+    "place": "São Tomé e Príncipe",
+    "capital": ["São Tomé"],
+    "flagPath": "/static/countries_flags/sao_tome_e_principe.png"
+  },
+  {
+    "place": "Tanzânia",
+    "capital": ["Dar es Salaam", "Dodoma"],
+    "flagPath": "/static/countries_flags/tanzania.png"
+  },
+  {
+    "place": "Togo",
+    "capital": ["Lomé"],
+    "flagPath": "/static/countries_flags/togo.png"
+  },
+  {
+    "place": "Tunísia",
+    "capital": ["Tunis"],
+    "flagPath": "/static/countries_flags/tunisia.png"
+  },
+  {
+    "place": "Uganda",
+    "capital": ["Kampala"],
+    "flagPath": "/static/countries_flags/uganda.png"
+  },
+  {
+    "place": "Zâmbia",
+    "capital": ["Lusaka"],
+    "flagPath": "/static/countries_flags/zambia.png"
+  },
+  {
+    "place": "Zimbabwe",
+    "capital": ["Harare"],
+    "flagPath": "/static/countries_flags/zimbabwe.png"
+  },
+  {
+    "place": "Canadá",
+    "capital": ["Ottawa"],
+    "flagPath": "/static/countries_flags/canada.png"
+  },
+  {
+    "place": "Estados Unidos",
+    "capital": ["Washington"],
+    "flagPath": "/static/countries_flags/estados_unidos.png"
+  },
+  {
+    "place": "México",
+    "capital": ["México"],
+    "flagPath": "/static/countries_flags/mexico.png"
+  },
+  {
+    "place": "Antígua e Barbuda",
+    "capital": ["Saint John's"],
+    "flagPath": "/static/countries_flags/antigua_e_barbuda.png"
+  },
+  {
+    "place": "Bahamas",
+    "capital": ["Nassau"],
+    "flagPath": "/static/countries_flags/bahamas.png"
+  },
+  {
+    "place": "Barbados",
+    "capital": ["Bridgetown"],
+    "flagPath": "/static/countries_flags/barbados.png"
+  },
+  {
+    "place": "Belize",
+    "capital": ["Belmopan"],
+    "flagPath": "/static/countries_flags/belize.png"
+  },
+  {
+    "place": "Costa Rica",
+    "capital": ["São José"],
+    "flagPath": "/static/countries_flags/costa_rica.png"
+  },
+  {
+    "place": "Cuba",
+    "capital": ["Havana"],
+    "flagPath": "/static/countries_flags/cuba.png"
+  },
+  {
+    "place": "Dominica",
+    "capital": ["Roseau"],
+    "flagPath": "/static/countries_flags/dominica.png"
+  },
+  {
+    "place": "El Salvador",
+    "capital": ["São Salvador"],
+    "flagPath": "/static/countries_flags/el_salvador.png"
+  },
+  {
+    "place": "Granada",
+    "capital": ["Saint George's"],
+    "flagPath": "/static/countries_flags/granada.png"
+  },
+  {
+    "place": "Guatemala",
+    "capital": ["Guatemala"],
+    "flagPath": "/static/countries_flags/guatemala.png"
+  },
+  {
+    "place": "Haiti",
+    "capital": ["Porto Príncipe"],
+    "flagPath": "/static/countries_flags/haiti.png"
+  },
+  {
+    "place": "Honduras",
+    "capital": ["Tegucigalpa"],
+    "flagPath": "/static/countries_flags/honduras.png"
+  },
+  {
+    "place": "Jamaica",
+    "capital": ["Kingston"],
+    "flagPath": "/static/countries_flags/jamaica.png"
+  },
+  {
+    "place": "Nicarágua",
+    "capital": ["Manágua"],
+    "flagPath": "/static/countries_flags/nicaragua.png"
+  },
+  {
+    "place": "Panamá",
+    "capital": ["Cidade do Panamá"],
+    "flagPath": "/static/countries_flags/panama.png"
+  },
+  {
+    "place": "República Dominicana",
+    "capital": ["São Domingos"],
+    "flagPath": "/static/countries_flags/republica_dominicana.png"
+  },
+  {
+    "place": "Santa Lúcia",
+    "capital": ["Castries"],
+    "flagPath": "/static/countries_flags/santa_lucia.png"
+  },
+  {
+    "place": "São Cristóvão e Neves",
+    "capital": ["Basseterre"],
+    "flagPath": "/static/countries_flags/sao_cristovao_e_neves.png"
+  },
+  {
+    "place": "São Vicente e Granadinas",
+    "capital": ["Kingstown"],
+    "flagPath": "/static/countries_flags/sao_vincente_e_granadinas.png"
+  },
+  {
+    "place": "Trinidad e Tobago",
+    "capital": ["Porto de Espanha"],
+    "flagPath": "/static/countries_flags/trinidad_e_tobago.png"
+  },
+  {
+    "place": "Argentina",
+    "capital": ["Buenos Aires"],
+    "flagPath": "/static/countries_flags/argentina.png"
+  },
+  {
+    "place": "Bolívia",
+    "capital": ["La Paz", "Sucre"],
+    "flagPath": "/static/countries_flags/bolivia.png"
+  },
+  {
+    "place": "Brasil",
+    "capital": ["Brasília"],
+    "flagPath": "/static/countries_flags/brasil.png"
+  },
+  {
+    "place": "Chile",
+    "capital": ["Santiago"],
+    "flagPath": "/static/countries_flags/chile.png"
+  },
+  {
+    "place": "Colômbia",
+    "capital": ["Bogotá"],
+    "flagPath": "/static/countries_flags/colombia.png"
+  },
+  {
+    "place": "Equador",
+    "capital": ["Quito"],
+    "flagPath": "/static/countries_flags/equador.png"
+  },
+  {
+    "place": "Guiana",
+    "capital": ["Georgetown"],
+    "flagPath": "/static/countries_flags/guiana.png"
+  },
+  {
+    "place": "Paraguai",
+    "capital": ["Assunção"],
+    "flagPath": "/static/countries_flags/paraguai.png"
+  },
+  {
+    "place": "Peru",
+    "capital": ["Lima"],
+    "flagPath": "/static/countries_flags/peru.png"
+  },
+  {
+    "place": "Suriname",
+    "capital": ["Paramaribo"],
+    "flagPath": "/static/countries_flags/suriname.png"
+  },
+  {
+    "place": "Uruguai",
+    "capital": ["Montevidéo"],
+    "flagPath": "/static/countries_flags/uruguai.png"
+  },
+  {
+    "place": "Venezuela",
+    "capital": ["Caracas"],
+    "flagPath": "/static/countries_flags/venezuela.png"
+  },
+  {
+    "place": "Afeganistão",
+    "capital": ["Cabul"],
+    "flagPath": "/static/countries_flags/afeganistao.png"
+  },
+  {
+    "place": "Arábia Saudita",
+    "capital": ["Riade"],
+    "flagPath": "/static/countries_flags/arabia_saudita.png"
+  },
+  {
+    "place": "Azerbaijão",
+    "capital": ["Baku"],
+    "flagPath": "/static/countries_flags/azerbaijao.png"
+  },
+  {
+    "place": "Bangladesh",
+    "capital": ["Daca"],
+    "flagPath": "/static/countries_flags/bangladesh.png"
+  },
+  {
+    "place": "Bahrein",
+    "capital": ["Manama"],
+    "flagPath": "/static/countries_flags/bahrein"
+  },
+  {
+    "place": "Brunei",
+    "capital": ["Bandar Seri Begawan"],
+    "flagPath": "/static/countries_flags/brunei.png"
+  },
+  {
+    "place": "Butão",
+    "capital": ["Timphu"],
+    "flagPath": "/static/countries_flags/butao.png"
+  },
+  {
+    "place": "Camboja",
+    "capital": ["Phnom Penh"],
+    "flagPath": "/static/countries_flags/camboja.png"
+  },
+  {
+    "place": "Cazaquistão",
+    "capital": ["Astana"],
+    "flagPath": "/static/countries_flags/cazaquistao.png"
+  },
+  {
+    "place": "Qatar",
+    "capital": ["Doha"],
+    "flagPath": "/static/countries_flags/qatar.png"
+  },
+  {
+    "place": "China",
+    "capital": ["Pequim"],
+    "flagPath": "/static/countries_flags/china.png"
+  },
+  {
+    "place": "Cingapura",
+    "capital": ["Cidade de Cingapura"],
+    "flagPath": "/static/countries_flags/cingapura.png"
+  },
+  {
+    "place": "Coréia do Norte",
+    "capital": ["Pyongyang"],
+    "flagPath": "/static/countries_flags/coreia_do_norte.png"
+  },
+  {
+    "place": "Coréia do Sul",
+    "capital": ["Seul"],
+    "flagPath": "/static/countries_flags/coreia_do_sul.png"
+  },
+  {
+    "place": "Emirados Árabes Unidos",
+    "capital": ["Abu Dhabi"],
+    "flagPath": "/static/countries_flags/emirados_arabes_unidos.png"
+  },
+  {
+    "place": "Filipinas",
+    "capital": ["Manila"],
+    "flagPath": "/static/countries_flags/filipinas.png"
+  },
+  {
+    "place": "Iêmen",
+    "capital": ["Sana"],
+    "flagPath": "/static/countries_flags/iemen.png"
+  },
+  {
+    "place": "índia",
+    "capital": ["Nova Délhi"],
+    "flagPath": "/static/countries_flags/india.png"
+  },
+  {
+    "place": "Indonésia",
+    "capital": ["Jacarta"],
+    "flagPath": "/static/countries_flags/indonesia.png"
+  },
+  {
+    "place": "Irã",
+    "capital": ["Teerã"],
+    "flagPath": "/static/countries_flags/ira.png"
+  },
+  {
+    "place": "Iraque",
+    "capital": ["Badgá"],
+    "flagPath": "/static/countries_flags/iraque.png"
+  },
+  {
+    "place": "Israel",
+    "capital": ["Jerusalém"],
+    "flagPath": "/static/countries_flags/israel.png"
+  },
+  {
+    "place": "Japão",
+    "capital": ["Tóquio"],
+    "flagPath": "/static/countries_flags/japan.png"
+  },
+  {
+    "place": "Jordânia",
+    "capital": ["Amã"],
+    "flagPath": "/static/countries_flags/jordania.png"
+  },
+  {
+    "place": "Kuwait",
+    "capital": ["Cidade do Kuwait"],
+    "flagPath": "/static/countries_flags/kuwait.png"
+  },
+  {
+    "place": "Laos",
+    "capital": ["Vientiane"],
+    "flagPath": "/static/countries_flags/laos.png"
+  },
+  {
+    "place": "Líbano",
+    "capital": ["Beirute"],
+    "flagPath": "/static/countries_flags/libano.png"
+  },
+  {
+    "place": "Malásia",
+    "capital": ["Kuala Lumpur"],
+    "flagPath": "/static/countries_flags/malasia.png"
+  },
+  {
+    "place": "Maldivas",
+    "capital": ["Male"],
+    "flagPath": "/static/countries_flags/maldivas.png"
+  },
+  {
+    "place": "Myanmar",
+    "capital": ["Nay Puy Taw"],
+    "flagPath": "/static/countries_flags/myanmar.png"
+  },
+  {
+    "place": "Mongólia",
+    "capital": ["Ulan Bator"],
+    "flagPath": "/static/countries_flags/mongolia.png"
+  },
+  {
+    "place": "Nepal",
+    "capital": ["Katmandu"],
+    "flagPath": "/static/countries_flags/nepal.png"
+  },
+  {
+    "place": "Omã",
+    "capital": ["Mascate"],
+    "flagPath": "/static/countries_flags/oma.png"
+  },
+  {
+    "place": "Paquistão",
+    "capital": ["Islamabad"],
+    "flagPath": "/static/countries_flags/paquistao.png"
+  },
+  {
+    "place": "Quirquistão",
+    "capital": ["Bishkek"],
+    "flagPath": "/static/countries_flags/quirquistao.png"
+  },
+  {
+    "place": "Rússia",
+    "capital": ["Moscou"],
+    "flagPath": "/static/countries_flags/russia.png"
+  },
+  {
+    "place": "Síria",
+    "capital": ["Damasco"],
+    "flagPath": "/static/countries_flags/siria.png"
+  },
+  {
+    "place": "Sri Lanka",
+    "capital": ["Colombo"],
+    "flagPath": "/static/countries_flags/sri_lanka.png"
+  },
+  {
+    "place": "Tailãndia",
+    "capital": ["Bangkok"],
+    "flagPath": "/static/countries_flags/tailandia.png"
+  },
+  {
+    "place": "Tajiquistão",
+    "capital": ["Muchambe"],
+    "flagPath": "/static/countries_flags/tajiquistao.png"
+  },
+  {
+    "place": "Timor Leste",
+    "capital": ["Dili"],
+    "flagPath": "/static/countries_flags/timor_leste.png"
+  },
+  {
+    "place": "Turcomenistão",
+    "capital": ["Ashkhabad"],
+    "flagPath": "/static/countries_flags/turcomenistao.png"
+  },
+  {
+    "place": "Turquia",
+    "capital": ["Ancara"],
+    "flagPath": "/static/countries_flags/turquia.png"
+  },
+  {
+    "place": "Uzbequistão",
+    "capital": ["Tashkent"],
+    "flagPath": "/static/countries_flags/urzbequistao.png"
+  },
+  {
+    "place": "Vietnã",
+    "capital": ["Hanói"],
+    "flagPath": "/static/countries_flags/vietna.png"
+  },
+  {
+    "place": "Albânia",
+    "capital": ["Tirana"],
+    "flagPath": "/static/countries_flags/albania.png"
+  },
+  {
+    "place": "Alemanha",
+    "capital": ["Berlim"],
+    "flagPath": "/static/countries_flags/alemanha.png"
+  },
+  {
+    "place": "Andorra",
+    "capital": ["Andorra la Vella"],
+    "flagPath": "/static/countries_flags/andorra.png"
+  },
+  {
+    "place": "Armênia",
+    "capital": ["Erevan"],
+    "flagPath": "/static/countries_flags/armenia.png"
+  },
+  {
+    "place": "Áustria",
+    "capital": ["Viena"],
+    "flagPath": "/static/countries_flags/austria.png"
+  },
+  {
+    "place": "Azerbaijão",
+    "capital": ["Baku"],
+    "flagPath": "/static/countries_flags/azerbaijao.png"
+  },
+  {
+    "place": "Bielorússia",
+    "capital": ["Minsk"],
+    "flagPath": "/static/countries_flags/bielorussia.png"
+  },
+  {
+    "place": "Bélgica",
+    "capital": ["Bruxelas"],
+    "flagPath": "/static/countries_flags/belgica.png"
+  },
+  {
+    "place": "Bósnia-Herzegovina",
+    "capital": ["Sarajevo"],
+    "flagPath": "/static/countries_flags/bosnia_e_herzegovina.png"
+  },
+  {
+    "place": "Bulgária",
+    "capital": ["Sófia"],
+    "flagPath": "/static/countries_flags/bulgaria.png"
+  },
+  {
+    "place": "República Tcheca",
+    "capital": ["Praga"],
+    "flagPath": "/static/countries_flags/republica_tcheca.png"
+  },
+  {
+    "place": "Chipre",
+    "capital": ["Nicósia"],
+    "flagPath": "/static/countries_flags/chipre.png"
+  },
+  {
+    "place": "Croácia",
+    "capital": ["Zagreb"],
+    "flagPath": "/static/countries_flags/croacia.png"
+  },
+  {
+    "place": "Dinamarca",
+    "capital": ["Copenhagem"],
+    "flagPath": "/static/countries_flags/dinamarca.png"
+  },
+  {
+    "place": "Eslováquia",
+    "capital": ["Bratislava"],
+    "flagPath": "/static/countries_flags/eslovaquia.png"
+  },
+  {
+    "place": "Eslovênia",
+    "capital": ["Liubliana"],
+    "flagPath": "/static/countries_flags/eslovenia.png"
+  },
+  {
+    "place": "Espanha",
+    "capital": ["Madrid"],
+    "flagPath": "/static/countries_flags/espanha.png"
+  },
+  {
+    "place": "Estônia",
+    "capital": ["Tallinn"],
+    "flagPath": "/static/countries_flags/estonia.png"
+  },
+  {
+    "place": "Finlância",
+    "capital": ["Helsinque"],
+    "flagPath": "/static/countries_flags/finlandia.png"
+  },
+  {
+    "place": "França",
+    "capital": ["Paris"],
+    "flagPath": "/static/countries_flags/franca.png"
+  },
+  {
+    "place": "Grécia",
+    "capital": ["Atenas"],
+    "flagPath": "/static/countries_flags/grecia.png"
+  },
+  {
+    "place": "Geórgia",
+    "capital": ["Tbilisi"],
+    "flagPath": "/static/countries_flags/georgia.png"
+  },
+  {
+    "place": "Hungria",
+    "capital": ["Budapeste"],
+    "flagPath": "/static/countries_flags/hungria.png"
+  },
+  {
+    "place": "Irlanda",
+    "capital": ["Dublin"],
+    "flagPath": "/static/countries_flags/irlanda.png"
+  },
+  {
+    "place": "Itália",
+    "capital": ["Roma"],
+    "flagPath": "/static/countries_flags/italia.png"
+  },
+  {
+    "place": "Letônia",
+    "capital": ["Riga"],
+    "flagPath": "/static/countries_flags/letonia.png"
+  },
+  {
+    "place": "Liechtenstein",
+    "capital": ["Vaduz"],
+    "flagPath": "/static/countries_flags/liechtenstein.png"
+  },
+  {
+    "place": "Lituânia",
+    "capital": ["Vilnius"],
+    "flagPath": "/static/countries_flags/lituania.png"
+  },
+  {
+    "place": "Luxemburgo",
+    "capital": ["Luxemburgo"],
+    "flagPath": "/static/countries_flags/luxemburgo.png"
+  },
+  {
+    "place": "Macedônia",
+    "capital": ["Skopje"],
+    "flagPath": "/static/countries_flags/macedonia.png"
+  },
+  {
+    "place": "Malta",
+    "capital": ["Valetta"],
+    "flagPath": "/static/countries_flags/malta.png"
+  },
+  {
+    "place": "Moldávia",
+    "capital": ["Chisinau"],
+    "flagPath": "/static/countries_flags/moldova.png"
+  },
+  {
+    "place": "Mônaco",
+    "capital": ["Monaco-Ville"],
+    "flagPath": "/static/countries_flags/monaco.png"
+  },
+  {
+    "place": "Montenegro",
+    "capital": ["Podgorica"],
+    "flagPath": "/static/countries_flags/montenegro.png"
+  },
+  {
+    "place": "Noruega",
+    "capital": ["Oslo"],
+    "flagPath": "/static/countries_flags/noruega.png"
+  },
+  {
+    "place": "Países Baixos",
+    "capital": ["Amsterdã"],
+    "flagPath": "/static/countries_flags/paises_baixos.png"
+  },
+  {
+    "place": "Polônia",
+    "capital": ["Varsóvia"],
+    "flagPath": "/static/countries_flags/polonia.png"
+  },
+  {
+    "place": "Portugal",
+    "capital": ["Lisboa"],
+    "flagPath": "/static/countries_flags/portugal.webp"
+  },
+  {
+    "place": "Reino Unido",
+    "capital": ["Londres"],
+    "flagPath": "/static/countries_flags/reino_unido.png"
+  },
+  {
+    "place": "Romênia",
+    "capital": ["Bucareste"],
+    "flagPath": "/static/countries_flags/romenia.png"
+  },
+  {
+    "place": "San Marino",
+    "capital": ["San Marino"],
+    "flagPath": "/static/countries_flags/san_marino.png"
+  },
+  {
+    "place": "Sérvia",
+    "capital": ["Belgrado"],
+    "flagPath": "/static/countries_flags/servia.png"
+  },
+  {
+    "place": "Suécia",
+    "capital": ["Estocolmo"],
+    "flagPath": "/static/countries_flags/suecia.png"
+  },
+  {
+    "place": "Suíça",
+    "capital": ["Berna"],
+    "flagPath": "/static/countries_flags/suica.png"
+  },
+  {
+    "place": "Ucrânia",
+    "capital": ["Kiev"],
+    "flagPath": "/static/countries_flags/ucrania.png"
+  },
+  {
+    "place": "Vaticano",
+    "capital": ["Cidade do Vaticano"],
+    "flagPath": "/static/countries_flags/vaticano.png"
+  },
+  {
+    "place": "Austrália",
+    "capital": ["Camberra"],
+    "flagPath": "/static/countries_flags/australia.png"
+  },
+  {
+    "place": "Fiji",
+    "capital": ["Suva"],
+    "flagPath": "/static/countries_flags/fiji.png"
+  },
+  {
+    "place": "Ilhas Marshall",
+    "capital": ["Majuro"],
+    "flagPath": "/static/countries_flags/ilhas_marshall.png"
+  },
+  {
+    "place": "Ilhas Salomão",
+    "capital": ["Honiara"],
+    "flagPath": "/static/countries_flags/ilhas_salomao.png"
+  },
+  {
+    "place": "Kiribati",
+    "capital": ["Taraua"],
+    "flagPath": "/static/countries_flags/kiribati.png"
+  },
+  {
+    "place": "Micronésia",
+    "capital": ["Paliquir"],
+    "flagPath": "/static/countries_flags/micronesia.png"
+  },
+  {
+    "place": "Nauru",
+    "capital": ["Yaren"],
+    "flagPath": "/static/countries_flags/nauru.png"
+  },
+  {
+    "place": "Nova Zelândia",
+    "capital": ["Wellington"],
+    "flagPath": "/static/countries_flags/nova_zelandia.png"
+  },
+  {
+    "place": "Palau",
+    "capital": ["Melequeoque"],
+    "flagPath": "/static/countries_flags/palau.png"
+  },
+  {
+    "place": "Papua Nova Guiné",
+    "capital": ["Porto Moresby"],
+    "flagPath": "/static/countries_flags/papua_nova_guine.png"
+  },
+  {
+    "place": "Samoa",
+    "capital": ["Apia"],
+    "flagPath": "/static/countries_flags/samoa.png"
+  },
+  {
+    "place": "Tonga",
+    "capital": ["Nucualofa"],
+    "flagPath": "/static/countries_flags/tonga.png"
+  },
+  {
+    "place": "Tuvalu",
+    "capital": ["Funafuti"],
+    "flagPath": "/static/countries_flags/tuvalu.png"
+  },
+  {
+    "place": "Vanuatu",
+    "capital": ["Porto Vila"],
+    "flagPath": "/static/countries_flags/vanuatu.png"
+  }
+]

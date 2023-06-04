@@ -1,5 +1,7 @@
+import { Question } from "./Question";
 import { AnswerMode } from "~/enums/answerMode";
 import { GeoQuizType } from "~/enums/geoQuizType";
+import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { QuizType } from "~/enums/quizType";
 
 export interface CurrentGame {
@@ -9,8 +11,9 @@ export interface CurrentGame {
   lives: number;
   xpGained: number;
   coinsGained: number;
-  questions: any[];
+  questions: Question[];
   quizId: undefined | QuizType;
   geoQuizType: GeoQuizType | null;
   answerMode: null | AnswerMode;
+  category: null | QuizCategoryType;
 }

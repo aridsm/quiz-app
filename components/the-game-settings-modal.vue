@@ -101,6 +101,6 @@ function getSelectedCountdown(value: number) {
 }
 
 function startNewGame() {
-  currentGame.mountQuiz();
+  currentGame.createNewGame();
 }
 </script>
