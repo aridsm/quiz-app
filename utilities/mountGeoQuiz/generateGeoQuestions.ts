@@ -6,7 +6,8 @@ import { GeoQuizType } from "~/enums/geoQuizType";
 import { useCurrentGame } from "~/store/currentGame";
 
 export default function generateQuestion(
-  { geoQuizType, index, quizId, answerMode }: any,
+  { geoQuizType, quizId, answerMode }: any,
+  index: number,
   items: any,
   itemsJson: string
 ) {
@@ -21,16 +22,16 @@ export default function generateQuestion(
     storeToRefs(currentGameStore);
 
   let type = "";
-  if (isCapital) {
+  if (isCapital.value) {
     type = "a capital";
-  } else if (isFlag) {
+  } else if (isFlag.value) {
     type = "a bandeira";
   }
 
   let place = "";
-  if (isCountry) {
+  if (isCountry.value) {
     place = "o país";
-  } else if (isBrazilStates) {
+  } else if (isBrazilStates.value) {
     place = "o estado";
   }
 

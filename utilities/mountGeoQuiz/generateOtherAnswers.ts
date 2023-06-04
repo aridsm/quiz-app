@@ -23,10 +23,10 @@ export default function generateOtherAnswers(
     const guessFromFlagOrCapital = geoQuizType === GeoQuizType.FromFlagCapital;
 
     const guessFlagFromPlace =
-      isFlag && geoQuizType === GeoQuizType.FromStateCountry;
+      isFlag.value && geoQuizType === GeoQuizType.FromStateCountry;
 
     const guessCapitalFromPlace =
-      isCapital && geoQuizType === GeoQuizType.FromStateCountry;
+      isCapital.value && geoQuizType === GeoQuizType.FromStateCountry;
 
     if (guessFromFlagOrCapital) {
       otherAnswers.push(itemsCloned[randomIndex].place);

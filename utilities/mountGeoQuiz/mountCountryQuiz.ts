@@ -14,9 +14,9 @@ function useMountQuiz() {
 
   function mountCountryQuiz() {
     let items;
-    if (isBrazilStates) {
+    if (isBrazilStates.value) {
       items = require("../../quizzes/geography/brazil.json");
-    } else if (isCountry) {
+    } else if (isCountry.value) {
       items = require("../../quizzes/geography/countries.json");
     }
 
@@ -28,7 +28,12 @@ function useMountQuiz() {
     while (questions.length < currentGame.value.totalQuestions) {
       const randomIndex = getRandomIndex(itemsCloned.length, usedIndexes);
 
-      const question = generateQuestion(currentGame.value, itemsCloned, items);
+      const question = generateQuestion(
+        currentGame.value,
+        randomIndex,
+        itemsCloned,
+        items
+      );
 
       questions.push(question);
       usedIndexes.push(randomIndex);
