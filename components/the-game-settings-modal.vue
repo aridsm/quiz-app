@@ -48,6 +48,7 @@
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
 import { computed } from "vue";
+import { useRouter } from "@nuxtjs/composition-api";
 import { useModals } from "~/store/modals";
 import { useGameSettings } from "~/store/gameSettings";
 import { AnswerMode } from "~/enums/answerMode";
@@ -63,6 +64,9 @@ const currentGame = useCurrentGame();
 
 const { modals } = storeToRefs(storeModals);
 const { gameSettings } = storeToRefs(storeGameSettings);
+const storeModal = useModals();
+
+const router = useRouter();
 
 const showQuizTypes = computed(() => {
   return gameSettings.value.category === QuizCategoryType.Geography;
@@ -102,5 +106,7 @@ function getSelectedCountdown(value: number) {
 
 function startNewGame() {
   currentGame.createNewGame();
+  router.push("/game");
+  storeModal.modals.modalGameSettingsIsOpen = false;
 }
 </script>

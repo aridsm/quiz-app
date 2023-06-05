@@ -1,12 +1,11 @@
 import { storeToRefs } from "pinia";
 import generateOtherAnswers from "./generateOtherAnswers";
 import { AnswerMode } from "~/enums/answerMode";
-import { QuizType } from "~/enums/quizType";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { useCurrentGame } from "~/store/currentGame";
 
 export default function generateQuestion(
-  { geoQuizType, quizId, answerMode }: any,
+  { geoQuizType, answerMode }: any,
   index: number,
   items: any,
   itemsJson: string
@@ -40,18 +39,14 @@ export default function generateQuestion(
       question: `Qual ${type} d${place} abaixo?`,
       item: items[index].place,
       otherAnswers,
-      correctAnswer:
-        quizId === QuizType.CountryCapital
-          ? items[index].capital
-          : items[index].flagPath,
+      correctAnswer: isCapital.value
+        ? items[index].capital
+        : items[index].flagPath,
     };
   } else {
     return {
       question: `Qual ${place} d${type} abaixo?`,
-      item:
-        quizId === QuizType.CountryCapital
-          ? items[index].capital
-          : items[index].flagPath,
+      item: isCapital.value ? items[index].capital : items[index].flagPath,
       correctAnswer: items[index].place,
       otherAnswers,
     };

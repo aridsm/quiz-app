@@ -1,4 +1,5 @@
 import { Question } from "./Question";
+import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { AnswerMode } from "~/enums/answerMode";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
@@ -16,4 +17,6 @@ export interface CurrentGame {
   geoQuizType: GeoQuizType | null;
   answerMode: null | AnswerMode;
   category: null | QuizCategoryType;
+  currentQuestionIndex: number;
+  status: CurrentGameStatus;
 }

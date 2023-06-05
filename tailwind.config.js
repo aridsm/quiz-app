@@ -12,8 +12,8 @@ module.exports = {
       colors: {
         "quiz-blue-100": "#6B60AC",
         "quiz-blue-200": "#3D3375",
-        "quiz-blue-300": "#342B68",
-        "quiz-blue-400": "#2E265E",
+        "quiz-blue-300": "#382F6C",
+        "quiz-blue-400": "#312963",
         "quiz-white": "#E5E5E5",
         "quiz-pink": "#FF1EAD",
         "quiz-green-light": "#59FF88",

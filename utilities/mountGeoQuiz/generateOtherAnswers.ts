@@ -9,24 +9,25 @@ export default function generateOtherAnswers(
   itensJson: string
 ) {
   const otherAnswers: any[] = [];
+
   const usedIndexes: number[] = [correctAnswerIndex];
   const totalMultipleChoiceQuestions = 4;
 
   const itemsCloned = JSON.parse(JSON.stringify(itensJson));
 
+  const currentGameStore = useCurrentGame();
+  const { isFlag, isCapital } = storeToRefs(currentGameStore);
+
+  const guessFromFlagOrCapital = geoQuizType === GeoQuizType.FromFlagCapital;
+
+  const guessFlagFromPlace =
+    isFlag.value && geoQuizType === GeoQuizType.FromStateCountry;
+
+  const guessCapitalFromPlace =
+    isCapital.value && geoQuizType === GeoQuizType.FromStateCountry;
+
   while (otherAnswers.length < totalMultipleChoiceQuestions) {
     const randomIndex = getRandomIndex(itemsCloned.length, usedIndexes);
-
-    const currentGameStore = useCurrentGame();
-    const { isFlag, isCapital } = storeToRefs(currentGameStore);
-
-    const guessFromFlagOrCapital = geoQuizType === GeoQuizType.FromFlagCapital;
-
-    const guessFlagFromPlace =
-      isFlag.value && geoQuizType === GeoQuizType.FromStateCountry;
-
-    const guessCapitalFromPlace =
-      isCapital.value && geoQuizType === GeoQuizType.FromStateCountry;
 
     if (guessFromFlagOrCapital) {
       otherAnswers.push(itemsCloned[randomIndex].place);
@@ -41,6 +42,29 @@ export default function generateOtherAnswers(
     }
 
     usedIndexes.push(randomIndex);
+  }
+
+  const randomIndex = getRandomIndex(otherAnswers.length);
+
+  // add a resposta correta em uma posição aleatória na array de possíveis respostas
+  if (guessFromFlagOrCapital) {
+    otherAnswers.splice(randomIndex, 0, itemsCloned[correctAnswerIndex].place);
+  }
+
+  if (guessFlagFromPlace) {
+    otherAnswers.splice(
+      randomIndex,
+      0,
+      itemsCloned[correctAnswerIndex].flagPath
+    );
+  }
+
+  if (guessCapitalFromPlace) {
+    otherAnswers.splice(
+      randomIndex,
+      0,
+      itemsCloned[correctAnswerIndex].capital
+    );
   }
 
   return otherAnswers;
