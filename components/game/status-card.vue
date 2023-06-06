@@ -1,5 +1,7 @@
 <template>
-  <quiz-x-card class="col-span-2 w-full py-12 text-center">
+  <quiz-x-card
+    class="col-span-2 flex flex-col items-center w-full py-12 text-center min-h-[30rem]"
+  >
     <div class="flex gap-2 text-quiz-green-light justify-center mb-4">
       <icon-quiz-star-fill
         v-for="star in currentGame.stars"
@@ -15,18 +17,30 @@
     <p class="mb-1 text-quiz-green-light text-[1.6rem]">
       {{ isSuccess ? "Muito bem!" : "Que pena!" }}
     </p>
-    <p v-if="isSuccess" class="text-quiz-blue-100">
+    <p v-if="isSuccess" class="text-quiz-blue-100 text-">
       Você acertou {{ currentGame.correctAnswers }} de
       {{ currentGame.totalQuestions }} perguntas!
     </p>
     <p v-else>Não foi dessa fez!</p>
-    <quiz-x-tooltip
-      title="Experiência ganha"
-      activator-classes="mb-6 mt-5 text-quiz-green-light text-[1.6rem]"
-    >
-      + {{ currentGame.xpGained }} XP
-    </quiz-x-tooltip>
-    <quiz-btn @click="$router.push('/')">
+    <div class="flex gap-10 mt-8">
+      <quiz-x-tooltip
+        title="Experiência ganha"
+        activator-classes="text-quiz-green-light text-4xl"
+      >
+        + {{ currentGame.xpGained }} XP
+      </quiz-x-tooltip>
+
+      <quiz-x-tooltip
+        title="Experiência ganha"
+        activator-classes="text-quiz-green-light text-4xl"
+      >
+        <div class="flex gap-2">
+          {{ currentGame.coinsGained }} <icon-quiz-coins class="w-6" />
+        </div>
+      </quiz-x-tooltip>
+    </div>
+
+    <quiz-btn class="mt-auto" @click="$router.push('/')">
       Voltar para a página inicial
     </quiz-btn>
   </quiz-x-card>

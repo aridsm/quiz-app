@@ -5,10 +5,12 @@
       {{ currentQuestion.question }}
     </p>
     <div v-if="questionIsFlag">
-      <img
-        :src="currentQuestion.item?.replace('/static', '')"
-        class="w-48 block mx-auto my-4 pointer-events-none"
-      />
+      <div class="h-32 mx-auto my-4">
+        <img
+          :src="String(currentQuestion.item).replace('/static', '')"
+          class="h-full mx-auto pointer-events-none object-fill"
+        />
+      </div>
     </div>
     <div v-else>
       <p class="text-center text-quiz-green-light text-[1.6rem] my-4">
