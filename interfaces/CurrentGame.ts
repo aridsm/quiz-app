@@ -19,4 +19,5 @@ export interface CurrentGame {
   category: null | QuizCategoryType;
   currentQuestionIndex: number;
   status: CurrentGameStatus;
+  stars: number;
 }

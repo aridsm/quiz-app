@@ -1,6 +1,7 @@
 import { defineStore, storeToRefs } from "pinia";
 import { computed, reactive } from "vue";
 import { useGameSettings } from "./gameSettings";
+import { useLastGamesPlayed } from "./lastGamesPlayed";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 import { QuizType } from "~/enums/quizType";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
@@ -22,10 +23,13 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     category: null,
     currentQuestionIndex: 0,
     status: CurrentGameStatus.NotStarted,
+    stars: 0,
   });
 
   const storeGameSettings = useGameSettings();
   const { gameSettings } = storeToRefs(storeGameSettings);
+
+  const storeLastGamesPlay = useLastGamesPlayed();
 
   const isFlag = computed(() => {
     return (
@@ -71,8 +75,6 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
   function mountQuiz() {
     if (gameSettings.value.category === QuizCategoryType.Geography) {
       currentGame.questions = mountGeoQuiz();
-
-      console.log(currentGame.questions);
     }
   }
 
@@ -88,11 +90,26 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
       --currentGame.lives;
       if (!currentGame.lives) {
         currentGame.status = CurrentGameStatus.Failed;
+        storeLastGamesPlay.addGameToHistory(currentGame);
       }
     }
 
     if (currentGame.currentQuestionIndex + 1 === currentGame.totalQuestions) {
       currentGame.status = CurrentGameStatus.Done;
+      storeLastGamesPlay.addGameToHistory(currentGame);
+
+      const percentageCorrectAnswers =
+        (currentGame.correctAnswers * 100) / currentGame.totalQuestions;
+
+      if (percentageCorrectAnswers === 100) {
+        currentGame.stars = 3;
+      } else if (percentageCorrectAnswers >= 60) {
+        currentGame.stars = 2;
+      } else if (percentageCorrectAnswers >= 40) {
+        currentGame.stars = 1;
+      } else {
+        currentGame.stars = 0;
+      }
       return;
     }
 
@@ -113,6 +130,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.category = null;
     currentGame.currentQuestionIndex = 0;
     currentGame.status = CurrentGameStatus.NotStarted;
+    currentGame.stars = 0;
   }
 
   return {

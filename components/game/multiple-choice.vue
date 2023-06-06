@@ -7,7 +7,7 @@
     <div v-if="questionIsFlag">
       <img
         :src="currentQuestion.item?.replace('/static', '')"
-        class="w-52 block mx-auto my-4 pointer-events-none"
+        class="w-48 block mx-auto my-4 pointer-events-none"
       />
     </div>
     <div v-else>
@@ -27,7 +27,7 @@
           <span
             class="text-sm w-8 h-8 p-1 flex items-center justify-center bg-quiz-green-light text-quiz-green-dark rounded-full"
           >
-            {{ index + 1 }}
+            {{ getItemsOrderLetter(index) }}
           </span>
           <span>{{ answer }}</span>
         </button>
@@ -89,6 +89,23 @@ function selectAnswerHandler(answer: string | number) {
 function sendSelectedAnswer() {
   storeCurrentGame.validateAnswer(selectedAnswer.value);
   selectedAnswer.value = "";
+}
+
+function getItemsOrderLetter(number: number) {
+  switch (number) {
+    case 0:
+      return "A";
+    case 1:
+      return "B";
+    case 2:
+      return "C";
+    case 3:
+      return "D";
+    case 4:
+      return "E";
+    default:
+      return "";
+  }
 }
 </script>
 

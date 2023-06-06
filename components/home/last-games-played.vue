@@ -32,7 +32,7 @@
               class="w-20 text-left ml-4"
               activator-classes="flex items-center"
             >
-              {{ game.earnedCoinds }}
+              {{ game.earnedCoins }}
               <icon-quiz-coins class="w-4 ml-2" />
             </quiz-x-tooltip>
             <quiz-x-tooltip
@@ -42,11 +42,11 @@
               {{ game.earnedXp }} XP
             </quiz-x-tooltip>
             <icon-quiz-xmark
-              v-if="game.status === GameStatus.Fail"
+              v-if="game.status === CurrentGameStatus.Failed"
               class="w-5 text-quiz-pink"
             />
             <icon-quiz-checkmark
-              v-if="game.status === GameStatus.Win"
+              v-if="game.status === CurrentGameStatus.Done"
               class="w-5 text-quiz-green-light"
             />
           </div>
@@ -62,7 +62,7 @@ import { computed } from "vue";
 import getCategoryData from "../../utilities/getCategoryData";
 import getGameStatusData from "../../utilities/getGameStatusData";
 import { useLastGamesPlayed } from "~/store/lastGamesPlayed";
-import { GameStatus } from "~/enums/gameStatus";
+import { CurrentGameStatus } from "~/enums/currentGameStatus";
 
 const store = useLastGamesPlayed();
 

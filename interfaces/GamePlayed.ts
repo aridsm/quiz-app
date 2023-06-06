@@ -1,13 +1,13 @@
-import { GameStatus } from "~/enums/gameStatus";
+import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 
 export interface GamePlayed {
   name: string;
-  status: GameStatus;
+  status: CurrentGameStatus;
   totalQuestions: number;
   correctQuestions: number;
-  earnedCoinds: number;
+  earnedCoins: number;
   earnedXp: number;
-  category: QuizCategoryType;
+  category: QuizCategoryType | null;
   id: number;
 }

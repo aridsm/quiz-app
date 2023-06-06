@@ -19,7 +19,7 @@
         </span>
         <div class="w-32 h-20">
           <img
-            :src="answer?.replace('/static', '')"
+            :src="String(answer).replace('/static', '')"
             class="w-full h-full object-contain"
           />
         </div>

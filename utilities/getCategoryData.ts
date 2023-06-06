@@ -8,7 +8,7 @@ interface QuizStyles {
   };
 }
 
-export default function getCategoryData(id: number) {
+export default function getCategoryData(id: number | null) {
   const quizzesStyles: QuizStyles = {
     [QuizCategoryType.Biology]: {
       color: ChipColors.Pink,
@@ -24,8 +24,8 @@ export default function getCategoryData(id: number) {
     },
   };
 
-  const name = quizzesStyles[id].name;
-  const color = quizzesStyles[id].color;
+  const name = id ? quizzesStyles[id].name : null;
+  const color = id ? quizzesStyles[id].color : null;
 
   return { name, color, quizzesStyles };
 }

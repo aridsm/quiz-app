@@ -1,5 +1,5 @@
 import { ChipColors } from "~/enums/chipColors";
-import { GameStatus } from "~/enums/gameStatus";
+import { CurrentGameStatus } from "~/enums/currentGameStatus";
 
 interface GameStyles {
   [key: number]: {
@@ -10,11 +10,11 @@ interface GameStyles {
 
 export default function getGameStatusData(id: number) {
   const gameStyles: GameStyles = {
-    [GameStatus.Fail]: {
+    [CurrentGameStatus.Failed]: {
       color: ChipColors.Pink,
       name: "Falhou",
     },
-    [GameStatus.Win]: {
+    [CurrentGameStatus.Done]: {
       color: ChipColors.Green,
       name: "Finalizado",
     },

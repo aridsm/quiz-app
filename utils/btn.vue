@@ -20,6 +20,6 @@ export default Vue.extend({
 
 <style scoped>
 .button:disabled {
-  @apply bg-quiz-blue-200 text-quiz-blue-100 cursor-not-allowed;
+  @apply bg-quiz-blue-200 text-quiz-blue-100 cursor-not-allowed active:scale-100;
 }
 </style>
