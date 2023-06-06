@@ -70,7 +70,7 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
       category: game.category,
       id: new Date().getTime(),
     };
-    lastGamesPlayed.value.push(body);
+    lastGamesPlayed.value.unshift(body);
   }
 
   return { lastGamesPlayed, addGameToHistory };
