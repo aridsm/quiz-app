@@ -19,7 +19,10 @@
           <quiz-x-radios
             :items="fields.answerModeFields"
             :selected-value="gameSettings.answerMode"
-            :disabled="disableAnswerModeField"
+            :disabled="{
+              fieldValue: AnswerMode.WriteAnswer,
+              condition: disableAnswerModeField,
+            }"
             @getSelected="getSelectedAnswerMode"
           />
         </li>
