@@ -1,5 +1,6 @@
 import { defineStore, storeToRefs } from "pinia";
 import { computed, reactive } from "vue";
+import { distance } from "fastest-levenshtein";
 import { useGameSettings } from "./gameSettings";
 import { useLastGamesPlayed } from "./lastGamesPlayed";
 import { CurrentGame } from "~/interfaces/CurrentGame";
@@ -7,6 +8,7 @@ import { QuizType } from "~/enums/quizType";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import mountGeoQuiz from "~/utilities/mountGeoQuiz/mountGeoQuiz";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
+import { AnswerMode } from "~/enums/answerMode";
 
 export const useCurrentGame = defineStore("useCurrentGame", () => {
   const currentGame = reactive<CurrentGame>({
@@ -23,6 +25,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     category: null,
     currentQuestionIndex: 0,
     status: CurrentGameStatus.NotStarted,
+    similarAnswer: false,
     stars: 0,
   });
 
@@ -78,42 +81,94 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     }
   }
 
-  function validateAnswer(answer: string | number) {
+  function normalizeString(string: any) {
+    return String(string)
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036F]/g, "");
+  }
+
+  function validateInputValue(answer: string) {
+    const correctAnswer = normalizeString(
+      currentGame.questions[currentGame.currentQuestionIndex].correctAnswer
+    );
+
+    const enteredAnswer = normalizeString(answer);
+
+    const levenshteinDistance = distance(enteredAnswer, correctAnswer);
+
+    if (levenshteinDistance === 0) {
+      acceptAnswer();
+    } else if (levenshteinDistance > 0 && levenshteinDistance <= 4) {
+      return (currentGame.similarAnswer = true);
+    } else {
+      denyAnswer();
+    }
+
+    if (currentGame.currentQuestionIndex + 1 === currentGame.totalQuestions) {
+      return finishQuizSuccess();
+    }
+
+    ++currentGame.currentQuestionIndex;
+  }
+
+  function acceptAnswer() {
+    currentGame.xpGained += currentGame.currentQuestionIndex + 1;
+    ++currentGame.correctAnswers;
+  }
+
+  function denyAnswer() {
+    --currentGame.lives;
+    if (!currentGame.lives) {
+      currentGame.status = CurrentGameStatus.Failed;
+      storeLastGamesPlay.addGameToHistory(currentGame);
+    }
+  }
+
+  function finishQuizSuccess() {
+    currentGame.status = CurrentGameStatus.Done;
+    storeLastGamesPlay.addGameToHistory(currentGame);
+
+    const percentageCorrectAnswers =
+      (currentGame.correctAnswers * 100) / currentGame.totalQuestions;
+
+    if (percentageCorrectAnswers === 100) {
+      currentGame.stars = 3;
+    } else if (percentageCorrectAnswers >= 60) {
+      currentGame.stars = 2;
+    } else if (percentageCorrectAnswers >= 40) {
+      currentGame.stars = 1;
+    } else {
+      currentGame.stars = 0;
+    }
+  }
+
+  function validateMultipleChoice(answer: string) {
     const answerIsCorrect =
       currentGame.questions[currentGame.currentQuestionIndex].correctAnswer ===
       answer;
 
     if (answerIsCorrect) {
-      currentGame.xpGained += currentGame.currentQuestionIndex + 1;
-      ++currentGame.correctAnswers;
+      acceptAnswer();
     } else {
-      --currentGame.lives;
-      if (!currentGame.lives) {
-        currentGame.status = CurrentGameStatus.Failed;
-        storeLastGamesPlay.addGameToHistory(currentGame);
-      }
+      denyAnswer();
     }
 
     if (currentGame.currentQuestionIndex + 1 === currentGame.totalQuestions) {
-      currentGame.status = CurrentGameStatus.Done;
-      storeLastGamesPlay.addGameToHistory(currentGame);
-
-      const percentageCorrectAnswers =
-        (currentGame.correctAnswers * 100) / currentGame.totalQuestions;
-
-      if (percentageCorrectAnswers === 100) {
-        currentGame.stars = 3;
-      } else if (percentageCorrectAnswers >= 60) {
-        currentGame.stars = 2;
-      } else if (percentageCorrectAnswers >= 40) {
-        currentGame.stars = 1;
-      } else {
-        currentGame.stars = 0;
-      }
-      return;
+      return finishQuizSuccess();
     }
 
     ++currentGame.currentQuestionIndex;
+  }
+
+  function validateAnswer(answer: string) {
+    if (currentGame.answerMode === AnswerMode.WriteAnswer) {
+      return validateInputValue(answer);
+    }
+
+    if (currentGame.answerMode === AnswerMode.MultipleChoice) {
+      return validateMultipleChoice(answer);
+    }
   }
 
   function resetQuiz() {

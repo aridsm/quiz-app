@@ -24,14 +24,6 @@
           />
         </li>
         <li>
-          <quiz-x-title>Cronômetro (segundos)</quiz-x-title>
-          <quiz-x-radios
-            :items="fields.countdownValues"
-            :selected-value="gameSettings.countdown"
-            @getSelected="getSelectedCountdown"
-          />
-        </li>
-        <li>
           <quiz-x-title>Número de perguntas</quiz-x-title>
           <quiz-x-radios
             :items="fields.numberOfQuestion"
@@ -98,10 +90,6 @@ function getSelectedQuizMode(value: number) {
   if (disableAnswerModeField.value) {
     gameSettings.value.answerMode = AnswerMode.MultipleChoice;
   }
-}
-
-function getSelectedCountdown(value: number) {
-  gameSettings.value.countdown = value;
 }
 
 function startNewGame() {

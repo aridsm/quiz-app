@@ -1,11 +1,11 @@
 <template>
   <quiz-x-card class="col-span-2 w-full p-6">
-    <p class="text-center text-[1.6rem] leading-snug">
+    <p class="text-center text-[1.6rem] leading-none">
       {{ currentGame.currentQuestionIndex + 1 }}.
       {{ currentQuestion.question }}
     </p>
     <div v-if="questionIsFlag">
-      <div class="h-32 mx-auto my-4">
+      <div class="h-32 mx-auto my-8">
         <img
           :src="String(currentQuestion.item).replace('/static', '')"
           class="h-full mx-auto pointer-events-none object-fill"
@@ -35,12 +35,9 @@
       :select-answer-handler="selectAnswerHandler"
       :selected-answer="selectedAnswer"
     />
-    <div class="flex justify-between items-end">
-      <p class="text-quiz-green-light text-sm pl-2">
-        {{ currentGame.correctAnswers }} resposta(s) correta(s)
-      </p>
+    <div class="flex justify-between items-center mt-8">
       <quiz-btn
-        class="mt-4 ml-auto table"
+        class="ml-auto table"
         :disabled="!selectedAnswer"
         @click="sendSelectedAnswer"
       >

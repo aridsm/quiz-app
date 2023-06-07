@@ -10,6 +10,5 @@ export interface GameSetting {
   answerMode: AnswerMode | null;
   numberOfQuestions: number;
   acceptAnswerMode: boolean;
-  countdown: number | false; // segundos
   geoQuizType: GeoQuizType | null;
 }

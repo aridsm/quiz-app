@@ -20,4 +20,5 @@ export interface CurrentGame {
   currentQuestionIndex: number;
   status: CurrentGameStatus;
   stars: number;
+  similarAnswer: boolean;
 }

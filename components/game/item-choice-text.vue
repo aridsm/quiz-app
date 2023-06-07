@@ -9,7 +9,7 @@
         @click="() => selectAnswerHandler(answer)"
       >
         <span
-          class="text-sm w-8 h-8 p-1 flex items-center justify-center bg-quiz-green-light text-quiz-green-dark rounded-full"
+          class="text-sm w-8 h-8 pl-[2px] flex items-center justify-center bg-quiz-green-light text-quiz-green-dark rounded-full"
         >
           {{ getItemsOrderLetter(index) }}
         </span>

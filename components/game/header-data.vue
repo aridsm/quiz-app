@@ -23,12 +23,10 @@
       :show-value="true"
       class="mt-8 w-full"
     />
-    <quiz-btn
-      :disabled="!started"
-      class="mt-12 bg-quiz-blue-200 text-quiz-blue-100"
-    >
-      Desistir
-    </quiz-btn>
+
+    <p class="text-quiz-green-light text-sm mt-10">
+      {{ currentGame.correctAnswers }} resposta(s) correta(s)
+    </p>
   </div>
 </template>
 

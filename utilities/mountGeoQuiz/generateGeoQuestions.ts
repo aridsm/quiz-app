@@ -29,14 +29,14 @@ export default function generateQuestion(
 
   let place = "";
   if (isCountry.value) {
-    place = "o país";
+    place = "país";
   } else if (isBrazilStates.value) {
-    place = "o estado";
+    place = "estado";
   }
 
   if (geoQuizType === GeoQuizType.FromStateCountry) {
     return {
-      question: `Qual ${type} d${place} abaixo?`,
+      question: `Qual ${type} do ${place} abaixo?`,
       item: items[index].place,
       otherAnswers,
       correctAnswer: isCapital.value
@@ -45,7 +45,7 @@ export default function generateQuestion(
     };
   } else {
     return {
-      question: `Qual ${place} d${type} abaixo?`,
+      question: `De qual ${place} é ${type} abaixo?`,
       item: isCapital.value ? items[index].capital : items[index].flagPath,
       correctAnswer: items[index].place,
       otherAnswers,

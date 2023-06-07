@@ -30,22 +30,6 @@ function getFields(gameSettings: GameSetting) {
     },
   ];
 
-  const countdownValues = [
-    {
-      value: 10,
-    },
-    {
-      value: 20,
-    },
-    {
-      value: 60,
-    },
-    {
-      value: false,
-      name: "Sem cronômetro",
-    },
-  ];
-
   const isQuizWithCapital =
     gameSettings.quizId === QuizType.CountryCapital ||
     gameSettings.quizId === QuizType.BrazilStatesCapital;
@@ -80,7 +64,7 @@ function getFields(gameSettings: GameSetting) {
     },
   ];
 
-  return { answerModeFields, numberOfQuestion, countdownValues, quizModes };
+  return { answerModeFields, numberOfQuestion, quizModes };
 }
 
 export default getFields;
