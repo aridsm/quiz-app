@@ -24,13 +24,17 @@
       class="mt-8 w-full"
     />
 
-    <p class="text-quiz-green-light text-sm mt-10">
-      {{ currentGame.correctAnswers }} resposta(s) correta(s)
+    <p class="text-quiz-white mt-10">
+      {{ currentGame.correctAnswers }} resposta{{
+        correctAnswersIsOne ? "" : "s"
+      }}
+      correta{{ correctAnswersIsOne ? "" : "s" }}
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 
 interface Props {
@@ -38,7 +42,11 @@ interface Props {
   started: boolean;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const correctAnswersIsOne = computed(() => {
+  return props.currentGame.correctAnswers === 1;
+});
 </script>
 
 <style></style>

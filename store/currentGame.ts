@@ -2,6 +2,7 @@ import { defineStore, storeToRefs } from "pinia";
 import { computed, reactive } from "vue";
 import { distance } from "fastest-levenshtein";
 import { useGameSettings } from "./gameSettings";
+import { useUserDataStore } from "./userData";
 import { useLastGamesPlayed } from "./lastGamesPlayed";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 import { QuizType } from "~/enums/quizType";
@@ -33,6 +34,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
   const { gameSettings } = storeToRefs(storeGameSettings);
 
   const storeLastGamesPlay = useLastGamesPlayed();
+  const storeUserData = useUserDataStore();
 
   const isFlag = computed(() => {
     return (
@@ -141,6 +143,12 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     } else {
       currentGame.stars = 0;
     }
+
+    sendRewardsToUser();
+  }
+
+  function sendRewardsToUser() {
+    storeUserData.getRewards(currentGame);
   }
 
   function validateMultipleChoice(answer: string) {

@@ -4,6 +4,7 @@ import { User } from "../interfaces/User";
 import { QuizCategory } from "../interfaces/QuizCategory";
 import { useFriends } from "./friends";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
+import { CurrentGame } from "~/interfaces/CurrentGame";
 
 export const useUserDataStore = defineStore("userData", () => {
   const friendsStore = useFriends();
@@ -42,11 +43,6 @@ export const useUserDataStore = defineStore("userData", () => {
     lastGamesPlayed: [],
   });
 
-  function login(userName: string) {
-    data.userName = userName;
-    data.isLogged = true;
-  }
-
   const mostPlayedCategories = computed<QuizCategory[]>(() => {
     const categoriesCounts: number[] = data.categoriesPlayed.map(
       (category: QuizCategory) => category.count
@@ -61,5 +57,15 @@ export const useUserDataStore = defineStore("userData", () => {
     return categories;
   });
 
-  return { data, login, mostPlayedCategories };
+  function login(userName: string) {
+    data.userName = userName;
+    data.isLogged = true;
+  }
+
+  function getRewards(currentGame: CurrentGame) {
+    data.currentXp += currentGame.xpGained;
+    data.coinsCount += currentGame.coinsGained;
+  }
+
+  return { data, login, mostPlayedCategories, getRewards };
 });
