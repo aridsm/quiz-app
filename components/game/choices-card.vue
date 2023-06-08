@@ -51,9 +51,12 @@
         <p v-if="answerIsCorrect" class="text-quiz-green-light">
           Muito bem! Resposta correta!
         </p>
-        <p v-if="answerIsIncorrect" class="text-red-400">
-          Ops! Resposta errada!
-        </p>
+        <div v-if="answerIsIncorrect" class="flex items-center justify-between">
+          <p class="text-red-400">Ops! Resposta errada!</p>
+          <p v-if="!answerIsAFlag" class="text-quiz-green-light">
+            Resposta correta: {{ correctAnswer }}
+          </p>
+        </div>
       </div>
       <div class="flex justify-between items-center mt-4">
         <quiz-btn
@@ -126,6 +129,18 @@ const answerIsAFlag = computed<boolean>(() => {
   return (
     isFlag && currentGame.value.geoQuizType === GeoQuizType.FromStateCountry
   );
+});
+
+const correctAnswer = computed<any>(() => {
+  const answer =
+    currentGame.value.questions[currentGame.value.currentQuestionIndex]
+      .correctAnswer;
+
+  let fixedAnswer: any = answer;
+  if (typeof answer === "object") {
+    fixedAnswer = answer.map((item: string) => item).join(", ");
+  }
+  return fixedAnswer;
 });
 
 function selectAnswerHandler(answer: string) {
