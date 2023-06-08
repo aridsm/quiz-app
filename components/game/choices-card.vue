@@ -61,7 +61,9 @@
       <div class="flex justify-between items-center mt-4">
         <quiz-btn
           class="bg-quiz-pink text-quiz-white"
-          :disabled="answerWasValidated && answerIsCorrect"
+          :disabled="
+            (answerWasValidated && answerIsCorrect) || !currentGame.skipChances
+          "
           @click="skipQuestion"
         >
           Pular
@@ -157,7 +159,7 @@ function acceptAnswer() {
 }
 
 function skipQuestion() {
-  storeCurrentGame.nextQuestion();
+  storeCurrentGame.skipQuestion();
   selectedAnswer.value = "";
 }
 </script>

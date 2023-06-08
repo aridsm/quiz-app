@@ -195,6 +195,11 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     }
   }
 
+  function skipQuestion() {
+    --currentGame.skipChances;
+    nextQuestion();
+  }
+
   function resetQuiz() {
     currentGame.title = "";
     currentGame.totalQuestions = 5;
@@ -226,5 +231,6 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     resetQuiz,
     acceptAnswer,
     nextQuestion,
+    skipQuestion,
   };
 });
