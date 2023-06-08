@@ -1,12 +1,13 @@
 <template>
   <section class="mt-24">
-    <div class="flex items-center justify-between mb-2">
-      <quiz-x-title class="mb-0">Quizzes</quiz-x-title>
+    <div class="flex items-center justify-between mb-4 leading-none">
+      <quiz-x-title>Quizzes</quiz-x-title>
       <nuxt-link
         to="/quizzes/all"
-        class="text-quiz-green-light flex items-center leading-none"
+        class="text-quiz-green-light flex items-center"
       >
-        Todos os quizzes <icon-quiz-arrow class="ml-2 w-3 -rotate-90" />
+        Todos os quizzes
+        <icon-quiz-arrow class="ml-2 w-3 -rotate-90 -mt-[2px]" />
       </nuxt-link>
     </div>
     <ul class="grid grid-cols-3 gap-5">

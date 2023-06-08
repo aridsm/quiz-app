@@ -1,12 +1,9 @@
 <template>
   <section class="mt-24">
-    <div class="flex items-center justify-between mb-2">
-      <quiz-x-title class="mb-0">Últimos jogos</quiz-x-title>
-      <nuxt-link
-        to="/"
-        class="text-quiz-green-light flex items-center leading-none"
-      >
-        Seu histórico <icon-quiz-arrow class="ml-2 w-3 -rotate-90" />
+    <div class="flex items-center justify-between mb-4 leading-none">
+      <quiz-x-title>Últimos jogos</quiz-x-title>
+      <nuxt-link to="/" class="text-quiz-green-light flex items-center">
+        Seu histórico <icon-quiz-arrow class="ml-2 w-3 -rotate-90 -mt-[2px]" />
       </nuxt-link>
     </div>
     <ul class="flex flex-col gap-5">

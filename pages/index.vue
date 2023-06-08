@@ -2,7 +2,7 @@
   <div>
     <div class="grid grid-cols-3 gap-5">
       <section class="col-span-2">
-        <quiz-x-title class="grid-2">
+        <quiz-x-title class="grid-2 mb-4 leading-none">
           Maiores pontuações dessa semana
         </quiz-x-title>
         <ul class="flex flex-col gap-5 w-full">
@@ -28,7 +28,9 @@
         </ul>
       </section>
       <section class="flex flex-col">
-        <quiz-x-title class="grid-2"> Seu progresso </quiz-x-title>
+        <quiz-x-title class="grid-2 mb-4 leading-none">
+          Seu progresso
+        </quiz-x-title>
         <ul class="flex-1 flex flex-col gap-5">
           <li class="w-full flex-1">
             <quiz-x-card

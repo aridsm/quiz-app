@@ -13,7 +13,9 @@
       </div>
     </div>
     <div v-else>
-      <p class="text-center text-quiz-green-light text-[1.6rem] my-4">
+      <p
+        class="text-center bg-quiz-blue-200 py-4 px-6 text-quiz-green-light text-[1.6rem] my-4"
+      >
         {{ currentQuestion.item }}
       </p>
     </div>
@@ -36,6 +38,7 @@
       :select-answer-handler="selectAnswerHandler"
       :selected-answer="selectedAnswer"
     />
+    {{ answerIsAFlag }} {{ isFlag }}
     <div class="text-sm leading-none mt-2 h-4 text-right">
       <p v-if="answerIsSimilar" class="text-orange-400">
         Quase! Tente outra vez!
