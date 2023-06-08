@@ -4,13 +4,13 @@ import { AnswerMode } from "~/enums/answerMode";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { QuizType } from "~/enums/quizType";
-import { TotalQuestions } from "~/enums/totalQuestions";
 import { AnswerSimilarity } from "~/enums/answerSimilarity";
 
 export interface CurrentGame {
   title: string;
-  totalQuestions: TotalQuestions;
+  totalQuestions: number;
   correctAnswers: number;
+  totalLives: number;
   lives: number;
   xpGained: number;
   coinsGained: number;
@@ -24,4 +24,5 @@ export interface CurrentGame {
   stars: number;
   infiniteMode: boolean;
   answerSimilarity: AnswerSimilarity;
+  skipChances: number;
 }

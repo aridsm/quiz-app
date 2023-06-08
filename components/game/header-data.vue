@@ -1,9 +1,9 @@
 <template>
   <div class="col-span-1 w-full flex flex-col">
     <h2 class="text-[1.6rem] leading-snug">{{ currentGame.title }}</h2>
-    <div aria-label="3 vidas restantes" class="flex gap-2 mt-2 mb-5">
+    <div class="flex gap-2 mt-2 mb-5">
       <icon-quiz-heart-empty
-        v-for="live in 3 - currentGame.lives"
+        v-for="live in currentGame.totalLives - currentGame.lives"
         :key="live"
         class="w-6 text-quiz-pink"
       />
@@ -30,6 +30,8 @@
       }}
       correta{{ correctAnswersIsOne ? "" : "s" }}
     </p>
+
+    <p>{{ currentGame.skipChances }} chances para pular</p>
   </div>
 </template>
 

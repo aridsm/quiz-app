@@ -27,7 +27,7 @@
           />
         </li>
         <li>
-          <quiz-x-title>Número de perguntas </quiz-x-title>
+          <quiz-x-title>Número de perguntas</quiz-x-title>
           <quiz-x-radios
             :items="fields.numberOfQuestion"
             :selected-value="gameSettings.numberOfQuestions"
@@ -36,9 +36,9 @@
         </li>
         <li>
           <quiz-x-title class="w-fit">
-            <quiz-x-tooltip title="Todas as perguntas até o final">
+            <quiz-x-tooltip title="Novas perguntas são geradas automaticamente">
               <span class="flex items-center">
-                Modo infinito <icon-quiz-infos class="w-4 ml-2" />
+                Modo infinito <icon-quiz-infos class="w-4 ml-2 -mt-[1px]" />
               </span>
             </quiz-x-tooltip>
           </quiz-x-title>
@@ -66,7 +66,6 @@ import { useCurrentGame } from "~/store/currentGame";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizType } from "~/enums/quizType";
-import { TotalQuestions } from "~/enums/totalQuestions";
 
 const storeModals = useModals();
 const storeGameSettings = useGameSettings();
@@ -106,7 +105,7 @@ function getSelectedInfiniteMode(value: boolean) {
   gameSettings.value.infiniteMode = value;
 
   if (value === true) {
-    gameSettings.value.numberOfQuestions = TotalQuestions.All;
+    gameSettings.value.numberOfQuestions = null;
   }
 }
 

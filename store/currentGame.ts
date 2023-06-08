@@ -10,14 +10,14 @@ import { QuizCategoryType } from "~/enums/quizCategoryType";
 import mountGeoQuiz from "~/utilities/mountGeoQuiz/mountGeoQuiz";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { AnswerMode } from "~/enums/answerMode";
-import { TotalQuestions } from "~/enums/totalQuestions";
 import { AnswerSimilarity } from "~/enums/answerSimilarity";
 
 export const useCurrentGame = defineStore("useCurrentGame", () => {
   const currentGame = reactive<CurrentGame>({
     title: "",
-    totalQuestions: TotalQuestions.Five,
+    totalQuestions: 5,
     correctAnswers: 0,
+    totalLives: 3,
     lives: 3,
     xpGained: 0,
     coinsGained: 0,
@@ -31,6 +31,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     answerSimilarity: AnswerSimilarity.NotValidated,
     stars: 0,
     infiniteMode: false,
+    skipChances: 0,
   });
 
   const storeGameSettings = useGameSettings();
@@ -75,6 +76,10 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.answerMode = gameSettings.value.answerMode;
     currentGame.category = gameSettings.value.category;
     currentGame.infiniteMode = gameSettings.value.infiniteMode;
+    currentGame.skipChances = (+gameSettings.value.numberOfQuestions - 5) / 5;
+    currentGame.totalLives =
+      2 + (+gameSettings.value.numberOfQuestions - 5) / 5;
+    currentGame.lives = currentGame.totalLives;
 
     mountQuiz();
 
@@ -105,10 +110,12 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
 
     if (levenshteinDistance === 0) {
       currentGame.answerSimilarity = AnswerSimilarity.Equal;
+      acceptAnswer();
     } else if (levenshteinDistance > 0 && levenshteinDistance <= 4) {
       return (currentGame.answerSimilarity = AnswerSimilarity.Similar);
     } else {
       currentGame.answerSimilarity = AnswerSimilarity.NotSimilar;
+      denyAnswer();
     }
   }
 
@@ -119,8 +126,10 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
 
     if (answerIsCorrect) {
       currentGame.answerSimilarity = AnswerSimilarity.Equal;
+      acceptAnswer();
     } else {
       currentGame.answerSimilarity = AnswerSimilarity.NotSimilar;
+      denyAnswer();
     }
   }
 
@@ -156,20 +165,12 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     storeUserData.getRewards(currentGame);
   }
 
-  function confirmAnswer() {
-    const answerIsCorrect = (currentGame.answerSimilarity =
-      AnswerSimilarity.Equal);
-
-    if (answerIsCorrect) {
-      acceptAnswer();
-    } else {
-      denyAnswer();
+  function nextQuestion() {
+    if (!currentGame.lives) {
+      currentGame.status = CurrentGameStatus.Failed;
+      storeLastGamesPlay.addGameToHistory(currentGame);
     }
 
-    nextQuestion();
-  }
-
-  function nextQuestion() {
     if (currentGame.currentQuestionIndex + 1 === currentGame.totalQuestions) {
       return finishQuizSuccess();
     }
@@ -179,13 +180,13 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
   }
 
   function skipQuestion() {
-    denyAnswer();
     nextQuestion();
   }
 
   function acceptAnswer() {
-    currentGame.xpGained += currentGame.currentQuestionIndex + 1;
+    currentGame.xpGained += 1;
     ++currentGame.correctAnswers;
+    currentGame.coinsGained = Math.floor(currentGame.correctAnswers / 3);
   }
 
   function validateAnswer(answer: string) {
@@ -200,8 +201,9 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
 
   function resetQuiz() {
     currentGame.title = "";
-    currentGame.totalQuestions = TotalQuestions.Five;
+    currentGame.totalQuestions = 5;
     currentGame.correctAnswers = 0;
+    currentGame.totalLives = 3;
     currentGame.lives = 3;
     currentGame.xpGained = 0;
     currentGame.coinsGained = 0;
@@ -227,7 +229,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     validateAnswer,
     resetQuiz,
     acceptAnswer,
-    confirmAnswer,
+    nextQuestion,
     skipQuestion,
   };
 });

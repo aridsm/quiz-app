@@ -40,19 +40,24 @@
           </li>
           <li class="w-full flex-1">
             <quiz-x-card
-              class="w-full h-full flex items-center justify-between px-6"
+              class="w-full h-full flex items-center justify-between px-5"
             >
               <span> Categoria mais jogada </span>
-              <span class="relative">
-                <span class="text-quiz-green-light">{{
-                  mostPlayedCategories[0].name
-                }}</span>
-                <p
-                  v-if="mostPlayedCategories.length > 1"
-                  class="absolute text-sm -mt-1 text-quiz-blue-100 right-0"
-                >
-                  E mais {{ mostPlayedCategories.length - 1 }}
-                </p>
+              <span
+                v-if="mostPlayedCategories.length === 1"
+                class="text-quiz-green-light"
+              >
+                <span>
+                  {{ mostPlayedCategories[0].name }}
+                </span>
+              </span>
+              <span
+                v-else-if="mostPlayedCategories.length > 1"
+                class="text-quiz-green-light"
+              >
+                <quiz-x-tooltip :title="categoriesPlayed">
+                  Variadas
+                </quiz-x-tooltip>
               </span>
             </quiz-x-card>
           </li>
@@ -76,7 +81,7 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useUserDataStore } from "~/store/userData";
 
 const userData = useUserDataStore();
@@ -89,6 +94,12 @@ interface User {
   score: number;
   trophies: number;
 }
+
+const categoriesPlayed = computed(() => {
+  return mostPlayedCategories.value
+    .map((category: any) => category.name)
+    .join(", ");
+});
 
 const dummyUsers = ref<User[]>([
   {

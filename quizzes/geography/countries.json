@@ -467,7 +467,7 @@
   {
     "place": "Bahrein",
     "capital": ["Manama"],
-    "flagPath": "/static/countries_flags/bahrein"
+    "flagPath": "/static/countries_flags/bahrein.png"
   },
   {
     "place": "Brunei",

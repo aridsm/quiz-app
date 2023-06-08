@@ -20,10 +20,13 @@
             <quiz-x-chip :color="getGameStatusData(game.status).color">{{
               getGameStatusData(game.status).name
             }}</quiz-x-chip>
-            <span class="text-sm text-quiz-blue-100 w-20 text-left ml-12">
+            <quiz-x-tooltip
+              title="Categoria"
+              class="w-20 text-left ml-12"
+              activator-classes="text-sm text-quiz-blue-100 "
+            >
               {{ getCategoryData(game.category).name }}
-            </span>
-
+            </quiz-x-tooltip>
             <quiz-x-tooltip title="Acertos" class="w-20 text-left ml-4">
               {{ game.correctQuestions }}/{{ game.totalQuestions }}
             </quiz-x-tooltip>

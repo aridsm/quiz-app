@@ -21,6 +21,7 @@
       v-if="!gameIsMultipleChoice"
       :model.sync="selectedAnswer"
       placeholder="Digite sua resposta..."
+      :disabled="answerIsCorrect"
       class="w-full"
     />
     <game-item-choice-text
@@ -35,25 +36,25 @@
       :select-answer-handler="selectAnswerHandler"
       :selected-answer="selectedAnswer"
     />
-    <div v-if="!gameIsMultipleChoice" class="text-sm mt-2">
+    <div class="text-sm leading-none mt-2 h-4 text-right">
       <p v-if="answerIsSimilar" class="text-orange-400">
         Quase! Tente outra vez!
       </p>
       <p v-if="answerIsCorrect" class="text-quiz-green-light">
         Muito bem! Resposta correta!
       </p>
-      <p v-if="answerIsIncorrect" class="text-red-500">Ops! Resposta errada!</p>
+      <p v-if="answerIsIncorrect" class="text-red-400">Ops! Resposta errada!</p>
     </div>
-    <div class="flex justify-between items-center mt-8">
+    <div class="flex justify-between items-center mt-4">
       <quiz-btn
         class="bg-quiz-pink text-quiz-white"
-        :disabled="answerWasValidated"
+        :disabled="answerWasValidated && answerIsCorrect"
         @click="skipQuestion"
       >
         Pular
       </quiz-btn>
       <quiz-btn
-        v-if="!answerWasValidated"
+        v-if="answerIsSimilar || answerIsIncorrect || !answerWasValidated"
         :disabled="!selectedAnswer"
         @click="sendSelectedAnswer"
       >
@@ -125,7 +126,7 @@ function sendSelectedAnswer() {
 }
 
 function acceptAnswer() {
-  storeCurrentGame.confirmAnswer();
+  storeCurrentGame.nextQuestion();
   selectedAnswer.value = "";
 }
 

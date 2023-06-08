@@ -15,7 +15,7 @@
       />
     </div>
     <p class="mb-1 text-quiz-white text-[1.6rem] leading-none">
-      {{ isSuccess ? "Muito bem!" : "Que pena!" }}
+      {{ isSuccess ? "Muito bem! Você chegou ao final!" : "Que pena!" }}
     </p>
     <p v-if="!isSuccess">Não foi dessa vez!</p>
     <p class="text-quiz-blue-100 mt-6">
@@ -31,7 +31,7 @@
       </quiz-x-tooltip>
 
       <quiz-x-tooltip
-        title="Experiência ganha"
+        title="Moedas ganhas"
         activator-classes="text-quiz-green-light text-4xl"
       >
         <div class="flex gap-2">
@@ -40,9 +40,10 @@
       </quiz-x-tooltip>
     </div>
 
-    <quiz-btn class="mt-auto" @click="$router.push('/')">
-      Voltar para a página inicial
-    </quiz-btn>
+    <quiz-btn class="mt-auto"> Jogar novamente </quiz-btn>
+    <nuxt-link class="mt-4 text-quiz-green-light" to="/">
+      Voltar à página inicial
+    </nuxt-link>
   </quiz-x-card>
 </template>
 
