@@ -35,12 +35,31 @@
       :select-answer-handler="selectAnswerHandler"
       :selected-answer="selectedAnswer"
     />
+    <div v-if="!gameIsMultipleChoice" class="text-sm mt-2">
+      <p v-if="answerIsSimilar" class="text-orange-400">
+        Quase! Tente outra vez!
+      </p>
+      <p v-if="answerIsCorrect" class="text-quiz-green-light">
+        Muito bem! Resposta correta!
+      </p>
+      <p v-if="answerIsIncorrect" class="text-red-500">Ops! Resposta errada!</p>
+    </div>
     <div class="flex justify-between items-center mt-8">
       <quiz-btn
-        class="ml-auto table"
+        class="bg-quiz-pink text-quiz-white"
+        :disabled="answerWasValidated"
+        @click="skipQuestion"
+      >
+        Pular
+      </quiz-btn>
+      <quiz-btn
+        v-if="!answerWasValidated"
         :disabled="!selectedAnswer"
         @click="sendSelectedAnswer"
       >
+        Confirmar
+      </quiz-btn>
+      <quiz-btn v-if="answerIsCorrect" @click="acceptAnswer">
         Próximo
       </quiz-btn>
     </div>
@@ -51,6 +70,7 @@
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 import { AnswerMode } from "~/enums/answerMode";
+import { AnswerSimilarity } from "~/enums/answerSimilarity";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { Question } from "~/interfaces/Question";
 import { useCurrentGame } from "~/store/currentGame";
@@ -58,7 +78,7 @@ import { useCurrentGame } from "~/store/currentGame";
 const storeCurrentGame = useCurrentGame();
 const { isFlag, currentGame } = storeToRefs(storeCurrentGame);
 
-const selectedAnswer = ref<number | string>("");
+const selectedAnswer = ref<string>("");
 
 const questionIsFlag = computed<boolean>(() => {
   return (
@@ -74,18 +94,43 @@ const currentQuestion = computed<Question>(() => {
   return currentGame.value.questions[currentGame.value.currentQuestionIndex];
 });
 
+const answerWasValidated = computed<boolean>(() => {
+  return currentGame.value.answerSimilarity !== AnswerSimilarity.NotValidated;
+});
+
+const answerIsCorrect = computed<boolean>(() => {
+  return currentGame.value.answerSimilarity === AnswerSimilarity.Equal;
+});
+
+const answerIsIncorrect = computed<boolean>(() => {
+  return currentGame.value.answerSimilarity === AnswerSimilarity.NotSimilar;
+});
+
+const answerIsSimilar = computed<boolean>(() => {
+  return currentGame.value.answerSimilarity === AnswerSimilarity.Similar;
+});
+
 const answerIsAFlag = computed<boolean>(() => {
   return (
     isFlag && currentGame.value.geoQuizType === GeoQuizType.FromStateCountry
   );
 });
 
-function selectAnswerHandler(answer: string | number) {
+function selectAnswerHandler(answer: string) {
   selectedAnswer.value = answer;
 }
 
 function sendSelectedAnswer() {
   storeCurrentGame.validateAnswer(selectedAnswer.value);
+}
+
+function acceptAnswer() {
+  storeCurrentGame.confirmAnswer();
+  selectedAnswer.value = "";
+}
+
+function skipQuestion() {
+  storeCurrentGame.skipQuestion();
   selectedAnswer.value = "";
 }
 </script>

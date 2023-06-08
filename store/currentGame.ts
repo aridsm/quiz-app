@@ -11,6 +11,7 @@ import mountGeoQuiz from "~/utilities/mountGeoQuiz/mountGeoQuiz";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { AnswerMode } from "~/enums/answerMode";
 import { TotalQuestions } from "~/enums/totalQuestions";
+import { AnswerSimilarity } from "~/enums/answerSimilarity";
 
 export const useCurrentGame = defineStore("useCurrentGame", () => {
   const currentGame = reactive<CurrentGame>({
@@ -27,7 +28,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     category: null,
     currentQuestionIndex: 0,
     status: CurrentGameStatus.NotStarted,
-    similarAnswer: false,
+    answerSimilarity: AnswerSimilarity.NotValidated,
     stars: 0,
     infiniteMode: false,
   });
@@ -103,23 +104,24 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     const levenshteinDistance = distance(enteredAnswer, correctAnswer);
 
     if (levenshteinDistance === 0) {
-      acceptAnswer();
+      currentGame.answerSimilarity = AnswerSimilarity.Equal;
     } else if (levenshteinDistance > 0 && levenshteinDistance <= 4) {
-      return (currentGame.similarAnswer = true);
+      return (currentGame.answerSimilarity = AnswerSimilarity.Similar);
     } else {
-      denyAnswer();
+      currentGame.answerSimilarity = AnswerSimilarity.NotSimilar;
     }
-
-    if (currentGame.currentQuestionIndex + 1 === currentGame.totalQuestions) {
-      return finishQuizSuccess();
-    }
-
-    ++currentGame.currentQuestionIndex;
   }
 
-  function acceptAnswer() {
-    currentGame.xpGained += currentGame.currentQuestionIndex + 1;
-    ++currentGame.correctAnswers;
+  function validateMultipleChoice(answer: string) {
+    const answerIsCorrect =
+      currentGame.questions[currentGame.currentQuestionIndex].correctAnswer ===
+      answer;
+
+    if (answerIsCorrect) {
+      currentGame.answerSimilarity = AnswerSimilarity.Equal;
+    } else {
+      currentGame.answerSimilarity = AnswerSimilarity.NotSimilar;
+    }
   }
 
   function denyAnswer() {
@@ -154,10 +156,9 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     storeUserData.getRewards(currentGame);
   }
 
-  function validateMultipleChoice(answer: string) {
-    const answerIsCorrect =
-      currentGame.questions[currentGame.currentQuestionIndex].correctAnswer ===
-      answer;
+  function confirmAnswer() {
+    const answerIsCorrect = (currentGame.answerSimilarity =
+      AnswerSimilarity.Equal);
 
     if (answerIsCorrect) {
       acceptAnswer();
@@ -165,20 +166,35 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
       denyAnswer();
     }
 
+    nextQuestion();
+  }
+
+  function nextQuestion() {
     if (currentGame.currentQuestionIndex + 1 === currentGame.totalQuestions) {
       return finishQuizSuccess();
     }
 
+    currentGame.answerSimilarity = AnswerSimilarity.NotValidated;
     ++currentGame.currentQuestionIndex;
+  }
+
+  function skipQuestion() {
+    denyAnswer();
+    nextQuestion();
+  }
+
+  function acceptAnswer() {
+    currentGame.xpGained += currentGame.currentQuestionIndex + 1;
+    ++currentGame.correctAnswers;
   }
 
   function validateAnswer(answer: string) {
     if (currentGame.answerMode === AnswerMode.WriteAnswer) {
-      return validateInputValue(answer);
+      validateInputValue(answer);
     }
 
     if (currentGame.answerMode === AnswerMode.MultipleChoice) {
-      return validateMultipleChoice(answer);
+      validateMultipleChoice(answer);
     }
   }
 
@@ -198,6 +214,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.status = CurrentGameStatus.NotStarted;
     currentGame.stars = 0;
     currentGame.infiniteMode = false;
+    currentGame.answerSimilarity = AnswerSimilarity.NotValidated;
   }
 
   return {
@@ -209,5 +226,8 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     isBrazilStates,
     validateAnswer,
     resetQuiz,
+    acceptAnswer,
+    confirmAnswer,
+    skipQuestion,
   };
 });

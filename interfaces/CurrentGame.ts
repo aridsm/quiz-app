@@ -5,6 +5,7 @@ import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { QuizType } from "~/enums/quizType";
 import { TotalQuestions } from "~/enums/totalQuestions";
+import { AnswerSimilarity } from "~/enums/answerSimilarity";
 
 export interface CurrentGame {
   title: string;
@@ -21,6 +22,6 @@ export interface CurrentGame {
   currentQuestionIndex: number;
   status: CurrentGameStatus;
   stars: number;
-  similarAnswer: boolean;
   infiniteMode: boolean;
+  answerSimilarity: AnswerSimilarity;
 }
