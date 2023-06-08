@@ -179,10 +179,6 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     ++currentGame.currentQuestionIndex;
   }
 
-  function skipQuestion() {
-    nextQuestion();
-  }
-
   function acceptAnswer() {
     currentGame.xpGained += 1;
     ++currentGame.correctAnswers;
@@ -230,6 +226,5 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     resetQuiz,
     acceptAnswer,
     nextQuestion,
-    skipQuestion,
   };
 });

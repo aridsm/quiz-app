@@ -8,8 +8,8 @@
       {{ value }}
     </div>
     <div
-      class="bg-quiz-green-light h-full"
-      :style="{ width: barPercentageWidth + '%' }"
+      class="bg-quiz-green-light h-full transition bar-progress"
+      :style="{ transform: `scaleX(${barPercentageWidth})` }"
     />
   </div>
 </template>
@@ -25,7 +25,12 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const barPercentageWidth = computed<number>(
-  () => (100 * props.value) / props.maxValue
-);
+const barPercentageWidth = computed<number>(() => props.value / props.maxValue);
 </script>
+
+<style scoped>
+.bar-progress {
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+}
+</style>

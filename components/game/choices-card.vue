@@ -1,71 +1,79 @@
 <template>
-  <quiz-x-card class="col-span-2 w-full p-6">
-    <p class="text-center text-[1.6rem] leading-none">
-      {{ currentGame.currentQuestionIndex + 1 }}.
-      {{ currentQuestion.question }}
-    </p>
-    <div v-if="questionIsFlag">
-      <div class="h-32 mx-auto my-8">
-        <img
-          :src="String(currentQuestion.item).replace('/static', '')"
-          class="h-full mx-auto pointer-events-none object-fill"
-        />
-      </div>
-    </div>
-    <div v-else>
-      <p
-        class="text-center bg-quiz-blue-200 py-4 px-6 text-quiz-green-light text-[1.6rem] my-4"
-      >
-        {{ currentQuestion.item }}
-      </p>
-    </div>
-    <quiz-input-text
-      v-if="!gameIsMultipleChoice"
-      :model.sync="selectedAnswer"
-      placeholder="Digite sua resposta..."
-      :disabled="answerIsCorrect"
+  <quiz-x-card class="col-span-2 w-full relative overflow-hidden p-0">
+    <quiz-progress-bar
+      :max-value="currentGame.totalQuestions"
+      :value="currentGame.currentQuestionIndex"
       class="w-full"
     />
-    <game-item-choice-text
-      v-if="!answerIsAFlag && gameIsMultipleChoice"
-      :current-question="currentQuestion"
-      :select-answer-handler="selectAnswerHandler"
-      :selected-answer="selectedAnswer"
-    />
-    <game-item-choice-img
-      v-if="answerIsAFlag && gameIsMultipleChoice"
-      :current-question="currentQuestion"
-      :select-answer-handler="selectAnswerHandler"
-      :selected-answer="selectedAnswer"
-    />
-    {{ answerIsAFlag }} {{ isFlag }}
-    <div class="text-sm leading-none mt-2 h-4 text-right">
-      <p v-if="answerIsSimilar" class="text-orange-400">
-        Quase! Tente outra vez!
+    <div class="p-6">
+      <p class="text-center text-[1.6rem] leading-none">
+        {{ currentGame.currentQuestionIndex + 1 }}.
+        {{ currentQuestion.question }}
       </p>
-      <p v-if="answerIsCorrect" class="text-quiz-green-light">
-        Muito bem! Resposta correta!
-      </p>
-      <p v-if="answerIsIncorrect" class="text-red-400">Ops! Resposta errada!</p>
-    </div>
-    <div class="flex justify-between items-center mt-4">
-      <quiz-btn
-        class="bg-quiz-pink text-quiz-white"
-        :disabled="answerWasValidated && answerIsCorrect"
-        @click="skipQuestion"
-      >
-        Pular
-      </quiz-btn>
-      <quiz-btn
-        v-if="answerIsSimilar || answerIsIncorrect || !answerWasValidated"
-        :disabled="!selectedAnswer"
-        @click="sendSelectedAnswer"
-      >
-        Confirmar
-      </quiz-btn>
-      <quiz-btn v-if="answerIsCorrect" @click="acceptAnswer">
-        Próximo
-      </quiz-btn>
+      <div v-if="questionIsFlag">
+        <div class="h-32 mx-auto my-8">
+          <img
+            :src="String(currentQuestion.item).replace('/static', '')"
+            class="h-full mx-auto pointer-events-none object-fill"
+          />
+        </div>
+      </div>
+      <div v-else>
+        <p
+          class="text-center bg-quiz-blue-200 py-4 px-6 text-quiz-green-light text-[1.6rem] my-4"
+        >
+          {{ currentQuestion.item }}
+        </p>
+      </div>
+      <quiz-input-text
+        v-if="!gameIsMultipleChoice"
+        :model.sync="selectedAnswer"
+        placeholder="Digite sua resposta..."
+        :disabled="answerIsCorrect"
+        class="w-full"
+      />
+      <game-item-choice-text
+        v-if="!answerIsAFlag && gameIsMultipleChoice"
+        :current-question="currentQuestion"
+        :select-answer-handler="selectAnswerHandler"
+        :selected-answer="selectedAnswer"
+      />
+      <game-item-choice-img
+        v-if="answerIsAFlag && gameIsMultipleChoice"
+        :current-question="currentQuestion"
+        :select-answer-handler="selectAnswerHandler"
+        :selected-answer="selectedAnswer"
+      />
+      <div class="text-sm leading-none mt-2 h-4 text-right">
+        <p v-if="answerIsSimilar" class="text-orange-400">
+          Quase! Tente outra vez!
+        </p>
+        <p v-if="answerIsCorrect" class="text-quiz-green-light">
+          Muito bem! Resposta correta!
+        </p>
+        <p v-if="answerIsIncorrect" class="text-red-400">
+          Ops! Resposta errada!
+        </p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <quiz-btn
+          class="bg-quiz-pink text-quiz-white"
+          :disabled="answerWasValidated && answerIsCorrect"
+          @click="skipQuestion"
+        >
+          Pular
+        </quiz-btn>
+        <quiz-btn
+          v-if="answerIsSimilar || answerIsIncorrect || !answerWasValidated"
+          :disabled="!selectedAnswer"
+          @click="sendSelectedAnswer"
+        >
+          Confirmar
+        </quiz-btn>
+        <quiz-btn v-if="answerIsCorrect" @click="acceptAnswer">
+          Próximo
+        </quiz-btn>
+      </div>
     </div>
   </quiz-x-card>
 </template>
@@ -134,7 +142,7 @@ function acceptAnswer() {
 }
 
 function skipQuestion() {
-  storeCurrentGame.skipQuestion();
+  storeCurrentGame.nextQuestion();
   selectedAnswer.value = "";
 }
 </script>
