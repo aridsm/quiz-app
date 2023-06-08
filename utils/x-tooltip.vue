@@ -4,7 +4,7 @@
       <slot />
     </div>
     <quiz-x-card
-      class="opacity-0 absolute py-2 tooltip text-quiz-green-dark bg-quiz-green-light transition text-xs -left-2 block w-max"
+      class="opacity-0 absolute py-2 tooltip text-quiz-green-dark bg-quiz-green-light transition text-xs -left-2 block w-max z-[999]"
       >{{ title }}
     </quiz-x-card>
   </span>

@@ -1,6 +1,7 @@
 import { AnswerMode } from "~/enums/answerMode";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizType } from "~/enums/quizType";
+import { TotalQuestions } from "~/enums/totalQuestions";
 import { GameSetting } from "~/interfaces/GameSetting";
 
 function getFields(gameSettings: GameSetting) {
@@ -17,16 +18,35 @@ function getFields(gameSettings: GameSetting) {
 
   const numberOfQuestion = [
     {
-      value: 5,
+      value: TotalQuestions.Five,
+      name: "5",
     },
     {
-      value: 10,
+      value: TotalQuestions.Ten,
+      name: "10",
     },
     {
-      value: 15,
+      value: TotalQuestions.Fifteen,
+      name: "15",
     },
     {
-      value: 20,
+      value: TotalQuestions.Twenty,
+      name: "20",
+    },
+    {
+      value: TotalQuestions.All,
+      name: "Todas",
+    },
+  ];
+
+  const infiniteMode = [
+    {
+      value: true,
+      name: "Sim",
+    },
+    {
+      value: false,
+      name: "Não",
     },
   ];
 
@@ -64,7 +84,7 @@ function getFields(gameSettings: GameSetting) {
     },
   ];
 
-  return { answerModeFields, numberOfQuestion, quizModes };
+  return { answerModeFields, numberOfQuestion, quizModes, infiniteMode };
 }
 
 export default getFields;

@@ -4,10 +4,11 @@ import { AnswerMode } from "~/enums/answerMode";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { QuizType } from "~/enums/quizType";
+import { TotalQuestions } from "~/enums/totalQuestions";
 
 export interface CurrentGame {
   title: string;
-  totalQuestions: number;
+  totalQuestions: TotalQuestions;
   correctAnswers: number;
   lives: number;
   xpGained: number;
@@ -21,4 +22,5 @@ export interface CurrentGame {
   status: CurrentGameStatus;
   stars: number;
   similarAnswer: boolean;
+  infiniteMode: boolean;
 }

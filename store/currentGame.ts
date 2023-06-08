@@ -10,11 +10,12 @@ import { QuizCategoryType } from "~/enums/quizCategoryType";
 import mountGeoQuiz from "~/utilities/mountGeoQuiz/mountGeoQuiz";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { AnswerMode } from "~/enums/answerMode";
+import { TotalQuestions } from "~/enums/totalQuestions";
 
 export const useCurrentGame = defineStore("useCurrentGame", () => {
   const currentGame = reactive<CurrentGame>({
     title: "",
-    totalQuestions: 0,
+    totalQuestions: TotalQuestions.Five,
     correctAnswers: 0,
     lives: 3,
     xpGained: 0,
@@ -28,6 +29,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     status: CurrentGameStatus.NotStarted,
     similarAnswer: false,
     stars: 0,
+    infiniteMode: false,
   });
 
   const storeGameSettings = useGameSettings();
@@ -71,6 +73,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.geoQuizType = gameSettings.value.geoQuizType;
     currentGame.answerMode = gameSettings.value.answerMode;
     currentGame.category = gameSettings.value.category;
+    currentGame.infiniteMode = gameSettings.value.infiniteMode;
 
     mountQuiz();
 
@@ -181,7 +184,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
 
   function resetQuiz() {
     currentGame.title = "";
-    currentGame.totalQuestions = 0;
+    currentGame.totalQuestions = TotalQuestions.Five;
     currentGame.correctAnswers = 0;
     currentGame.lives = 3;
     currentGame.xpGained = 0;
@@ -194,6 +197,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.currentQuestionIndex = 0;
     currentGame.status = CurrentGameStatus.NotStarted;
     currentGame.stars = 0;
+    currentGame.infiniteMode = false;
   }
 
   return {

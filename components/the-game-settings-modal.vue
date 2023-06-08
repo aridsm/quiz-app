@@ -15,7 +15,7 @@
           />
         </li>
         <li v-if="gameSettings.acceptAnswerMode">
-          <quiz-x-title> Modo de resposta </quiz-x-title>
+          <quiz-x-title>Modo de resposta</quiz-x-title>
           <quiz-x-radios
             :items="fields.answerModeFields"
             :selected-value="gameSettings.answerMode"
@@ -27,11 +27,25 @@
           />
         </li>
         <li>
-          <quiz-x-title>Número de perguntas</quiz-x-title>
+          <quiz-x-title>Número de perguntas </quiz-x-title>
           <quiz-x-radios
             :items="fields.numberOfQuestion"
             :selected-value="gameSettings.numberOfQuestions"
             @getSelected="getSelectedNumberOfQuestions"
+          />
+        </li>
+        <li>
+          <quiz-x-title class="w-fit">
+            <quiz-x-tooltip title="Todas as perguntas até o final">
+              <span class="flex items-center">
+                Modo infinito <icon-quiz-infos class="w-4 ml-2" />
+              </span>
+            </quiz-x-tooltip>
+          </quiz-x-title>
+          <quiz-x-radios
+            :items="fields.infiniteMode"
+            :selected-value="gameSettings.infiniteMode"
+            @getSelected="getSelectedInfiniteMode"
           />
         </li>
       </ol>
@@ -52,6 +66,7 @@ import { useCurrentGame } from "~/store/currentGame";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizType } from "~/enums/quizType";
+import { TotalQuestions } from "~/enums/totalQuestions";
 
 const storeModals = useModals();
 const storeGameSettings = useGameSettings();
@@ -85,6 +100,14 @@ function getSelectedAnswerMode(value: AnswerMode) {
 
 function getSelectedNumberOfQuestions(value: number) {
   gameSettings.value.numberOfQuestions = value;
+}
+
+function getSelectedInfiniteMode(value: boolean) {
+  gameSettings.value.infiniteMode = value;
+
+  if (value === true) {
+    gameSettings.value.numberOfQuestions = TotalQuestions.All;
+  }
 }
 
 function getSelectedQuizMode(value: number) {
