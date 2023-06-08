@@ -135,10 +135,6 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
 
   function denyAnswer() {
     --currentGame.lives;
-    if (!currentGame.lives) {
-      currentGame.status = CurrentGameStatus.Failed;
-      storeLastGamesPlay.addGameToHistory(currentGame);
-    }
   }
 
   function finishQuizSuccess() {
@@ -229,7 +225,6 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     isBrazilStates,
     validateAnswer,
     resetQuiz,
-    acceptAnswer,
     nextQuestion,
     skipQuestion,
   };

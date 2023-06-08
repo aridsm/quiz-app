@@ -2,10 +2,11 @@
   <ul class="flex flex-col gap-3">
     <li v-for="(answer, index) in currentQuestion.otherAnswers" :key="answer">
       <button
-        class="flex gap-3 items-center hover:bg-quiz-blue-200 hover:text-quiz-green-light p-2 w-full rounded-md"
+        class="button-choice flex gap-3 items-center hover:bg-quiz-blue-200 hover:text-quiz-green-light p-2 w-full rounded-md"
         :class="{
           'selected-answer bg-quiz-blue-200': selectedAnswer === answer,
         }"
+        :disabled="disabled && answer !== selectedAnswer"
         @click="() => selectAnswerHandler(answer)"
       >
         <span
@@ -26,6 +27,7 @@ interface Props {
   currentQuestion: Question;
   selectAnswerHandler: Function;
   selectedAnswer: string;
+  disabled?: boolean;
 }
 
 defineProps<Props>();
@@ -48,4 +50,8 @@ function getItemsOrderLetter(number: number) {
 }
 </script>
 
-<style></style>
+<style scoped>
+.button-choice:disabled {
+  @apply text-quiz-blue-100 hover:bg-transparent hover:text-quiz-blue-100;
+}
+</style>

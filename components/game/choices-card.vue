@@ -1,5 +1,7 @@
 <template>
-  <quiz-x-card class="col-span-2 w-full relative overflow-hidden p-0">
+  <quiz-x-card
+    class="col-span-2 w-full relative overflow-hidden quiz-card-choices"
+  >
     <quiz-progress-bar
       :max-value="currentGame.totalQuestions"
       :value="currentGame.currentQuestionIndex"
@@ -29,19 +31,21 @@
         v-if="!gameIsMultipleChoice"
         :model.sync="selectedAnswer"
         placeholder="Digite sua resposta..."
-        :disabled="answerIsCorrect"
+        :disabled="answerIsCorrect || answerIsIncorrect"
         class="w-full"
       />
       <game-item-choice-text
         v-if="!answerIsAFlag && gameIsMultipleChoice"
         :current-question="currentQuestion"
         :select-answer-handler="selectAnswerHandler"
+        :disabled="answerIsCorrect || answerIsIncorrect"
         :selected-answer="selectedAnswer"
       />
       <game-item-choice-img
         v-if="answerIsAFlag && gameIsMultipleChoice"
         :current-question="currentQuestion"
         :select-answer-handler="selectAnswerHandler"
+        :disabled="answerIsCorrect || answerIsIncorrect"
         :selected-answer="selectedAnswer"
       />
       <div class="text-sm leading-none mt-2 h-4 text-right">
@@ -64,18 +68,21 @@
           :disabled="
             (answerWasValidated && answerIsCorrect) || !currentGame.skipChances
           "
-          @click="skipQuestion"
+          @click="nextQuestion"
         >
           Pular
         </quiz-btn>
         <quiz-btn
-          v-if="answerIsSimilar || answerIsIncorrect || !answerWasValidated"
+          v-if="answerIsSimilar || !answerWasValidated"
           :disabled="!selectedAnswer"
           @click="sendSelectedAnswer"
         >
           Confirmar
         </quiz-btn>
-        <quiz-btn v-if="answerIsCorrect" @click="acceptAnswer">
+        <quiz-btn
+          v-if="answerIsCorrect || answerIsIncorrect"
+          @click="nextQuestion"
+        >
           Próximo
         </quiz-btn>
       </div>
@@ -153,13 +160,8 @@ function sendSelectedAnswer() {
   storeCurrentGame.validateAnswer(selectedAnswer.value);
 }
 
-function acceptAnswer() {
+function nextQuestion() {
   storeCurrentGame.nextQuestion();
-  selectedAnswer.value = "";
-}
-
-function skipQuestion() {
-  storeCurrentGame.skipQuestion();
   selectedAnswer.value = "";
 }
 </script>
@@ -168,5 +170,9 @@ function skipQuestion() {
 .selected-answer {
   box-shadow: 0 0 0 2px #59ff88;
   @apply text-quiz-green-light;
+}
+
+.quiz-card-choices {
+  padding: 0 !important;
 }
 </style>
