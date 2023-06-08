@@ -11,7 +11,7 @@
         {{ currentQuestion.question }}
       </p>
       <div v-if="questionIsFlag">
-        <div class="h-32 mx-auto my-8">
+        <div class="h-28 mx-auto my-6">
           <img
             :src="String(currentQuestion.item).replace('/static', '')"
             class="h-full mx-auto pointer-events-none object-fill"

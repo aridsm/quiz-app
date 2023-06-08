@@ -1,15 +1,21 @@
 <template>
   <quiz-x-card
-    class="quiz-card py-6 px-20 relative cursor-pointer overflow-hidden transition hover:bg-quiz-blue-200 h-48 flex flex-col justify-center items-start"
+    class="quiz-card p-6 relative cursor-pointer overflow-hidden transition hover:bg-quiz-blue-200 h-48 flex flex-col justify-center items-center"
     @click.native="openModalGameSettings"
   >
-    <p class="text-[1.6rem] leading-snug">{{ quiz.name }}</p>
-    <span
-      class="play-now-link scale-y-0 h-0 overflow-hidden transition text-quiz-green-light text-left flex items-center justify-start"
-    >
-      Jogar agora
-      <icon-quiz-arrow class="h-4 w-4 text-quiz-green-light -rotate-90 ml-2" />
-    </span>
+    <div>
+      <p class="text-[1.6rem] leading-snug table max-w-[200px]">
+        {{ quiz.name }}
+      </p>
+      <span
+        class="play-now-link scale-y-0 h-0 overflow-hidden transition text-quiz-green-light text-left flex items-center justify-start"
+      >
+        Jogar agora
+        <icon-quiz-arrow
+          class="h-4 w-4 text-quiz-green-light -rotate-90 -mt-[1px]"
+        />
+      </span>
+    </div>
     <quiz-x-chip v-if="chip" class="absolute top-0 right-0" :color="chip.color">
       {{ chip.chipName }}
     </quiz-x-chip>
