@@ -14,7 +14,7 @@
         >
           {{ getItemsOrderLetter(index) }}
         </span>
-        <span>{{ answer }}</span>
+        <span>{{ fixAnswer(answer) }}</span>
       </button>
     </li>
   </ul>
@@ -31,6 +31,14 @@ interface Props {
 }
 
 defineProps<Props>();
+
+function fixAnswer(answer: string | string[] | number) {
+  let fixedAnswer = answer;
+  if (typeof fixedAnswer === "object") {
+    fixedAnswer = fixedAnswer.map((item: string) => item).join(", ");
+  }
+  return fixedAnswer;
+}
 
 function getItemsOrderLetter(number: number) {
   switch (number) {

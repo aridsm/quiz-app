@@ -24,7 +24,7 @@
         <p
           class="text-center bg-quiz-blue-200 py-4 px-6 text-quiz-green-light text-[1.6rem] my-4"
         >
-          {{ currentQuestion.item }}
+          {{ itemQuestion }}
         </p>
       </div>
       <quiz-input-text
@@ -104,10 +104,12 @@ const { isFlag, currentGame } = storeToRefs(storeCurrentGame);
 
 const selectedAnswer = ref<string>("");
 
+const guessFromFlagOrCapital = computed<boolean>(() => {
+  return currentGame.value.geoQuizType === GeoQuizType.FromFlagCapital;
+});
+
 const questionIsFlag = computed<boolean>(() => {
-  return (
-    isFlag && currentGame.value.geoQuizType === GeoQuizType.FromFlagCapital
-  );
+  return guessFromFlagOrCapital.value && isFlag.value;
 });
 
 const gameIsMultipleChoice = computed<boolean>(() => {
@@ -136,8 +138,18 @@ const answerIsSimilar = computed<boolean>(() => {
 
 const answerIsAFlag = computed<boolean>(() => {
   return (
-    isFlag && currentGame.value.geoQuizType === GeoQuizType.FromStateCountry
+    isFlag.value &&
+    currentGame.value.geoQuizType === GeoQuizType.FromStateCountry
   );
+});
+
+const itemQuestion = computed<string | number | string[]>(() => {
+  const currentGameQuestion: any = currentQuestion.value.item;
+  let fixedQuestion: any = currentGameQuestion;
+  if (typeof currentGameQuestion === "object") {
+    fixedQuestion = fixedQuestion.map((item: string) => item).join(", ");
+  }
+  return fixedQuestion;
 });
 
 const correctAnswer = computed<any>(() => {
