@@ -8,7 +8,7 @@ export interface GameSetting {
   quizName: string;
   category: QuizCategoryType | null;
   answerMode: AnswerMode | null;
-  numberOfQuestions: number;
+  numberOfQuestions: number | null;
   acceptAnswerMode: boolean;
   geoQuizType: GeoQuizType | null;
   infiniteMode: boolean;

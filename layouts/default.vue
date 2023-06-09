@@ -16,7 +16,7 @@
       </button>
     </div>
     <div
-      class="w-72 h-72 bg-quiz-blue-100 fixed -top-28 bg-blur pointer-events-none"
+      class="w-80 h-80 bg-quiz-blue-100 fixed -top-28 bg-blur pointer-events-none"
     />
   </div>
 </template>

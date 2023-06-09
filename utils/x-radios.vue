@@ -4,7 +4,7 @@
       v-for="item in items"
       :key="item.value"
       class="bg-quiz-blue-200 px-8 py-3 button-select relative hover:text-quiz-green-light flex-1"
-      :disabled="disabled?.condition && item.value === disabled.fieldValue"
+      :disabled="isFieldDisabled(item.value)"
       :class="{
         'button-select-selected': item.value === selectedValue,
       }"
@@ -24,19 +24,37 @@ interface Item {
 interface Props {
   items: Item[];
   selectedValue: any;
-  disabled?: {
-    fieldValue: any;
-    condition: boolean;
-  };
+  disabled?:
+    | boolean
+    | {
+        fieldValue: any;
+        condition: boolean;
+      };
 }
 
 const props = defineProps<Props>();
 const emit = defineEmits(["getSelected"]);
 
+function isFieldDisabled(fieldValue: any) {
+  let disabled = false;
+  if (typeof props.disabled === "object") {
+    disabled =
+      props.disabled?.condition && fieldValue === props.disabled.fieldValue;
+  } else if (props.disabled) {
+    disabled = props.disabled;
+  }
+  return disabled;
+}
+
 function onChangeSelectedValue(value: any) {
-  if (props.disabled?.fieldValue === value && props.disabled?.condition) {
+  if (typeof props.disabled === "object") {
+    if (props.disabled?.fieldValue === value && props.disabled?.condition) {
+      return false;
+    }
+  } else if (props.disabled === true) {
     return false;
   }
+
   emit("getSelected", value);
 }
 </script>

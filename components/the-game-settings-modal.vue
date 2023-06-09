@@ -31,6 +31,7 @@
           <quiz-x-radios
             :items="fields.numberOfQuestion"
             :selected-value="gameSettings.numberOfQuestions"
+            :disabled="disableNumberOfQuestionsField"
             @getSelected="getSelectedNumberOfQuestions"
           />
         </li>
@@ -81,12 +82,16 @@ const showQuizTypes = computed(() => {
   return gameSettings.value.category === QuizCategoryType.Geography;
 });
 
-const disableAnswerModeField = computed(() => {
+const disableAnswerModeField = computed<boolean>(() => {
   return (
     (gameSettings.value.quizId === QuizType.BrazilStatesFlag ||
       gameSettings.value.quizId === QuizType.CountryFlag) &&
     gameSettings.value.geoQuizType === GeoQuizType.FromStateCountry
   );
+});
+
+const disableNumberOfQuestionsField = computed<boolean>(() => {
+  return gameSettings.value.infiniteMode === true;
 });
 
 const fields = computed(() => {
@@ -106,6 +111,8 @@ function getSelectedInfiniteMode(value: boolean) {
 
   if (value === true) {
     gameSettings.value.numberOfQuestions = null;
+  } else {
+    gameSettings.value.numberOfQuestions = 5;
   }
 }
 
