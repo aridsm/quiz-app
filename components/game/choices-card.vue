@@ -56,9 +56,12 @@
           Muito bem! Resposta correta!
         </p>
         <div v-if="answerIsIncorrect" class="flex items-center justify-between">
-          <p class="text-red-400">Ops! Resposta errada!</p>
+          <p class="text-quiz-pink">Ops! Resposta errada!</p>
           <p v-if="!answerIsAFlag" class="text-quiz-green-light">
             Resposta correta: {{ correctAnswer }}
+          </p>
+          <p v-else class="text-quiz-green-light">
+            Resposta correta: item "{{ correctItemChoice }}"
           </p>
         </div>
       </div>
@@ -98,6 +101,7 @@ import { AnswerSimilarity } from "~/enums/answerSimilarity";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { Question } from "~/interfaces/Question";
 import { useCurrentGame } from "~/store/currentGame";
+import getItemsOrderLetter from "~/utilities/getMultipleChoiceLetter";
 
 const storeCurrentGame = useCurrentGame();
 const { isFlag, currentGame } = storeToRefs(storeCurrentGame);
@@ -162,6 +166,18 @@ const correctAnswer = computed<any>(() => {
     fixedAnswer = answer.map((item: string) => item).join(", ");
   }
   return fixedAnswer;
+});
+
+const correctItemChoice = computed<string>(() => {
+  const possibleAnswers =
+    currentGame.value.questions[currentGame.value.currentQuestionIndex]
+      .otherAnswers;
+
+  const correctAnswerPosition: any = possibleAnswers.indexOf(
+    correctAnswer.value as never
+  );
+
+  return getItemsOrderLetter(correctAnswerPosition);
 });
 
 function selectAnswerHandler(answer: string) {

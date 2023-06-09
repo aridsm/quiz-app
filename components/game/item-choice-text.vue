@@ -22,6 +22,7 @@
 
 <script setup lang="ts">
 import { Question } from "~/interfaces/Question";
+import getItemsOrderLetter from "~/utilities/getMultipleChoiceLetter";
 
 interface Props {
   currentQuestion: Question;
@@ -38,23 +39,6 @@ function fixAnswer(answer: string | string[] | number) {
     fixedAnswer = fixedAnswer.map((item: string) => item).join(", ");
   }
   return fixedAnswer;
-}
-
-function getItemsOrderLetter(number: number) {
-  switch (number) {
-    case 0:
-      return "A";
-    case 1:
-      return "B";
-    case 2:
-      return "C";
-    case 3:
-      return "D";
-    case 4:
-      return "E";
-    default:
-      return "";
-  }
 }
 </script>
 
