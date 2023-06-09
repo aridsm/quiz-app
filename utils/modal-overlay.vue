@@ -17,8 +17,6 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onUnmounted } from "vue";
-
 interface Props {
   model: boolean;
 }
@@ -32,14 +30,6 @@ const emit = defineEmits(["update:model"]);
 function closeModalHandler() {
   emit("update:model", false);
 }
-
-onMounted(() => {
-  window.addEventListener("scroll", closeModalHandler);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", closeModalHandler);
-});
 </script>
 
 <style>
