@@ -3,7 +3,8 @@
     <div
       class="text-center text-[1.6rem] leading-none"
       :class="{
-        'bg-quiz-blue-200 py-4 px-6 mb-8 leading-snug': !categoryIsGeography,
+        'bg-quiz-blue-200 py-4 px-6 mb-8 leading-snug tracking-wide':
+          !categoryIsGeography,
       }"
     >
       {{ currentGame.currentQuestionIndex + 1 }}.
@@ -36,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { CurrentGame } from "~/interfaces/CurrentGame";

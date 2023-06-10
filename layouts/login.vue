@@ -7,9 +7,19 @@
       <nuxt />
     </quiz-page-layout>
     <the-footer />
+
+    <div
+      class="w-80 h-80 bg-quiz-blue-100 fixed -top-28 bg-blur pointer-events-none"
+    />
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style></style>
+<style>
+.bg-blur {
+  left: calc(50% - 9rem);
+  z-index: 99;
+  filter: blur(280px);
+}
+</style>

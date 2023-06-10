@@ -27,6 +27,6 @@
 .bg-blur {
   left: calc(50% - 9rem);
   z-index: 99;
-  filter: blur(250px);
+  filter: blur(280px);
 }
 </style>

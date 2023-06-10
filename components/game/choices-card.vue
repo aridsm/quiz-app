@@ -26,6 +26,7 @@
         :select-answer-handler="selectAnswerHandler"
         :disabled="answerIsCorrect || answerIsIncorrect"
         :selected-answer="selectedAnswer"
+        :correct-answer="correctAnswer"
       />
       <game-item-choice-img
         v-if="answerIsAFlag && gameIsMultipleChoice"

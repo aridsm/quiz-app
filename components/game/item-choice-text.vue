@@ -2,9 +2,10 @@
   <ul class="flex flex-col gap-3">
     <li v-for="(answer, index) in currentQuestion.otherAnswers" :key="answer">
       <button
-        class="button-choice flex gap-3 items-center hover:bg-quiz-blue-200 hover:text-quiz-green-light p-2 w-full rounded-md"
+        class="button-choice pr-5 flex gap-3 items-center hover:bg-quiz-blue-200 hover:text-quiz-green-light p-2 w-full rounded-md"
         :class="{
           'selected-answer bg-quiz-blue-200': selectedAnswer === answer,
+          'bg-quiz-blue-200': answerIsTheCorrect(answer),
         }"
         :disabled="disabled && answer !== selectedAnswer"
         @click="() => selectAnswerHandler(answer)"
@@ -14,14 +15,35 @@
         >
           {{ getItemsOrderLetter(index) }}
         </span>
-        <span>{{ fixAnswer(answer) }}</span>
+        <div class="flex justify-between items-center flex-1">
+          <p
+            class="tracking-wide"
+            :class="{
+              'text-quiz-green-light': answerIsTheCorrect(answer),
+            }"
+          >
+            {{ fixAnswer(answer) }}
+          </p>
+          <icon-quiz-checkmark
+            v-if="answerIsTheCorrect(answer)"
+            class="w-4 text-quiz-green-light"
+          />
+          <icon-quiz-xmark
+            v-if="answerIsIncorrect && answer === selectedAnswer"
+            class="w-4 text-quiz-pink"
+          />
+        </div>
       </button>
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from "pinia";
+import { computed } from "vue";
+import { AnswerSimilarity } from "~/enums/answerSimilarity";
 import { Question } from "~/interfaces/Question";
+import { useCurrentGame } from "~/store/currentGame";
 import getItemsOrderLetter from "~/utilities/getMultipleChoiceLetter";
 
 interface Props {
@@ -29,9 +51,25 @@ interface Props {
   selectAnswerHandler: Function;
   selectedAnswer: string;
   disabled?: boolean;
+  correctAnswer: string;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const storeCurrentGame = useCurrentGame();
+const { currentGame } = storeToRefs(storeCurrentGame);
+
+const answerWasValidated = computed<boolean>(() => {
+  return currentGame.value.answerSimilarity !== AnswerSimilarity.NotValidated;
+});
+
+const answerIsIncorrect = computed<boolean>(() => {
+  return currentGame.value.answerSimilarity === AnswerSimilarity.NotSimilar;
+});
+
+function answerIsTheCorrect(answer: any) {
+  return answerWasValidated.value && answer === props.correctAnswer;
+}
 
 function fixAnswer(answer: string | string[] | number) {
   let fixedAnswer = answer;
