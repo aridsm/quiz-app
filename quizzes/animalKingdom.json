@@ -1,0 +1,166 @@
+[
+  {
+    "question": "Qual é o nome do animal terrestre que é considerado o mais veloz do mundo, podendo atingir mais de 100 km/h?",
+    "correctAnswer": ["Guepardo"],
+    "otherAnswers": ["Cavalo", "Leopardo", "Jaguar", "Onça", "Tigre"]
+  },
+  {
+    "question": "Qual é o nome do animal que é capaz de mudar sua forma e sua cor?",
+    "correctAnswer": ["Lula"],
+    "otherAnswers": ["Camaleão", "Ouriço", "Porco-espinho", "Carpa", "Lince"]
+  },
+  {
+    "question": "Qual é o nome do animal que é capaz de correr sobre a água?",
+    "correctAnswer": ["Basilisco"],
+    "otherAnswers": [
+      "Canguru",
+      "Cobra d'água",
+      "Serpente",
+      "Aranha",
+      "Salamandra"
+    ]
+  },
+  {
+    "question": "Qual é o nome do animal que é capaz de viver por vários anos sem consumir água?",
+    "correctAnswer": ["Camelo"],
+    "otherAnswers": [
+      "Beija-flor",
+      "Canguru",
+      "Tartaruga",
+      "Formiga",
+      "Crocodilo"
+    ]
+  },
+  {
+    "question": "Qual é o nome do animal que é considerado o mais venenoso do mundo?",
+    "correctAnswer": ["Vespa-do-mar"],
+    "otherAnswers": [
+      "Polvo de anéis azuis",
+      "Peixe-pedra",
+      "Cobra-real",
+      "Mamba-negra",
+      "Viúva-negra",
+      "Cobra-coral"
+    ]
+  },
+  {
+    "question": "Qual é o nome do único mamífero que voa?",
+    "correctAnswer": ["Morcego"],
+    "otherAnswers": ["Pato", "Esquilo", "Ornitorrinco", "Equidna"]
+  },
+  {
+    "question": "Qual é o nome do animal que é considerado o maior do mundo?",
+    "correctAnswer": ["Baleia-azul"],
+    "otherAnswers": [
+      "Canguru",
+      "Elegante",
+      "Rinoceronte",
+      "Gorila",
+      "Baleia Jubarte",
+      "Orca"
+    ]
+  },
+  {
+    "question": "Qual é o nome do animal que tem a maior envergadura de asas entre os animais voadores?",
+    "correctAnswer": ["Albatroz"],
+    "otherAnswers": ["Condor", "Falcão", "Abutre", "Gavião"]
+  },
+  {
+    "question": "Qual é o nome do animal que é o maior primata do mundo?",
+    "correctAnswer": ["Gorila"],
+    "otherAnswers": [
+      "Mandril",
+      "Gibão",
+      "Macaco-aranha",
+      "Chimpanzé",
+      "Orangotango"
+    ]
+  },
+  {
+    "question": "Qual é o nome do animal que tem a maior língua comparado ao seu tamanho?",
+    "correctAnswer": ["Camaleão"],
+    "otherAnswers": [
+      "Girafa",
+      "Elefante",
+      "Sapo",
+      "Salamandra",
+      "Axolote",
+      "Jacaré"
+    ]
+  },
+  {
+    "question": "Qual é o nome dado ao animal que pode girar seu pescoço em até 270 graus?",
+    "correctAnswer": ["Coruja"],
+    "otherAnswers": ["Canguru", "Urubu", "Orangotango", "Gaivota"]
+  },
+  {
+    "question": "Qual é o nome dado ao animal que pode se regenerar completamente após ser cortado em pedaços?",
+    "correctAnswer": ["Planária"],
+    "otherAnswers": ["Morsa", "Tênia", "Vagalume", "Minhoca", "Cnidário"]
+  },
+  {
+    "question": "Qual dos animais abaixo é considerado hermafroditas protândricos (nascem macho e tornam-se fêmeas)?",
+    "correctAnswer": ["Peixe-palhaço"],
+    "otherAnswers": [
+      "Cobra-coral",
+      "Tubarão",
+      "Peixe-pedra",
+      "Axolote",
+      "Rã",
+      "Água-viva"
+    ]
+  },
+  {
+    "question": "Qual desses animais evoluíram dos dinossauros?",
+    "correctAnswer": ["Aves"],
+    "otherAnswers": [
+      "Crocodilos",
+      "Jacarés",
+      "Lagartos",
+      "Mamíferos",
+      "Anfíbios"
+    ]
+  },
+  {
+    "question": "Qual destes animais é um mamífero carnívoro que vive na floresta?",
+    "correctAnswer": ["Puma"],
+    "otherAnswers": ["Tubarão", "Cavalo", "Águia", "Cobra"]
+  },
+  {
+    "question": "Qual destes animais é um peixe cartilaginoso?",
+    "correctAnswer": ["Tubarão"],
+    "otherAnswers": ["Sardinha", "Tartaruga", "Salmão", "Truta", "Peixe-lua"]
+  },
+  {
+    "question": "Qual destes animais é um peixe ósseo?",
+    "correctAnswer": ["Atum"],
+    "otherAnswers": ["Arraia", "Golfinho", "Baleia-azul", "Tubarão"]
+  },
+  {
+    "question": "Qual destes animais é um mamífero monotremado?",
+    "correctAnswer": ["Ornitorrinco"],
+    "otherAnswers": ["Baleia", "Golfinho", "Golfinho", "Canguru"]
+  },
+  {
+    "question": "Qual desses animais possui uma espécie que é considerado biologicamente imortal, renovando constantemente o tecido do seu corpo e impedindo o envelhecimento?",
+    "correctAnswer": ["Água-viva"],
+    "otherAnswers": [
+      "Esponja-do-mar",
+      "Fungos",
+      "Ouriço-do-mar",
+      "Estrela-do-mar",
+      "Tartaruga"
+    ]
+  },
+  {
+    "question": "Qual desses animais abaixo possui conchas bivalves, assim como os moluscos bivalves?",
+    "correctAnswer": ["Braquiópodes"],
+    "otherAnswers": [
+      "Sépias",
+      "Anelídeos",
+      "Náutilos",
+      "Crustáceos",
+      "Caracóis"
+    ]
+  }
+]
