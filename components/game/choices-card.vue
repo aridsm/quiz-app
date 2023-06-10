@@ -8,25 +8,11 @@
       class="w-full"
     />
     <div class="p-6">
-      <p class="text-center text-[1.6rem] leading-none">
-        {{ currentGame.currentQuestionIndex + 1 }}.
-        {{ currentQuestion.question }}
-      </p>
-      <div v-if="questionIsFlag">
-        <div class="h-28 mx-auto my-6">
-          <img
-            :src="String(currentQuestion.item).replace('/static', '')"
-            class="h-full mx-auto pointer-events-none object-fill"
-          />
-        </div>
-      </div>
-      <div v-else>
-        <p
-          class="text-center bg-quiz-blue-200 py-4 px-6 text-quiz-green-light text-[1.6rem] my-4"
-        >
-          {{ itemQuestion }}
-        </p>
-      </div>
+      <game-question-section
+        :current-question="currentQuestion"
+        :current-game="currentGame"
+        :is-flag="isFlag"
+      />
       <quiz-input-text
         v-if="!gameIsMultipleChoice"
         :model.sync="selectedAnswer"
@@ -108,14 +94,6 @@ const { isFlag, currentGame } = storeToRefs(storeCurrentGame);
 
 const selectedAnswer = ref<string>("");
 
-const guessFromFlagOrCapital = computed<boolean>(() => {
-  return currentGame.value.geoQuizType === GeoQuizType.FromFlagCapital;
-});
-
-const questionIsFlag = computed<boolean>(() => {
-  return guessFromFlagOrCapital.value && isFlag.value;
-});
-
 const gameIsMultipleChoice = computed<boolean>(() => {
   return currentGame.value.answerMode === AnswerMode.MultipleChoice;
 });
@@ -145,15 +123,6 @@ const answerIsAFlag = computed<boolean>(() => {
     isFlag.value &&
     currentGame.value.geoQuizType === GeoQuizType.FromStateCountry
   );
-});
-
-const itemQuestion = computed<string | number | string[]>(() => {
-  const currentGameQuestion: any = currentQuestion.value.item;
-  let fixedQuestion: any = currentGameQuestion;
-  if (typeof currentGameQuestion === "object") {
-    fixedQuestion = fixedQuestion.map((item: string) => item).join(", ");
-  }
-  return fixedQuestion;
 });
 
 const correctAnswer = computed<any>(() => {

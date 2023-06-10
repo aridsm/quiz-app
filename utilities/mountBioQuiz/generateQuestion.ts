@@ -8,8 +8,6 @@ export default function generateQuestion(
 ) {
   let otherAnswers: string[] = [];
 
-  console.log("index", index);
-
   if (answerMode === AnswerMode.MultipleChoice) {
     otherAnswers = generateOtherAnswers(index, items);
   }

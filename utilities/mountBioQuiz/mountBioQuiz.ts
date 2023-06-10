@@ -29,8 +29,6 @@ function useMountQuiz() {
     while (questions.length < currentGame.value.totalQuestions!) {
       const randomIndex = getRandomIndex(itemsCloned.length, usedIndexes);
 
-      console.log(itemsCloned);
-
       const question = generateQuestion(
         currentGame.value,
         randomIndex,

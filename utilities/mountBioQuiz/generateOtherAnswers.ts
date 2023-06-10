@@ -9,8 +9,6 @@ export default function generateOtherAnswers(
 
   const totalMultipleChoiceQuestions = 4;
 
-  console.log(items, questionIndex);
-
   while (otherAnswers.length < totalMultipleChoiceQuestions) {
     const randomIndex = getRandomIndex(
       items[questionIndex].otherAnswers.length,
