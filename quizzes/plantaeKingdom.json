@@ -1,0 +1,188 @@
+[
+  {
+    "question": "Qual é a principal função das raízes das plantas?",
+    "correctAnswer": ["Condução de água e nutrientes"],
+    "otherAnswers": [
+      "Produzir sementes",
+      "Proteção contra predadores",
+      "Reprodução",
+      "Realizar a respiração celular"
+    ]
+  },
+  {
+    "question": "Qual é o principal tecido das plantas?",
+    "correctAnswer": ["Parênquima"],
+    "otherAnswers": ["Epiderme", "Esclerênquima", "Colênquima", "Meristema"]
+  },
+  {
+    "question": "Qual é o nome da estrutura das células vegetais responsável pela síntese de proteínas?",
+    "correctAnswer": ["Retículo endoplasmático rugoso"],
+    "otherAnswers": [
+      "Mitocôndria",
+      "Retículo endoplasmático rugoso",
+      "Cloroplasto",
+      "Peroxissomo"
+    ]
+  },
+  {
+    "question": "Qual é o nome do tecido que permite a circulação da seiva bruta nas plantas?",
+    "correctAnswer": ["Xilema"],
+    "otherAnswers": ["Floema", "Parênquima", "Esclerênquima", "Colênquima"]
+  },
+  {
+    "question": "Qual é o nome do processo pelo qual as plantas produzem mudas a partir de uma parte do ramo ou caule?",
+    "correctAnswer": ["Propagação"],
+    "otherAnswers": ["Enraizamento", "Clonagem", "Adubação", "Poda"]
+  },
+  {
+    "question": "Qual é o nome do pigmento responsável pela cor verde das plantas?",
+    "correctAnswer": ["Clorofila"],
+    "otherAnswers": ["Caroteno", "Antocianina", "Xantofila", "Eritrocianina"]
+  },
+  {
+    "question": "Qual é o nome do processo pelo qual os grãos de pólen das plantas chegam ao órgão reprodutor feminino?",
+    "correctAnswer": ["Polinização"],
+    "otherAnswers": ["Fecundação", "Germinação", "Mitose", "Meiose"]
+  },
+  {
+    "question": "Qual é o nome do órgão reprodutor feminino das plantas?",
+    "correctAnswer": ["Carpelo"],
+    "otherAnswers": ["Estame", "Pétala", "Sépala", "Fruto"]
+  },
+  {
+    "question": "Qual é o nome do tipo de raiz que se forma no caule das plantas?",
+    "correctAnswer": ["Raiz aérea"],
+    "otherAnswers": [
+      "Raiz pivotante",
+      "Raiz fasciculada",
+      "Raiz tuberosa",
+      "Raiz escora"
+    ]
+  },
+  {
+    "question": "Qual é o nome do tipo de fruto presente nas plantas em que a parte comestível é formada pela parede do ovário?",
+    "correctAnswer": ["Carnoso"],
+    "otherAnswers": ["Drupa", "Seco", "Indeiscente", "Deiscente"]
+  },
+  {
+    "question": "Qual é o nome do tipo de célula presente nos caules das plantas que é responsável pela condução de água e nutrientes?",
+    "correctAnswer": ["Célula condutora"],
+    "otherAnswers": [
+      "Célula parenquimatosa",
+      "Célula clorofilada",
+      "Célula esclerenquimatosa",
+      "Célula guarda"
+    ]
+  },
+  {
+    "question": "Qual é o nome do processo pelo qual as plantas se curvam em direção à luz solar?",
+    "correctAnswer": ["Fototropismo"],
+    "otherAnswers": [
+      "Geotropismo",
+      "Hidrotropismo",
+      "Tigmotropismo",
+      "Termotropismo"
+    ]
+  },
+  {
+    "question": "Qual é o nome do processo pelo qual as plantas perdem folhas no outono?",
+    "correctAnswer": ["Senescência"],
+    "otherAnswers": [
+      "Florescência",
+      "Fotossíntese",
+      "Polinização",
+      "Transpiração"
+    ]
+  },
+  {
+    "question": "Qual é a função do pólen nas plantas?",
+    "correctAnswer": ["Fertilizar as células reprodutoras femininas"],
+    "otherAnswers": [
+      "Absorver água do solo",
+      "Realizar a fotossíntese",
+      "Produzir frutos",
+      "Proteger as flores de pragas"
+    ]
+  },
+  {
+    "question": "Qual é o nome da estrutura presente nas sementes que funciona como reserva de alimento para o embrião da planta?",
+    "correctAnswer": ["Endosperma"],
+    "otherAnswers": ["Casca", "Embriófito", "Cotilédone", "Raiz"]
+  },
+  {
+    "question": "Qual é a função das células guarda nos estômatos das plantas?",
+    "correctAnswer": ["Controlar a entrada e saída de água"],
+    "otherAnswers": [
+      "Produzir mais clorofila",
+      "Absorver nutrientes do solo",
+      "Armazenar energia",
+      "Proteger a planta de pragas"
+    ]
+  },
+  {
+    "question": "Quais são os dois tipos de tecidos vasculares encontrados nas plantas?",
+    "correctAnswer": ["Xilema e floema"],
+    "otherAnswers": [
+      "Xilema e câmbio",
+      "Parênquima e colênquima",
+      "Floema e meristema",
+      "Epiderme e periderme"
+    ]
+  },
+  {
+    "question": "Qual é o processo realizado pelas plantas para produzir glicose e oxigênio?",
+    "correctAnswer": ["Fotossíntese"],
+    "otherAnswers": ["Respiração celular", "Fermentação", "Osmose", "Difusão"]
+  },
+  {
+    "question": "Quais são os dois tipos de tecidos vasculares encontrados nas plantas?",
+    "correctAnswer": ["Xilema e floema"],
+    "otherAnswers": [
+      "Xilema e câmbio",
+      "Parênquima e colênquima",
+      "Floema e meristema",
+      "Epiderme e periderme"
+    ]
+  },
+  {
+    "question": "O que é uma planta xerófita?",
+    "correctAnswer": ["Planta adaptada a ambientes secos"],
+    "otherAnswers": [
+      "Planta adaptada a ambientes úmidos",
+      "Planta que vive em ambientes com baixas temperaturas",
+      "Planta que vive em ambientes com altas temperaturas",
+      "Planta que vive na beira de rios e lagos"
+    ]
+  },
+  {
+    "question": "O que são gimnospermas?",
+    "correctAnswer": ["Plantas que produzem sementes nuas"],
+    "otherAnswers": [
+      "Plantas que não produzem sementes",
+      "Plantas que produzem sementes dentro de frutos",
+      "Plantas aquáticas",
+      "Plantas que não possuem vasos condutores de seiva"
+    ]
+  },
+  {
+    "question": "Quais são as principais partes de uma flor?",
+    "correctAnswer": ["Pétalas, sépalas, estames e ovários"],
+    "otherAnswers": [
+      "Raízes, caules e folhas",
+      "Limbo, pecíolo e bainha",
+      "Frutos e sementes",
+      "Estômatos e cloroplastos"
+    ]
+  },
+  {
+    "question": "Qual o papel dos esporos nas plantas?",
+    "correctAnswer": ["Germinar e produzir gametas"],
+    "otherAnswers": [
+      "Produzir sementes",
+      "Realizar a fotossíntese",
+      "Transportar água e nutrientes",
+      "Armazenar nutrientes",
+      "Controlar a entrada e saída de água na planta"
+    ]
+  }
+]
