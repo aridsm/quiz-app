@@ -8,7 +8,7 @@ import { AnswerSimilarity } from "~/enums/answerSimilarity";
 
 export interface CurrentGame {
   title: string;
-  totalQuestions: number;
+  totalQuestions: number | null;
   correctAnswers: number;
   totalLives: number;
   lives: number;

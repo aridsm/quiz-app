@@ -12,6 +12,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       id: QuizType.CountryFlag,
       acceptAnswerMode: true,
       tags: ["geografia", "paises"],
+      source: "quizzes/geography/countries.json",
     },
     {
       name: "Matemática Básica",
@@ -26,13 +27,16 @@ export const useQuizzes = defineStore("useQuizzes", () => {
         "contas",
         "basica",
       ],
+
+      source: "",
     },
     {
-      name: "Anatomia Humana",
+      name: "O corpo humano",
       category: QuizCategoryType.Biology,
       id: QuizType.HumanAnatomy,
       acceptAnswerMode: false,
       tags: ["corpo humano", "corpo", "humano", "ciências", "biologia"],
+      source: "quizzes/humanBody.json",
     },
     {
       name: "Reino Animal",
@@ -40,6 +44,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       id: QuizType.AnimalKingdom,
       acceptAnswerMode: false,
       tags: ["animais", "biologia"],
+      source: "quizzes/animalKingdom.json",
     },
     {
       name: "Bandeiras de Estados do Brasil",
@@ -47,6 +52,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       id: QuizType.BrazilStatesFlag,
       acceptAnswerMode: true,
       tags: ["brazil", "geografia"],
+      source: "quizzes/geography/brazil.json",
     },
     {
       name: "Raízes e Potências",
@@ -61,6 +67,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
         "cálculos",
         "contas",
       ],
+      source: "",
     },
     {
       name: "Reino Planta",
@@ -68,6 +75,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       id: QuizType.PlantaeKingdom,
       acceptAnswerMode: false,
       tags: ["plantas", "biologia"],
+      source: "quizzes/plantaeKingdom.json",
     },
     {
       name: "Capitais de Países",
@@ -75,6 +83,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       id: QuizType.CountryCapital,
       acceptAnswerMode: true,
       tags: ["capital", "paises", "geografia"],
+      source: "quizzes/geography/countries.json",
     },
     {
       name: "Capitais de Estados do Brasil",
@@ -82,6 +91,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       id: QuizType.BrazilStatesCapital,
       acceptAnswerMode: true,
       tags: ["brazil", "capital", "geografia"],
+      source: "quizzes/geography/brazil.json",
     },
   ]);
 

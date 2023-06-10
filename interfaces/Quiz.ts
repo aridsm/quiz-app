@@ -6,4 +6,5 @@ export interface Quiz {
   category: QuizCategoryType;
   tags: string[];
   acceptAnswerMode: boolean; // se o usuário pode escolher o modo de resposta
+  source: string;
 }

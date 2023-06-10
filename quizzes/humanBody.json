@@ -1,240 +1,221 @@
-{
-  "questions": [
-    {
-      "question": "Qual o menor osso do corpo humano?",
-      "correctAnswer": "Estribo",
-      "otherAnswers": [
-        "Martelo",
-        "Fêmur",
-        "Esterno",
-        "Rádio",
-        "Ulna",
-        "Falanges",
-        "Metacarpo",
-        "Patela",
-        "Fíbula",
-        "Tíbia"
-      ]
-    },
-    {
-      "question": "Quantos cromossomos possui uma célula humana diplóide?",
-      "correctAnswer": ["46"],
-      "otherAnswers": [
-        "44",
-        "43",
-        "23",
-        "22",
-        "40",
-        "41",
-        "39",
-        "48",
-        "28",
-        "25"
-      ]
-    },
-    {
-      "question": "Quais são as 4 bases nitrogenadas presentes no DNA?",
-      "correctAnswer": ["Adenina, Timina, Citosina e Guanina"],
-      "otherAnswers": [
-        "Adenina, Timina, Uracila e Guanina",
-        "Purina, Adenina, Citosina e Timina",
-        "Pirimidina, Citosina, Uracila e Guanina",
-        "Guanina, Purina, Citosina e Pirimidina",
-        "Pirimidina, Purina, Timina, Adenina"
-      ]
-    },
-    {
-      "question": "Qual é o nome do músculo que forma a panturrilha?",
-      "correctAnswer": ["Gastrocnêmio"],
-      "otherAnswers": [
-        "Semitendinoso",
-        "Tibial anterior",
-        "Reto Femoral",
-        "Fáscia Lata",
-        "Sóleo"
-      ]
-    },
-    {
-      "question": "Qual é o nome do tecido que forma a maior parte do corpo humano?",
-      "correctAnswer": ["Epitelial"],
-      "otherAnswers": [
-        "Adiposo",
-        "Conectivo",
-        "Muscular",
-        "Nervoso",
-        "Conjuntivo"
-      ]
-    },
-    {
-      "question": "Qual é o músculo que permite a extensão e flexão da perna?",
-      "correctAnswer": ["Quadríceps"],
-      "otherAnswers": [
-        "Tríceps sural",
-        "Bíceps femoral",
-        "Solear",
-        "Gastrocnêmio",
-        "Adutor longo"
-      ]
-    },
-    {
-      "question": "Que parte do cérebro é responsável pelo controle do ritmo cardíaco e da respiração?",
-      "correctAnswer": ["Bulbo"],
-      "otherAnswers": [
-        "Cerebelo",
-        "Hipotálamo",
-        "Lóbulo Parietal",
-        "Tálamo",
-        "Lobo Temporal"
-      ]
-    },
-    {
-      "question": "Qual é o nome da estrutura muscular que separa a cavidade torácica da cavidade abdominal?",
-      "correctAnswer": ["Diafragma"],
-      "otherAnswers": [
-        "Esfíncter",
-        "Músculo liso",
-        "Músculo esquelético",
-        "Esfíncter",
-        "Esterno",
-        "Traquéia"
-      ]
-    },
-    {
-      "question": "Qual é o nome do osso que conecta o braço à escápula?",
-      "correctAnswer": ["Clavícula"],
-      "otherAnswers": ["Úmero", "Rádio", "Ulna", "Ílio", "Fíbula"]
-    },
-    {
-      "question": "Qual a síndrome caracterizada pela presença de um cromossomo extra no par número 13?",
-      "correctAnswer": ["Síndrome de Patau"],
-      "otherAnswers": [
-        "Síndrome de Edwards",
-        "Síndrome de Turner",
-        "Síndrome de Down",
-        "Síndrome de Duchenne",
-        "Síndrome de Klinefelter",
-        "Síndrome de Jacobs",
-        "Síndrome de Marfan"
-      ]
-    },
-    {
-      "question": "Qual é a proteína presente nas hemácias responsável pelo transporte de oxigênio?",
-      "correctAnswer": ["Hemoglobina"],
-      "otherAnswers": [
-        "Fibrinogênio",
-        "Albumina",
-        "Ceruloplasmina",
-        "Globulina",
-        "Protrombina"
-      ]
-    },
-    {
-      "question": "Qual é o nome do elemento sanguíneo responsável pelo processo de coagulação?",
-      "correctAnswer": ["Plaquetas"],
-      "otherAnswers": [
-        "Leucócitos",
-        "Hemácias",
-        "Linfócitos",
-        "Plasma",
-        "Neutrófilos"
-      ]
-    },
-    {
-      "question": "Qual é o hormônio responsável pela ovulação nas mulheres?",
-      "correctAnswer": ["Hormônio luteinizante (LH)"],
-      "otherAnswers": [
-        "Estrogênio",
-        "Testosterona",
-        "Progesterona",
-        "Prolactina",
-        "Paratormônio"
-      ]
-    },
-    {
-      "question": "Qual é a função do epidídimo?",
-      "correctAnswer": ["Armazenar espermatozoides"],
-      "otherAnswers": [
-        "Produzir espermatozoides",
-        "Produzir testosterona",
-        "Eliminar resíduos metabólicos",
-        "Produzir o hormônio folículo-estimulante (FSH)"
-      ]
-    },
-    {
-      "question": "Qual tipo sanguíneo é considerado o doador universal?",
-      "correctAnswer": ["AB+"],
-      "otherAnswers": ["AB+", "O+", "B+", "A+", "O-"]
-    },
-    {
-      "question": "Qual é a doença que afeta o sistema imunológico e que é provocada pela deficiência do hormônio TSH?",
-      "correctAnswer": ["Hipotireoidismo"],
-      "otherAnswers": [
-        "Aids",
-        "Hipertensão",
-        "Esquizofrenia",
-        "Lúpus",
-        "Artrite"
-      ]
-    },
-    {
-      "question": "Qual é a doença causada pela falta de vitamina C?",
-      "correctAnswer": ["Escorbuto"],
-      "otherAnswers": [
-        "Anemia",
-        "Osteoporose",
-        "Diabetes",
-        "Artrite",
-        "Hipotireoidismo"
-      ]
-    },
-    {
-      "question": "Qual é o nome dado à camada mais interna do dente, que contém vasos sanguíneos e nervos?",
-      "correctAnswer": ["Polpa"],
-      "otherAnswers": ["Dentina", "Cimento", "Esmalte", "Gengiva", "Coroa"]
-    },
-    {
-      "question": "Qual é o órgão responsável pela produção de bile, que é armazenada na vesícula biliar?",
-      "correctAnswer": ["Fígado"],
-      "otherAnswers": [
-        "Vesícula biliar",
-        "Pâncreas",
-        "Rim",
-        "Intestino Delgado",
-        "Estômago"
-      ]
-    },
-    {
-      "question": "Qual é o órgão responsável pela produção de anticorpos, que ajudam na defesa do corpo contra doenças?",
-      "correctAnswer": ["Baço"],
-      "otherAnswers": ["Fígado", "Rim", "Timo", "Fígado", "Pulmão"]
-    },
-    {
-      "question": "Qual é o nome dado à camada externa do dente?",
-      "correctAnswer": ["Esmalte"],
-      "otherAnswers": ["Dentina", "Polpa", "Cimento", "Osso"]
-    },
-    {
-      "question": "Qual é o nome dado ao conjunto de células responsáveis pela sensação de luz no olho humano?",
-      "correctAnswer": ["Retina"],
-      "otherAnswers": [
-        "Córnea",
-        "Íris",
-        "Pupila",
-        "Humor vítreo",
-        "Coróide",
-        "Cristalino"
-      ]
-    },
-    {
-      "question": "Qual é o nome do tecido que reveste as extremidades dos ossos?",
-      "correctAnswer": ["Cartilagem"],
-      "otherAnswers": [
-        "Músculo",
-        "Epiderme",
-        "Ligamento",
-        "Tecido adiposo",
-        "Hipoderme"
-      ]
-    }
-  ]
-}
+[
+  {
+    "question": "Qual o menor osso do corpo humano?",
+    "correctAnswer": "Estribo",
+    "otherAnswers": [
+      "Martelo",
+      "Fêmur",
+      "Esterno",
+      "Rádio",
+      "Ulna",
+      "Falanges",
+      "Metacarpo",
+      "Patela",
+      "Fíbula",
+      "Tíbia"
+    ]
+  },
+  {
+    "question": "Quantos cromossomos possui uma célula humana diplóide?",
+    "correctAnswer": "46",
+    "otherAnswers": ["44", "43", "23", "22", "40", "41", "39", "48", "28", "25"]
+  },
+  {
+    "question": "Quais são as 4 bases nitrogenadas presentes no DNA?",
+    "correctAnswer": "Adenina, Timina, Citosina e Guanina",
+    "otherAnswers": [
+      "Adenina, Timina, Uracila e Guanina",
+      "Purina, Adenina, Citosina e Timina",
+      "Pirimidina, Citosina, Uracila e Guanina",
+      "Guanina, Purina, Citosina e Pirimidina",
+      "Pirimidina, Purina, Timina, Adenina"
+    ]
+  },
+  {
+    "question": "Qual é o nome do músculo que forma a panturrilha?",
+    "correctAnswer": "Gastrocnêmio",
+    "otherAnswers": [
+      "Semitendinoso",
+      "Tibial anterior",
+      "Reto Femoral",
+      "Fáscia Lata",
+      "Sóleo"
+    ]
+  },
+  {
+    "question": "Qual é o nome do tecido que forma a maior parte do corpo humano?",
+    "correctAnswer": "Epitelial",
+    "otherAnswers": [
+      "Adiposo",
+      "Conectivo",
+      "Muscular",
+      "Nervoso",
+      "Conjuntivo"
+    ]
+  },
+  {
+    "question": "Qual é o músculo que permite a extensão e flexão da perna?",
+    "correctAnswer": "Quadríceps",
+    "otherAnswers": [
+      "Tríceps sural",
+      "Bíceps femoral",
+      "Solear",
+      "Gastrocnêmio",
+      "Adutor longo"
+    ]
+  },
+  {
+    "question": "Que parte do cérebro é responsável pelo controle do ritmo cardíaco e da respiração?",
+    "correctAnswer": "Bulbo",
+    "otherAnswers": [
+      "Cerebelo",
+      "Hipotálamo",
+      "Lóbulo Parietal",
+      "Tálamo",
+      "Lobo Temporal"
+    ]
+  },
+  {
+    "question": "Qual é o nome da estrutura muscular que separa a cavidade torácica da cavidade abdominal?",
+    "correctAnswer": "Diafragma",
+    "otherAnswers": [
+      "Esfíncter",
+      "Músculo liso",
+      "Músculo esquelético",
+      "Esfíncter",
+      "Esterno",
+      "Traquéia"
+    ]
+  },
+  {
+    "question": "Qual é o nome do osso que conecta o braço à escápula?",
+    "correctAnswer": "Clavícula",
+    "otherAnswers": ["Úmero", "Rádio", "Ulna", "Ílio", "Fíbula"]
+  },
+  {
+    "question": "Qual a síndrome caracterizada pela presença de um cromossomo extra no par número 13?",
+    "correctAnswer": "Síndrome de Patau",
+    "otherAnswers": [
+      "Síndrome de Edwards",
+      "Síndrome de Turner",
+      "Síndrome de Down",
+      "Síndrome de Duchenne",
+      "Síndrome de Klinefelter",
+      "Síndrome de Jacobs",
+      "Síndrome de Marfan"
+    ]
+  },
+  {
+    "question": "Qual é a proteína presente nas hemácias responsável pelo transporte de oxigênio?",
+    "correctAnswer": "Hemoglobina",
+    "otherAnswers": [
+      "Fibrinogênio",
+      "Albumina",
+      "Ceruloplasmina",
+      "Globulina",
+      "Protrombina"
+    ]
+  },
+  {
+    "question": "Qual é o nome do elemento sanguíneo responsável pelo processo de coagulação?",
+    "correctAnswer": "Plaquetas",
+    "otherAnswers": [
+      "Leucócitos",
+      "Hemácias",
+      "Linfócitos",
+      "Plasma",
+      "Neutrófilos"
+    ]
+  },
+  {
+    "question": "Qual é o hormônio responsável pela ovulação nas mulheres?",
+    "correctAnswer": "Hormônio luteinizante (LH)",
+    "otherAnswers": [
+      "Estrogênio",
+      "Testosterona",
+      "Progesterona",
+      "Prolactina",
+      "Paratormônio"
+    ]
+  },
+  {
+    "question": "Qual é a função do epidídimo?",
+    "correctAnswer": "Armazenar espermatozoides",
+    "otherAnswers": [
+      "Produzir espermatozoides",
+      "Produzir testosterona",
+      "Eliminar resíduos metabólicos",
+      "Produzir o hormônio folículo-estimulante (FSH)"
+    ]
+  },
+  {
+    "question": "Qual tipo sanguíneo é considerado o doador universal?",
+    "correctAnswer": "AB+",
+    "otherAnswers": ["AB+", "O+", "B+", "A+", "O-"]
+  },
+  {
+    "question": "Qual é a doença que afeta o sistema imunológico e que é provocada pela deficiência do hormônio TSH?",
+    "correctAnswer": "Hipotireoidismo",
+    "otherAnswers": ["Aids", "Hipertensão", "Esquizofrenia", "Lúpus", "Artrite"]
+  },
+  {
+    "question": "Qual é a doença causada pela falta de vitamina C?",
+    "correctAnswer": "Escorbuto",
+    "otherAnswers": [
+      "Anemia",
+      "Osteoporose",
+      "Diabetes",
+      "Artrite",
+      "Hipotireoidismo"
+    ]
+  },
+  {
+    "question": "Qual é o nome dado à camada mais interna do dente, que contém vasos sanguíneos e nervos?",
+    "correctAnswer": "Polpa",
+    "otherAnswers": ["Dentina", "Cimento", "Esmalte", "Gengiva", "Coroa"]
+  },
+  {
+    "question": "Qual é o órgão responsável pela produção de bile, que é armazenada na vesícula biliar?",
+    "correctAnswer": "Fígado",
+    "otherAnswers": [
+      "Vesícula biliar",
+      "Pâncreas",
+      "Rim",
+      "Intestino Delgado",
+      "Estômago"
+    ]
+  },
+  {
+    "question": "Qual é o órgão responsável pela produção de anticorpos, que ajudam na defesa do corpo contra doenças?",
+    "correctAnswer": "Baço",
+    "otherAnswers": ["Fígado", "Rim", "Timo", "Fígado", "Pulmão"]
+  },
+  {
+    "question": "Qual é o nome dado à camada externa do dente?",
+    "correctAnswer": "Esmalte",
+    "otherAnswers": ["Dentina", "Polpa", "Cimento", "Osso"]
+  },
+  {
+    "question": "Qual é o nome dado ao conjunto de células responsáveis pela sensação de luz no olho humano?",
+    "correctAnswer": "Retina",
+    "otherAnswers": [
+      "Córnea",
+      "Íris",
+      "Pupila",
+      "Humor vítreo",
+      "Coróide",
+      "Cristalino"
+    ]
+  },
+  {
+    "question": "Qual é o nome do tecido que reveste as extremidades dos ossos?",
+    "correctAnswer": "Cartilagem",
+    "otherAnswers": [
+      "Músculo",
+      "Epiderme",
+      "Ligamento",
+      "Tecido adiposo",
+      "Hipoderme"
+    ]
+  }
+]
