@@ -28,7 +28,6 @@ const defaultData = {
   status: CurrentGameStatus.NotStarted,
   answerSimilarity: AnswerSimilarity.NotValidated,
   stars: 0,
-  infiniteMode: false,
   skipChances: 0,
 };
 
@@ -75,12 +74,8 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.geoQuizType = gameSettings.value.geoQuizType;
     currentGame.answerMode = gameSettings.value.answerMode;
     currentGame.category = gameSettings.value.category;
-    currentGame.infiniteMode = gameSettings.value.infiniteMode;
     currentGame.totalQuestions = gameSettings.value.numberOfQuestions;
 
-    if (currentGame.infiniteMode) {
-      currentGame.totalQuestions = defaultData.totalQuestions;
-    }
     if (gameSettings.value.numberOfQuestions) {
       currentGame.skipChances = (+gameSettings.value.numberOfQuestions - 5) / 5;
       currentGame.totalLives =
@@ -214,7 +209,6 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.status = defaultData.status;
     currentGame.answerSimilarity = defaultData.answerSimilarity;
     currentGame.stars = defaultData.stars;
-    currentGame.infiniteMode = defaultData.infiniteMode;
     currentGame.skipChances = defaultData.skipChances;
   }
 

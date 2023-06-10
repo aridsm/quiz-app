@@ -22,7 +22,6 @@ export interface CurrentGame {
   currentQuestionIndex: number;
   status: CurrentGameStatus;
   stars: number;
-  infiniteMode: boolean;
   answerSimilarity: AnswerSimilarity;
   skipChances: number;
 }

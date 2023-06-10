@@ -12,7 +12,6 @@ export const useGameSettings = defineStore("useGameSettings", () => {
     numberOfQuestions: 5,
     acceptAnswerMode: true,
     geoQuizType: null,
-    infiniteMode: false,
   });
 
   return { gameSettings };

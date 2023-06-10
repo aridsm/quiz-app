@@ -30,17 +30,6 @@ function getFields(gameSettings: GameSetting) {
     },
   ];
 
-  const infiniteMode = [
-    {
-      value: true,
-      name: "Sim",
-    },
-    {
-      value: false,
-      name: "Não",
-    },
-  ];
-
   const isQuizWithCapital =
     gameSettings.quizId === QuizType.CountryCapital ||
     gameSettings.quizId === QuizType.BrazilStatesCapital;
@@ -75,7 +64,7 @@ function getFields(gameSettings: GameSetting) {
     },
   ];
 
-  return { answerModeFields, numberOfQuestion, quizModes, infiniteMode };
+  return { answerModeFields, numberOfQuestion, quizModes };
 }
 
 export default getFields;

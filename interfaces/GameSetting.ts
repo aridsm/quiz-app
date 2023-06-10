@@ -11,5 +11,4 @@ export interface GameSetting {
   numberOfQuestions: number | null;
   acceptAnswerMode: boolean;
   geoQuizType: GeoQuizType | null;
-  infiniteMode: boolean;
 }
