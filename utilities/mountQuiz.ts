@@ -21,30 +21,22 @@ function useMountQuiz() {
   ) as Quiz;
 
   function mountQuiz() {
-    const items = require("../../" + quizData.source);
+    const items = require("../" + quizData.source);
 
-    const itemsCloned = JSON.parse(JSON.stringify(items));
+    //  const itemsCloned = JSON.parse(JSON.stringify(items));
 
     const questions = [] as Question[];
     const usedIndexes: number[] = [];
 
     while (questions.length < currentGame.value.totalQuestions!) {
-      const randomIndex = getRandomIndex(itemsCloned.length, usedIndexes);
+      const randomIndex = getRandomIndex(items.length, usedIndexes);
 
       let question: Question;
 
       if (quizData.category === QuizCategoryType.Geography) {
-        question = generateGeoQuestion(
-          currentGame.value,
-          randomIndex,
-          itemsCloned
-        );
+        question = generateGeoQuestion(currentGame.value, randomIndex, items);
       } else {
-        question = generateQuestion(
-          currentGame.value,
-          randomIndex,
-          itemsCloned
-        );
+        question = generateQuestion(currentGame.value, randomIndex, items);
       }
 
       questions.push(question);

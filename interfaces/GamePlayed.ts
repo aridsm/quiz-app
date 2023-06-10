@@ -4,7 +4,7 @@ import { QuizCategoryType } from "~/enums/quizCategoryType";
 export interface GamePlayed {
   name: string;
   status: CurrentGameStatus;
-  totalQuestions: number;
+  totalQuestions: number | null;
   correctQuestions: number;
   earnedCoins: number;
   earnedXp: number;
