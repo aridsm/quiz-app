@@ -150,8 +150,8 @@
   },
   {
     "question": "Qual tipo sanguíneo é considerado o doador universal?",
-    "correctAnswer": "AB+",
-    "otherAnswers": ["AB+", "O+", "B+", "A+", "O-"]
+    "correctAnswer": "O-",
+    "otherAnswers": ["AB+", "O+", "B+", "A+", "AB-"]
   },
   {
     "question": "Qual é a doença que afeta o sistema imunológico e que é provocada pela deficiência do hormônio TSH?",

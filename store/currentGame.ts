@@ -6,9 +6,7 @@ import { useUserDataStore } from "./userData";
 import { useLastGamesPlayed } from "./lastGamesPlayed";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 import { QuizType } from "~/enums/quizType";
-import { QuizCategoryType } from "~/enums/quizCategoryType";
-import mountGeoQuiz from "~/utilities/mountGeoQuiz/mountGeoQuiz";
-import mountBioQuiz from "~/utilities/mountBioQuiz/mountBioQuiz";
+import mountQuizzes from "~/utilities/mountQuiz";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { AnswerMode } from "~/enums/answerMode";
 import { AnswerSimilarity } from "~/enums/answerSimilarity";
@@ -81,6 +79,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.category = gameSettings.value.category;
     currentGame.infiniteMode = gameSettings.value.infiniteMode;
     currentGame.totalQuestions = gameSettings.value.numberOfQuestions;
+
     if (currentGame.infiniteMode) {
       currentGame.totalQuestions = defaultData.totalQuestions;
     }
@@ -91,18 +90,8 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
       currentGame.lives = currentGame.totalLives;
     }
 
-    mountQuiz();
-
+    currentGame.questions = mountQuizzes();
     currentGame.status = CurrentGameStatus.Started;
-  }
-
-  function mountQuiz() {
-    if (gameSettings.value.category === QuizCategoryType.Geography) {
-      currentGame.questions = mountGeoQuiz();
-    } else if (gameSettings.value.category === QuizCategoryType.Biology) {
-      currentGame.questions = mountBioQuiz();
-      console.log(currentGame.questions);
-    }
   }
 
   function normalizeString(string: any) {

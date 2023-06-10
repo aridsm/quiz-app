@@ -7,13 +7,12 @@ import { useCurrentGame } from "~/store/currentGame";
 export default function generateQuestion(
   { geoQuizType, answerMode }: any,
   index: number,
-  items: any,
-  itemsJson: string
+  items: any
 ) {
   let otherAnswers: string[] = [];
 
   if (answerMode === AnswerMode.MultipleChoice) {
-    otherAnswers = generateOtherAnswers(geoQuizType, index, itemsJson);
+    otherAnswers = generateOtherAnswers(geoQuizType, index, items);
   }
 
   const currentGameStore = useCurrentGame();

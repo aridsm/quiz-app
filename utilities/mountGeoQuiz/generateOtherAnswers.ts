@@ -6,7 +6,7 @@ import { useCurrentGame } from "~/store/currentGame";
 export default function generateOtherAnswers(
   geoQuizType: GeoQuizType,
   correctAnswerIndex: number,
-  itensJson: string
+  itensJson: any
 ) {
   const otherAnswers: any[] = [];
 

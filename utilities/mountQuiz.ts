@@ -1,11 +1,13 @@
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
-import getRandomIndex from "../getRandomIndex";
-import generateQuestion from "./generateQuestion";
+import getRandomIndex from "./getRandomIndex";
+import generateQuestion from "./mountBioOrMathQuiz/generateQuestion";
+import generateGeoQuestion from "./mountGeoQuiz/generateGeoQuestions";
 import { Question } from "~/interfaces/Question";
 import { useCurrentGame } from "~/store/currentGame";
 import { useQuizzes } from "~/store/quizzes";
 import { Quiz } from "~/interfaces/Quiz";
+import { QuizCategoryType } from "~/enums/quizCategoryType";
 
 function useMountQuiz() {
   const questions = ref<any[]>([]);
@@ -29,11 +31,21 @@ function useMountQuiz() {
     while (questions.length < currentGame.value.totalQuestions!) {
       const randomIndex = getRandomIndex(itemsCloned.length, usedIndexes);
 
-      const question = generateQuestion(
-        currentGame.value,
-        randomIndex,
-        itemsCloned
-      );
+      let question: Question;
+
+      if (quizData.category === QuizCategoryType.Geography) {
+        question = generateGeoQuestion(
+          currentGame.value,
+          randomIndex,
+          itemsCloned
+        );
+      } else {
+        question = generateQuestion(
+          currentGame.value,
+          randomIndex,
+          itemsCloned
+        );
+      }
 
       questions.push(question);
       usedIndexes.push(randomIndex);

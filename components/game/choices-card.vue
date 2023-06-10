@@ -154,6 +154,7 @@ function selectAnswerHandler(answer: string) {
 }
 
 function sendSelectedAnswer() {
+  console.log(selectedAnswer.value);
   storeCurrentGame.validateAnswer(selectedAnswer.value);
 }
 
