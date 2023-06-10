@@ -36,7 +36,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       id: QuizType.HumanAnatomy,
       acceptAnswerMode: false,
       tags: ["corpo humano", "corpo", "humano", "ciências", "biologia"],
-      source: "quizzes/humanBody.json",
+      source: "quizzes/biology/humanBody.json",
     },
     {
       name: "Reino Animal",
@@ -44,7 +44,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       id: QuizType.AnimalKingdom,
       acceptAnswerMode: false,
       tags: ["animais", "biologia"],
-      source: "quizzes/animalKingdom.json",
+      source: "quizzes/biology/animalKingdom.json",
     },
     {
       name: "Bandeiras de Estados do Brasil",
@@ -67,7 +67,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
         "cálculos",
         "contas",
       ],
-      source: "",
+      source: "quizzes/mathematics/rootAndPowers.json",
     },
     {
       name: "Reino Planta",
@@ -75,7 +75,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       id: QuizType.PlantaeKingdom,
       acceptAnswerMode: false,
       tags: ["plantas", "biologia"],
-      source: "quizzes/plantaeKingdom.json",
+      source: "quizzes/biology/plantaeKingdom.json",
     },
     {
       name: "Capitais de Países",

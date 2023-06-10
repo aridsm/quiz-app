@@ -14,7 +14,7 @@ export default function generateQuestion(
 
   return {
     question: items[index].question,
-    item: null,
+    item: items[index].item || null,
     otherAnswers,
     correctAnswer: items[index].correctAnswer,
   };

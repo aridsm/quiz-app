@@ -11,27 +11,29 @@ import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { AnswerMode } from "~/enums/answerMode";
 import { AnswerSimilarity } from "~/enums/answerSimilarity";
 
+const defaultData = {
+  title: "",
+  totalQuestions: 5,
+  correctAnswers: 0,
+  totalLives: 3,
+  lives: 3,
+  xpGained: 0,
+  coinsGained: 0,
+  quizId: undefined,
+  questions: [],
+  geoQuizType: null,
+  answerMode: null,
+  category: null,
+  currentQuestionIndex: 0,
+  status: CurrentGameStatus.NotStarted,
+  answerSimilarity: AnswerSimilarity.NotValidated,
+  stars: 0,
+  infiniteMode: false,
+  skipChances: 0,
+};
+
 export const useCurrentGame = defineStore("useCurrentGame", () => {
-  const currentGame = reactive<CurrentGame>({
-    title: "",
-    totalQuestions: 5,
-    correctAnswers: 0,
-    totalLives: 3,
-    lives: 3,
-    xpGained: 0,
-    coinsGained: 0,
-    quizId: undefined,
-    questions: [],
-    geoQuizType: null,
-    answerMode: null,
-    category: null,
-    currentQuestionIndex: 0,
-    status: CurrentGameStatus.NotStarted,
-    answerSimilarity: AnswerSimilarity.NotValidated,
-    stars: 0,
-    infiniteMode: false,
-    skipChances: 0,
-  });
+  const currentGame = reactive<CurrentGame>({ ...defaultData });
 
   const storeGameSettings = useGameSettings();
   const { gameSettings } = storeToRefs(storeGameSettings);
@@ -68,8 +70,6 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
   });
 
   function createNewGame() {
-    console.log(currentGame, "currentGame");
-    console.log(gameSettings.value, "currentGame");
     currentGame.title = gameSettings.value.quizName;
     currentGame.quizId = gameSettings.value.quizId;
     currentGame.geoQuizType = gameSettings.value.geoQuizType;
@@ -79,7 +79,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.totalQuestions = gameSettings.value.numberOfQuestions;
 
     if (currentGame.infiniteMode) {
-      currentGame.totalQuestions = 5;
+      currentGame.totalQuestions = defaultData.totalQuestions;
     }
     if (gameSettings.value.numberOfQuestions) {
       currentGame.skipChances = (+gameSettings.value.numberOfQuestions - 5) / 5;
@@ -198,24 +198,24 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
   }
 
   function resetQuiz() {
-    currentGame.title = "";
-    currentGame.totalQuestions = 5;
-    currentGame.correctAnswers = 0;
-    currentGame.totalLives = 3;
-    currentGame.lives = 3;
-    currentGame.xpGained = 0;
-    currentGame.coinsGained = 0;
-    currentGame.quizId = undefined;
-    currentGame.questions = [];
-    currentGame.geoQuizType = null;
-    currentGame.answerMode = null;
-    currentGame.category = null;
-    currentGame.currentQuestionIndex = 0;
-    currentGame.status = CurrentGameStatus.NotStarted;
-    currentGame.answerSimilarity = AnswerSimilarity.NotValidated;
-    currentGame.stars = 0;
-    currentGame.infiniteMode = false;
-    currentGame.skipChances = 0;
+    currentGame.title = defaultData.title;
+    currentGame.totalQuestions = defaultData.totalQuestions;
+    currentGame.correctAnswers = defaultData.correctAnswers;
+    currentGame.totalLives = defaultData.totalLives;
+    currentGame.lives = defaultData.lives;
+    currentGame.xpGained = defaultData.xpGained;
+    currentGame.coinsGained = defaultData.coinsGained;
+    currentGame.quizId = defaultData.quizId;
+    currentGame.questions = defaultData.questions;
+    currentGame.geoQuizType = defaultData.geoQuizType;
+    currentGame.answerMode = defaultData.answerMode;
+    currentGame.category = defaultData.category;
+    currentGame.currentQuestionIndex = defaultData.currentQuestionIndex;
+    currentGame.status = defaultData.status;
+    currentGame.answerSimilarity = defaultData.answerSimilarity;
+    currentGame.stars = defaultData.stars;
+    currentGame.infiniteMode = defaultData.infiniteMode;
+    currentGame.skipChances = defaultData.skipChances;
   }
 
   return {

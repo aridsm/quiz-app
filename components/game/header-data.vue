@@ -7,12 +7,12 @@
         <div class="flex gap-2">
           <icon-quiz-heart-empty
             v-for="live in currentGame.totalLives - currentGame.lives"
-            :key="live"
+            :key="live * Math.random()"
             class="w-4 text-quiz-pink"
           />
           <icon-quiz-heart-fill
             v-for="live in currentGame.lives"
-            :key="live"
+            :key="live * Math.random()"
             class="w-4 text-quiz-pink"
           />
         </div>

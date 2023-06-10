@@ -23,8 +23,6 @@ function useMountQuiz() {
   function mountQuiz() {
     const items = require("../" + quizData.source);
 
-    //  const itemsCloned = JSON.parse(JSON.stringify(items));
-
     const questions = [] as Question[];
     const usedIndexes: number[] = [];
 

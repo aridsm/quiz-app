@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p
+    <div
       class="text-center text-[1.6rem] leading-none"
       :class="{
         'bg-quiz-blue-200 py-4 px-6 mb-8 leading-snug': !categoryIsGeography,
@@ -8,7 +8,13 @@
     >
       {{ currentGame.currentQuestionIndex + 1 }}.
       {{ currentQuestion.question }}
-    </p>
+      <p
+        v-if="categoryIsMath && currentQuestion.item"
+        class="mt-2 text-quiz-green-light"
+      >
+        {{ currentQuestion.item }}
+      </p>
+    </div>
 
     <div v-if="questionIsFlag">
       <div class="h-28 mx-auto my-6">
@@ -30,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { GeoQuizType } from "~/enums/geoQuizType";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { CurrentGame } from "~/interfaces/CurrentGame";
@@ -56,8 +62,11 @@ const categoryIsGeography = computed<boolean>(() => {
   return props.currentGame.category === QuizCategoryType.Geography;
 });
 
+const categoryIsMath = computed<boolean>(() => {
+  return props.currentGame.category === QuizCategoryType.Mathematics;
+});
+
 const itemQuestion = computed<string | number | string[]>(() => {
-  console.log(categoryIsGeography);
   const currentGameQuestion: any = props.currentQuestion.item;
   let fixedQuestion: any = currentGameQuestion;
   if (typeof currentGameQuestion === "object") {
