@@ -11,7 +11,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Geography,
       id: QuizType.CountryFlag,
       acceptAnswerMode: true,
-      tags: ["geografia", "paises"],
       source: "quizzes/geography/countries.json",
     },
     {
@@ -19,15 +18,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Mathematics,
       id: QuizType.BasicMaths,
       acceptAnswerMode: true,
-      tags: [
-        "matematica",
-        "numero",
-        "cálculos",
-        "calculos",
-        "contas",
-        "basica",
-      ],
-
       source: "",
     },
     {
@@ -35,7 +25,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Biology,
       id: QuizType.HumanAnatomy,
       acceptAnswerMode: false,
-      tags: ["corpo humano", "corpo", "humano", "ciências", "biologia"],
       source: "quizzes/biology/humanBody.json",
     },
     {
@@ -43,7 +32,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Biology,
       id: QuizType.AnimalKingdom,
       acceptAnswerMode: false,
-      tags: ["animais", "biologia"],
       source: "quizzes/biology/animalKingdom.json",
     },
     {
@@ -51,7 +39,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Geography,
       id: QuizType.BrazilStatesFlag,
       acceptAnswerMode: true,
-      tags: ["brazil", "geografia"],
       source: "quizzes/geography/brazil.json",
     },
     {
@@ -59,14 +46,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Mathematics,
       id: QuizType.RootsAndPowers,
       acceptAnswerMode: true,
-      tags: [
-        "raizes",
-        "potencias",
-        "matematica",
-        "calculos",
-        "cálculos",
-        "contas",
-      ],
       source: "quizzes/mathematics/rootAndPowers.json",
     },
     {
@@ -74,7 +53,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Biology,
       id: QuizType.PlantaeKingdom,
       acceptAnswerMode: false,
-      tags: ["plantas", "biologia"],
       source: "quizzes/biology/plantaeKingdom.json",
     },
     {
@@ -82,7 +60,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Geography,
       id: QuizType.CountryCapital,
       acceptAnswerMode: true,
-      tags: ["capital", "paises", "geografia"],
       source: "quizzes/geography/countries.json",
     },
     {
@@ -90,7 +67,6 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       category: QuizCategoryType.Geography,
       id: QuizType.BrazilStatesCapital,
       acceptAnswerMode: true,
-      tags: ["brazil", "capital", "geografia"],
       source: "quizzes/geography/brazil.json",
     },
   ]);
@@ -105,11 +81,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
     const filteredByName = quizzes.value.filter((quiz: Quiz) => {
       const includesName = quiz.name.toLowerCase().includes(name.toLowerCase());
 
-      const includesTags = quiz.tags.some((tag: string) =>
-        tag.toLowerCase().includes(name.toLowerCase())
-      );
-
-      return includesName || includesTags;
+      return includesName;
     });
 
     let quizzesFiltered: Quiz[] = filteredByName;

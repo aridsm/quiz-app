@@ -31,7 +31,6 @@
           <quiz-x-radios
             :items="fields.numberOfQuestion"
             :selected-value="gameSettings.numberOfQuestions"
-            :disabled="disableNumberOfQuestionsField"
             @getSelected="getSelectedNumberOfQuestions"
           />
         </li>
