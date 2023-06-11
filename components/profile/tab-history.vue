@@ -13,35 +13,35 @@
             {{ getCategoryData(game.category).name }}
           </p>
         </div>
-        <quiz-x-tooltip
-          title="Moedas ganhas"
+        <div
+          v-title="'Moedas ganhas'"
           class="w-12 text-left ml-auto"
           activator-classes="flex items-center"
         >
           {{ game.earnedCoins }}
           <icon-quiz-coins class="w-3 ml-2" />
-        </quiz-x-tooltip>
-        <quiz-x-tooltip
-          title="Experiência ganha"
+        </div>
+        <div
+          v-title="'Experiência ganha'"
           class="w-12 text-left ml-4"
           activator-classes="flex items-center"
         >
           {{ game.earnedXp }} XP
-        </quiz-x-tooltip>
+        </div>
 
-        <quiz-x-tooltip title="Derrota">
+        <div v-title="'Derrota'">
           <icon-quiz-xmark
             v-if="game.status === CurrentGameStatus.Failed"
             class="w-4 ml-2 text-quiz-pink"
           />
-        </quiz-x-tooltip>
+        </div>
 
-        <quiz-x-tooltip title="Vitória">
+        <div v-title="'Vitória'">
           <icon-quiz-checkmark
             v-if="game.status === CurrentGameStatus.Done"
             class="w-4 ml-2 text-quiz-green-light"
           />
-        </quiz-x-tooltip>
+        </div>
       </li>
     </ul>
   </div>

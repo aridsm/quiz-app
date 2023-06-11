@@ -3,13 +3,15 @@
     <quiz-x-card class="p-8 max-w-[30rem] w-full login-card relative">
       <div class="flex justify-between items-center">
         <h2 class="text-2xl">Vamos começar!</h2>
-        <quiz-x-tooltip
-          title="De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !"
+        <div
+          v-title="
+            'De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !'
+          "
         >
           <icon-quiz-infos
             class="w-5 hover:text-quiz-green-light text-quiz-blue-100"
           />
-        </quiz-x-tooltip>
+        </div>
       </div>
       <p class="text-quiz-blue-100">É preciso estar logado para continuar</p>
       <quiz-input-text

@@ -21,7 +21,7 @@ export default {
   css: ["~/static/style.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["~/plugins/directives.ts"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
@@ -43,7 +43,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@pinia/nuxt"],
+  modules: ["@pinia/nuxt", "portal-vue/nuxt"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

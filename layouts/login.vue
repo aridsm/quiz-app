@@ -13,6 +13,7 @@
     <div
       class="w-80 h-80 bg-quiz-blue-100 fixed -top-28 bg-blur pointer-events-none"
     />
+    <the-tooltip />
   </div>
 </template>
 

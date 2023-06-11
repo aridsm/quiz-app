@@ -23,21 +23,16 @@
       {{ currentGame.totalQuestions }} perguntas!
     </p>
     <div class="flex gap-10 mt-8">
-      <quiz-x-tooltip
-        title="Experiência ganha"
-        activator-classes="text-quiz-green-light text-4xl"
-      >
+      <div v-title="'Experiência ganha'" class="text-quiz-green-light text-4xl">
         + {{ currentGame.xpGained }} XP
-      </quiz-x-tooltip>
+      </div>
 
-      <quiz-x-tooltip
-        title="Moedas ganhas"
-        activator-classes="text-quiz-green-light text-4xl"
+      <div
+        v-title="'Moedas ganhas'"
+        class="text-quiz-green-light text-4xl flex gap-2"
       >
-        <div class="flex gap-2">
-          {{ currentGame.coinsGained }} <icon-quiz-coins class="w-6" />
-        </div>
-      </quiz-x-tooltip>
+        {{ currentGame.coinsGained }} <icon-quiz-coins class="w-6" />
+      </div>
     </div>
 
     <quiz-btn class="mt-auto" @click="playAgainHandler">
