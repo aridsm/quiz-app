@@ -25,7 +25,7 @@ defineProps<Props>();
 }
 
 .tooltip {
-  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 4px 4px 10px 0 rgba(32, 25, 78, 0.3);
   bottom: calc(100% + 5px);
 }
 

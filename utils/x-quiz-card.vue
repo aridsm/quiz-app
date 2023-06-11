@@ -62,7 +62,7 @@ function openModalGameSettings() {
 
 <style scoped>
 .quiz-card:hover {
-  box-shadow: 0 0 0 2px #59ff88;
+  box-shadow: 0 0 0 2px #59ff88, 4px 4px 10px 0 rgba(32, 25, 78, 0.3);
 }
 
 .quiz-card:hover .play-now-link {

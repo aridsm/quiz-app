@@ -116,7 +116,7 @@ function openToggleHandler() {
   top: calc(100% + 2rem);
   transition: all 0.1s ease-in;
   pointer-events: none;
-  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 4px 4px 10px 0 rgba(32, 25, 78, 0.3);
   @apply opacity-0;
 }
 

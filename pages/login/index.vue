@@ -73,6 +73,6 @@ export default Vue.extend({
 
 <style scoped>
 .login-card {
-  box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 4px 4px 25px 0 rgba(32, 25, 78, 0.2);
 }
 </style>

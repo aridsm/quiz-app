@@ -69,7 +69,6 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
   });
 
   function createNewGame() {
-    console.log(gameSettings.value);
     currentGame.title = gameSettings.value.quizName;
     currentGame.quizId = gameSettings.value.quizId;
     currentGame.geoQuizType = gameSettings.value.geoQuizType;
@@ -102,21 +101,40 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
       currentGame.questions[currentGame.currentQuestionIndex].correctAnswer;
 
     let levenshteinDistance: number = 0;
+    let percentageSimilarity: number = 0;
 
     if (typeof correctAnswer === "object" && correctAnswer.length > 1) {
-      const levenshteinDistances: number[] = correctAnswer.map(
-        (correct: string) => distance(enteredAnswer, normalizeString(correct))
+      const levenshteinForCorrectAnswer: any[] = correctAnswer.map(
+        (correct: string) => ({
+          levenshtein: distance(enteredAnswer, normalizeString(correct)),
+          answer: normalizeString(correct),
+        })
       );
+      const levenshteinDistances = levenshteinForCorrectAnswer.map(
+        (lev: any) => lev.levenshtein
+      );
+
       levenshteinDistance = Math.min(...levenshteinDistances);
+
+      const mostSimilarCorrectAnswer = levenshteinForCorrectAnswer.find(
+        (ans: any) => ans.levenshtein === levenshteinDistance
+      );
+
+      percentageSimilarity =
+        (levenshteinDistance * 100) /
+        normalizeString(mostSimilarCorrectAnswer).length;
     } else {
       const correctAnswerNormalized = normalizeString(correctAnswer);
       levenshteinDistance = distance(enteredAnswer, correctAnswerNormalized);
+
+      percentageSimilarity =
+        (levenshteinDistance * 100) / correctAnswerNormalized.length;
     }
 
     if (levenshteinDistance === 0) {
       currentGame.answerSimilarity = AnswerSimilarity.Equal;
       acceptAnswer();
-    } else if (levenshteinDistance > 0 && levenshteinDistance <= 4) {
+    } else if (percentageSimilarity > 0 && percentageSimilarity <= 35) {
       return (currentGame.answerSimilarity = AnswerSimilarity.Similar);
     } else {
       currentGame.answerSimilarity = AnswerSimilarity.NotSimilar;
