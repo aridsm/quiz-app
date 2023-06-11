@@ -59,8 +59,6 @@ const currentGame = useCurrentGame();
 
 const { modals } = storeToRefs(storeModals);
 const { gameSettings } = storeToRefs(storeGameSettings);
-const storeModal = useModals();
-
 const router = useRouter();
 
 const showQuizTypes = computed(() => {
@@ -98,6 +96,6 @@ function getSelectedQuizMode(value: number) {
 function startNewGame() {
   currentGame.createNewGame();
   router.push("/game");
-  storeModal.modals.modalGameSettingsIsOpen = false;
+  storeModals.modals.modalGameSettingsIsOpen = false;
 }
 </script>

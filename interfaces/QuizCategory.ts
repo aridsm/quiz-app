@@ -4,4 +4,5 @@ export interface QuizCategory {
   id: QuizCategoryType;
   count: number;
   name: string;
+  victories: number;
 }

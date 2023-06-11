@@ -1,5 +1,5 @@
 export interface Modals {
-  modalFriendsIsOpen: boolean;
+  modalProfileIsOpen: boolean;
   modalMessagesIsOpen: boolean;
   modalGameSettingsIsOpen: boolean;
   modalInfosIsOpen: boolean;

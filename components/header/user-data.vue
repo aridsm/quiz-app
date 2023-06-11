@@ -11,7 +11,9 @@
       </div>
     </div>
     <quiz-toggle-activator :arrow-indicator="true" arrow-side="left">
-      <template #activator> <quiz-x-avatar avatar="av-3" /> </template>
+      <template #activator>
+        <quiz-x-avatar :avatar="data.avatarUrl" />
+      </template>
       <template #content>
         <ul class="flex flex-col gap-2">
           <li v-for="option in profileOptions" :key="option.name">
@@ -59,6 +61,7 @@ import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { ProfileOptions } from "../../enums/profileOptions";
 import { useUserDataStore } from "~/store/userData";
+import { useModals } from "~/store/modals";
 
 interface Options {
   action: Function;
@@ -67,6 +70,7 @@ interface Options {
 }
 
 const userStore = useUserDataStore();
+const useModalStore = useModals();
 
 const { data } = storeToRefs(userStore);
 
@@ -93,7 +97,10 @@ const profileOptions = ref<Options[]>([
   },
 ]);
 
-function showProfile() {}
+function showProfile() {
+  useModalStore.modals.modalProfileIsOpen = true;
+}
+
 function showFriend() {}
 function showMessages() {}
 function logout() {}

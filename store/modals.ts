@@ -4,7 +4,7 @@ import { Modals } from "~/interfaces/Modals";
 
 export const useModals = defineStore("useModals", () => {
   const modals = ref<Modals>({
-    modalFriendsIsOpen: false,
+    modalProfileIsOpen: false,
     modalMessagesIsOpen: false,
     modalGameSettingsIsOpen: false,
     modalInfosIsOpen: false,

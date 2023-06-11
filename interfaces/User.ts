@@ -13,7 +13,5 @@ export interface User {
   soundVolume: number;
   friendsCount: number;
   hasNotifications: boolean;
-  totalGamesPlayed: number;
   categoriesPlayed: QuizCategory[];
-  lastGamesPlayed: string[];
 }

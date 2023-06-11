@@ -12,8 +12,8 @@ export const useUserDataStore = defineStore("userData", () => {
   const friendsStore = useFriends();
 
   const data = reactive<User>({
-    userName: "",
-    avatarUrl: "",
+    userName: "user1838",
+    avatarUrl: "av-3",
     level: 1,
     levelProgress: 20,
     currentXp: 0,
@@ -24,25 +24,44 @@ export const useUserDataStore = defineStore("userData", () => {
     soundVolume: 80,
     friendsCount: friendsStore.friends.length,
     hasNotifications: false,
-    totalGamesPlayed: 4,
     categoriesPlayed: [
       {
         id: QuizCategoryType.Biology,
         count: 1,
+        victories: 1,
         name: "biologia",
       },
       {
         id: QuizCategoryType.Geography,
         count: 2,
+        victories: 1,
         name: "geografia",
       },
       {
         id: QuizCategoryType.Mathematics,
         count: 2,
+        victories: 2,
         name: "matemática",
       },
     ],
-    lastGamesPlayed: [],
+  });
+
+  const totalGamesPlayed = computed<number>(() => {
+    const total = data.categoriesPlayed.reduce(
+      (acc, currentValue) => acc + currentValue.count,
+      0
+    );
+
+    return total;
+  });
+
+  const totalVictories = computed<number>(() => {
+    const total = data.categoriesPlayed.reduce(
+      (acc, currentValue) => acc + currentValue.victories,
+      0
+    );
+
+    return total;
   });
 
   const mostPlayedCategories = computed<QuizCategory[]>(() => {
@@ -74,5 +93,12 @@ export const useUserDataStore = defineStore("userData", () => {
     data.coinsCount += currentGame.coinsGained;
   }
 
-  return { data, login, mostPlayedCategories, getRewards };
+  return {
+    data,
+    login,
+    mostPlayedCategories,
+    totalGamesPlayed,
+    totalVictories,
+    getRewards,
+  };
 });

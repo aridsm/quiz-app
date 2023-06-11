@@ -5,7 +5,7 @@
       <nuxt />
     </quiz-page-layout>
     <the-footer />
-    <the-friends-modal />
+    <the-profile-modal />
     <the-game-settings-modal />
     <div class="fixed bottom-4 right-4">
       <button class="flex items-center gap-2">

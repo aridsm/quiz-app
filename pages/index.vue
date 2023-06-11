@@ -69,7 +69,7 @@
             >
               <span>Total de partidas jogadas</span>
               <span class="text-quiz-green-light text-2xl">{{
-                data.totalGamesPlayed
+                totalGamesPlayed
               }}</span>
             </quiz-x-card>
           </li>
@@ -87,7 +87,7 @@ import { computed, ref } from "vue";
 import { useUserDataStore } from "~/store/userData";
 
 const userData = useUserDataStore();
-const { data, mostPlayedCategories } = storeToRefs(userData);
+const { data, totalGamesPlayed, mostPlayedCategories } = storeToRefs(userData);
 
 interface User {
   avatar: string;

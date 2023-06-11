@@ -98,6 +98,6 @@ const links = ref<Link[]>([
 }
 
 .the-header {
-  box-shadow: 0 4px 15px 0 rgba(32, 25, 78, 0.3);
+  box-shadow: 0 4px 15px 0 rgba(32, 25, 78, 0.2);
 }
 </style>
