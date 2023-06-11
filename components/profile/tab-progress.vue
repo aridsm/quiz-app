@@ -1,18 +1,18 @@
 <template>
-  <div class="bg-quiz-blue-200 p-4">
+  <div class="bg-quiz-blue-200 p-6">
     <div>
-      <quiz-x-title class="mb-4">Categorias jogadas</quiz-x-title>
-      <ul class="flex flex-col gap-2">
+      <quiz-x-title class="mb-3">Categorias jogadas</quiz-x-title>
+      <ul class="flex flex-col gap-3">
         <li
           v-for="category in user.categoriesPlayed"
           :key="category.id"
-          class="flex items-center"
+          class="flex items-center text-sm"
         >
           <p>{{ category.name }}</p>
-          <span class="ml-auto text-quiz-green-light text-sm">
+          <span class="ml-auto text-quiz-green-light text-sm w-24 text-end">
             {{ category.victories }} vitórias
           </span>
-          <span class="ml-6 text-quiz-green-light text-sm">
+          <span class="ml-6 text-quiz-green-light text-sm w-24 text-end">
             {{ category.count - category.victories }} derrotas
           </span>
         </li>

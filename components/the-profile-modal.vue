@@ -28,7 +28,7 @@
           <button
             v-for="option in profileOptions"
             :key="option.id"
-            class="h-full px-4 rounded-t-md"
+            class="h-full px-6 rounded-t-md"
             :class="{
               'bg-quiz-blue-200 text-quiz-green-light':
                 option.tab === tabSelected,
@@ -70,7 +70,7 @@ const profileOptions = ref<Options[]>([
     tab: "profile-tab-progress",
   },
   {
-    name: "Amigos",
+    name: `Amigos (${user.value.friendsCount})`,
     id: ProfileOptions.Friends,
     tab: "profile-tab-friends",
   },
