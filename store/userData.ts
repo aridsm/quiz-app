@@ -6,6 +6,8 @@ import { useFriends } from "./friends";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 
+const regexValidation = /^[a-zA-Z0-9@_!]{3,10}$/;
+
 export const useUserDataStore = defineStore("userData", () => {
   const friendsStore = useFriends();
 
@@ -57,9 +59,14 @@ export const useUserDataStore = defineStore("userData", () => {
     return categories;
   });
 
-  function login(userName: string) {
-    data.userName = userName;
-    data.isLogged = true;
+  function login(userName: string): boolean {
+    const usernameIsValid = regexValidation.test(userName);
+    if (usernameIsValid) {
+      data.userName = userName.toLowerCase();
+      data.isLogged = true;
+      return true;
+    }
+    return false;
   }
 
   function getRewards(currentGame: CurrentGame) {
