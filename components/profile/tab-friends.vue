@@ -14,18 +14,18 @@
           <quiz-x-tooltip title="enviar mensagem">
             <button
               class="hover:text-quiz-green-light active:scale-95"
-              @click="deleteFriendHandler"
+              @click="openModalMessagesHandler"
             >
-              <icon-quiz-trash class="w-4" />
+              <icon-quiz-paperplane class="w-4" />
             </button>
           </quiz-x-tooltip>
 
           <quiz-x-tooltip title="excluir amigo">
             <button
               class="hover:text-quiz-green-light active:scale-95"
-              @click="openModalMessagesHandler"
+              @click="deleteFriendHandler"
             >
-              <icon-quiz-paperplane class="w-4" />
+              <icon-quiz-trash class="w-4" />
             </button>
           </quiz-x-tooltip>
         </div>
