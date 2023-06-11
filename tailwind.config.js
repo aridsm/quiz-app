@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "quiz-blue-100": "#6B60AC",
+        "quiz-blue-100": "#7267B1",
         "quiz-blue-200": "#3D3375",
         "quiz-blue-300": "#382F6C",
         "quiz-blue-400": "#312963",
@@ -18,7 +18,7 @@ module.exports = {
         "quiz-pink": "#FF1EAD",
         "quiz-green-light": "#59FF88",
         "quiz-green-dark": "#1A9359",
-        "quiz-border": "#483E81",
+        "quiz-border": "#4F4588",
       },
     },
   },

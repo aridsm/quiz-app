@@ -2,10 +2,7 @@
   <section class="mt-24">
     <div class="flex items-center justify-between mb-4 leading-none">
       <quiz-x-title>Quizzes</quiz-x-title>
-      <nuxt-link
-        to="/quizzes/all"
-        class="text-quiz-green-light flex items-center"
-      >
+      <nuxt-link to="/quizzes" class="text-quiz-green-light flex items-center">
         Todos os quizzes
         <icon-quiz-arrow class="ml-2 w-3 -rotate-90 -mt-[2px]" />
       </nuxt-link>

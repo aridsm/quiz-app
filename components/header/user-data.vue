@@ -83,8 +83,8 @@ const profileOptions = ref<Options[]>([
   },
   {
     action: showMessages,
-    name: "Mensagens",
-    id: ProfileOptions.Messages,
+    name: "Seu histórico",
+    id: ProfileOptions.History,
   },
   {
     action: logout,
