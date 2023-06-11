@@ -69,6 +69,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
   });
 
   function createNewGame() {
+    console.log(gameSettings.value);
     currentGame.title = gameSettings.value.quizName;
     currentGame.quizId = gameSettings.value.quizId;
     currentGame.geoQuizType = gameSettings.value.geoQuizType;
@@ -96,13 +97,21 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
   }
 
   function validateInputValue(answer: string) {
-    const correctAnswer = normalizeString(
-      currentGame.questions[currentGame.currentQuestionIndex].correctAnswer
-    );
-
     const enteredAnswer = normalizeString(answer);
+    const correctAnswer =
+      currentGame.questions[currentGame.currentQuestionIndex].correctAnswer;
 
-    const levenshteinDistance = distance(enteredAnswer, correctAnswer);
+    let levenshteinDistance: number = 0;
+
+    if (typeof correctAnswer === "object" && correctAnswer.length > 1) {
+      const levenshteinDistances: number[] = correctAnswer.map(
+        (correct: string) => distance(enteredAnswer, normalizeString(correct))
+      );
+      levenshteinDistance = Math.min(...levenshteinDistances);
+    } else {
+      const correctAnswerNormalized = normalizeString(correctAnswer);
+      levenshteinDistance = distance(enteredAnswer, correctAnswerNormalized);
+    }
 
     if (levenshteinDistance === 0) {
       currentGame.answerSimilarity = AnswerSimilarity.Equal;

@@ -39,8 +39,14 @@
         <p v-if="answerIsSimilar" class="text-orange-400">
           Quase! Tente outra vez!
         </p>
-        <p v-if="answerIsCorrect" class="text-quiz-green-light">
+        <p
+          v-if="answerIsCorrect"
+          class="text-quiz-green-light flex items-center justify-between"
+        >
           Muito bem! Resposta correta!
+          <span v-if="correctAnswersIsMoreThanOne">
+            Todas: {{ correctAnswer }}
+          </span>
         </p>
         <div v-if="answerIsIncorrect" class="flex items-center justify-between">
           <p class="text-quiz-pink">Ops! Resposta errada!</p>
@@ -124,6 +130,16 @@ const answerIsAFlag = computed<boolean>(() => {
     isFlag.value &&
     currentGame.value.geoQuizType === GeoQuizType.FromStateCountry
   );
+});
+
+const correctAnswersIsMoreThanOne = computed<any>(() => {
+  const answer =
+    currentGame.value.questions[currentGame.value.currentQuestionIndex]
+      .correctAnswer;
+  if (typeof answer === "object" && answer.length > 1) {
+    return true;
+  }
+  return false;
 });
 
 const correctAnswer = computed<any>(() => {

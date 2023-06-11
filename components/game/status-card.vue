@@ -40,7 +40,9 @@
       </quiz-x-tooltip>
     </div>
 
-    <quiz-btn class="mt-auto"> Jogar novamente </quiz-btn>
+    <quiz-btn class="mt-auto" @click="playAgainHandler">
+      Jogar novamente
+    </quiz-btn>
     <nuxt-link class="mt-4 text-quiz-green-light" to="/">
       Voltar à página inicial
     </nuxt-link>
@@ -49,10 +51,18 @@
 
 <script lang="ts" setup>
 import { CurrentGame } from "~/interfaces/CurrentGame";
+import { useCurrentGame } from "~/store/currentGame";
 
 interface Props {
   currentGame: CurrentGame;
   isSuccess: boolean;
+}
+
+const currentGameStore = useCurrentGame();
+
+function playAgainHandler() {
+  currentGameStore.resetQuiz();
+  currentGameStore.createNewGame();
 }
 
 defineProps<Props>();
