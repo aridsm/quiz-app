@@ -5,7 +5,8 @@
       <quiz-input-text
         :model.sync="searchValue"
         placeholder="Procure por uma partida..."
-        class="w-56 py-3 text-base border border-quiz-border"
+        class="w-60 py-3 text-base"
+        style="background: #43397e"
         @input="onSearchHistory"
       />
     </div>

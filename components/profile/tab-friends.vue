@@ -5,17 +5,18 @@
       <quiz-input-text
         :model.sync="searchValue"
         placeholder="Procure por um amigo..."
-        class="w-56 py-3 text-base border border-quiz-border"
+        class="w-60 py-3 text-base"
+        style="background: #43397e"
         @input="onSearchHistory"
       />
     </div>
 
     <div class="py-4 px-6 pt-0 h-[20rem] overflow-auto list_friends">
-      <ul class="flex flex-col gap-6">
+      <ul class="flex flex-col gap-3">
         <li
           v-for="friend in friendsOnlineFirst"
           :key="friend.id"
-          class="flex items-center"
+          class="flex items-center p-4 bg-[#43397E] rounded-sm"
         >
           <quiz-x-avatar :avatar="friend.avatarUrl" />
           <p class="w-auto ml-5">

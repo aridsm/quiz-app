@@ -35,6 +35,7 @@ function closeModalHandler() {
 <style>
 .card-modal {
   animation: anima 0.1s ease-out forwards;
+  box-shadow: 4px 4px 10px 0 rgba(32, 25, 78, 0.3);
 }
 
 @keyframes anima {
