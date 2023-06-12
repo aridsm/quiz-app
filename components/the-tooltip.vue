@@ -3,7 +3,7 @@
     class="z-[999] tooltip opacity-0 pointer-events-none transition absolute w-max bg-quiz-green-light text-quiz-green-dark py-2 px-4 rounded-md text-xs"
     :class="{ 'opacity-100': tooltip.isShown }"
     :style="{
-      top: `${tooltip.position.top - 10}px`,
+      top: `${tooltip.position.top - 20}px`,
       left: `${tooltip.position.left - 10}px`,
     }"
   >

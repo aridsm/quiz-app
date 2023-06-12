@@ -6,13 +6,13 @@
         <li
           v-for="category in user.categoriesPlayed"
           :key="category.id"
-          class="flex items-center text-sm"
+          class="flex items-center text-base"
         >
           <p>{{ category.name }}</p>
-          <span class="ml-auto text-quiz-green-light text-sm w-24 text-end">
+          <span class="ml-auto text-quiz-green-light text-base w-24 text-end">
             {{ category.victories }} vitórias
           </span>
-          <span class="ml-6 text-quiz-green-light text-sm w-24 text-end">
+          <span class="ml-6 text-quiz-green-light text-base w-24 text-end">
             {{ category.count - category.victories }} derrotas
           </span>
         </li>
@@ -21,19 +21,19 @@
     <div class="mt-6 flex justify-between">
       <div>
         <quiz-x-title>Total vitórias</quiz-x-title>
-        <span class="text-quiz-green-light text-sm">
+        <span class="text-quiz-green-light text-base">
           {{ totalVictories }} vitórias
         </span>
       </div>
       <div>
         <quiz-x-title>Total derrotas</quiz-x-title>
-        <span class="text-quiz-green-light text-sm">
+        <span class="text-quiz-green-light text-base">
           {{ totalGamesPlayed - totalVictories }} derrotas
         </span>
       </div>
       <div>
         <quiz-x-title>Total partidas</quiz-x-title>
-        <span class="text-quiz-green-light text-sm">
+        <span class="text-quiz-green-light text-base">
           {{ totalGamesPlayed }} partidas
         </span>
       </div>

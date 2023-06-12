@@ -36,5 +36,15 @@ export const useFriends = defineStore("useFriends", () => {
 
   function addNewFriend() {}
 
-  return { friends };
+  function searchGame(name: string) {
+    const searchValue = name.trim().toLowerCase();
+
+    const gamesFiltered = friends.value.filter((game: Friend) =>
+      game.userName.toLowerCase().includes(searchValue)
+    );
+
+    return gamesFiltered;
+  }
+
+  return { friends, searchGame };
 });

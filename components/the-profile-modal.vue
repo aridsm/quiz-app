@@ -1,6 +1,6 @@
 <template>
   <quiz-modal-overlay :model.sync="modals.modalProfileIsOpen">
-    <div style="width: 32rem">
+    <div style="width: 36rem">
       <div class="flex items-center gap-5">
         <div class="w-36 h-36 rounded-md overflow-hidden">
           <img
@@ -28,7 +28,7 @@
           <button
             v-for="option in profileOptions"
             :key="option.id"
-            class="h-full px-6 rounded-t-md"
+            class="h-full px-6 rounded-t-md hover:text-quiz-green-light"
             :class="{
               'bg-quiz-blue-200 text-quiz-green-light':
                 option.tab === tabSelected,

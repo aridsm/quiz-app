@@ -40,7 +40,7 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
     {
       name: "Bandeiras de Estados do Brasil",
       status: CurrentGameStatus.Failed,
-      totalQuestions: 1,
+      totalQuestions: 10,
       correctQuestions: 5,
       earnedCoins: 1,
       earnedXp: 1,
@@ -73,5 +73,15 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
     lastGamesPlayed.value.unshift(body);
   }
 
-  return { lastGamesPlayed, addGameToHistory };
+  function searchGame(name: string) {
+    const searchValue = name.trim().toLowerCase();
+
+    const gamesFiltered = lastGamesPlayed.value.filter((game: GamePlayed) =>
+      game.name.toLowerCase().includes(searchValue)
+    );
+
+    return gamesFiltered;
+  }
+
+  return { lastGamesPlayed, addGameToHistory, searchGame };
 });
