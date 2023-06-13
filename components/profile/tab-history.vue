@@ -1,12 +1,12 @@
 <template>
   <div class="bg-quiz-blue-200">
     <div class="flex justify-between items-center px-6 py-4">
-      <quiz-x-title>Seu histórico</quiz-x-title>
+      <p class="text-quiz-blue-100">Seu histórico</p>
       <quiz-input-text
         :model.sync="searchValue"
         placeholder="Procure por uma partida..."
-        class="w-60 py-3 text-base"
-        style="background: #43397e"
+        class="py-3 text-base text-quiz-blue-100"
+        style="background: #43397e; width: 15rem"
         @input="onSearchHistory"
       />
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="model"
-    class="fixed top-0 left-0 bg-black/[.3] w-screen h-screen z-50 flex justify-center items-center"
+    class="fixed top-0 left-0 bg-black/[.3] w-screen h-screen z-50 flex justify-center items-start py-16 overflow-auto"
     @click.self="closeModalHandler"
   >
     <quiz-x-card class="card-modal transition relative">
@@ -21,7 +21,7 @@ interface Props {
   model: boolean;
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   model: false,
 });
 

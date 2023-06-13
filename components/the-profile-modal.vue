@@ -1,6 +1,6 @@
 <template>
   <quiz-modal-overlay :model.sync="modals.modalProfileIsOpen">
-    <div style="width: 36rem" class="relative">
+    <div style="width: 38rem" class="relative">
       <div class="flex items-center gap-5">
         <div class="w-36 h-36 rounded-md relative">
           <img
@@ -66,8 +66,8 @@
             </quiz-btn>
           </div>
           <div>
-            <quiz-x-title class="mb-3">Avatares disponíveis</quiz-x-title>
-            <ul class="grid-cols-4 grid gap-4">
+            <p class="mb-3 text-quiz-blue-100">Avatares disponíveis</p>
+            <ul class="grid-cols-5 grid gap-4">
               <li
                 v-for="avatar in avatarImages"
                 :key="avatar"

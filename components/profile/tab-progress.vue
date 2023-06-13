@@ -1,7 +1,7 @@
 <template>
   <div class="bg-quiz-blue-200 p-6">
     <div>
-      <quiz-x-title class="mb-4">Categorias jogadas</quiz-x-title>
+      <p class="mb-4 text-quiz-blue-100">Categorias jogadas</p>
       <ul class="flex flex-col gap-3">
         <li
           v-for="category in user.categoriesPlayed"
@@ -24,21 +24,21 @@
     </div>
     <div class="mt-6 flex justify-between">
       <div>
-        <quiz-x-title>Total vitórias</quiz-x-title>
+        <p class="text-quiz-blue-100">Total vitórias</p>
         <span class="text-quiz-green-light text-base">
           {{ totalVictories }}
           {{ totalVictories === 1 ? "vitória" : "vitórias" }}
         </span>
       </div>
       <div>
-        <quiz-x-title>Total derrotas</quiz-x-title>
+        <p class="text-quiz-blue-100">Total derrotas</p>
         <span class="text-quiz-green-light text-base">
           {{ totalGamesPlayed - totalVictories }}
           {{ totalGamesPlayed - totalVictories === 1 ? "derrota" : "derrotas" }}
         </span>
       </div>
       <div>
-        <quiz-x-title>Total partidas</quiz-x-title>
+        <p class="text-quiz-blue-100">Total partidas</p>
         <span class="text-quiz-green-light text-base">
           {{ totalGamesPlayed }}
           {{ totalGamesPlayed === 1 ? "partida" : "partidas" }}

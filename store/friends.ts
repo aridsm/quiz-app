@@ -6,7 +6,7 @@ export const useFriends = defineStore("useFriends", () => {
   const friends = ref<Friend[]>([
     {
       userName: "ann@539",
-      avatarUrl: "av-3",
+      avatarUrl: "av-4",
       lastMessage: "",
       isOnline: true,
       id: 1,

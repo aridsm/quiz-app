@@ -1,12 +1,12 @@
 <template>
   <div class="bg-quiz-blue-200">
     <div class="flex justify-between items-center px-6 py-4">
-      <quiz-x-title>Seus amigos</quiz-x-title>
+      <p class="text-quiz-blue-100">Seus amigos</p>
       <quiz-input-text
         :model.sync="searchValue"
         placeholder="Procure por um amigo..."
         class="w-60 py-3 text-base"
-        style="background: #43397e"
+        style="background: #43397e; width: 15rem"
         @input="onSearchHistory"
       />
     </div>

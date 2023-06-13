@@ -57,7 +57,7 @@
                 v-else-if="mostPlayedCategories.length > 1"
                 class="text-quiz-green-light"
               >
-                <div v-title="'categoriesPlayed'">Variadas</div>
+                <div v-title="categoriesPlayed">Variadas</div>
               </span>
             </quiz-x-card>
           </li>

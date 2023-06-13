@@ -9,6 +9,9 @@ const avatarsList = [
   "av-9",
   "av-10",
   "av-11",
+  "av-12",
+  "av-13",
+  "av-14",
 ];
 
 export default avatarsList;

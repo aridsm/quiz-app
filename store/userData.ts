@@ -13,7 +13,7 @@ export const useUserDataStore = defineStore("userData", () => {
 
   const data = reactive<User>({
     userName: "user1838",
-    avatarUrl: "av-3",
+    avatarUrl: "av-7",
     level: 1,
     levelProgress: 20,
     currentXp: 0,
