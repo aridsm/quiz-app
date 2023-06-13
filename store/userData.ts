@@ -15,13 +15,10 @@ export const useUserDataStore = defineStore("userData", () => {
     userName: "user1838",
     avatarUrl: "av-7",
     level: 1,
-    levelProgress: 20,
-    currentXp: 0,
+    currentXp: 5,
     trophiesCount: 2,
     coinsCount: 216,
     isLogged: false,
-    soundOn: true,
-    soundVolume: 80,
     friendsCount: friendsStore.friends.length,
     hasNotifications: false,
     categoriesPlayed: [
@@ -53,6 +50,11 @@ export const useUserDataStore = defineStore("userData", () => {
     );
 
     return total;
+  });
+
+  const totalXpInCurrentLevel = computed<number>(() => {
+    const totalXp = 25 + data.level;
+    return totalXp;
   });
 
   const totalVictories = computed<number>(() => {
@@ -88,9 +90,20 @@ export const useUserDataStore = defineStore("userData", () => {
     return false;
   }
 
+  function calculateXpGained() {
+    if (data.currentXp > totalXpInCurrentLevel.value) {
+      ++data.level;
+      data.currentXp -= totalXpInCurrentLevel.value;
+      calculateXpGained();
+    }
+  }
+
   function getRewards(currentGame: CurrentGame) {
-    data.currentXp += currentGame.xpGained;
     data.coinsCount += currentGame.coinsGained;
+
+    data.currentXp += currentGame.xpGained;
+
+    calculateXpGained();
   }
 
   return {
@@ -100,5 +113,6 @@ export const useUserDataStore = defineStore("userData", () => {
     totalGamesPlayed,
     totalVictories,
     getRewards,
+    totalXpInCurrentLevel,
   };
 });

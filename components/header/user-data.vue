@@ -39,7 +39,10 @@
         <span>{{ data.userName }}</span>
         <span :aria-label="`nível ${data.level}`">LVL. {{ data.level }}</span>
       </div>
-      <quiz-progress-bar :value="100" :max-value="250" />
+      <quiz-progress-bar
+        :value="data.currentXp"
+        :max-value="totalXpInCurrentLevel"
+      />
     </div>
     <quiz-toggle-activator class="ml-8">
       <template #activator>
@@ -72,7 +75,7 @@ interface Options {
 const userStore = useUserDataStore();
 const useModalStore = useModals();
 
-const { data } = storeToRefs(userStore);
+const { data, totalXpInCurrentLevel } = storeToRefs(userStore);
 
 const profileOptions = ref<Options[]>([
   {
