@@ -4,8 +4,8 @@
       <button
         class="button-choice pr-5 flex gap-3 items-center hover:bg-quiz-blue-200 hover:text-quiz-green-light p-2 w-full rounded-md"
         :class="{
-          'selected-answer bg-quiz-blue-200': selectedAnswer === answer,
           'bg-quiz-blue-200': answerIsTheCorrect(answer),
+          'selected-answer bg-quiz-blue-200': selectedAnswer === answer,
         }"
         :disabled="disabled && answer !== selectedAnswer"
         @click="() => selectAnswerHandler(answer)"
@@ -82,6 +82,6 @@ function fixAnswer(answer: string | string[] | number) {
 
 <style scoped>
 .button-choice:disabled {
-  @apply text-quiz-blue-100 hover:bg-transparent hover:text-quiz-blue-100;
+  @apply text-quiz-blue-100 hover:bg-quiz-blue-200 hover:text-quiz-blue-100;
 }
 </style>

@@ -17,8 +17,15 @@
         v-if="!gameIsMultipleChoice"
         :model.sync="selectedAnswer"
         placeholder="Digite sua resposta..."
-        :disabled="answerIsCorrect || answerIsIncorrect"
+        :readonly="answerIsCorrect || answerIsIncorrect"
         class="w-full"
+        @pressenter="
+          () => {
+            return answerIsSimilar || !answerWasValidated
+              ? sendSelectedAnswer()
+              : nextQuestion();
+          }
+        "
       />
       <game-item-choice-text
         v-if="!answerIsAFlag && gameIsMultipleChoice"
@@ -35,7 +42,7 @@
         :disabled="answerIsCorrect || answerIsIncorrect"
         :selected-answer="selectedAnswer"
       />
-      <div class="text-sm leading-none mt-2 h-4 text-right">
+      <div class="text-sm leading-none mt-3 h-4 text-right tracking-wide">
         <p v-if="answerIsSimilar" class="text-orange-400">
           Quase! Tente outra vez!
         </p>
@@ -171,6 +178,9 @@ function selectAnswerHandler(answer: string) {
 }
 
 function sendSelectedAnswer() {
+  if (!selectedAnswer.value) {
+    return;
+  }
   storeCurrentGame.validateAnswer(selectedAnswer.value);
 }
 

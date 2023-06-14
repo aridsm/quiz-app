@@ -10,6 +10,7 @@
     class="w-fit p-4 rounded-md bg-quiz-blue-200 border-quiz-border inline-block outline-none placeholder:text-quiz-blue-100"
     @input="updateValue"
     @change="$emit('change', model)"
+    @keypress.enter="$emit('pressenter', model)"
   />
 </template>
 
