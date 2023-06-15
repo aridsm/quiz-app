@@ -17,8 +17,8 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       name: "Matemática Básica",
       category: QuizCategoryType.Mathematics,
       id: QuizType.BasicMaths,
-      acceptAnswerMode: true,
-      source: "",
+      acceptAnswerMode: false,
+      source: "quizzes/mathematics/basicMath.json",
     },
     {
       name: "O corpo humano",
