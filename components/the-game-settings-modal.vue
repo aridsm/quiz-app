@@ -3,7 +3,7 @@
     <div style="width: 32rem">
       <h3>
         <span class="text-quiz-white">Nova partida</span>
-        <span class="text-quiz-blue-100">({{ gameSettings.quizName }})</span>
+        <span class="text-quiz-grey-100">({{ gameSettings.quizName }})</span>
       </h3>
       <ol class="my-6 flex flex-col gap-8">
         <li v-if="showQuizTypes">

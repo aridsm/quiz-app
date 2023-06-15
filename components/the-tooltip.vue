@@ -1,6 +1,6 @@
 <template>
   <div
-    class="z-[999] tooltip opacity-0 pointer-events-none transition absolute w-max bg-quiz-green-light text-quiz-green-dark py-2 px-4 rounded-md text-xs"
+    class="z-[999] tooltip opacity-0 pointer-events-none transition absolute w-max bg-quiz-blue text-quiz-blue-dark py-2 px-4 rounded-md text-sm"
     :class="{ 'opacity-100': tooltip.isShown }"
     :style="{
       top: `${tooltip.position.top - 20}px`,
@@ -21,11 +21,11 @@ const { tooltip } = storeToRefs(tooltipStore);
 
 <style scoped>
 .tooltip {
-  box-shadow: 4px 4px 10px 0 rgba(32, 25, 78, 0.3);
+  box-shadow: 4px 4px 10px 0 rgba(13, 10, 31, 0.2);
 }
 .tooltip::after {
   content: "";
   top: calc(100% - 4px);
-  @apply block absolute bg-quiz-green-light w-2 h-2 rotate-45;
+  @apply block absolute bg-quiz-blue w-2 h-2 rotate-45;
 }
 </style>

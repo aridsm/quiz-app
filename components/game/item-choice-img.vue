@@ -6,9 +6,9 @@
       class="col-span-1 w-auto"
     >
       <button
-        class="flex gap-3 items-center hover:bg-quiz-blue-200 hover:text-quiz-green-light p-2 w-full rounded-md"
+        class="flex gap-3 items-center hover:bg-quiz-grey-200 hover:text-quiz-blue p-2 w-full rounded-md"
         :class="{
-          'selected-answer bg-quiz-blue-200': selectedAnswer === answer,
+          'selected-answer bg-quiz-grey-200': selectedAnswer === answer,
         }"
         @click="() => selectAnswerHandler(answer)"
       >

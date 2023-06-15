@@ -1,21 +1,21 @@
 <template>
   <div class="grid grid-cols-3 gap-10">
     <nav class="col-span-1">
-      <quiz-x-title>Categorias</quiz-x-title>
+      <quiz-x-title class="mb-2">Categorias</quiz-x-title>
       <quiz-x-search-bar
         :show-results-list="false"
         :category="categoryActive"
         @onUpdate="filterResults"
       />
-      <ul class="mt-4 text-quiz-blue-100 flex flex-col gap-2">
+      <ul class="mt-4 text-quiz-grey-100 flex flex-col gap-2">
         <li v-for="category in categories" :key="category.name">
           <button
             type="button"
             class="py-2 rounded-md"
             :class="{
-              'px-6 hover:text-quiz-green-dark text-quiz-green-dark bg-quiz-green-light':
+              'px-8 py-3 hover:text-quiz-blue-dark text-quiz-blue-dark bg-quiz-blue':
                 categoryActive === category.id,
-              'hover:text-quiz-green-light': categoryActive !== category.id,
+              'hover:text-quiz-blue': categoryActive !== category.id,
             }"
             @click="() => onChangeCategoryHandler(category)"
           >

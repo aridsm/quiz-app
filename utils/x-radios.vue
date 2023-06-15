@@ -3,7 +3,7 @@
     <button
       v-for="item in items"
       :key="item.value"
-      class="bg-quiz-blue-200 px-8 py-3 button-select relative hover:text-quiz-green-light flex-1"
+      class="bg-quiz-grey-200 px-8 py-3 button-select relative hover:text-quiz-blue flex-1"
       :disabled="isFieldDisabled(item.value)"
       :class="{
         'button-select-selected': item.value === selectedValue,
@@ -69,12 +69,12 @@ function onChangeSelectedValue(value: any) {
 }
 
 .button-select:disabled {
-  @apply text-quiz-blue-100 hover:text-quiz-blue-100 cursor-not-allowed;
+  @apply text-quiz-grey-100 hover:text-quiz-grey-100 cursor-not-allowed;
 }
 
 .button-select-selected {
-  box-shadow: 0 0 0 2px #59ff88;
+  box-shadow: 0 0 0 2px #4ed7f5;
   z-index: 99;
-  @apply text-quiz-green-light;
+  @apply text-quiz-blue;
 }
 </style>

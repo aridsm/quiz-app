@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="button w-fit active:scale-95 inline-block overflow-hidden rounded-md transition cursor-pointer text-quiz-green-dark bg-quiz-green-light"
+    class="button w-fit active:scale-95 inline-block overflow-hidden rounded-md transition cursor-pointer text-quiz-blue-dark bg-quiz-blue"
     @click="$emit('click')"
   >
     <div class="py-3 px-7 z-10">
@@ -20,6 +20,6 @@ export default Vue.extend({
 
 <style scoped>
 .button:disabled {
-  @apply bg-quiz-blue-200 text-quiz-blue-100 cursor-not-allowed active:scale-100;
+  @apply bg-quiz-grey-200 text-quiz-grey-100 cursor-not-allowed active:scale-100;
 }
 </style>

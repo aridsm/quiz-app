@@ -7,7 +7,7 @@
     <quiz-x-card class="card-modal transition relative">
       <slot />
       <button
-        class="absolute right-[0.7rem] top-[0.7rem] transition text-quiz-blue-100 hover:text-quiz-green-light p-2"
+        class="absolute right-[0.7rem] top-[0.7rem] transition text-quiz-grey-100 hover:text-quiz-blue p-2"
         @click="closeModalHandler"
       >
         <icon-quiz-xmark-raw class="w-5" />
@@ -35,7 +35,7 @@ function closeModalHandler() {
 <style>
 .card-modal {
   animation: anima 0.1s ease-out forwards;
-  box-shadow: 4px 4px 10px 0 rgba(32, 25, 78, 0.3);
+  box-shadow: 4px 4px 10px 0 rgba(13, 10, 31, 0.2);
 }
 
 @keyframes anima {

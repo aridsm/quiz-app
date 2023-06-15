@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-    <div class="flex items-center text-quiz-green-light gap-8 mr-8">
+    <div class="flex items-center text-quiz-blue gap-8 mr-8">
       <div class="flex items-center">
         <span>{{ data.coinsCount }}</span>
         <icon-quiz-coins class="w-4 ml-2" />
@@ -18,9 +18,9 @@
         <ul class="flex flex-col gap-2">
           <li v-for="option in profileOptions" :key="option.name">
             <button
-              class="flex items-center hover:text-quiz-green-light"
+              class="flex items-center hover:text-quiz-blue"
               :class="{
-                'text-quiz-green-light': option.id === ProfileOptions.Exit,
+                'text-quiz-blue': option.id === ProfileOptions.Exit,
               }"
               @click="option.action"
             >
@@ -47,7 +47,7 @@
     <quiz-toggle-activator class="ml-8">
       <template #activator>
         <div class="relative">
-          <icon-quiz-bell class="w-4 text-quiz-green-light" />
+          <icon-quiz-bell class="w-4 text-quiz-blue" />
           <div
             v-if="data.hasNotifications"
             class="w-2 h-2 bg-quiz-pink absolute left-full -top-1 rounded-full"

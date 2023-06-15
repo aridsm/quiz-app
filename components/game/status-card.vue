@@ -2,7 +2,7 @@
   <quiz-x-card
     class="col-span-2 flex flex-col items-center w-full py-12 text-center min-h-[30rem]"
   >
-    <div class="flex gap-2 text-quiz-green-light justify-center mb-4">
+    <div class="flex gap-2 text-quiz-blue justify-center mb-4">
       <icon-quiz-star-fill
         v-for="star in currentGame.stars"
         :key="star"
@@ -18,19 +18,16 @@
       {{ isSuccess ? "Muito bem! Você chegou ao final!" : "Que pena!" }}
     </p>
     <p v-if="!isSuccess">Não foi dessa vez!</p>
-    <p class="text-quiz-blue-100 mt-6">
+    <p class="text-quiz-grey-100 mt-6">
       Você acertou {{ currentGame.correctAnswers }} de
       {{ currentGame.totalQuestions }} perguntas!
     </p>
     <div class="flex gap-10 mt-8">
-      <div v-title="'Experiência ganha'" class="text-quiz-green-light text-4xl">
+      <div v-title="'Experiência ganha'" class="text-quiz-blue text-4xl">
         + {{ currentGame.xpGained }} XP
       </div>
 
-      <div
-        v-title="'Moedas ganhas'"
-        class="text-quiz-green-light text-4xl flex gap-2"
-      >
+      <div v-title="'Moedas ganhas'" class="text-quiz-blue text-4xl flex gap-2">
         {{ currentGame.coinsGained }} <icon-quiz-coins class="w-6" />
       </div>
     </div>
@@ -38,7 +35,7 @@
     <quiz-btn class="mt-auto" @click="playAgainHandler">
       Jogar novamente
     </quiz-btn>
-    <nuxt-link class="mt-4 text-quiz-green-light" to="/">
+    <nuxt-link class="mt-4 text-quiz-blue" to="/">
       Voltar à página inicial
     </nuxt-link>
   </quiz-x-card>

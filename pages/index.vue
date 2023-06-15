@@ -1,27 +1,23 @@
 <template>
   <div>
-    <div class="grid grid-cols-3 gap-5">
+    <div class="grid grid-cols-3 gap-3">
       <section class="col-span-2">
         <quiz-x-title class="grid-2 mb-4 leading-none">
           Maiores pontuações dessa semana
         </quiz-x-title>
-        <ul class="flex flex-col gap-5 w-full">
+        <ul class="flex flex-col gap-3 w-full">
           <li v-for="user in dummyUsers" :key="user.userName" class="w-full">
-            <quiz-x-card class="w-full flex items-center gap-8 px-8 py-5">
+            <quiz-x-card class="w-full flex items-center gap-8 px-9 py-6">
               <quiz-x-avatar :avatar="user.avatar" />
               <span class="w-20">{{ user.userName }}</span>
-              <span class="text-quiz-green-light">LVL. {{ user.level }}</span>
+              <span class="text-quiz-blue">LVL. {{ user.level }}</span>
               <div class="ml-auto flex items-center">
                 <span>{{ user.trophies }}</span>
-                <icon-quiz-trophy
-                  class="w-4 ml-3 -mt-[2px] text-quiz-green-light"
-                />
+                <icon-quiz-trophy class="w-4 ml-3 -mt-[2px] text-quiz-blue" />
               </div>
               <div class="flex items-center">
                 <span>{{ user.score }} pts.</span>
-                <icon-star-fill
-                  class="w-4 ml-3 -mt-[2px] text-quiz-green-light"
-                />
+                <icon-star-fill class="w-4 ml-3 -mt-[2px] text-quiz-blue" />
               </div>
             </quiz-x-card>
           </li>
@@ -31,12 +27,13 @@
         <quiz-x-title class="grid-2 mb-4 leading-none">
           Seu progresso
         </quiz-x-title>
-        <ul class="flex-1 flex flex-col gap-5">
+        <ul class="flex-1 flex flex-col gap-3">
           <li class="w-full flex-1">
             <quiz-x-card
-              class="px-6 w-full h-full bg-quiz-green-light text-quiz-green-dark border-none flex items-center justify-between"
+              class="px-6 w-full h-full flex items-center justify-between"
+              style="background: #313242"
             >
-              <span>nível {{ data.level }}</span>
+              <span class="text-quiz-blue">Nível {{ data.level }}</span>
               <p>20 XP para o próximo nível</p>
             </quiz-x-card>
           </li>
@@ -47,7 +44,7 @@
               <span> Categoria mais jogada </span>
               <span
                 v-if="mostPlayedCategories.length === 1"
-                class="text-quiz-green-light"
+                class="text-quiz-blue"
               >
                 <span>
                   {{ mostPlayedCategories[0].name }}
@@ -55,7 +52,7 @@
               </span>
               <span
                 v-else-if="mostPlayedCategories.length > 1"
-                class="text-quiz-green-light"
+                class="text-quiz-blue"
               >
                 <div v-title="categoriesPlayed">Variadas</div>
               </span>
@@ -66,7 +63,7 @@
               class="px-6 w-full h-full flex items-center justify-between"
             >
               <span>Total de partidas jogadas</span>
-              <span class="text-quiz-green-light text-2xl">{{
+              <span class="text-quiz-blue text-2xl">{{
                 totalGamesPlayed
               }}</span>
             </quiz-x-card>

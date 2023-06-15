@@ -1,9 +1,7 @@
 <template>
   <div
-    class="w-fit p-4 rounded-md bg-quiz-blue-300 border border-quiz-border inline-block"
+    class="w-fit p-4 rounded-lg bg-quiz-grey-300 border-2 border-quiz-border inline-block"
   >
     <slot />
   </div>
 </template>
-
-<script lang="ts" setup></script>

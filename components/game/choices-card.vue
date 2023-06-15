@@ -48,7 +48,7 @@
         </p>
         <p
           v-if="answerIsCorrect"
-          class="text-quiz-green-light flex items-center justify-between"
+          class="text-quiz-blue flex items-center justify-between"
         >
           Muito bem! Resposta correta!
           <span v-if="correctAnswersIsMoreThanOne">
@@ -57,10 +57,10 @@
         </p>
         <div v-if="answerIsIncorrect" class="flex items-center justify-between">
           <p class="text-quiz-pink">Ops! Resposta errada!</p>
-          <p v-if="!answerIsAFlag" class="text-quiz-green-light">
+          <p v-if="!answerIsAFlag" class="text-quiz-blue">
             Resposta correta: {{ correctAnswer }}
           </p>
-          <p v-else class="text-quiz-green-light">
+          <p v-else class="text-quiz-blue">
             Resposta correta: item "{{ correctItemChoice }}"
           </p>
         </div>
@@ -192,8 +192,8 @@ function nextQuestion() {
 
 <style>
 .selected-answer {
-  box-shadow: 0 0 0 2px #59ff88;
-  @apply text-quiz-green-light;
+  box-shadow: 0 0 0 2px #4ed7f5;
+  @apply text-quiz-blue;
 }
 
 .quiz-card-choices {

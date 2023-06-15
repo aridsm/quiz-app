@@ -20,7 +20,7 @@
 
       <div class="flex items-center gap-4">
         <quiz-x-title>Progresso</quiz-x-title>
-        <span class="text-sm text-quiz-green-light">
+        <span class="text-sm text-quiz-blue">
           Pergunta {{ currentGame.currentQuestionIndex + 1 }} de
           {{ currentGame.totalQuestions }}
         </span>
@@ -28,14 +28,14 @@
 
       <div class="flex items-center gap-4">
         <quiz-x-title>Respostas corretas</quiz-x-title>
-        <p class="text-sm text-quiz-green-light">
+        <p class="text-sm text-quiz-blue">
           {{ currentGame.correctAnswers }}
         </p>
       </div>
 
       <div class="flex items-center gap-4">
         <quiz-x-title>Chances de pular</quiz-x-title>
-        <p class="text-sm text-quiz-green-light">
+        <p class="text-sm text-quiz-blue">
           {{ currentGame.skipChances }}
         </p>
       </div>

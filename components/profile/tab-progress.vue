@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-quiz-blue-200 p-6">
+  <div class="bg-quiz-grey-200 p-6">
     <div>
-      <p class="mb-4 text-quiz-blue-100">Categorias jogadas</p>
+      <p class="mb-4 text-quiz-grey-100">Categorias jogadas</p>
       <ul class="flex flex-col gap-3">
         <li
           v-for="category in user.categoriesPlayed"
@@ -9,11 +9,11 @@
           class="flex items-center text-base p-4 bg-[#43397E] rounded-sm"
         >
           <p>{{ category.name }}</p>
-          <span class="ml-auto text-quiz-green-light text-base w-24 text-end">
+          <span class="ml-auto text-quiz-blue text-base w-24 text-end">
             {{ category.victories }}
             {{ category.victories === 1 ? "vitória" : "vitórias" }}
           </span>
-          <span class="ml-6 text-quiz-green-light text-base w-24 text-end">
+          <span class="ml-6 text-quiz-blue text-base w-24 text-end">
             {{ category.count - category.victories }}
             {{
               category.count - category.victories === 1 ? "derrota" : "derrotas"
@@ -24,22 +24,22 @@
     </div>
     <div class="mt-6 flex justify-between">
       <div>
-        <p class="text-quiz-blue-100">Total vitórias</p>
-        <span class="text-quiz-green-light text-base">
+        <p class="text-quiz-grey-100">Total vitórias</p>
+        <span class="text-quiz-blue text-base">
           {{ totalVictories }}
           {{ totalVictories === 1 ? "vitória" : "vitórias" }}
         </span>
       </div>
       <div>
-        <p class="text-quiz-blue-100">Total derrotas</p>
-        <span class="text-quiz-green-light text-base">
+        <p class="text-quiz-grey-100">Total derrotas</p>
+        <span class="text-quiz-blue text-base">
           {{ totalGamesPlayed - totalVictories }}
           {{ totalGamesPlayed - totalVictories === 1 ? "derrota" : "derrotas" }}
         </span>
       </div>
       <div>
-        <p class="text-quiz-blue-100">Total partidas</p>
-        <span class="text-quiz-green-light text-base">
+        <p class="text-quiz-grey-100">Total partidas</p>
+        <span class="text-quiz-blue text-base">
           {{ totalGamesPlayed }}
           {{ totalGamesPlayed === 1 ? "partida" : "partidas" }}
         </span>

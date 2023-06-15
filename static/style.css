@@ -1,12 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap");
 body {
-  font-family: "Staatliches", cursive;
-  @apply bg-quiz-blue-400 text-quiz-white text-[19px];
+  font-family: "Barlow Condensed", sans-serif;
+  @apply bg-quiz-grey-400 text-quiz-white text-xl;
 }
 
-* {
-  @apply tracking-wide;
+*,
+body,
+button,
+a {
+  @apply uppercase;
 }
 
 ::-webkit-scrollbar {
@@ -14,13 +16,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-quiz-blue-400;
+  @apply bg-quiz-grey-400;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-quiz-blue-200;
+  @apply bg-quiz-grey-200;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-quiz-blue-100;
+  @apply bg-quiz-grey-100;
 }

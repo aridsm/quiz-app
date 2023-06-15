@@ -9,15 +9,15 @@
           "
         >
           <icon-quiz-infos
-            class="w-5 hover:text-quiz-green-light text-quiz-blue-100"
+            class="w-5 hover:text-quiz-blue text-quiz-grey-100"
           />
         </div>
       </div>
-      <p class="text-quiz-blue-100">É preciso estar logado para continuar</p>
+      <p class="text-quiz-grey-100">É preciso estar logado para continuar</p>
       <quiz-input-text
         :model.sync="model"
         placeholder="Digite um nome de usuário"
-        class="bg-quiz-blue-200 w-full mt-4"
+        class="bg-quiz-grey-200 w-full mt-4"
         @input="usernameIsValid = undefined"
       />
       <quiz-btn class="w-full mt-6" @click="loginUser">Entrar</quiz-btn>
@@ -75,6 +75,6 @@ export default Vue.extend({
 
 <style scoped>
 .login-card {
-  box-shadow: 4px 4px 25px 0 rgba(32, 25, 78, 0.2);
+  box-shadow: 4px 4px 25px 0 rgba(13, 10, 31, 0.2);
 }
 </style>

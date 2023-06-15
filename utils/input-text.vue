@@ -7,7 +7,7 @@
     name="input-text"
     :placeholder="placeholder"
     :required="required"
-    class="w-fit p-4 rounded-md bg-quiz-blue-200 border-quiz-border inline-block outline-none placeholder:text-quiz-blue-100"
+    class="w-fit p-4 rounded-md input bg-quiz-grey-200 border-2 border-quiz-border inline-block outline-none placeholder:text-quiz-grey-100"
     @input="updateValue"
     @change="$emit('change', model)"
     @keypress.enter="$emit('pressenter', model)"
@@ -34,3 +34,9 @@ function updateValue(e: Event): void {
   emit("input", (e.target as HTMLInputElement).value);
 }
 </script>
+
+<style scoped>
+.input:focus {
+  box-shadow: 0 0 0 2px #4ed7f5, 4px 4px 10px 0 rgba(13, 10, 31, 0.2);
+}
+</style>

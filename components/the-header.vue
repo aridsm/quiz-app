@@ -1,34 +1,31 @@
 <template>
   <header
-    class="fixed w-full bg-quiz-blue-400 border-b-2 border-quiz-blue-300 z-50 the-header"
+    class="fixed w-full bg-quiz-grey-300 border-b-2 border-quiz-border z-50 the-header"
   >
     <div
-      class="max-w-[1280px] w-full mx-auto h-[5.5rem] flex items-center px-4"
+      class="max-w-[1340px] w-full mx-auto h-[5.5rem] flex items-center px-4"
     >
       <div class="flex items-center gap-10">
         <h1 class="text-2xl">
           <nuxt-link to="/" class="flex justify-center items-center gap-2">
-            <img src="/shapes/square-green.svg" class="w-4" />
+            <img src="/shapes/square-pink.svg" class="w-5" />
             <span>Quiz</span>
           </nuxt-link>
         </h1>
         <nav class="nav-header">
           <ul class="flex gap-12">
             <li>
-              <nuxt-link to="/" class="hover:text-quiz-green-light">
-                Home
-              </nuxt-link>
+              <nuxt-link to="/" class="hover:text-quiz-blue"> Home </nuxt-link>
             </li>
             <li>
               <quiz-toggle-activator
                 :arrow-indicator="true"
-                hover-class="text-quiz-green-light"
+                hover-class="text-quiz-blue"
               >
                 <template #activator>
                   <span
                     :class="{
-                      'text-quiz-green-light':
-                        $route.fullPath?.includes('quizzes'),
+                      'text-quiz-blue': $route.fullPath?.includes('quizzes'),
                     }"
                   >
                     Categorias
@@ -37,10 +34,7 @@
                 <template #content>
                   <ul class="flex flex-col gap-2">
                     <li v-for="link in links" :key="link.name">
-                      <nuxt-link
-                        :to="link.route"
-                        class="hover:text-quiz-green-light"
-                      >
+                      <nuxt-link :to="link.route" class="hover:text-quiz-blue">
                         {{ link.name }}
                       </nuxt-link>
                     </li>
@@ -49,13 +43,11 @@
               </quiz-toggle-activator>
             </li>
             <li>
-              <button class="hover:text-quiz-green-light">
-                Sobre o projeto
-              </button>
+              <button class="hover:text-quiz-blue">Sobre o projeto</button>
             </li>
           </ul>
         </nav>
-        <button class="hover:text-quiz-green-light">
+        <button class="hover:text-quiz-blue">
           <icon-quiz-search class="w-4" />
         </button>
       </div>
@@ -94,10 +86,10 @@ const links = ref<Link[]>([
 
 <style scoped>
 .nav-header .nuxt-link-exact-active {
-  @apply text-quiz-green-light;
+  @apply text-quiz-blue;
 }
 
 .the-header {
-  box-shadow: 0 4px 15px 0 rgba(32, 25, 78, 0.2);
+  box-shadow: 0 4px 15px 0 rgba(13, 10, 31, 0.2);
 }
 </style>

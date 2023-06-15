@@ -97,11 +97,11 @@ function openToggleHandler() {
 }
 
 .toggle-btn.active {
-  @apply text-quiz-green-light;
+  @apply text-quiz-blue;
 }
 
 .toggle-btn.active .icon-arrow {
-  @apply text-quiz-green-light -mt-1;
+  @apply text-quiz-blue -mt-1;
 }
 
 .toggle-btn.active .icon-arrow.side-right {
@@ -116,7 +116,7 @@ function openToggleHandler() {
   top: calc(100% + 2rem);
   transition: all 0.1s ease-in;
   pointer-events: none;
-  box-shadow: 4px 4px 10px 0 rgba(32, 25, 78, 0.3);
+  box-shadow: 4px 4px 10px 0 rgba(13, 10, 31, 0.2);
   @apply opacity-0;
 }
 
@@ -133,7 +133,7 @@ function openToggleHandler() {
 
 .toggle-content::after {
   content: "";
-  @apply block w-3 h-3 absolute -top-[6px] left-3 bg-quiz-blue-300 border-l border-t border-quiz-border rotate-45;
+  @apply block w-3 h-3 absolute -top-[6px] left-3 bg-quiz-grey-300 border-l-2 border-t-2 border-quiz-border rotate-45;
 }
 
 .toggle-content.on-right-side::after {

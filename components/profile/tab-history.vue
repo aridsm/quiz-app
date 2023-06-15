@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-quiz-blue-200">
+  <div class="bg-quiz-grey-200">
     <div class="flex justify-between items-center px-6 py-4">
-      <p class="text-quiz-blue-100">Seu histórico</p>
+      <p class="text-quiz-grey-100">Seu histórico</p>
       <quiz-input-text
         :model.sync="searchValue"
         placeholder="Procure por uma partida..."
-        class="py-3 text-base text-quiz-blue-100"
+        class="py-3 text-base text-quiz-grey-100"
         style="background: #43397e; width: 15rem"
         @input="onSearchHistory"
       />
@@ -19,7 +19,7 @@
         >
           <div>
             <p class="leading-none">{{ game.name }}</p>
-            <p class="leading-none mt-2 text-base text-quiz-blue-100">
+            <p class="leading-none mt-2 text-base text-quiz-grey-100">
               {{ getCategoryData(game.category).name }}
             </p>
           </div>
@@ -51,7 +51,7 @@
           <div v-title="'Vitória'" class="h-4">
             <icon-quiz-checkmark
               v-if="game.status === CurrentGameStatus.Done"
-              class="w-4 text-quiz-green-light"
+              class="w-4 text-quiz-blue"
             />
           </div>
         </li>
@@ -84,7 +84,7 @@ function onSearchHistory() {
 
 <style scoped>
 .list-history::-webkit-scrollbar-thumb {
-  @apply bg-quiz-green-light;
+  @apply bg-quiz-blue;
 }
 
 .list-history::-webkit-scrollbar {

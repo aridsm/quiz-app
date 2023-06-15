@@ -1,14 +1,14 @@
 <template>
-  <div class="bg-quiz-blue-200 w-36 h-[.30rem] relative">
+  <div class="bg-quiz-grey-200 w-36 h-[.30rem] relative">
     <div
       v-if="showValue"
-      class="bg-quiz-green-light text-quiz-green-dark text-base absolute w-7 h-7 rounded-full grid place-items-center -top-[0.7rem] -ml-3"
+      class="bg-quiz-blue text-quiz-blue text-base absolute w-7 h-7 rounded-full grid place-items-center -top-[0.7rem] -ml-3"
       :style="{ left: barPercentageWidth + '%' }"
     >
       {{ value }}
     </div>
     <div
-      class="bg-quiz-green-light h-full transition bar-progress"
+      class="bg-quiz-blue h-full transition bar-progress"
       :style="{ transform: `scaleX(${barPercentageWidth})` }"
     />
   </div>

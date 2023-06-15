@@ -1,8 +1,8 @@
 <template>
-  <section class="mt-24">
+  <section class="mt-28">
     <div class="flex items-center justify-between mb-4 leading-none">
       <quiz-x-title>Últimos jogos</quiz-x-title>
-      <nuxt-link to="/" class="text-quiz-green-light flex items-center">
+      <nuxt-link to="/" class="text-quiz-blue flex items-center">
         Seu histórico <icon-quiz-arrow class="ml-2 w-3 -rotate-90 -mt-[2px]" />
       </nuxt-link>
     </div>
@@ -19,7 +19,7 @@
             }}</quiz-x-chip>
             <div
               v-title="'Categoria'"
-              class="w-20 text-left ml-12 text-sm text-quiz-blue-100"
+              class="w-20 text-left ml-12 text-sm text-quiz-grey-100"
             >
               {{ getCategoryData(game.category).name }}
             </div>
@@ -45,7 +45,7 @@
             />
             <icon-quiz-checkmark
               v-if="game.status === CurrentGameStatus.Done"
-              class="w-5 text-quiz-green-light"
+              class="w-5 text-quiz-blue"
             />
           </div>
         </quiz-x-card>

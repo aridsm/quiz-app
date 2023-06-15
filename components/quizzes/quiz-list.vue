@@ -2,7 +2,7 @@
   <div class="col-span-2">
     <div class="mb-2 flex justify-between items-center">
       <quiz-x-title class="mb-0">Lista de Quizzes</quiz-x-title>
-      <div class="text-sm flex items-center text-quiz-green-light">
+      <div class="text-sm flex items-center text-quiz-blue">
         <div>
           {{
             categoryActive

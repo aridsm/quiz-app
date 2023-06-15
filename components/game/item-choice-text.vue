@@ -2,16 +2,16 @@
   <ul class="flex flex-col gap-3">
     <li v-for="(answer, index) in currentQuestion.otherAnswers" :key="answer">
       <button
-        class="button-choice pr-5 flex gap-3 items-center hover:bg-quiz-blue-200 hover:text-quiz-green-light p-2 w-full rounded-md"
+        class="button-choice pr-5 flex gap-3 items-center hover:bg-quiz-grey-200 hover:text-quiz-blue p-2 w-full rounded-md"
         :class="{
-          'bg-quiz-blue-200': answerIsTheCorrect(answer),
-          'selected-answer bg-quiz-blue-200': selectedAnswer === answer,
+          'bg-quiz-grey-200': answerIsTheCorrect(answer),
+          'selected-answer bg-quiz-grey-200': selectedAnswer === answer,
         }"
         :disabled="disabled && answer !== selectedAnswer"
         @click="() => selectAnswerHandler(answer)"
       >
         <span
-          class="text-sm w-8 h-8 pl-[2px] flex items-center justify-center bg-quiz-green-light text-quiz-green-dark rounded-full"
+          class="text-sm w-8 h-8 pl-[2px] flex items-center justify-center bg-quiz-blue text-quiz-blue-dark rounded-full"
         >
           {{ getItemsOrderLetter(index) }}
         </span>
@@ -19,14 +19,14 @@
           <p
             class="tracking-wide"
             :class="{
-              'text-quiz-green-light': answerIsTheCorrect(answer),
+              'text-quiz-blue': answerIsTheCorrect(answer),
             }"
           >
             {{ fixAnswer(answer) }}
           </p>
           <icon-quiz-checkmark
             v-if="answerIsTheCorrect(answer)"
-            class="w-4 text-quiz-green-light"
+            class="w-4 text-quiz-blue"
           />
           <icon-quiz-xmark
             v-if="answerIsIncorrect && answer === selectedAnswer"
@@ -82,6 +82,6 @@ function fixAnswer(answer: string | string[] | number) {
 
 <style scoped>
 .button-choice:disabled {
-  @apply text-quiz-blue-100 hover:bg-quiz-blue-200 hover:text-quiz-blue-100;
+  @apply text-quiz-grey-100 hover:bg-quiz-grey-200 hover:text-quiz-grey-100;
 }
 </style>

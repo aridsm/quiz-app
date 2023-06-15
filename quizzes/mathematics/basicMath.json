@@ -108,12 +108,6 @@
     "otherAnswers": ["2/5", "1/2", "6/10", "1", "3/10"]
   },
   {
-    "question": "Qual é a área de um trapézio isósceles com bases de comprimento 6 e 4 e altura de 3?",
-    "item": "",
-    "correctAnswer": "9",
-    "otherAnswers": ["36", "42", "22", "18", "12"]
-  },
-  {
     "question": "Qual é a mediana do conjunto de números {3, 5, 7, 9, 11}?",
     "item": "",
     "correctAnswer": "7",

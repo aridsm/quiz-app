@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-quiz-blue-200">
+  <div class="bg-quiz-grey-200">
     <div class="flex justify-between items-center px-6 py-4">
-      <p class="text-quiz-blue-100">Seus amigos</p>
+      <p class="text-quiz-grey-100">Seus amigos</p>
       <quiz-input-text
         :model.sync="searchValue"
         placeholder="Procure por um amigo..."
@@ -24,12 +24,12 @@
           </p>
           <div
             v-if="friend.isOnline"
-            class="w-2 h-2 bg-quiz-green-light rounded-full ml-3"
+            class="w-2 h-2 bg-quiz-blue rounded-full ml-3"
           />
-          <div class="ml-auto flex items-center gap-6 text-quiz-blue-100">
+          <div class="ml-auto flex items-center gap-6 text-quiz-grey-100">
             <div v-title="'enviar mensagem'">
               <button
-                class="hover:text-quiz-green-light active:scale-95"
+                class="hover:text-quiz-blue active:scale-95"
                 @click="openModalMessagesHandler"
               >
                 <icon-quiz-paperplane class="w-4" />
@@ -37,7 +37,7 @@
             </div>
             <div v-title="'excluir amigo'">
               <button
-                class="hover:text-quiz-green-light active:scale-95"
+                class="hover:text-quiz-blue active:scale-95"
                 @click="deleteFriendHandler"
               >
                 <icon-quiz-trash class="w-4" />
@@ -92,7 +92,7 @@ function openModalMessagesHandler() {}
 
 <style scoped>
 .list_friends::-webkit-scrollbar-thumb {
-  @apply bg-quiz-green-light;
+  @apply bg-quiz-blue;
 }
 
 .list_friends::-webkit-scrollbar {

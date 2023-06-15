@@ -3,11 +3,11 @@
     <div ref="searchBar" class="flex items-center relative">
       <quiz-input-text
         :model.sync="inputValue"
-        class="bg-quiz-blue-300 w-full"
+        class="bg-quiz-grey-300 w-full"
         placeholder="Procurar quiz..."
         @input="onChangeInputValue"
       />
-      <icon-quiz-search class="w-4 absolute right-4 text-quiz-blue-100" />
+      <icon-quiz-search class="w-4 absolute right-4 text-quiz-grey-100" />
     </div>
     <quiz-x-card
       v-if="showResultsList"
@@ -16,12 +16,12 @@
     >
       <ul v-if="results.length">
         <li v-for="quiz in results" :key="quiz.id">
-          <nuxt-link to="/" class="hover:text-quiz-green-light">{{
+          <nuxt-link to="/" class="hover:text-quiz-blue">{{
             quiz.name
           }}</nuxt-link>
         </li>
       </ul>
-      <p v-else class="text-quiz-blue-100">Não foram encontrados resultados!</p>
+      <p v-else class="text-quiz-grey-100">Não foram encontrados resultados!</p>
     </quiz-x-card>
   </div>
 </template>
