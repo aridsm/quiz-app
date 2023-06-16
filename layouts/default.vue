@@ -16,11 +16,17 @@
       </button>
     </div>
     <div class="w-80 h-80 fixed -top-28 bg-blur pointer-events-none" />
-    <the-tooltip />
+    <the-tooltip v-if="tooltip.isShown" />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { storeToRefs } from "pinia";
+import { useTooltip } from "~/store/tooltip";
+
+const tooltipStore = useTooltip();
+const { tooltip } = storeToRefs(tooltipStore);
+</script>
 
 <style>
 .bg-blur {

@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-quiz-grey-200">
+  <div class="bg-quiz-grey-400 rounded-md border-2 border-quiz-border">
     <div class="flex justify-between items-center px-6 py-4">
       <p class="text-quiz-grey-100">Seus amigos</p>
       <quiz-input-text
         :model.sync="searchValue"
         placeholder="Procure por um amigo..."
         class="w-60 py-3 text-base"
-        style="background: #43397e; width: 15rem"
+        style="background: #1f202c; width: 15rem"
         @input="onSearchHistory"
       />
     </div>
@@ -16,7 +16,7 @@
         <li
           v-for="friend in friendsOnlineFirst"
           :key="friend.id"
-          class="flex items-center p-4 bg-[#43397E] rounded-sm"
+          class="flex items-center p-4 bg-quiz-grey-300 rounded-md"
         >
           <quiz-x-avatar :avatar="friend.avatarUrl" />
           <p class="w-auto ml-5">

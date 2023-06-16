@@ -2,6 +2,9 @@
   <div
     v-show="model"
     class="fixed top-0 left-0 bg-black/[.3] w-screen h-screen z-50 flex justify-center items-start py-16 overflow-auto"
+    :class="{
+      'items-center': center,
+    }"
     @click.self="closeModalHandler"
   >
     <quiz-x-card class="card-modal transition relative">
@@ -19,10 +22,12 @@
 <script lang="ts" setup>
 interface Props {
   model: boolean;
+  center?: boolean;
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   model: false,
+  center: false,
 });
 
 const emit = defineEmits(["update:model"]);

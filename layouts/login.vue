@@ -17,8 +17,6 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
-
 <style>
 .bg-blur {
   left: calc(50% - 9rem);

@@ -11,10 +11,13 @@ Vue.directive("title", (element: any, binding: any) => {
     const positionTop =
       window.pageYOffset + element.getBoundingClientRect().top - elementHeight;
     const positionLeft = element.getBoundingClientRect().left;
+    const positionRight = element.getBoundingClientRect().right;
     tooltip.value.text = binding.value;
     tooltip.value.position = {
       top: positionTop,
       left: positionLeft,
+      right: positionRight,
+      bottom: 0,
     };
     tooltip.value.isShown = true;
   }

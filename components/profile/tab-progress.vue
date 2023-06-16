@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-quiz-grey-200 p-6">
+  <div class="bg-quiz-grey-400 p-6 rounded-md border-2 border-quiz-border">
     <div>
-      <p class="mb-4 text-quiz-grey-100">Categorias jogadas</p>
+      <p class="mb-6 text-quiz-grey-100">Categorias jogadas</p>
       <ul class="flex flex-col gap-3">
         <li
           v-for="category in user.categoriesPlayed"
           :key="category.id"
-          class="flex items-center text-base p-4 bg-[#43397E] rounded-sm"
+          class="flex items-center text-base p-4 bg-quiz-grey-300 rounded-md"
         >
           <p>{{ category.name }}</p>
           <span class="ml-auto text-quiz-blue text-base w-24 text-end">

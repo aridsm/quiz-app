@@ -12,17 +12,6 @@
     "otherAnswers": ["0", "2", "10", "-1", "Não definido"]
   },
   {
-    "question": "Qual a notação científica do número abaixo?",
-    "item": "1.247,40",
-    "correctAnswer": "1,2474 × 10³",
-    "otherAnswers": [
-      "1,2474 × 10⁽⁻¹⁾",
-      "1,2474 × 10²",
-      "1,2474 × 10⁴",
-      "1,2474 × 10³"
-    ]
-  },
-  {
     "question": "Qual o resultado da expressão abaixo?",
     "item": "2⁽⁻¹⁾",
     "correctAnswer": "0,5",

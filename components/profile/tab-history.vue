@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-quiz-grey-200">
+  <div class="bg-quiz-grey-400 rounded-md border-2 border-quiz-border">
     <div class="flex justify-between items-center px-6 py-4">
       <p class="text-quiz-grey-100">Seu histórico</p>
       <quiz-input-text
         :model.sync="searchValue"
         placeholder="Procure por uma partida..."
         class="py-3 text-base text-quiz-grey-100"
-        style="background: #43397e; width: 15rem"
+        style="background: #1f202c; width: 15rem"
         @input="onSearchHistory"
       />
     </div>
@@ -15,7 +15,7 @@
         <li
           v-for="game in gamesList"
           :key="game.id"
-          class="flex items-center p-4 bg-[#43397E] rounded-sm"
+          class="flex items-center p-4 bg-quiz-grey-300 rounded-md"
         >
           <div>
             <p class="leading-none">{{ game.name }}</p>

@@ -53,7 +53,7 @@
     "correctAnswer": "Baleia-azul",
     "otherAnswers": [
       "Canguru",
-      "Elegante",
+      "Elefante",
       "Rinoceronte",
       "Gorila",
       "Baleia Jubarte",
@@ -94,7 +94,7 @@
     "otherAnswers": ["Canguru", "Urubu", "Orangotango", "Gaivota"]
   },
   {
-    "question": "Qual é o nome dado ao animal que pode se regenerar completamente após ser cortado em pedaços?",
+    "question": "Qual dos animais abaixo pode se regenerar completamente após ser cortado em pedaços?",
     "correctAnswer": "Planária",
     "otherAnswers": ["Morsa", "Tênia", "Vagalume", "Minhoca", "Cnidário"]
   },

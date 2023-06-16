@@ -35,9 +35,9 @@
           <button
             v-for="option in profileOptions"
             :key="option.id"
-            class="h-full px-6 rounded-t-md hover:text-quiz-blue"
+            class="h-full px-6 rounded-t-md ml-3 hover:text-quiz-blue border-2 border-b-0 border-quiz-border"
             :class="{
-              'bg-quiz-grey-200 text-quiz-blue': option.tab === tabSelected,
+              'bg-quiz-grey-400 text-quiz-blue': option.tab === tabSelected,
             }"
             @click="() => selectOption(option.tab)"
           >
@@ -65,7 +65,7 @@
             </quiz-btn>
           </div>
           <div>
-            <p class="mb-3 text-quiz-grey-100">Avatares disponíveis</p>
+            <p class="mb-3">Avatares disponíveis</p>
             <ul class="grid-cols-5 grid gap-4">
               <li
                 v-for="avatar in avatarImages"

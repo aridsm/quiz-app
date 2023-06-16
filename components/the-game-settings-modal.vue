@@ -1,5 +1,8 @@
 <template>
-  <quiz-modal-overlay :model.sync="modals.modalGameSettingsIsOpen">
+  <quiz-modal-overlay
+    :center="true"
+    :model.sync="modals.modalGameSettingsIsOpen"
+  >
     <div style="width: 32rem">
       <h3>
         <span class="text-quiz-white">Nova partida</span>

@@ -130,5 +130,16 @@
     "item": "",
     "correctAnswer": "180 graus",
     "otherAnswers": ["270 graus", "360 graus", "90 graus", "45 graus"]
+  },
+  {
+    "question": "Qual a notação científica do número abaixo?",
+    "item": "1.247,40",
+    "correctAnswer": "1,2474 × 10³",
+    "otherAnswers": [
+      "1,2474 × 10⁽⁻¹⁾",
+      "1,2474 × 10²",
+      "1,2474 × 10⁴",
+      "1,2474 × 10³"
+    ]
   }
 ]
