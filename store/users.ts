@@ -78,7 +78,7 @@ export const useUsers = defineStore("useUsers", () => {
 
   const usersBiggestsScores = computed(() => {
     const usersCloned = JSON.parse(JSON.stringify(users.value));
-    const usersSorted = usersCloned.sort((userA: any, userB: any) => {
+    const usersSorted = [...usersCloned].sort((userA: any, userB: any) => {
       if (userA.score > userB.score) {
         return -1;
       } else if (userA.score < userB.score) {
@@ -87,7 +87,6 @@ export const useUsers = defineStore("useUsers", () => {
         return 0;
       }
     });
-
     return usersSorted;
   });
 

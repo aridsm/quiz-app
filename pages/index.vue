@@ -105,6 +105,6 @@ const categoriesPlayed = computed(() => {
 });
 
 const biggestScoresUsers = ref<UserDefault[]>(
-  usersStore.usersBiggestsScores.splice(0, 3)
+  usersStore.usersBiggestsScores.slice(0, 3)
 );
 </script>
