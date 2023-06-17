@@ -11,7 +11,12 @@ export const useFriends = defineStore("useFriends", () => {
     return users.value.filter((user: UserDefault) => user.isFriend);
   });
 
-  function addNewFriend() {}
+  function addNewFriend(userId: number) {
+    const index = users.value.findIndex(
+      (user: UserDefault) => user.id === userId
+    );
+    users.value[index].isFriend = true;
+  }
 
   function deleteFriend(id: number) {
     const index = users.value.findIndex((user: UserDefault) => user.id === id);
@@ -28,5 +33,5 @@ export const useFriends = defineStore("useFriends", () => {
     return gamesFiltered;
   }
 
-  return { friends, searchFriend, deleteFriend };
+  return { friends, searchFriend, deleteFriend, addNewFriend };
 });

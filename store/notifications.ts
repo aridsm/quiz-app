@@ -7,12 +7,17 @@ export const useNotifications = defineStore("useNotifications", () => {
   const notifications = ref<NotificationData[]>([
     {
       type: NotificationType.FriendRequest,
-      confirm: undefined,
       friendRequestId: 4,
-      seen: false,
+      friendName: "gabe817",
       id: 1,
     },
   ]);
 
-  return { notifications };
+  function deleteNotification(id: number) {
+    notifications.value = notifications.value.filter(
+      (notification: NotificationData) => notification.id !== id
+    );
+  }
+
+  return { notifications, deleteNotification };
 });

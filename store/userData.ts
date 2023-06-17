@@ -22,7 +22,6 @@ export const useUserDataStore = defineStore("userData", () => {
     trophiesCount: 2,
     coinsCount: 216,
     isLogged: false,
-    hasNotifications: false,
     categoriesPlayed: [
       {
         id: QuizCategoryType.Biology,

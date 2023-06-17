@@ -49,26 +49,46 @@
         <div class="relative">
           <icon-quiz-bell class="w-4 text-quiz-blue" />
           <div
-            v-if="data.hasNotifications"
+            v-if="notifications.length"
             class="w-2 h-2 bg-quiz-pink absolute left-full -top-1 rounded-full"
           />
         </div>
       </template>
       <template #content>
-        <ul class="flex flex-col gap-2">
+        <ul v-if="notifications.length" class="flex flex-col gap-2">
           <li
             v-for="notification in notifications"
             :key="notification.id"
             class="flex items-center"
           >
-            <div v-if="notification.type === NotificationType.FriendRequest">
-              <p>
-                {{}}
+            <div
+              v-if="notification.type === NotificationType.FriendRequest"
+              class="flex items-center justify-between"
+            >
+              <p class="d max-w-max w-max mr-6">
+                <span class="text-quiz-blue">{{
+                  notification.friendName
+                }}</span>
+                quer ser seu amigo!
               </p>
-              {{ notification.id }}
+              <div class="flex items-center gap-4">
+                <button
+                  aria-label="Rejeitar"
+                  @click="() => deleteNotification(notification.id)"
+                >
+                  <icon-quiz-xmark class="w-5 text-quiz-pink" />
+                </button>
+                <button
+                  aria-label="Aceitar"
+                  @click="() => acceptFriend(notification)"
+                >
+                  <icon-quiz-checkmark class="w-5 text-quiz-blue" />
+                </button>
+              </div>
             </div>
           </li>
         </ul>
+        <p v-else>Não há nada aqui!</p>
       </template>
     </quiz-toggle-activator>
   </div>
@@ -82,6 +102,7 @@ import { useNotifications } from "~/store/notifications";
 import { useModals } from "~/store/modals";
 import { useUserDataStore } from "~/store/userData";
 import { NotificationType } from "~/enums/notificationType";
+import { useFriends } from "~/store/friends";
 
 interface Options {
   action: Function;
@@ -92,6 +113,7 @@ interface Options {
 const userStore = useUserDataStore();
 const useModalStore = useModals();
 const notificationsStore = useNotifications();
+const friendsStore = useFriends();
 
 const { data, totalXpInCurrentLevel, friendsCount } = storeToRefs(userStore);
 const { notifications } = storeToRefs(notificationsStore);
@@ -135,4 +157,15 @@ function showHistory() {
 }
 
 function logout() {}
+
+function deleteNotification(id: number) {
+  notificationsStore.deleteNotification(id);
+}
+
+function acceptFriend({ id, friendRequestId }: any) {
+  if (friendRequestId) {
+    friendsStore.addNewFriend(friendRequestId);
+    deleteNotification(id);
+  }
+}
 </script>
