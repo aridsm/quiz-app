@@ -86,6 +86,9 @@
                 </button>
               </div>
             </div>
+            <div v-else>
+              {{ notification.message }}
+            </div>
           </li>
         </ul>
         <p v-else>Não há nada aqui!</p>

@@ -49,7 +49,7 @@ const categoryActive = ref<QuizCategoryType | null>(null);
 const searchValue = ref<string>("");
 
 interface Category {
-  name: string;
+  name: string | null;
   id: QuizCategoryType | null;
   route: string;
 }
@@ -89,7 +89,6 @@ function filterResults(val: string, results: Quiz[]) {
 
 function onChangeRoute() {
   if (!router.currentRoute.params.id) {
-    // quizzesList.value = quizzes;
     categoryActive.value = null;
   } else if (router.currentRoute.params.id === "mathematics") {
     categoryActive.value = QuizCategoryType.Mathematics;
@@ -108,5 +107,3 @@ onMounted(() => {
   onChangeRoute();
 });
 </script>
-
-<style></style>

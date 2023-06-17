@@ -4,5 +4,6 @@ export interface NotificationData {
   type: NotificationType;
   friendRequestId: null | number;
   friendName: string;
+  message: string;
   id: number;
 }

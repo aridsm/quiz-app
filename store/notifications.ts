@@ -9,6 +9,7 @@ export const useNotifications = defineStore("useNotifications", () => {
       type: NotificationType.FriendRequest,
       friendRequestId: 4,
       friendName: "gabe817",
+      message: "",
       id: 1,
     },
   ]);

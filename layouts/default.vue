@@ -28,11 +28,18 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from "@nuxtjs/composition-api";
 import { storeToRefs } from "pinia";
 import { useTooltip } from "~/store/tooltip";
 
 const tooltipStore = useTooltip();
 const { tooltip } = storeToRefs(tooltipStore);
+const router = useRouter();
+
+router.beforeEach((_, _2, next) => {
+  window.scrollTo(0, 0);
+  next();
+});
 </script>
 
 <style>
