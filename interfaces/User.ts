@@ -8,7 +8,6 @@ export interface User {
   trophiesCount: number;
   coinsCount: number;
   isLogged: boolean;
-  friendsCount: number;
   hasNotifications: boolean;
   categoriesPlayed: QuizCategory[];
 }

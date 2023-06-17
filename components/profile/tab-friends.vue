@@ -55,7 +55,7 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { Friend } from "~/interfaces/Friend";
 import { useFriends } from "~/store/friends";
 import { useModals } from "~/store/modals";
@@ -66,13 +66,12 @@ const { friends } = storeToRefs(storeFriends);
 const storeModals = useModals();
 const { modals } = storeToRefs(storeModals);
 
-const friendsList = computed<Friend[]>(() => {
-  return [...friends.value];
-});
+const friendsList = ref<Friend[]>(friends.value);
+
 const searchValue = ref<string>("");
 
 const friendsOnlineFirst = computed(() => {
-  const newFriendsArray = [...friends.value].sort(
+  const newFriendsArray = [...friendsList.value].sort(
     (friendA: any, friendB: any) => {
       if (friendA.isOnline && !friendB.isOnline) {
         return -1;
@@ -86,6 +85,13 @@ const friendsOnlineFirst = computed(() => {
 
   return newFriendsArray;
 });
+
+watch(
+  () => friends.value,
+  () => {
+    friendsList.value = friends.value;
+  }
+);
 
 function onSearchHistory() {
   friendsList.value = storeFriends.searchGame(searchValue.value);

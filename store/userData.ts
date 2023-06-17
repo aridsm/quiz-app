@@ -19,7 +19,6 @@ export const useUserDataStore = defineStore("userData", () => {
     trophiesCount: 2,
     coinsCount: 216,
     isLogged: false,
-    friendsCount: friendsStore.friends.length,
     hasNotifications: false,
     categoriesPlayed: [
       {
@@ -41,6 +40,10 @@ export const useUserDataStore = defineStore("userData", () => {
         name: "matemática",
       },
     ],
+  });
+
+  const friendsCount = computed<number>(() => {
+    return friendsStore.friends.length;
   });
 
   const totalGamesPlayed = computed<number>(() => {
@@ -118,5 +121,6 @@ export const useUserDataStore = defineStore("userData", () => {
     totalVictories,
     getRewards,
     totalXpInCurrentLevel,
+    friendsCount,
   };
 });

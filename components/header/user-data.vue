@@ -6,7 +6,7 @@
         <icon-quiz-coins class="w-4 ml-2" />
       </div>
       <div class="flex items-center">
-        <span>{{ data.friendsCount }}</span>
+        <span>{{ friendsCount }}</span>
         <icon-quiz-people class="w-5 ml-2" />
       </div>
     </div>
@@ -63,8 +63,8 @@
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { ProfileOptions } from "../../enums/profileOptions";
-import { useUserDataStore } from "~/store/userData";
 import { useModals } from "~/store/modals";
+import { useUserDataStore } from "~/store/userData";
 
 interface Options {
   action: Function;
@@ -75,7 +75,7 @@ interface Options {
 const userStore = useUserDataStore();
 const useModalStore = useModals();
 
-const { data, totalXpInCurrentLevel } = storeToRefs(userStore);
+const { data, totalXpInCurrentLevel, friendsCount } = storeToRefs(userStore);
 
 const profileOptions = ref<Options[]>([
   {

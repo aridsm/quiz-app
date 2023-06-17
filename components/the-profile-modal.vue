@@ -125,7 +125,7 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { ProfileOptions } from "~/enums/profileOptions";
 import { useModals } from "~/store/modals";
 import { useUserDataStore } from "~/store/userData";
@@ -135,7 +135,7 @@ const storeModals = useModals();
 const { modals } = storeToRefs(storeModals);
 
 const storeUserData = useUserDataStore();
-const { data: user } = storeToRefs(storeUserData);
+const { data: user, friendsCount } = storeToRefs(storeUserData);
 
 const modalAvatarImagesIsOpen = ref<boolean>(false);
 const imageSelected = ref<string>("");
@@ -152,23 +152,25 @@ interface Options {
 
 const avatarImages = avatarList;
 
-const profileOptions = ref<Options[]>([
-  {
-    name: "Progresso",
-    id: ProfileOptions.Profile,
-    tab: "profile-tab-progress",
-  },
-  {
-    name: `Amigos (${user.value.friendsCount})`,
-    id: ProfileOptions.Friends,
-    tab: "profile-tab-friends",
-  },
-  {
-    name: "Histórico",
-    id: ProfileOptions.History,
-    tab: "profile-tab-history",
-  },
-]);
+const profileOptions = computed<Options[]>(() => {
+  return [
+    {
+      name: "Progresso",
+      id: ProfileOptions.Profile,
+      tab: "profile-tab-progress",
+    },
+    {
+      name: `Amigos (${friendsCount.value})`,
+      id: ProfileOptions.Friends,
+      tab: "profile-tab-friends",
+    },
+    {
+      name: "Histórico",
+      id: ProfileOptions.History,
+      tab: "profile-tab-history",
+    },
+  ];
+});
 
 const tabSelected = ref(profileOptions.value[0].tab);
 

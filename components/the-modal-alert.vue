@@ -28,7 +28,6 @@ const { modals } = storeToRefs(modalsStore);
 function onConfirm() {
   const confirm = modals.value.modalAlert.onConfirm;
   if (typeof confirm === "function") {
-    console.log(typeof confirm);
     confirm();
   }
   modals.value.modalAlert.isOpen = false;
