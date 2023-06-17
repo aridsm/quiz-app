@@ -12,7 +12,7 @@
     </div>
 
     <div class="py-4 px-6 pt-0 h-[20rem] overflow-auto list_friends">
-      <ul class="flex flex-col gap-3">
+      <ul class="flex flex-col gap-2">
         <li
           v-for="friend in friendsOnlineFirst"
           :key="friend.id"

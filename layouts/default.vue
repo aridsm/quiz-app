@@ -9,10 +9,10 @@
     <the-game-settings-modal />
     <the-modal-alert />
     <div class="fixed bottom-4 right-4 flex flex-col items-end gap-4">
-      <button v-title="'mensagens'" class="flex items-center mr-1">
+      <button v-title="'mensagens'" class="flex items-center mr-[6px]">
         <icon-quiz-paperplane class="w-5 text-quiz-blue" />
       </button>
-      <button v-title="'sobre o projeto'" class="flex items-center mr-1">
+      <button v-title="'sobre o projeto'" class="flex items-center mr-[6px]">
         <icon-quiz-infos class="w-5 text-quiz-grey-100" />
       </button>
       <button class="flex items-center gap-2">

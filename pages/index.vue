@@ -34,7 +34,10 @@
               style="background: #313242"
             >
               <span class="text-quiz-blue">Nível {{ data.level }}</span>
-              <p>20 XP para o próximo nível</p>
+              <p>
+                {{ totalXpInCurrentLevel - data.currentXp }} XP para o próximo
+                nível
+              </p>
             </quiz-x-card>
           </li>
           <li class="w-full flex-1">
@@ -82,7 +85,8 @@ import { computed, ref } from "vue";
 import { useUserDataStore } from "~/store/userData";
 
 const userData = useUserDataStore();
-const { data, totalGamesPlayed, mostPlayedCategories } = storeToRefs(userData);
+const { data, totalGamesPlayed, mostPlayedCategories, totalXpInCurrentLevel } =
+  storeToRefs(userData);
 
 interface User {
   avatar: string;

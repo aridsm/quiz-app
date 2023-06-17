@@ -2,9 +2,9 @@
   <section class="mt-28">
     <div class="flex items-center justify-between mb-4 leading-none">
       <quiz-x-title>Últimos jogos</quiz-x-title>
-      <nuxt-link to="/" class="text-quiz-blue flex items-center">
+      <button class="text-quiz-blue flex items-center" @click="openHistory">
         Seu histórico <icon-quiz-arrow class="ml-2 w-3 -rotate-90 -mt-[2px]" />
-      </nuxt-link>
+      </button>
     </div>
     <ul class="flex flex-col gap-5">
       <li v-for="game in lastGamesPlayedList" :key="game.id">
@@ -61,14 +61,20 @@ import getCategoryData from "../../utilities/getCategoryData";
 import getGameStatusData from "../../utilities/getGameStatusData";
 import { useLastGamesPlayed } from "~/store/lastGamesPlayed";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
+import { ProfileOptions } from "~/enums/profileOptions";
+import { useModals } from "~/store/modals";
 
 const store = useLastGamesPlayed();
+const modalStore = useModals();
 
 const { lastGamesPlayed } = storeToRefs(store);
 
 const lastGamesPlayedList = computed(() => {
   return lastGamesPlayed.value.slice(0, 4);
 });
-</script>
 
-<style></style>
+function openHistory() {
+  modalStore.modals.modalProfile.isOpen = true;
+  modalStore.modals.modalProfile.tabActived = ProfileOptions.History;
+}
+</script>

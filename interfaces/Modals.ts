@@ -1,5 +1,10 @@
+import { ProfileOptions } from "~/enums/profileOptions";
+
 export interface Modals {
-  modalProfileIsOpen: boolean;
+  modalProfile: {
+    isOpen: boolean;
+    tabActived: ProfileOptions;
+  };
   modalMessagesIsOpen: boolean;
   modalGameSettingsIsOpen: boolean;
   modalInfosIsOpen: boolean;

@@ -1,5 +1,5 @@
 <template>
-  <quiz-modal-overlay :model.sync="modals.modalProfileIsOpen">
+  <quiz-modal-overlay :model.sync="modals.modalProfile.isOpen">
     <div style="width: 38rem" class="relative">
       <div class="flex items-center gap-5">
         <div class="w-36 h-36 rounded-md relative">
@@ -29,7 +29,10 @@
             <span class="text-quiz-blue text-base">
               Nível {{ user.level }}
             </span>
-            <p class="text-base">25XP para o próximo nível</p>
+            <p class="text-base">
+              {{ totalXpInCurrentLevel - user.currentXp }} XP para o próximo
+              nível
+            </p>
           </div>
         </div>
       </div>
@@ -40,14 +43,14 @@
             :key="option.id"
             class="h-full px-6 rounded-t-md ml-3 hover:text-quiz-blue border-2 border-b-0 border-quiz-border"
             :class="{
-              'bg-quiz-grey-400 text-quiz-blue': option.tab === tabSelected,
+              'bg-quiz-grey-400 text-quiz-blue': option.id === tabSelected,
             }"
-            @click="() => selectOption(option.tab)"
+            @click="() => selectOption(option.id)"
           >
             {{ option.name }}
           </button>
         </div>
-        <component :is="tabSelected" />
+        <component :is="tabComponentSelected" />
       </div>
 
       <quiz-modal-overlay
@@ -125,7 +128,7 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { ProfileOptions } from "~/enums/profileOptions";
 import { useModals } from "~/store/modals";
 import { useUserDataStore } from "~/store/userData";
@@ -135,7 +138,11 @@ const storeModals = useModals();
 const { modals } = storeToRefs(storeModals);
 
 const storeUserData = useUserDataStore();
-const { data: user, friendsCount } = storeToRefs(storeUserData);
+const {
+  data: user,
+  friendsCount,
+  totalXpInCurrentLevel,
+} = storeToRefs(storeUserData);
 
 const modalAvatarImagesIsOpen = ref<boolean>(false);
 const imageSelected = ref<string>("");
@@ -172,10 +179,25 @@ const profileOptions = computed<Options[]>(() => {
   ];
 });
 
-const tabSelected = ref(profileOptions.value[0].tab);
+const tabSelected = ref(modals.value.modalProfile.tabActived);
 
-function selectOption(tab: string) {
-  tabSelected.value = tab;
+watch(
+  () => modals.value.modalProfile.tabActived,
+  () => {
+    tabSelected.value = modals.value.modalProfile.tabActived;
+  }
+);
+
+const tabComponentSelected = computed(() => {
+  const tab = profileOptions.value.find(
+    (option: Options) => option.id === tabSelected.value
+  );
+
+  return tab?.tab || "profile-tab-progress";
+});
+
+function selectOption(id: ProfileOptions) {
+  tabSelected.value = id;
 }
 
 function openAvatarImagesOptions() {

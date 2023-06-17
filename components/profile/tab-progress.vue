@@ -2,7 +2,7 @@
   <div class="bg-quiz-grey-400 p-6 rounded-md border-2 border-quiz-border">
     <div>
       <p class="mb-6 text-quiz-grey-100">Categorias jogadas</p>
-      <ul class="flex flex-col gap-3">
+      <ul class="flex flex-col gap-2">
         <li
           v-for="category in user.categoriesPlayed"
           :key="category.id"

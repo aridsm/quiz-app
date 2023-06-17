@@ -89,7 +89,7 @@ const profileOptions = ref<Options[]>([
     id: ProfileOptions.Friends,
   },
   {
-    action: showMessages,
+    action: showHistory,
     name: "Seu histórico",
     id: ProfileOptions.History,
   },
@@ -101,10 +101,19 @@ const profileOptions = ref<Options[]>([
 ]);
 
 function showProfile() {
-  useModalStore.modals.modalProfileIsOpen = true;
+  useModalStore.modals.modalProfile.isOpen = true;
+  useModalStore.modals.modalProfile.tabActived = ProfileOptions.Profile;
 }
 
-function showFriend() {}
-function showMessages() {}
+function showFriend() {
+  useModalStore.modals.modalProfile.isOpen = true;
+  useModalStore.modals.modalProfile.tabActived = ProfileOptions.Friends;
+}
+
+function showHistory() {
+  useModalStore.modals.modalProfile.isOpen = true;
+  useModalStore.modals.modalProfile.tabActived = ProfileOptions.History;
+}
+
 function logout() {}
 </script>
