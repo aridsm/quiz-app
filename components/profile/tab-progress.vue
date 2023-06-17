@@ -6,7 +6,7 @@
         <li
           v-for="category in user.categoriesPlayed"
           :key="category.id"
-          class="flex items-center text-base p-4 bg-quiz-grey-300 rounded-md"
+          class="flex items-center text-base p-4 bg-quiz-grey-300 border-2 border-quiz-border rounded-md"
         >
           <p>{{ category.name }}</p>
           <span class="ml-auto text-quiz-blue text-base w-24 text-end">

@@ -16,7 +16,7 @@
         <li
           v-for="friend in friendsOnlineFirst"
           :key="friend.id"
-          class="flex items-center p-4 bg-quiz-grey-300 rounded-md"
+          class="flex items-center p-4 bg-quiz-grey-300 border-2 border-quiz-border rounded-md"
         >
           <quiz-x-avatar :avatar="friend.avatarUrl" />
           <p class="w-auto ml-5">

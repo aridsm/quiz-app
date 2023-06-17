@@ -15,7 +15,7 @@
         <li
           v-for="game in gamesList"
           :key="game.id"
-          class="flex items-center p-4 bg-quiz-grey-300 rounded-md"
+          class="flex items-center p-4 bg-quiz-grey-300 border-2 border-quiz-border rounded-md"
         >
           <div>
             <p class="leading-none">{{ game.name }}</p>
