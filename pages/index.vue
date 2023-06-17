@@ -87,19 +87,21 @@
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 import { UserDefault } from "~/interfaces/UserDefault";
+import { useLastGamesPlayed } from "~/store/lastGamesPlayed";
 import { useUserDataStore } from "~/store/userData";
 import { useUsers } from "~/store/users";
 
 const userData = useUserDataStore();
-const { data, totalGamesPlayed, mostPlayedCategories, totalXpInCurrentLevel } =
-  storeToRefs(userData);
+const { data, totalXpInCurrentLevel } = storeToRefs(userData);
+
+const gamesPlayed = useLastGamesPlayed();
+const { lastGamesPlayed, totalGamesPlayed, mostPlayedCategories } =
+  storeToRefs(gamesPlayed);
 
 const usersStore = useUsers();
 
 const categoriesPlayed = computed(() => {
-  return mostPlayedCategories.value
-    .map((category: any) => category.name)
-    .join(", ");
+  return lastGamesPlayed.value.map((category: any) => category.name).join(", ");
 });
 
 const biggestScoresUsers = ref<UserDefault[]>(

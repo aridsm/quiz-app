@@ -1,5 +1,3 @@
-import { QuizCategory } from "./QuizCategory";
-
 export interface User {
   userName: string;
   avatarUrl: string;
@@ -8,5 +6,4 @@ export interface User {
   trophiesCount: number;
   coinsCount: number;
   isLogged: boolean;
-  categoriesPlayed: QuizCategory[];
 }

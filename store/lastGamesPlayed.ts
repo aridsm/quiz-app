@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 import { GamePlayed } from "~/interfaces/GamePlayed";
+import { QuizCategory } from "~/interfaces/QuizCategory";
 
 export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
   const lastGamesPlayed = ref<GamePlayed[]>([
@@ -59,6 +60,71 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
     },
   ]);
 
+  const categoriesPlayed = computed<QuizCategory[]>(() => {
+    const categories = [
+      {
+        id: QuizCategoryType.Biology,
+        count: 0,
+        victories: 0,
+        name: "biologia",
+      },
+      {
+        id: QuizCategoryType.Geography,
+        count: 0,
+        victories: 0,
+        name: "geografia",
+      },
+      {
+        id: QuizCategoryType.Mathematics,
+        count: 0,
+        victories: 0,
+        name: "matemática",
+      },
+    ];
+
+    lastGamesPlayed.value.forEach((game: GamePlayed) => {
+      const index = game.category - 1;
+      ++categories[index].count;
+      if (game.status === CurrentGameStatus.Done) {
+        ++categories[index].victories;
+      }
+    });
+
+    return categories;
+  });
+
+  const totalGamesPlayed = computed<number>(() => {
+    const total = categoriesPlayed.value.reduce(
+      (acc, currentValue) => acc + currentValue.count,
+      0
+    );
+
+    return total;
+  });
+
+  const totalVictories = computed<number>(() => {
+    const total = categoriesPlayed.value.reduce(
+      (acc, currentValue) => acc + currentValue.victories,
+      0
+    );
+
+    return total;
+  });
+
+  const mostPlayedCategories = computed<QuizCategory[]>(() => {
+    const categoriesCounts: number[] = categoriesPlayed.value.map(
+      (category: QuizCategory) => category.count
+    );
+
+    const maxValue = Math.max(...categoriesCounts);
+
+    const categories: QuizCategory[] = categoriesPlayed.value.filter(
+      (category: QuizCategory) => category.count === maxValue
+    );
+
+    return categories;
+  });
+
   function addGameToHistory(game: CurrentGame) {
     const body = {
       name: game.title,
@@ -67,7 +133,7 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
       correctQuestions: game.correctAnswers,
       earnedCoins: game.coinsGained,
       earnedXp: game.xpGained,
-      category: game.category,
+      category: game.category as QuizCategoryType,
       id: new Date().getTime(),
     };
     lastGamesPlayed.value.unshift(body);
@@ -83,5 +149,13 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
     return gamesFiltered;
   }
 
-  return { lastGamesPlayed, addGameToHistory, searchGame };
+  return {
+    lastGamesPlayed,
+    addGameToHistory,
+    searchGame,
+    categoriesPlayed,
+    totalGamesPlayed,
+    totalVictories,
+    mostPlayedCategories,
+  };
 });

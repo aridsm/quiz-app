@@ -1,10 +1,8 @@
 import { defineStore } from "pinia";
 import { computed, reactive } from "vue";
 import { User } from "../interfaces/User";
-import { QuizCategory } from "../interfaces/QuizCategory";
 import { useFriends } from "./friends";
 import { useUsers } from "./users";
-import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 import { UserDefault } from "~/interfaces/UserDefault";
 
@@ -22,67 +20,15 @@ export const useUserDataStore = defineStore("userData", () => {
     trophiesCount: 2,
     coinsCount: 216,
     isLogged: false,
-    categoriesPlayed: [
-      {
-        id: QuizCategoryType.Biology,
-        count: 1,
-        victories: 1,
-        name: "biologia",
-      },
-      {
-        id: QuizCategoryType.Geography,
-        count: 2,
-        victories: 1,
-        name: "geografia",
-      },
-      {
-        id: QuizCategoryType.Mathematics,
-        count: 2,
-        victories: 2,
-        name: "matemática",
-      },
-    ],
   });
 
   const friendsCount = computed<number>(() => {
     return friendsStore.friends.length;
   });
 
-  const totalGamesPlayed = computed<number>(() => {
-    const total = data.categoriesPlayed.reduce(
-      (acc, currentValue) => acc + currentValue.count,
-      0
-    );
-
-    return total;
-  });
-
   const totalXpInCurrentLevel = computed<number>(() => {
     const totalXp = 25 + data.level;
     return totalXp;
-  });
-
-  const totalVictories = computed<number>(() => {
-    const total = data.categoriesPlayed.reduce(
-      (acc, currentValue) => acc + currentValue.victories,
-      0
-    );
-
-    return total;
-  });
-
-  const mostPlayedCategories = computed<QuizCategory[]>(() => {
-    const categoriesCounts: number[] = data.categoriesPlayed.map(
-      (category: QuizCategory) => category.count
-    );
-
-    const maxValue = Math.max(...categoriesCounts);
-
-    const categories: QuizCategory[] = data.categoriesPlayed.filter(
-      (category: QuizCategory) => category.count === maxValue
-    );
-
-    return categories;
   });
 
   function usernameAlreadyExists(username: string): boolean {
@@ -133,9 +79,6 @@ export const useUserDataStore = defineStore("userData", () => {
   return {
     data,
     login,
-    mostPlayedCategories,
-    totalGamesPlayed,
-    totalVictories,
     getRewards,
     totalXpInCurrentLevel,
     friendsCount,

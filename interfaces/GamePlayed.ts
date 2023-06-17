@@ -8,6 +8,6 @@ export interface GamePlayed {
   correctQuestions: number;
   earnedCoins: number;
   earnedXp: number;
-  category: QuizCategoryType | null;
+  category: QuizCategoryType;
   id: number;
 }
