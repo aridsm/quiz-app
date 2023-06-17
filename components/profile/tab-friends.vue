@@ -27,15 +27,7 @@
             class="w-2 h-2 bg-quiz-blue rounded-full ml-3"
           />
           <div class="ml-auto flex items-center gap-6 text-quiz-grey-100">
-            <div v-title="'enviar mensagem'">
-              <button
-                class="hover:text-quiz-blue active:scale-95"
-                @click="openModalMessagesHandler"
-              >
-                <icon-quiz-paperplane class="w-4" />
-              </button>
-            </div>
-            <div v-title="'excluir amigo'">
+            <div v-title="'excluir amigo'" aria-label="Excluir amigo">
               <button
                 class="hover:text-quiz-blue active:scale-95"
                 @click="() => deleteFriendHandler(friend.id)"

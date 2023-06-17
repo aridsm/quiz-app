@@ -2,6 +2,7 @@
   <div class="relative">
     <button
       ref="toggleActivator"
+      aria-label="Abrir opções"
       type="button"
       class="cursor-pointer flex items-center toggle-btn"
       :class="{

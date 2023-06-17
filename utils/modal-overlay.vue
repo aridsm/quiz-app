@@ -10,6 +10,7 @@
     <quiz-x-card class="card-modal transition relative">
       <slot />
       <button
+        aria-label="Fechar"
         class="absolute right-[0.7rem] top-[0.7rem] transition text-quiz-grey-100 hover:text-quiz-blue p-2"
         @click="closeModalHandler"
       >

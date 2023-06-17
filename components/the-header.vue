@@ -47,7 +47,11 @@
             </li>
           </ul>
         </nav>
-        <button class="hover:text-quiz-blue" @click="openSearchModal">
+        <button
+          aria-label="Abrir barra de pesquisa"
+          class="hover:text-quiz-blue"
+          @click="openSearchModal"
+        >
           <icon-quiz-search class="w-4" />
         </button>
       </div>

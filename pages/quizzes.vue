@@ -8,7 +8,7 @@
         @onUpdate="filterResults"
       />
       <ul class="mt-4 text-quiz-grey-100 flex flex-col gap-2">
-        <li v-for="category in categories" :key="category.name">
+        <li v-for="category in categories" :key="category.name || ''">
           <button
             type="button"
             class="py-2 rounded-md"

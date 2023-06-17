@@ -104,6 +104,7 @@
               v-title="
                 'De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !'
               "
+              aria-label="De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !"
               class="hover:text-quiz-blue text-quiz-grey-100 ml-2"
             >
               <icon-quiz-infos class="w-4" />
