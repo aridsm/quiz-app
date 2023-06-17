@@ -7,11 +7,17 @@
     <the-footer />
     <the-profile-modal />
     <the-game-settings-modal />
-    <div class="fixed bottom-4 right-4">
+    <div class="fixed bottom-4 right-4 flex flex-col items-end gap-4">
+      <button v-title="'mensagens'" class="flex items-center mr-1">
+        <icon-quiz-paperplane class="w-5 text-quiz-blue" />
+      </button>
+      <button v-title="'sobre o projeto'" class="flex items-center mr-1">
+        <icon-quiz-infos class="w-5 text-quiz-grey-100" />
+      </button>
       <button class="flex items-center gap-2">
-        <span class="text-sm text-quiz-blue">Sair</span>
+        <span class="text-sm text-quiz-blue tracking-wider">Sair</span>
         <div class="bg-quiz-blue rounded-md p-2">
-          <icon-quiz-exit class="w-4 text-quiz-blue" />
+          <icon-quiz-exit class="w-4 text-quiz-blue-dark" />
         </div>
       </button>
     </div>

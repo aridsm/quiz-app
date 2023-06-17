@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { onMounted, reactive, ref, watch } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import { useTooltip } from "~/store/tooltip";
 
 const tooltipStore = useTooltip();
@@ -22,7 +22,6 @@ const { tooltip } = storeToRefs(tooltipStore);
 const tooltipElement = ref<HTMLDivElement | null>(null);
 const onRightSide = ref<boolean>(false);
 const onBottom = ref<boolean>(false);
-const showTooltip = ref<boolean>(false);
 
 const styles = reactive<any>({
   top: 0,
@@ -30,26 +29,23 @@ const styles = reactive<any>({
 });
 
 onMounted(() => {
-  console.log(tooltip.value.position);
   const element = tooltipElement.value?.getBoundingClientRect()!;
   const windowWidth = window.innerWidth;
   const windowHeight = window.innerHeight;
 
-  console.log(element.width + element.left > windowWidth);
+  const elementLeftOutWindow = tooltip.value.position.left - element.width + 25;
+  const elementLeft = tooltip.value.position.left - 10;
+  const elementTop = tooltip.value.position.top - 25;
 
-  if (element.width + element.left > windowWidth) {
+  if (element.width + elementLeft > windowWidth) {
     onRightSide.value = true;
-    styles.top = `${tooltip.value.position.top - 20}px`;
-    styles.left = `${tooltip.value.position.left - element.width + 20}px`;
+    styles.top = `${elementTop}px`;
+    styles.left = `${elementLeftOutWindow}px`;
     return;
   }
 
-  styles.top = `${tooltip.value.position.top - 20}px`;
-  styles.left = `${tooltip.value.position.left - 10}px`;
-
-  if (tooltip.value.isShown) {
-    showTooltip.value = true;
-  }
+  styles.top = `${elementTop}px`;
+  styles.left = `${elementLeft}px`;
 });
 </script>
 
@@ -61,5 +57,9 @@ onMounted(() => {
   content: "";
   top: calc(100% - 4px);
   @apply block absolute bg-quiz-blue w-2 h-2 rotate-45;
+}
+
+.tooltip.on-right-side::after {
+  @apply right-3;
 }
 </style>
