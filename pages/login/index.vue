@@ -41,7 +41,7 @@
     </quiz-x-card>
 
     <p v-if="usernameIsValid === false" class="mt-2 text-sm text-quiz-pink">
-      Nome de usuário inválido!
+      {{ error }}
     </p>
   </div>
 </template>
@@ -56,12 +56,14 @@ const userStore = useUserDataStore();
 const router = useRouter();
 
 const model = ref<string>("");
+const error = ref<string>("");
 const usernameIsValid = ref<boolean | undefined>(undefined);
 
 function loginUser() {
-  const login = userStore.login(model.value);
-  usernameIsValid.value = login;
-  if (login) {
+  const { isValid, messageError } = userStore.login(model.value);
+  error.value = messageError;
+  usernameIsValid.value = isValid;
+  if (isValid) {
     router.push("/");
   }
 }

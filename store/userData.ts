@@ -3,13 +3,16 @@ import { computed, reactive } from "vue";
 import { User } from "../interfaces/User";
 import { QuizCategory } from "../interfaces/QuizCategory";
 import { useFriends } from "./friends";
+import { useUsers } from "./users";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { CurrentGame } from "~/interfaces/CurrentGame";
+import { UserDefault } from "~/interfaces/UserDefault";
 
 const regexValidation = /^[a-zA-Z0-9@_!]{3,10}$/;
 
 export const useUserDataStore = defineStore("userData", () => {
   const friendsStore = useFriends();
+  const usersStore = useUsers();
 
   const data = reactive<User>({
     userName: "user1838",
@@ -83,18 +86,33 @@ export const useUserDataStore = defineStore("userData", () => {
     return categories;
   });
 
-  function validateUsername(username: string): boolean {
-    return regexValidation.test(username);
+  function usernameAlreadyExists(username: string): boolean {
+    return usersStore.users.some(
+      (user: UserDefault) => user.userName === username.toLowerCase()
+    );
   }
 
-  function login(userName: string): boolean {
+  function validateUsername(username: string): boolean {
+    const validUsername = regexValidation.test(username);
+    return validUsername && !usernameAlreadyExists(username);
+  }
+
+  function login(userName: string): any {
     const usernameIsValid = validateUsername(userName);
     if (usernameIsValid) {
       data.userName = userName.toLowerCase();
       data.isLogged = true;
-      return true;
+      return {
+        isValid: true,
+        messageError: null,
+      };
     }
-    return false;
+    return {
+      isValid: false,
+      messageError: usernameAlreadyExists(userName)
+        ? "Nome de usuário já cadastrado!"
+        : "Nome de usuário inválido!",
+    };
   }
 
   function calculateXpGained() {

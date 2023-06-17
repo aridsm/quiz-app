@@ -6,13 +6,17 @@
           Maiores pontuações dessa semana
         </quiz-x-title>
         <ul class="flex flex-col gap-3 w-full">
-          <li v-for="user in dummyUsers" :key="user.userName" class="w-full">
+          <li
+            v-for="user in biggestScoresUsers"
+            :key="user.userName"
+            class="w-full"
+          >
             <quiz-x-card class="w-full flex items-center gap-8 px-9 py-6">
-              <quiz-x-avatar :avatar="user.avatar" />
+              <quiz-x-avatar :avatar="user.avatarUrl" />
               <span class="w-20">{{ user.userName }}</span>
               <span class="text-quiz-blue">LVL. {{ user.level }}</span>
               <div class="ml-auto flex items-center">
-                <span>{{ user.trophies }}</span>
+                <span>{{ user.trophiesCount }}</span>
                 <icon-quiz-trophy class="w-4 ml-3 -mt-[2px] text-quiz-blue" />
               </div>
               <div class="flex items-center">
@@ -82,19 +86,15 @@
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
+import { UserDefault } from "~/interfaces/UserDefault";
 import { useUserDataStore } from "~/store/userData";
+import { useUsers } from "~/store/users";
 
 const userData = useUserDataStore();
 const { data, totalGamesPlayed, mostPlayedCategories, totalXpInCurrentLevel } =
   storeToRefs(userData);
 
-interface User {
-  avatar: string;
-  userName: string;
-  level: number;
-  score: number;
-  trophies: number;
-}
+const usersStore = useUsers();
 
 const categoriesPlayed = computed(() => {
   return mostPlayedCategories.value
@@ -102,27 +102,7 @@ const categoriesPlayed = computed(() => {
     .join(", ");
 });
 
-const dummyUsers = ref<User[]>([
-  {
-    avatar: "av-2",
-    userName: "oll13",
-    level: 40,
-    score: 325,
-    trophies: 12,
-  },
-  {
-    avatar: "av-9",
-    userName: "xdaanny",
-    level: 39,
-    score: 305,
-    trophies: 11,
-  },
-  {
-    avatar: "av-1",
-    userName: "prijx",
-    level: 42,
-    score: 295,
-    trophies: 9,
-  },
-]);
+const biggestScoresUsers = ref<UserDefault[]>(
+  usersStore.usersBiggestsScores.splice(0, 3)
+);
 </script>

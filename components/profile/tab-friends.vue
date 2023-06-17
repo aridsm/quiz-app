@@ -56,7 +56,7 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { computed, ref, watch } from "vue";
-import { Friend } from "~/interfaces/Friend";
+import { UserDefault } from "~/interfaces/UserDefault";
 import { useFriends } from "~/store/friends";
 import { useModals } from "~/store/modals";
 
@@ -66,7 +66,7 @@ const { friends } = storeToRefs(storeFriends);
 const storeModals = useModals();
 const { modals } = storeToRefs(storeModals);
 
-const friendsList = ref<Friend[]>(friends.value);
+const friendsList = ref<UserDefault[]>(friends.value);
 
 const searchValue = ref<string>("");
 
@@ -94,7 +94,7 @@ watch(
 );
 
 function onSearchHistory() {
-  friendsList.value = storeFriends.searchGame(searchValue.value);
+  friendsList.value = storeFriends.searchFriend(searchValue.value);
 }
 
 function deleteFriendHandler(friendId: number) {

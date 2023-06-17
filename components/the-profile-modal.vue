@@ -115,7 +115,7 @@
             style="width: 20rem"
           />
           <p v-if="newUsernameIsInvalid" class="mt-1 text-quiz-pink text-sm">
-            Nome de usuário inválido!
+            {{ errorNewUsername }}
           </p>
           <quiz-btn class="mt-4 w-full" @click="changeUsername">
             Confirmar
@@ -150,6 +150,8 @@ const imageSelected = ref<string>("");
 const modalUsernameIsOpen = ref<boolean>(false);
 const newUsernameIsInvalid = ref<boolean>(false);
 const newUserValue = ref<string>("");
+
+const errorNewUsername = ref<string>("");
 
 interface Options {
   name: string;
@@ -217,8 +219,10 @@ function openModalUsername() {
 }
 
 function changeUsername() {
-  const validUsername = storeUserData.login(newUserValue.value);
-  if (validUsername) {
+  const { isValid, messageError } = storeUserData.login(newUserValue.value);
+  errorNewUsername.value = messageError;
+
+  if (isValid) {
     modalUsernameIsOpen.value = false;
   } else {
     newUsernameIsInvalid.value = true;

@@ -54,7 +54,22 @@
           />
         </div>
       </template>
-      <template #content>Notificações</template>
+      <template #content>
+        <ul class="flex flex-col gap-2">
+          <li
+            v-for="notification in notifications"
+            :key="notification.id"
+            class="flex items-center"
+          >
+            <div v-if="notification.type === NotificationType.FriendRequest">
+              <p>
+                {{}}
+              </p>
+              {{ notification.id }}
+            </div>
+          </li>
+        </ul>
+      </template>
     </quiz-toggle-activator>
   </div>
 </template>
@@ -63,8 +78,10 @@
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { ProfileOptions } from "../../enums/profileOptions";
+import { useNotifications } from "~/store/notifications";
 import { useModals } from "~/store/modals";
 import { useUserDataStore } from "~/store/userData";
+import { NotificationType } from "~/enums/notificationType";
 
 interface Options {
   action: Function;
@@ -74,8 +91,10 @@ interface Options {
 
 const userStore = useUserDataStore();
 const useModalStore = useModals();
+const notificationsStore = useNotifications();
 
 const { data, totalXpInCurrentLevel, friendsCount } = storeToRefs(userStore);
+const { notifications } = storeToRefs(notificationsStore);
 
 const profileOptions = ref<Options[]>([
   {
