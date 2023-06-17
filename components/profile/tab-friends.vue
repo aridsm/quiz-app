@@ -38,7 +38,7 @@
             <div v-title="'excluir amigo'">
               <button
                 class="hover:text-quiz-blue active:scale-95"
-                @click="deleteFriendHandler"
+                @click="() => deleteFriendHandler(friend.id)"
               >
                 <icon-quiz-trash class="w-4" />
               </button>
@@ -58,15 +58,21 @@ import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 import { Friend } from "~/interfaces/Friend";
 import { useFriends } from "~/store/friends";
+import { useModals } from "~/store/modals";
 
 const storeFriends = useFriends();
 const { friends } = storeToRefs(storeFriends);
 
-const friendsList = ref<Friend[]>(friends.value);
+const storeModals = useModals();
+const { modals } = storeToRefs(storeModals);
+
+const friendsList = computed<Friend[]>(() => {
+  return [...friends.value];
+});
 const searchValue = ref<string>("");
 
 const friendsOnlineFirst = computed(() => {
-  const newFriendsArray = [...friendsList.value].sort(
+  const newFriendsArray = [...friends.value].sort(
     (friendA: any, friendB: any) => {
       if (friendA.isOnline && !friendB.isOnline) {
         return -1;
@@ -85,7 +91,12 @@ function onSearchHistory() {
   friendsList.value = storeFriends.searchGame(searchValue.value);
 }
 
-function deleteFriendHandler() {}
+function deleteFriendHandler(friendId: number) {
+  modals.value.modalAlert.isOpen = true;
+  modals.value.modalAlert.message =
+    "O usuário será deletado da sua lista de amigos definitivamente!";
+  modals.value.modalAlert.onConfirm = () => storeFriends.deleteFriend(friendId);
+}
 
 function openModalMessagesHandler() {}
 </script>

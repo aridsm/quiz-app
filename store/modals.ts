@@ -8,6 +8,11 @@ export const useModals = defineStore("useModals", () => {
     modalMessagesIsOpen: false,
     modalGameSettingsIsOpen: false,
     modalInfosIsOpen: false,
+    modalAlert: {
+      isOpen: false,
+      message: "",
+      onConfirm: undefined,
+    },
   });
 
   return { modals };

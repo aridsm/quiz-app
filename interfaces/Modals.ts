@@ -3,4 +3,9 @@ export interface Modals {
   modalMessagesIsOpen: boolean;
   modalGameSettingsIsOpen: boolean;
   modalInfosIsOpen: boolean;
+  modalAlert: {
+    isOpen: boolean;
+    message: string;
+    onConfirm: Function | undefined;
+  };
 }
