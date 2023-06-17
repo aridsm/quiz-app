@@ -47,7 +47,7 @@
             </li>
           </ul>
         </nav>
-        <button class="hover:text-quiz-blue">
+        <button class="hover:text-quiz-blue" @click="openSearchModal">
           <icon-quiz-search class="w-4" />
         </button>
       </div>
@@ -58,11 +58,14 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { useModals } from "~/store/modals";
 
 interface Link {
   route: string;
   name: string;
 }
+
+const storeModals = useModals();
 
 const links = ref<Link[]>([
   {
@@ -82,6 +85,10 @@ const links = ref<Link[]>([
     name: "Todas as categorias",
   },
 ]);
+
+function openSearchModal() {
+  storeModals.modals.modalSearchIsOpen = true;
+}
 </script>
 
 <style scoped>

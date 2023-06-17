@@ -10,6 +10,7 @@ import mountQuiz from "~/utilities/mountQuiz";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { AnswerMode } from "~/enums/answerMode";
 import { AnswerSimilarity } from "~/enums/answerSimilarity";
+import normalizeString from "~/utilities/normalizeString";
 
 const defaultData = {
   title: "",
@@ -85,14 +86,6 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
 
     currentGame.questions = mountQuiz();
     currentGame.status = CurrentGameStatus.Started;
-  }
-
-  function normalizeString(string: any) {
-    return String(string)
-      .trim()
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036F]/g, "");
   }
 
   function validateInputValue(answer: string) {

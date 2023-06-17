@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { QuizType } from "~/enums/quizType";
 import { Quiz } from "~/interfaces/Quiz";
+import normalizeString from "~/utilities/normalizeString";
 
 export const useQuizzes = defineStore("useQuizzes", () => {
   const quizzes = ref<Quiz[]>([
@@ -78,8 +79,12 @@ export const useQuizzes = defineStore("useQuizzes", () => {
     category?: QuizCategoryType;
     name?: string;
   }) {
+    const searchNameNormalized = normalizeString(name);
     const filteredByName = quizzes.value.filter((quiz: Quiz) => {
-      const includesName = quiz.name.toLowerCase().includes(name.toLowerCase());
+      const quizNameNormalized = normalizeString(quiz.name);
+      const includesName = quizNameNormalized
+        .toLowerCase()
+        .includes(searchNameNormalized);
 
       return includesName;
     });

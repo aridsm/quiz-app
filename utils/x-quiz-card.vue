@@ -21,13 +21,9 @@
 </template>
 
 <script lang="ts" setup>
-import { storeToRefs } from "pinia";
 import { ChipColors } from "~/enums/chipColors";
-import { GeoQuizType } from "~/enums/geoQuizType";
-import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { Quiz } from "~/interfaces/Quiz";
 import { useGameSettings } from "~/store/gameSettings";
-import { useModals } from "~/store/modals";
 
 interface Props {
   quiz: Quiz;
@@ -39,22 +35,10 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const storeModals = useModals();
 const storeGameSettings = useGameSettings();
 
-const { gameSettings } = storeToRefs(storeGameSettings);
-
 function openModalGameSettings() {
-  gameSettings.value.category = props.quiz.category;
-  gameSettings.value.quizId = props.quiz.id;
-  gameSettings.value.quizName = props.quiz.name;
-  gameSettings.value.acceptAnswerMode = props.quiz.acceptAnswerMode;
-  gameSettings.value.geoQuizType =
-    props.quiz.category === QuizCategoryType.Geography
-      ? GeoQuizType.FromFlagCapital
-      : null;
-  gameSettings.value.countdown = false;
-  storeModals.modals.modalGameSettingsIsOpen = true;
+  storeGameSettings.openModalGameSettings(props.quiz);
 }
 </script>
 

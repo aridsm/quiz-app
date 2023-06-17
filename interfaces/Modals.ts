@@ -8,6 +8,7 @@ export interface Modals {
   modalMessagesIsOpen: boolean;
   modalGameSettingsIsOpen: boolean;
   modalInfosIsOpen: boolean;
+  modalSearchIsOpen: boolean;
   modalAlert: {
     isOpen: boolean;
     message: string;

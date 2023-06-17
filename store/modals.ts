@@ -12,6 +12,7 @@ export const useModals = defineStore("useModals", () => {
     modalMessagesIsOpen: false,
     modalGameSettingsIsOpen: false,
     modalInfosIsOpen: false,
+    modalSearchIsOpen: false,
     modalAlert: {
       isOpen: false,
       message: "",
