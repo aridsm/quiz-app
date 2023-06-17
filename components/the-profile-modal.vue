@@ -18,7 +18,10 @@
         </div>
         <div>
           <p class="leading-none">{{ user.userName }}</p>
-          <button class="text-quiz-grey-100 text-base">
+          <button
+            class="text-quiz-grey-100 text-base hover:text-quiz-blue"
+            @click="openModalUsername"
+          >
             Editar nome de usuário
           </button>
 
@@ -85,6 +88,37 @@
           </div>
         </div>
       </quiz-modal-overlay>
+
+      <quiz-modal-overlay
+        style="width: 100%; height: 100%; background: transparent"
+        :model.sync="modalUsernameIsOpen"
+      >
+        <div class="flex flex-col">
+          <p class="mb-4 text-quiz-white">
+            Escolha um nome de usuário
+
+            <button
+              v-title="
+                'De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !'
+              "
+              class="hover:text-quiz-blue text-quiz-grey-100 ml-2"
+            >
+              <icon-quiz-infos class="w-4" />
+            </button>
+          </p>
+          <quiz-input-text
+            :model.sync="newUserValue"
+            class="py-3 text-base"
+            style="width: 20rem"
+          />
+          <p v-if="newUsernameIsInvalid" class="mt-1 text-quiz-pink text-sm">
+            Nome de usuário inválido!
+          </p>
+          <quiz-btn class="mt-4 w-full" @click="changeUsername">
+            Confirmar
+          </quiz-btn>
+        </div>
+      </quiz-modal-overlay>
     </div>
   </quiz-modal-overlay>
 </template>
@@ -105,6 +139,10 @@ const { data: user } = storeToRefs(storeUserData);
 
 const modalAvatarImagesIsOpen = ref<boolean>(false);
 const imageSelected = ref<string>("");
+
+const modalUsernameIsOpen = ref<boolean>(false);
+const newUsernameIsInvalid = ref<boolean>(false);
+const newUserValue = ref<string>("");
 
 interface Options {
   name: string;
@@ -146,5 +184,20 @@ function openAvatarImagesOptions() {
 function changeProfileAvatar() {
   user.value.avatarUrl = imageSelected.value;
   modalAvatarImagesIsOpen.value = false;
+}
+
+function openModalUsername() {
+  newUserValue.value = user.value.userName;
+  modalUsernameIsOpen.value = true;
+  newUsernameIsInvalid.value = false;
+}
+
+function changeUsername() {
+  const validUsername = storeUserData.login(newUserValue.value);
+  if (validUsername) {
+    modalUsernameIsOpen.value = false;
+  } else {
+    newUsernameIsInvalid.value = true;
+  }
 }
 </script>

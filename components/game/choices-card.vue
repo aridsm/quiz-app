@@ -71,7 +71,7 @@
           :disabled="
             (answerWasValidated && answerIsCorrect) || !currentGame.skipChances
           "
-          @click="nextQuestion"
+          @click="skipQuestion"
         >
           Pular
         </quiz-btn>
@@ -182,6 +182,11 @@ function sendSelectedAnswer() {
     return;
   }
   storeCurrentGame.validateAnswer(selectedAnswer.value);
+}
+
+function skipQuestion() {
+  --currentGame.value.skipChances;
+  nextQuestion();
 }
 
 function nextQuestion() {

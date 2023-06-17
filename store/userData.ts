@@ -80,8 +80,12 @@ export const useUserDataStore = defineStore("userData", () => {
     return categories;
   });
 
+  function validateUsername(username: string): boolean {
+    return regexValidation.test(username);
+  }
+
   function login(userName: string): boolean {
-    const usernameIsValid = regexValidation.test(userName);
+    const usernameIsValid = validateUsername(userName);
     if (usernameIsValid) {
       data.userName = userName.toLowerCase();
       data.isLogged = true;
