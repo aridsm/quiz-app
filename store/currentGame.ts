@@ -85,6 +85,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     }
 
     currentGame.questions = mountQuiz();
+
     currentGame.status = CurrentGameStatus.Started;
   }
 
@@ -103,6 +104,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
           answer: normalizeString(correct),
         })
       );
+
       const levenshteinDistances = levenshteinForCorrectAnswer.map(
         (lev: any) => lev.levenshtein
       );
@@ -136,9 +138,16 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
   }
 
   function validateMultipleChoice(answer: string) {
-    const answerIsCorrect =
-      currentGame.questions[currentGame.currentQuestionIndex].correctAnswer ===
-      answer;
+    let answerIsCorrect: boolean = false;
+
+    const correctAnswer =
+      currentGame.questions[currentGame.currentQuestionIndex].correctAnswer;
+
+    if (typeof correctAnswer === "object" && correctAnswer.length >= 1) {
+      answerIsCorrect = correctAnswer.includes(answer);
+    } else {
+      answerIsCorrect = correctAnswer === answer;
+    }
 
     if (answerIsCorrect) {
       currentGame.answerSimilarity = AnswerSimilarity.Equal;

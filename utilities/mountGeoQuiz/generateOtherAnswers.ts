@@ -38,7 +38,7 @@ export default function generateOtherAnswers(
     }
 
     if (guessCapitalFromPlace) {
-      otherAnswers.push(itemsCloned[randomIndex].capital);
+      otherAnswers.push(itemsCloned[randomIndex].capital.join(", "));
     }
 
     usedIndexes.push(randomIndex);
@@ -63,7 +63,7 @@ export default function generateOtherAnswers(
     otherAnswers.splice(
       randomIndex,
       0,
-      itemsCloned[correctAnswerIndex].capital
+      itemsCloned[correctAnswerIndex].capital.join(", ")
     );
   }
 

@@ -1,4 +1,4 @@
-function normalizeString(string: any) {
+function normalizeString(string: any): string {
   return String(string)
     .trim()
     .toLowerCase()

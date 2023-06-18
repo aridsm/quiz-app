@@ -1,7 +1,7 @@
 [
   {
     "place": "Acre",
-    "capital": "Rio Branco",
+    "capital": ["Rio Branco"],
     "flagPath": "/static/brazil_states_flags/acre.png"
   },
   {
