@@ -1,7 +1,7 @@
 <template>
   <div
     ref="tooltipElement"
-    class="z-[999] tooltip opacity-0 pointer-events-none transition absolute w-max max-w-[230px] bg-quiz-blue text-quiz-blue-dark py-2 px-4 rounded-md text-sm"
+    class="z-[999] tooltip pointer-events-none transition absolute w-max max-w-[230px] bg-quiz-blue text-quiz-blue-dark py-2 px-4 rounded-md text-sm"
     :class="{ 'on-right-side': onRightSide }"
     :style="{
       top: styles.top,

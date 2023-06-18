@@ -102,6 +102,9 @@ export const useUserDataStore = defineStore("userData", () => {
   function logout() {
     data.isLogged = false;
     window.localStorage.removeItem("quizUserData");
+    window.localStorage.removeItem("gamesPlayed");
+    window.localStorage.removeItem("notificationsQuiz");
+    window.localStorage.removeItem("usersList");
   }
 
   function changeAvatar(avatar: string) {

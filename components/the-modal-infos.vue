@@ -3,25 +3,21 @@
     :center="true"
     :model.sync="modalsStore.modals.modalInfosIsOpen"
   >
-    <div style="max-width: 25rem">
+    <div style="max-width: 28rem">
       <h2 class="mb-4">Sobre o projeto</h2>
       <p class="text-quiz-grey-100">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-        eveniet minima architecto officiis magnam nihil, qui laboriosam iste
-        accusamus laborum. Ipsam, eum recusandae. Nesciunt ullam, facere maxime
-        facilis dicta at!
+        Esse projeto consiste em uma mini aplicação de quizzes.
       </p>
       <p class="text-quiz-grey-100 mt-4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-        eveniet minima architecto officiis magnam nihil, qui laboriosam iste
-        accusamus laborum. Ipsam, eum recusandae. Nesciunt ullam, facere maxime
-        facilis dicta at!
+        Desenvolvido com Vue, Nuxt, Pinia, Typescript e Tailwind. Prototipagem
+        feita com Figma. Algumas das perguntas dos quizzes foram geradas com o
+        chatGPT. Mais projetos disponíveis no meu github =)
       </p>
       <a
         href="https://github.com/aridsm"
         class="bg-quiz-blue text-quiz-blue-dark mt-4 block rounded-md py-3 px-7 text-center"
       >
-        Mais projetos no github
+        Acessar github
       </a>
     </div>
   </quiz-modal-overlay>

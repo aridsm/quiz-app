@@ -11,14 +11,16 @@
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from "@nuxtjs/composition-api";
 import { storeToRefs } from "pinia";
-import { computed, onBeforeUnmount } from "vue";
+import { computed, onBeforeUnmount, onMounted } from "vue";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { useCurrentGame } from "~/store/currentGame";
 
 const storeCurrentGame = useCurrentGame();
 
 const { currentGame } = storeToRefs(storeCurrentGame);
+const router = useRouter();
 
 const gameHaveStarted = computed<boolean>(() => {
   return currentGame.value.status === CurrentGameStatus.Started;
@@ -30,6 +32,15 @@ const gameSuccess = computed<boolean>(() => {
 
 const gameFailed = computed<boolean>(() => {
   return currentGame.value.status === CurrentGameStatus.Failed;
+});
+
+onMounted(() => {
+  const gameNotStarted =
+    currentGame.value.status === CurrentGameStatus.NotStarted;
+
+  if (gameNotStarted) {
+    router.push("/");
+  }
 });
 
 onBeforeUnmount(() => {

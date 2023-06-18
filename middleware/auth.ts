@@ -5,7 +5,7 @@ export default defineNuxtMiddleware(async (ctx) => {
   const user = await getLocalStorageItem("quizUserData");
   const notAuth = (user && !user.isLogged) || !user;
 
-  if (notAuth) {
+  if (notAuth && ctx.route.name !== "login") {
     ctx.redirect("/login");
   }
 });

@@ -21,6 +21,7 @@ import { useTooltip } from "~/store/tooltip";
 const tooltipStore = useTooltip();
 const { tooltip } = storeToRefs(tooltipStore);
 </script>
+
 <style>
 .bg-blur {
   left: calc(50% - 9rem);
