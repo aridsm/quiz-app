@@ -1,10 +1,7 @@
 <template>
   <div class="flex flex-col h-screen">
     <header class="h-[5.5rem] flex justify-center items-center text-2xl">
-      <div class="flex justify-center items-center gap-2">
-        <img src="/shapes/square-blue.svg" class="w-4" />
-        <span>Quiz</span>
-      </div>
+      <the-logo />
     </header>
     <quiz-page-layout class="flex-1" style="min-height: auto">
       <nuxt />

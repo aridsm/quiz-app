@@ -7,9 +7,8 @@
     >
       <div class="flex items-center gap-10">
         <h1 class="text-2xl">
-          <nuxt-link to="/" class="flex justify-center items-center gap-2">
-            <img src="/shapes/square-pink.svg" class="w-5" />
-            <span>Quiz</span>
+          <nuxt-link to="/">
+            <the-logo />
           </nuxt-link>
         </h1>
         <nav class="nav-header">

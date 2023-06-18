@@ -11,7 +11,7 @@
         class="play-now-link scale-y-0 h-0 overflow-hidden transition text-quiz-blue text-left flex items-center justify-start"
       >
         Jogar agora
-        <icon-quiz-arrow class="h-4 w-4 text-quiz-blue -rotate-90 -mt-[1px]" />
+        <icon-quiz-arrow class="w-[10px] ml-1 text-quiz-blue -rotate-90" />
       </span>
     </div>
     <quiz-x-chip v-if="chip" class="absolute top-0 right-0" :color="chip.color">

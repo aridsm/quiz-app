@@ -4,7 +4,7 @@
       <quiz-x-title>Quizzes</quiz-x-title>
       <nuxt-link to="/quizzes" class="text-quiz-blue flex items-center">
         Todos os quizzes
-        <icon-quiz-arrow class="ml-2 w-3 -rotate-90 -mt-[2px]" />
+        <icon-quiz-arrow class="ml-2 w-3 -rotate-90" />
       </nuxt-link>
     </div>
     <ul class="grid grid-cols-3 gap-5">

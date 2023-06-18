@@ -18,6 +18,7 @@ module.exports = {
         "quiz-pink": "#FF629A",
         "quiz-blue": "#4ED7F5",
         "quiz-blue-dark": "#295862",
+        "quiz-blue-hover": "#4BC8E4",
         "quiz-border": "#100F18",
       },
     },

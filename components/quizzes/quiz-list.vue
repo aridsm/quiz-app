@@ -10,10 +10,7 @@
               : "Todas as Categorias"
           }}
         </div>
-        <icon-quiz-arrow
-          v-if="searchValue"
-          class="w-2 -rotate-90 -mt-[2px] ml-1 mr-2"
-        />
+        <icon-quiz-arrow v-if="searchValue" class="w-2 -rotate-90 ml-1 mr-2" />
         <div v-if="searchValue">"{{ searchValue }}"</div>
       </div>
     </div>
