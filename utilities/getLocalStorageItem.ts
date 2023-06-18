@@ -1,11 +1,11 @@
-function getLocalStorageItem(storageName: string) {
+async function getLocalStorageItem(storageName: string) {
   let itemsStored: any = null;
 
-  const gamesPlayedJSON =
+  const itemsJSON =
     typeof window !== "undefined" ? localStorage.getItem(storageName) : null;
 
-  if (gamesPlayedJSON) {
-    itemsStored = JSON.parse(gamesPlayedJSON);
+  if (itemsJSON) {
+    itemsStored = await JSON.parse(itemsJSON);
   }
 
   return itemsStored;

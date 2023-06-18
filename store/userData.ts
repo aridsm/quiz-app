@@ -24,8 +24,8 @@ export const useUserDataStore = defineStore("userData", () => {
     isLogged: false,
   });
 
-  onMounted(() => {
-    const user = getLocalStorageItem("quizUserData");
+  onMounted(async () => {
+    const user = await getLocalStorageItem("quizUserData");
     if (user) {
       data.userName = user.userName;
       data.avatarUrl = user.avatarUrl;

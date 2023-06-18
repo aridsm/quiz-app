@@ -15,8 +15,8 @@ export const useNotifications = defineStore("useNotifications", () => {
     },
   ]);
 
-  onMounted(() => {
-    const notificationsQuiz = getLocalStorageItem("notificationsQuiz");
+  onMounted(async () => {
+    const notificationsQuiz = await getLocalStorageItem("notificationsQuiz");
     if (notificationsQuiz) {
       notifications.value = notificationsQuiz;
     }

@@ -77,8 +77,8 @@ export const useUsers = defineStore("useUsers", () => {
     },
   ]);
 
-  onMounted(() => {
-    const usersList = getLocalStorageItem("usersList");
+  onMounted(async () => {
+    const usersList = await getLocalStorageItem("usersList");
     if (usersList) {
       users.value = usersList;
     }

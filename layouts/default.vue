@@ -34,6 +34,7 @@
 <script setup lang="ts">
 import { useRouter } from "@nuxtjs/composition-api";
 import { storeToRefs } from "pinia";
+import Vue from "vue";
 import { useModals } from "~/store/modals";
 import { useTooltip } from "~/store/tooltip";
 import { useUserDataStore } from "~/store/userData";
@@ -57,6 +58,12 @@ function logout() {
   useUser.logout();
   router.push("/login");
 }
+</script>
+
+<script lang="ts">
+export default Vue.extend({
+  middleware: ["auth"],
+});
 </script>
 
 <style>

@@ -13,7 +13,6 @@
     <the-tooltip />
   </div>
 </template>
-
 <style>
 .bg-blur {
   left: calc(50% - 9rem);

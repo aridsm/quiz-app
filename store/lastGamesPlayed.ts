@@ -61,8 +61,8 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
     },
   ]);
 
-  onMounted(() => {
-    const gamesStored = getLocalStorageItem("gamesPlayed");
+  onMounted(async () => {
+    const gamesStored = await getLocalStorageItem("gamesPlayed");
     if (gamesStored) {
       lastGamesPlayed.value = gamesStored;
     }
