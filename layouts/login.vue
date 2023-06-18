@@ -10,9 +10,17 @@
     <div
       class="w-80 h-80 bg-quiz-grey-100 fixed -top-28 bg-blur pointer-events-none"
     />
-    <the-tooltip />
+    <the-tooltip v-if="tooltip.isShown" />
   </div>
 </template>
+
+<script setup lang="ts">
+import { storeToRefs } from "pinia";
+import { useTooltip } from "~/store/tooltip";
+
+const tooltipStore = useTooltip();
+const { tooltip } = storeToRefs(tooltipStore);
+</script>
 <style>
 .bg-blur {
   left: calc(50% - 9rem);

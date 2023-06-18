@@ -9,5 +9,3 @@
     </div>
   </quiz-page-layout>
 </template>
-
-<script lang="ts" setup></script>

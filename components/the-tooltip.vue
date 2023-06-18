@@ -1,8 +1,8 @@
 <template>
   <div
     ref="tooltipElement"
-    class="z-[999] tooltip opacity-0 pointer-events-none transition absolute w-max bg-quiz-blue text-quiz-blue-dark py-2 px-4 rounded-md text-sm"
-    :class="{ 'opacity-100': tooltip.isShown, 'on-right-side': onRightSide }"
+    class="z-[999] tooltip opacity-0 pointer-events-none transition absolute w-max max-w-[230px] bg-quiz-blue text-quiz-blue-dark py-2 px-4 rounded-md text-sm"
+    :class="{ 'on-right-side': onRightSide }"
     :style="{
       top: styles.top,
       left: styles.left,
@@ -21,7 +21,6 @@ const tooltipStore = useTooltip();
 const { tooltip } = storeToRefs(tooltipStore);
 const tooltipElement = ref<HTMLDivElement | null>(null);
 const onRightSide = ref<boolean>(false);
-const onBottom = ref<boolean>(false);
 
 const styles = reactive<any>({
   top: 0,
@@ -31,11 +30,11 @@ const styles = reactive<any>({
 onMounted(() => {
   const element = tooltipElement.value?.getBoundingClientRect()!;
   const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
 
+  const elementHeight = element.height;
   const elementLeftOutWindow = tooltip.value.position.left - element.width + 25;
   const elementLeft = tooltip.value.position.left - 10;
-  const elementTop = tooltip.value.position.top - 25;
+  const elementTop = tooltip.value.position.top - elementHeight;
 
   if (element.width + elementLeft > windowWidth) {
     onRightSide.value = true;
