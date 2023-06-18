@@ -1,10 +1,12 @@
 import { defineStore } from "pinia";
-import { computed, reactive } from "vue";
+import { computed, reactive, onMounted } from "vue";
 import { User } from "../interfaces/User";
 import { useFriends } from "./friends";
 import { useUsers } from "./users";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 import { UserDefault } from "~/interfaces/UserDefault";
+import getLocalStorageItem from "~/utilities/getLocalStorageItem";
+import normalizeString from "~/utilities/normalizeString";
 
 const regexValidation = /^[a-zA-Z0-9@_!]{3,10}$/;
 
@@ -20,6 +22,19 @@ export const useUserDataStore = defineStore("userData", () => {
     trophiesCount: 2,
     coinsCount: 216,
     isLogged: false,
+  });
+
+  onMounted(() => {
+    const user = getLocalStorageItem("quizUserData");
+    if (user) {
+      data.userName = user.userName;
+      data.avatarUrl = user.avatarUrl;
+      data.level = user.level;
+      data.currentXp = user.currentXp;
+      data.trophiesCount = user.trophiesCount;
+      data.coinsCount = user.coinsCount;
+      data.isLogged = user.isLogged;
+    }
   });
 
   const friendsCount = computed<number>(() => {
@@ -45,8 +60,9 @@ export const useUserDataStore = defineStore("userData", () => {
   function login(userName: string): any {
     const usernameIsValid = validateUsername(userName);
     if (usernameIsValid) {
-      data.userName = userName.toLowerCase();
+      data.userName = normalizeString(userName);
       data.isLogged = true;
+      saveToLocalStorage();
       return {
         isValid: true,
         messageError: null,
@@ -74,6 +90,13 @@ export const useUserDataStore = defineStore("userData", () => {
     data.currentXp += currentGame.xpGained;
 
     calculateXpGained();
+
+    saveToLocalStorage();
+  }
+
+  function saveToLocalStorage() {
+    const userData = JSON.stringify(data);
+    window.localStorage.setItem("quizUserData", userData);
   }
 
   return {

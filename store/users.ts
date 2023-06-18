@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { UserDefault } from "~/interfaces/UserDefault";
+import getLocalStorageItem from "~/utilities/getLocalStorageItem";
 
 export const useUsers = defineStore("useUsers", () => {
   const users = ref<UserDefault[]>([
@@ -75,6 +76,13 @@ export const useUsers = defineStore("useUsers", () => {
       isOnline: true,
     },
   ]);
+
+  onMounted(() => {
+    const usersList = getLocalStorageItem("usersList");
+    if (usersList) {
+      users.value = usersList;
+    }
+  });
 
   const usersBiggestsScores = computed(() => {
     const usersCloned = JSON.parse(JSON.stringify(users.value));

@@ -16,11 +16,13 @@ export const useFriends = defineStore("useFriends", () => {
       (user: UserDefault) => user.id === userId
     );
     users.value[index].isFriend = true;
+    saveToLocalStorage();
   }
 
   function deleteFriend(id: number) {
     const index = users.value.findIndex((user: UserDefault) => user.id === id);
     users.value[index].isFriend = false;
+    saveToLocalStorage();
   }
 
   function searchFriend(name: string) {
@@ -31,6 +33,11 @@ export const useFriends = defineStore("useFriends", () => {
     );
 
     return gamesFiltered;
+  }
+
+  function saveToLocalStorage() {
+    const userData = JSON.stringify(users.value);
+    window.localStorage.setItem("usersList", userData);
   }
 
   return { friends, searchFriend, deleteFriend, addNewFriend };

@@ -1,15 +1,16 @@
 import { defineStore } from "pinia";
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { CurrentGameStatus } from "~/enums/currentGameStatus";
 import { QuizCategoryType } from "~/enums/quizCategoryType";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 import { GamePlayed } from "~/interfaces/GamePlayed";
 import { QuizCategory } from "~/interfaces/QuizCategory";
+import getLocalStorageItem from "~/utilities/getLocalStorageItem";
 
 export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
   const lastGamesPlayed = ref<GamePlayed[]>([
     {
-      name: "Bandeira de Países",
+      name: "Bandeiras de Países",
       status: CurrentGameStatus.Done,
       totalQuestions: 5,
       correctQuestions: 5,
@@ -19,7 +20,7 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
       id: 1,
     },
     {
-      name: "Anatomia Humana",
+      name: "O corpo humano",
       status: CurrentGameStatus.Failed,
       totalQuestions: 20,
       correctQuestions: 6,
@@ -59,6 +60,13 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
       id: 5,
     },
   ]);
+
+  onMounted(() => {
+    const gamesStored = getLocalStorageItem("gamesPlayed");
+    if (gamesStored) {
+      lastGamesPlayed.value = gamesStored;
+    }
+  });
 
   const categoriesPlayed = computed<QuizCategory[]>(() => {
     const categories = [
@@ -137,6 +145,9 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
       id: new Date().getTime(),
     };
     lastGamesPlayed.value.unshift(body);
+
+    const gamesPlayedJSON = JSON.stringify(lastGamesPlayed.value);
+    window.localStorage.setItem("gamesPlayed", gamesPlayedJSON);
   }
 
   function searchGame(name: string) {

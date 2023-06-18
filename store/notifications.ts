@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { NotificationType } from "~/enums/notificationType";
 import { NotificationData } from "~/interfaces/NotificationData";
+import getLocalStorageItem from "~/utilities/getLocalStorageItem";
 
 export const useNotifications = defineStore("useNotifications", () => {
   const notifications = ref<NotificationData[]>([
@@ -14,10 +15,23 @@ export const useNotifications = defineStore("useNotifications", () => {
     },
   ]);
 
+  onMounted(() => {
+    const notificationsQuiz = getLocalStorageItem("notificationsQuiz");
+    if (notificationsQuiz) {
+      notifications.value = notificationsQuiz;
+    }
+  });
+
   function deleteNotification(id: number) {
     notifications.value = notifications.value.filter(
       (notification: NotificationData) => notification.id !== id
     );
+    saveToLocalStorage();
+  }
+
+  function saveToLocalStorage() {
+    const notificationList = JSON.stringify(notifications.value);
+    window.localStorage.setItem("notificationsQuiz", notificationList);
   }
 
   return { notifications, deleteNotification };
