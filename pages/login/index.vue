@@ -23,15 +23,15 @@
       <quiz-btn class="w-full mt-6" @click="loginUser">Entrar</quiz-btn>
 
       <img
-        src="/shapes/square-green.svg"
+        src="/shapes/square-blue.svg"
         class="absolute -right-32 -bottom-20 w-16"
       />
       <img
-        src="/shapes/square-green.svg"
+        src="/shapes/square-blue.svg"
         class="absolute -left-48 -bottom-12 w-16"
       />
       <img
-        src="/shapes/square-green.svg"
+        src="/shapes/square-blue.svg"
         class="absolute -left-10 bottom-4 w-12 -z-10"
       />
       <img

@@ -18,7 +18,7 @@
         facilis dicta at!
       </p>
       <a
-        href="/"
+        href="https://github.com/aridsm"
         class="bg-quiz-blue text-quiz-blue-dark mt-4 block rounded-md py-3 px-7 text-center"
       >
         Mais projetos no github

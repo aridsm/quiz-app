@@ -100,6 +100,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
+import { useRouter } from "@nuxtjs/composition-api";
 import { ProfileOptions } from "../../enums/profileOptions";
 import { useNotifications } from "~/store/notifications";
 import { useModals } from "~/store/modals";
@@ -117,6 +118,7 @@ const userStore = useUserDataStore();
 const useModalStore = useModals();
 const notificationsStore = useNotifications();
 const friendsStore = useFriends();
+const router = useRouter();
 
 const { data, totalXpInCurrentLevel, friendsCount } = storeToRefs(userStore);
 const { notifications } = storeToRefs(notificationsStore);
@@ -159,7 +161,10 @@ function showHistory() {
   useModalStore.modals.modalProfile.tabActived = ProfileOptions.History;
 }
 
-function logout() {}
+function logout() {
+  userStore.logout();
+  router.push("/login");
+}
 
 function deleteNotification(id: number) {
   notificationsStore.deleteNotification(id);

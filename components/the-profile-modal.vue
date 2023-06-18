@@ -209,7 +209,7 @@ function openAvatarImagesOptions() {
 }
 
 function changeProfileAvatar() {
-  user.value.avatarUrl = imageSelected.value;
+  storeUserData.changeAvatar(imageSelected.value);
   modalAvatarImagesIsOpen.value = false;
 }
 

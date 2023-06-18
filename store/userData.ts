@@ -99,11 +99,23 @@ export const useUserDataStore = defineStore("userData", () => {
     window.localStorage.setItem("quizUserData", userData);
   }
 
+  function logout() {
+    data.isLogged = false;
+    window.localStorage.removeItem("quizUserData");
+  }
+
+  function changeAvatar(avatar: string) {
+    data.avatarUrl = avatar;
+    saveToLocalStorage();
+  }
+
   return {
     data,
     login,
     getRewards,
     totalXpInCurrentLevel,
     friendsCount,
+    logout,
+    changeAvatar,
   };
 });

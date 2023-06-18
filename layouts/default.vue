@@ -19,7 +19,7 @@
       >
         <icon-quiz-infos class="w-5 text-quiz-grey-100" />
       </button>
-      <button class="flex items-center gap-2">
+      <button class="flex items-center gap-2" @click="logout">
         <span class="text-sm text-quiz-blue tracking-wider">Sair</span>
         <div class="bg-quiz-blue rounded-md p-2">
           <icon-quiz-exit class="w-4 text-quiz-blue-dark" />
@@ -36,9 +36,11 @@ import { useRouter } from "@nuxtjs/composition-api";
 import { storeToRefs } from "pinia";
 import { useModals } from "~/store/modals";
 import { useTooltip } from "~/store/tooltip";
+import { useUserDataStore } from "~/store/userData";
 
 const storeModals = useModals();
 const tooltipStore = useTooltip();
+const useUser = useUserDataStore();
 const { tooltip } = storeToRefs(tooltipStore);
 const router = useRouter();
 
@@ -49,6 +51,11 @@ router.beforeEach((_, _2, next) => {
 
 function openInfosModal() {
   storeModals.modals.modalInfosIsOpen = true;
+}
+
+function logout() {
+  useUser.logout();
+  router.push("/login");
 }
 </script>
 
