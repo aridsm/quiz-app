@@ -5,7 +5,6 @@ export interface Modals {
     isOpen: boolean;
     tabActived: ProfileOptions;
   };
-  modalMessagesIsOpen: boolean;
   modalGameSettingsIsOpen: boolean;
   modalInfosIsOpen: boolean;
   modalSearchIsOpen: boolean;

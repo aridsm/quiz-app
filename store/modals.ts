@@ -9,7 +9,6 @@ export const useModals = defineStore("useModals", () => {
       isOpen: false,
       tabActived: ProfileOptions.Profile,
     },
-    modalMessagesIsOpen: false,
     modalGameSettingsIsOpen: false,
     modalInfosIsOpen: false,
     modalSearchIsOpen: false,

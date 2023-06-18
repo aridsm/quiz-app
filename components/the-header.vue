@@ -43,7 +43,9 @@
               </quiz-toggle-activator>
             </li>
             <li>
-              <button class="hover:text-quiz-blue">Sobre o projeto</button>
+              <button class="hover:text-quiz-blue" @click="openInfosModal">
+                Sobre o projeto
+              </button>
             </li>
           </ul>
         </nav>
@@ -92,6 +94,10 @@ const links = ref<Link[]>([
 
 function openSearchModal() {
   storeModals.modals.modalSearchIsOpen = true;
+}
+
+function openInfosModal() {
+  storeModals.modals.modalInfosIsOpen = true;
 }
 </script>
 

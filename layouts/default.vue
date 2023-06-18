@@ -9,11 +9,13 @@
     <the-game-settings-modal />
     <the-modal-alert />
     <the-modal-search />
+    <the-modal-infos />
     <div class="fixed bottom-4 right-4 flex flex-col items-end gap-4">
       <button
         v-title="'sobre o projeto'"
         aria-label="sobre o projeto"
         class="flex items-center mr-[6px]"
+        @click="openInfosModal"
       >
         <icon-quiz-infos class="w-5 text-quiz-grey-100" />
       </button>
@@ -32,8 +34,10 @@
 <script setup lang="ts">
 import { useRouter } from "@nuxtjs/composition-api";
 import { storeToRefs } from "pinia";
+import { useModals } from "~/store/modals";
 import { useTooltip } from "~/store/tooltip";
 
+const storeModals = useModals();
 const tooltipStore = useTooltip();
 const { tooltip } = storeToRefs(tooltipStore);
 const router = useRouter();
@@ -42,6 +46,10 @@ router.beforeEach((_, _2, next) => {
   window.scrollTo(0, 0);
   next();
 });
+
+function openInfosModal() {
+  storeModals.modals.modalInfosIsOpen = true;
+}
 </script>
 
 <style>
