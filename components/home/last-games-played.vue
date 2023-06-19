@@ -1,51 +1,55 @@
 <template>
-  <section class="mt-28">
+  <section class="mt-16 md:mt-28">
     <div class="flex items-center justify-between mb-4 leading-none">
       <quiz-x-title>Últimos jogos</quiz-x-title>
       <button class="text-quiz-blue flex items-center" @click="openHistory">
         Seu histórico <icon-quiz-arrow class="ml-2 w-3 -rotate-90" />
       </button>
     </div>
-    <ul class="flex flex-col gap-5">
+    <ul class="flex flex-col gap-2 md:gap-3">
       <li v-for="game in lastGamesPlayedList" :key="game.id">
-        <quiz-x-card class="w-full flex items-center gap-5 py-6 px-8">
-          <p class="">
+        <quiz-x-card
+          class="w-full flex flex-col md:flex-row md:items-center justify-end md:gap-5 md:py-6 md:px-8"
+        >
+          <p class="flex-1">
             {{ game.name }}
           </p>
-
-          <div class="ml-auto flex items-center">
-            <quiz-x-chip :color="getGameStatusData(game.status).color">{{
-              getGameStatusData(game.status).name
-            }}</quiz-x-chip>
+          <div class="flex flex-1 w-full items-center">
+            <quiz-x-chip
+              class="hidden lg:block"
+              :color="getGameStatusData(game.status).color"
+            >
+              {{ getGameStatusData(game.status).name }}
+            </quiz-x-chip>
             <div
               v-title="'Categoria'"
-              class="w-20 text-left ml-12 text-sm text-quiz-grey-100"
+              class="lg:w-20 text-left mr-auto md:mr-3 md:ml-12 text-sm text-quiz-grey-100"
             >
               {{ getCategoryData(game.category).name }}
             </div>
-            <div v-title="'Acertos'" class="w-20 text-left ml-4">
+            <div v-title="'Acertos'" class="w-10 lg:w-20 text-left md:ml-4">
               {{ game.correctQuestions }}/{{ game.totalQuestions }}
             </div>
             <div
               v-title="'Moedas ganhas'"
-              class="w-20 text-left ml-4 flex items-center"
+              class="w-10 lg:w-20 text-left md:ml-4 flex items-center"
             >
               {{ game.earnedCoins }}
-              <icon-quiz-coins class="w-4 ml-2" />
+              <icon-quiz-coins class="w-3 md:w-4 ml-2" />
             </div>
             <div
               v-title="'Experiência ganha'"
-              class="flex items-center w-20 text-left ml-4"
+              class="w-10 lg:w-20 flex items-center text-left ml-1 md:ml-4 mr-2"
             >
               {{ game.earnedXp }} XP
             </div>
             <icon-quiz-xmark
               v-if="game.status === CurrentGameStatus.Failed"
-              class="w-5 text-quiz-pink"
+              class="w-4 md:w-5 text-quiz-pink"
             />
             <icon-quiz-checkmark
               v-if="game.status === CurrentGameStatus.Done"
-              class="w-5 text-quiz-blue"
+              class="w-4 md:w-5 text-quiz-blue"
             />
           </div>
         </quiz-x-card>

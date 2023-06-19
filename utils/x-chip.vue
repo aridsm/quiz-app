@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-4 py-2 w-fit rounded-sm text-[.83rem] tracking-wider leading-none block text-quiz-grey-400"
+    class="px-[10px] md:px-4 py-[5px] md:py-2 w-fit rounded-sm text-[.6rem] md:text-[.83rem] tracking-wider leading-none block text-quiz-grey-400"
     :class="colorClasses"
   >
     <slot />

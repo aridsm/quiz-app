@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-28">
+  <section class="mt-16 md:mt-28">
     <div class="flex items-center justify-between mb-4 leading-none">
       <quiz-x-title>Quizzes</quiz-x-title>
       <nuxt-link to="/quizzes" class="text-quiz-blue flex items-center">
@@ -7,7 +7,7 @@
         <icon-quiz-arrow class="ml-2 w-3 -rotate-90" />
       </nuxt-link>
     </div>
-    <ul class="grid grid-cols-3 gap-5">
+    <ul class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
       <li v-for="quiz in quizzesList" :key="quiz.name">
         <quiz-x-quiz-card
           :quiz="quiz"

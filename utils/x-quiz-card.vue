@@ -1,10 +1,12 @@
 <template>
   <quiz-x-card
-    class="quiz-card p-6 relative cursor-pointer overflow-hidden transition hover:bg-quiz-grey-200 h-48 flex flex-col justify-center items-center"
+    class="quiz-card p-4 md:p-6 relative cursor-pointer overflow-hidden transition hover:bg-quiz-grey-200 h-28 md:h-36 lg:h-48 flex flex-col justify-center items-center"
     @click.native="openModalGameSettings"
   >
     <div>
-      <p class="text-[1.6rem] leading-snug table max-w-[200px]">
+      <p
+        class="lg:text-[1.6rem] leading-snug table max-w-[150px] md:max-w-[200px]"
+      >
         {{ quiz.name }}
       </p>
       <span

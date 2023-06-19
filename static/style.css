@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap");
 body {
   font-family: "Barlow Condensed", sans-serif;
-  @apply bg-quiz-grey-400 text-quiz-white text-xl;
+  @apply bg-quiz-grey-400 text-quiz-white text-base md:text-lg lg:text-xl;
 }
 
 *,
