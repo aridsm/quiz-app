@@ -5,12 +5,12 @@
   >
     <div>
       <p
-        class="lg:text-[1.6rem] leading-snug table max-w-[150px] md:max-w-[200px]"
+        class="lg:text-[1.6rem] leading-snug table text-center md:text-left max-w-[150px] md:max-w-[200px]"
       >
         {{ quiz.name }}
       </p>
       <span
-        class="play-now-link scale-y-0 h-0 overflow-hidden transition text-quiz-blue text-left flex items-center justify-start"
+        class="play-now-link hidden md:flex scale-y-0 h-0 overflow-hidden transition text-quiz-blue text-left items-center justify-start"
       >
         Jogar agora
         <icon-quiz-arrow class="w-[10px] ml-1 text-quiz-blue -rotate-90" />

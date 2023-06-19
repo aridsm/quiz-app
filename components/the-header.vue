@@ -3,16 +3,16 @@
     class="fixed w-full bg-quiz-grey-300 border-b-2 border-quiz-border z-50 the-header"
   >
     <div
-      class="max-w-[1340px] w-full mx-auto h-[5.5rem] flex items-center px-4"
+      class="max-w-[1340px] w-full mx-auto h-[4.5rem] lg:h-[5.5rem] flex items-center px-5"
     >
-      <div class="flex items-center gap-10">
-        <h1 class="text-2xl">
+      <div class="flex items-center gap-5 lg:gap-8">
+        <h1 class="text-2xl md:mr-2">
           <nuxt-link to="/">
             <the-logo />
           </nuxt-link>
         </h1>
-        <nav class="nav-header">
-          <ul class="flex gap-12">
+        <nav class="nav-header hidden md:block">
+          <ul class="flex gap-6 lg:gap-10">
             <li>
               <nuxt-link to="/" class="hover:text-quiz-blue"> Home </nuxt-link>
             </li>
@@ -50,10 +50,10 @@
         </nav>
         <button
           aria-label="Abrir barra de pesquisa"
-          class="hover:text-quiz-blue"
+          class="hover:text-quiz-blue p-2"
           @click="openSearchModal"
         >
-          <icon-quiz-search class="w-4" />
+          <icon-quiz-search class="w-[14px] md:w-4" />
         </button>
       </div>
       <header-user-data class="ml-auto" />

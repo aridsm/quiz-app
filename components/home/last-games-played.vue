@@ -1,9 +1,10 @@
 <template>
-  <section class="mt-16 md:mt-28">
+  <section class="mt-[3.5rem] sm:mt-16 md:mt-28">
     <div class="flex items-center justify-between mb-4 leading-none">
       <quiz-x-title>Últimos jogos</quiz-x-title>
       <button class="text-quiz-blue flex items-center" @click="openHistory">
-        Seu histórico <icon-quiz-arrow class="ml-2 w-3 -rotate-90" />
+        Seu histórico
+        <icon-quiz-arrow class="ml-1 md:ml-2 w-2 md:w-3 -rotate-90" />
       </button>
     </div>
     <ul class="flex flex-col gap-2 md:gap-3">

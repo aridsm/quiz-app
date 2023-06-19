@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid grid-cols-3 gap-16 md:gap-20 xl:gap-3">
+    <div class="grid grid-cols-3 gap-[3.5rem] sm:gap-16 md:gap-20 xl:gap-3">
       <section class="col-span-3 xl:col-span-2">
         <quiz-x-title class="grid-2 mb-4 leading-none">
           Maiores pontuações dessa semana
@@ -82,7 +82,7 @@
               class="lg:px-6 w-full h-full flex flex-col xl:flex-row text-center items-center justify-center xl:justify-between"
             >
               <p>Total de partidas jogadas</p>
-              <span class="text-quiz-blue text-2xl">{{
+              <span class="text-quiz-blue lg:text-2xl">{{
                 totalGamesPlayed
               }}</span>
             </quiz-x-card>

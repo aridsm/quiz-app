@@ -1,13 +1,15 @@
 <template>
   <div class="flex items-center">
-    <div class="flex items-center text-quiz-blue gap-8 mr-8">
+    <div
+      class="hidden sm:flex items-center text-quiz-blue gap-4 lg:gap-8 mr-4 lg:mr-8"
+    >
       <div class="flex items-center">
         <span>{{ data.coinsCount }}</span>
-        <icon-quiz-coins class="w-4 ml-2" />
+        <icon-quiz-coins class="w-3 lg:w-4 ml-2" />
       </div>
       <div class="flex items-center">
         <span>{{ friendsCount }}</span>
-        <icon-quiz-people class="w-5 ml-2" />
+        <icon-quiz-people class="w-4 lg:w-5 ml-2" />
       </div>
     </div>
     <quiz-toggle-activator :arrow-indicator="true" arrow-side="left">
@@ -15,7 +17,7 @@
         <quiz-x-avatar :avatar="data.avatarUrl" />
       </template>
       <template #content>
-        <ul class="flex flex-col gap-2">
+        <ul class="flex flex-col gap-1 sm:gap-2">
           <li v-for="option in profileOptions" :key="option.name">
             <button
               class="flex items-center hover:text-quiz-blue"
@@ -34,23 +36,60 @@
         </ul>
       </template>
     </quiz-toggle-activator>
-    <div class="flex flex-col gap-1 ml-3">
-      <div class="flex items-center justify-between text-base">
-        <span>{{ data.userName }}</span>
-        <span :aria-label="`nível ${data.level}`">LVL. {{ data.level }}</span>
+    <div class="hidden sm:flex flex-col gap-1 ml-3">
+      <div
+        class="flex flex-col lg:flex-row lg:items-center justify-between text-base"
+      >
+        <span class="leading-none">{{ data.userName }}</span>
+        <span
+          class="text-quiz-blue text-sm lg:text-base lg:text-inherit"
+          :aria-label="`nível ${data.level}`"
+        >
+          LVL. {{ data.level }}
+        </span>
       </div>
       <quiz-progress-bar
+        class="hidden lg:block"
         :value="data.currentXp"
         :max-value="totalXpInCurrentLevel"
       />
     </div>
-    <quiz-toggle-activator class="ml-8">
+    <quiz-toggle-activator class="block sm:hidden ml-4">
       <template #activator>
-        <div class="relative">
-          <icon-quiz-bell class="w-4 text-quiz-blue" />
+        <div class="relative p-2">
+          <icon-quiz-menu class="w-4" />
+        </div>
+      </template>
+      <template #content>
+        <ul class="flex flex-col gap-1">
+          <li>
+            <nuxt-link to="/"> Home </nuxt-link>
+          </li>
+          <li>
+            <span>Categorias</span>
+            <ul class="flex flex-col gap-1 text-quiz-grey-100 ml-2">
+              <li v-for="link in links" :key="link.name">
+                <nuxt-link :to="link.route">
+                  {{ link.name }}
+                </nuxt-link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button class="hover:text-quiz-blue" @click="openInfosModal">
+              Sobre o projeto
+            </button>
+          </li>
+        </ul>
+      </template>
+    </quiz-toggle-activator>
+    <quiz-toggle-activator class="ml-3 lg:ml-8">
+      <template #activator>
+        <div class="relative p-2">
+          <icon-quiz-bell class="w-3 md:w-4 text-quiz-blue" />
           <div
             v-if="notifications.length"
-            class="w-2 h-2 bg-quiz-pink absolute left-full -top-1 rounded-full"
+            class="w-2 h-2 bg-quiz-pink absolute top-1 right-0 rounded-full"
           />
         </div>
       </template>
@@ -146,6 +185,30 @@ const profileOptions = ref<Options[]>([
   },
 ]);
 
+interface Link {
+  route: string;
+  name: string;
+}
+
+const links = ref<Link[]>([
+  {
+    route: "/quizzes/biology",
+    name: "Biologia",
+  },
+  {
+    route: "/quizzes/geography",
+    name: "Geografia",
+  },
+  {
+    route: "/quizzes/mathematics",
+    name: "Matemática",
+  },
+  {
+    route: "/quizzes",
+    name: "Todas as categorias",
+  },
+]);
+
 function showProfile() {
   useModalStore.modals.modalProfile.isOpen = true;
   useModalStore.modals.modalProfile.tabActived = ProfileOptions.Profile;
@@ -159,6 +222,10 @@ function showFriend() {
 function showHistory() {
   useModalStore.modals.modalProfile.isOpen = true;
   useModalStore.modals.modalProfile.tabActived = ProfileOptions.History;
+}
+
+function openInfosModal() {
+  useModalStore.modals.modalInfosIsOpen = true;
 }
 
 function logout() {

@@ -26,7 +26,7 @@
     </button>
     <quiz-x-card
       ref="toggleContent"
-      class="absolute left-0 toggle-content min-w-[200px]"
+      class="absolute left-0 toggle-content min-w-[170px] lg:min-w-[200px]"
       :class="{ active: toggleIsOpen, 'on-right-side': contentIsOutScreen }"
     >
       <slot name="content" />
@@ -134,7 +134,7 @@ function openToggleHandler() {
 
 .toggle-content::after {
   content: "";
-  @apply block w-3 h-3 absolute -top-[6px] left-3 bg-quiz-grey-300 border-l-2 border-t-2 border-quiz-border rotate-45;
+  @apply block w-3 h-3 absolute -top-[7px] left-3 bg-quiz-grey-300 border-l-2 border-t-2 border-quiz-border rotate-45;
 }
 
 .toggle-content.on-right-side::after {
