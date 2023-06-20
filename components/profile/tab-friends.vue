@@ -1,22 +1,22 @@
 <template>
   <div class="bg-quiz-grey-400 rounded-md border-2 border-quiz-border">
-    <div class="flex justify-between items-center px-6 py-4">
+    <div class="flex justify-between items-center px-3 sm:px-6 py-4">
       <p class="text-quiz-grey-100">Seus amigos</p>
       <quiz-input-text
         :model.sync="searchValue"
         placeholder="Procure por um amigo..."
-        class="w-60 py-3 text-base"
-        style="background: #1f202c; width: 15rem"
+        class="py-3 text-base w-44 sm:w-56"
+        style="background: #1f202c"
         @input="onSearchHistory"
       />
     </div>
 
-    <div class="py-4 px-6 pt-0 h-[20rem] overflow-auto list_friends">
+    <div class="py-4 px-3 sm:px-6 pt-0 sm:h-[20rem] overflow-auto list_friends">
       <ul class="flex flex-col gap-2">
         <li
           v-for="friend in friendsOnlineFirst"
           :key="friend.id"
-          class="flex items-center p-4 bg-quiz-grey-300 border-2 border-quiz-border rounded-md"
+          class="flex items-center p-3 sm:p-4 bg-quiz-grey-300 border-2 border-quiz-border rounded-md"
         >
           <quiz-x-avatar :avatar="friend.avatarUrl" />
           <p class="w-auto ml-5">
@@ -95,8 +95,6 @@ function deleteFriendHandler(friendId: number) {
     "O usuário será deletado da sua lista de amigos definitivamente!";
   modals.value.modalAlert.onConfirm = () => storeFriends.deleteFriend(friendId);
 }
-
-function openModalMessagesHandler() {}
 </script>
 
 <style scoped>
@@ -106,5 +104,11 @@ function openModalMessagesHandler() {}
 
 .list_friends::-webkit-scrollbar {
   width: 6px;
+}
+
+@media all and (max-width: 640px) {
+  .list_friends {
+    max-height: calc(100vh - 17rem);
+  }
 }
 </style>

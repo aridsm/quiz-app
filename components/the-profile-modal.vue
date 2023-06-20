@@ -1,8 +1,8 @@
 <template>
   <quiz-modal-overlay :model.sync="modals.modalProfile.isOpen">
-    <div style="width: 38rem" class="relative">
+    <div class="relative sm:w-[38rem]">
       <div class="flex items-center gap-5">
-        <div class="w-36 h-36 rounded-md relative">
+        <div class="w-24 h-24 sm:w-36 sm:h-36 rounded-md relative">
           <img
             :src="`/avatars/${user.avatarUrl}.svg`"
             :alt="user.userName"
@@ -19,17 +19,17 @@
         <div>
           <p class="leading-none">{{ user.userName }}</p>
           <button
-            class="text-quiz-grey-100 text-base hover:text-quiz-blue"
+            class="text-quiz-grey-100 text-sm sm:text-base hover:text-quiz-blue"
             @click="openModalUsername"
           >
             Editar nome de usuário
           </button>
 
-          <div class="mt-2">
-            <span class="text-quiz-blue text-base">
+          <div class="mt-1 sm:mt-2">
+            <span class="text-quiz-blue text-sm sm:text-base">
               Nível {{ user.level }}
             </span>
-            <p class="text-base">
+            <p class="text-sm sm:text-base">
               {{ totalXpInCurrentLevel - user.currentXp }} XP para o próximo
               nível
             </p>
@@ -37,11 +37,11 @@
         </div>
       </div>
       <div class="mt-4">
-        <div class="flex h-12">
+        <div class="flex h-10 sm:h-12">
           <button
             v-for="option in profileOptions"
             :key="option.id"
-            class="h-full px-6 rounded-t-md ml-3 hover:text-quiz-blue border-2 border-b-0 border-quiz-border"
+            class="h-full px-3 sm:px-6 rounded-t-md ml-1 sm:ml-3 hover:text-quiz-blue border-2 border-b-0 border-quiz-border"
             :class="{
               'bg-quiz-grey-400 text-quiz-blue': option.id === tabSelected,
             }"

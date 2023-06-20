@@ -3,7 +3,7 @@
     <button
       v-for="item in items"
       :key="item.value"
-      class="bg-quiz-grey-200 px-8 py-3 button-select relative hover:text-quiz-blue flex-1"
+      class="bg-quiz-grey-400 px-4 md:px-8 py-2 md:py-3 button-select relative hover:text-quiz-blue flex-1"
       :disabled="isFieldDisabled(item.value)"
       :class="{
         'button-select-selected': item.value === selectedValue,
@@ -75,6 +75,6 @@ function onChangeSelectedValue(value: any) {
 .button-select-selected {
   box-shadow: 0 0 0 2px #4ed7f5;
   z-index: 99;
-  @apply text-quiz-blue;
+  @apply text-quiz-blue bg-quiz-grey-300;
 }
 </style>

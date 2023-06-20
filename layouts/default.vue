@@ -27,7 +27,7 @@
       </button>
     </div>
     <div
-      class="w-52 h-52 lg:w-80 lg:h-80 fixed blur-[200px] lg:blur-[400px] -top-14 lg:-top-28 bg-blur pointer-events-none"
+      class="w-52 h-52 lg:w-80 lg:h-80 fixed blur-[120px] lg:blur-[440px] -top-14 lg:-top-28 bg-blur pointer-events-none"
     />
     <the-tooltip v-if="tooltip.isShown" />
   </div>

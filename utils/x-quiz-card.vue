@@ -1,6 +1,6 @@
 <template>
   <quiz-x-card
-    class="quiz-card p-4 md:p-6 relative cursor-pointer overflow-hidden transition hover:bg-quiz-grey-200 h-28 md:h-36 lg:h-48 flex flex-col justify-center items-center"
+    class="quiz-card p-3 md:p-6 relative cursor-pointer overflow-hidden transition hover:bg-quiz-grey-200 h-28 md:h-36 lg:h-48 flex flex-col justify-center items-center"
     @click.native="openModalGameSettings"
   >
     <div>

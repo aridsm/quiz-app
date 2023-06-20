@@ -54,7 +54,7 @@
         :max-value="totalXpInCurrentLevel"
       />
     </div>
-    <quiz-toggle-activator class="block sm:hidden ml-4">
+    <quiz-toggle-activator class="block md:hidden ml-4">
       <template #activator>
         <div class="relative p-2">
           <icon-quiz-menu class="w-4" />

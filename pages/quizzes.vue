@@ -9,7 +9,7 @@
         @onUpdate="filterResults"
       />
       <ul
-        class="mt-4 text-quiz-grey-100 justify-between items-center lg:items-start flex flex-row whitespace-nowrap lg:flex-col gap-6 lg:gap-2 overflow-auto"
+        class="mt-6 lg:mt-4 text-quiz-grey-100 justify-between items-center lg:items-start flex flex-row whitespace-nowrap lg:flex-col gap-6 lg:gap-2 overflow-auto quizzes_list"
       >
         <li
           v-for="category in categories"
@@ -116,3 +116,10 @@ onMounted(() => {
   onChangeRoute();
 });
 </script>
+
+<style scoped>
+.quizzes_list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+</style>

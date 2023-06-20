@@ -7,7 +7,7 @@
     name="input-text"
     :placeholder="placeholder"
     :required="required"
-    class="w-fit p-3 lg:p-4 rounded-md input bg-quiz-grey-200 border-2 border-quiz-border inline-block outline-none placeholder:text-quiz-grey-100"
+    class="p-2 sm:p-3 lg:p-4 rounded-md input bg-quiz-grey-200 border-2 border-quiz-border inline-block outline-none placeholder:text-quiz-grey-100"
     @input="updateValue"
     @change="$emit('change', model)"
     @keypress.enter="$emit('pressenter', model)"
@@ -38,5 +38,11 @@ function updateValue(e: Event): void {
 <style scoped>
 .input:focus {
   box-shadow: 0 0 0 2px #4ed7f5, 4px 4px 10px 0 rgba(13, 10, 31, 0.2);
+}
+
+@media all and (max-width: 640px) {
+  .input {
+    @apply text-sm;
+  }
 }
 </style>

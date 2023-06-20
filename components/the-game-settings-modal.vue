@@ -3,14 +3,14 @@
     :center="true"
     :model.sync="modals.modalGameSettingsIsOpen"
   >
-    <div style="width: 32rem">
+    <div class="sm:w-[32rem]">
       <h3>
         <span class="text-quiz-white">Nova partida</span>
         <span class="text-quiz-grey-100">({{ gameSettings.quizName }})</span>
       </h3>
       <ol class="my-6 flex flex-col gap-8">
         <li v-if="showQuizTypes">
-          <quiz-x-title>Adivinhar</quiz-x-title>
+          <quiz-x-title class="mb-1">Adivinhar</quiz-x-title>
           <quiz-x-radios
             :items="fields.quizModes"
             :selected-value="gameSettings.geoQuizType"
@@ -18,7 +18,7 @@
           />
         </li>
         <li v-if="gameSettings.acceptAnswerMode">
-          <quiz-x-title>Modo de resposta</quiz-x-title>
+          <quiz-x-title class="mb-1">Modo de resposta</quiz-x-title>
           <quiz-x-radios
             :items="fields.answerModeFields"
             :selected-value="gameSettings.answerMode"
@@ -30,7 +30,7 @@
           />
         </li>
         <li>
-          <quiz-x-title>Número de perguntas</quiz-x-title>
+          <quiz-x-title class="mb-1">Número de perguntas</quiz-x-title>
           <quiz-x-radios
             :items="fields.numberOfQuestion"
             :selected-value="gameSettings.numberOfQuestions"
