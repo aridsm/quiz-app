@@ -1,19 +1,28 @@
 <template>
-  <div class="grid grid-cols-3 gap-10">
-    <nav class="col-span-1">
+  <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+    <nav class="col-span-2 lg:col-span-1">
       <quiz-x-title class="mb-2">Categorias</quiz-x-title>
       <quiz-x-search-bar
         :show-results-list="false"
         :category="categoryActive"
+        class="w-full"
         @onUpdate="filterResults"
       />
-      <ul class="mt-4 text-quiz-grey-100 flex flex-col gap-2">
-        <li v-for="category in categories" :key="category.name || ''">
+      <ul
+        class="mt-4 text-quiz-grey-100 justify-between items-center lg:items-start flex flex-row whitespace-nowrap lg:flex-col gap-6 lg:gap-2 overflow-auto"
+      >
+        <li
+          v-for="category in categories"
+          :key="category.name || ''"
+          :class="{
+            '-order-1': !category.id,
+          }"
+        >
           <button
             type="button"
             class="py-2 rounded-md"
             :class="{
-              'px-8 py-3 hover:text-quiz-blue-dark text-quiz-blue-dark bg-quiz-blue':
+              'px-5 lg:px-8 py-2 lg:py-3 hover:text-quiz-blue-dark text-quiz-blue-dark bg-quiz-blue':
                 categoryActive === category.id,
               'hover:text-quiz-blue': categoryActive !== category.id,
             }"

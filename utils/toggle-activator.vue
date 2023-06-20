@@ -26,7 +26,7 @@
     </button>
     <quiz-x-card
       ref="toggleContent"
-      class="absolute left-0 toggle-content min-w-[170px] lg:min-w-[200px]"
+      class="absolute left-0 toggle-content min-w-[180px] lg:min-w-[200px]"
       :class="{ active: toggleIsOpen, 'on-right-side': contentIsOutScreen }"
     >
       <slot name="content" />

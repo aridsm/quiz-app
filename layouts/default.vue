@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <the-header />
-    <quiz-page-layout class="pt-[7.5rem] md:pt-[9rem] lg:pt-[10.5rem]">
+    <quiz-page-layout class="pt-28 md:pt-[9rem] lg:pt-[10.5rem]">
       <nuxt />
     </quiz-page-layout>
     <the-footer />
@@ -26,7 +26,9 @@
         </div>
       </button>
     </div>
-    <div class="w-80 h-80 fixed -top-28 bg-blur pointer-events-none" />
+    <div
+      class="w-52 h-52 lg:w-80 lg:h-80 fixed blur-[200px] lg:blur-[400px] -top-14 lg:-top-28 bg-blur pointer-events-none"
+    />
     <the-tooltip v-if="tooltip.isShown" />
   </div>
 </template>
@@ -71,6 +73,5 @@ export default Vue.extend({
   left: 10rem;
   z-index: 99;
   background: #6b60ac9f;
-  filter: blur(400px);
 }
 </style>

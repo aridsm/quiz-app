@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="grid grid-cols-3 gap-[3.5rem] sm:gap-16 md:gap-20 xl:gap-3">
+    <div class="grid grid-cols-3 gap-12 sm:gap-16 md:gap-20 xl:gap-3">
       <section class="col-span-3 xl:col-span-2">
         <quiz-x-title class="grid-2 mb-4 leading-none">
           Maiores pontuações dessa semana

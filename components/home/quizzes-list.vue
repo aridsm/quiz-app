@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-[3.5rem] sm:mt-16 md:mt-28">
+  <section class="mt-12 sm:mt-16 md:mt-28">
     <div class="flex items-center justify-between mb-4 leading-none">
       <quiz-x-title>Quizzes</quiz-x-title>
       <nuxt-link to="/quizzes" class="text-quiz-blue flex items-center">
