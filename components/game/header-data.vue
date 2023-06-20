@@ -1,8 +1,12 @@
 <template>
-  <div class="col-span-1 w-full flex flex-col">
-    <h2 class="text-[1.6rem] leading-snug mb-5">{{ currentGame.title }}</h2>
-    <div class="flex flex-col gap-5">
-      <div class="flex items-center gap-4">
+  <div class="col-span-2 md:col-span-1 w-full flex flex-col">
+    <h2
+      class="text-xl lg:text-[1.6rem] leading-snug mb-3 md:mb-5 mx-auto md:mx-0"
+    >
+      {{ currentGame.title }}
+    </h2>
+    <div class="grid grid-cols-2 md:flex flex-col gap-3 md:gap-5">
+      <div class="flex flex-col md:flex-row items-center gap-1 md:gap-4">
         <quiz-x-title>Vidas</quiz-x-title>
         <div class="flex gap-2">
           <icon-quiz-heart-empty
@@ -18,7 +22,7 @@
         </div>
       </div>
 
-      <div class="flex items-center gap-4">
+      <div class="flex flex-col md:flex-row items-center md:gap-4">
         <quiz-x-title>Progresso</quiz-x-title>
         <span class="text-sm text-quiz-blue">
           Pergunta {{ currentGame.currentQuestionIndex + 1 }} de
@@ -26,14 +30,14 @@
         </span>
       </div>
 
-      <div class="flex items-center gap-4">
+      <div class="flex flex-col md:flex-row items-center md:gap-4">
         <quiz-x-title>Respostas corretas</quiz-x-title>
         <p class="text-sm text-quiz-blue">
           {{ currentGame.correctAnswers }}
         </p>
       </div>
 
-      <div class="flex items-center gap-4">
+      <div class="flex flex-col md:flex-row items-center md:gap-4">
         <quiz-x-title>Chances de pular</quiz-x-title>
         <p class="text-sm text-quiz-blue">
           {{ currentGame.skipChances }}

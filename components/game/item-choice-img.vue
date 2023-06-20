@@ -17,7 +17,7 @@
         >
           {{ getItemsOrderLetter(index) }}
         </span>
-        <div class="w-32 h-20 m-auto">
+        <div class="w-32 h-16 md:h-20 m-auto">
           <img
             :src="String(answer).replace('/static', '')"
             class="w-full h-full object-contain object-center"

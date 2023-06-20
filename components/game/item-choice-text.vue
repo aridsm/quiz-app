@@ -11,7 +11,7 @@
         @click="() => selectAnswerHandler(answer)"
       >
         <span
-          class="text-sm w-8 h-8 pl-[2px] flex items-center justify-center bg-quiz-blue text-quiz-blue-dark rounded-full"
+          class="text-xs md:text-sm w-6 h-6 md:w-8 md:h-8 pl-[2px] flex items-center justify-center bg-quiz-blue text-quiz-blue-dark rounded-full"
         >
           {{ getItemsOrderLetter(index) }}
         </span>

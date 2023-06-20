@@ -4,7 +4,7 @@
     class="button w-fit active:scale-95 hover:quiz-blue-hover inline-block overflow-hidden rounded-md transition cursor-pointer text-quiz-blue-dark bg-quiz-blue"
     @click="$emit('click')"
   >
-    <div class="py-3 px-7 z-10">
+    <div class="py-2 md:py-3 px-3 md:px-7 z-10">
       <slot />
     </div>
   </button>

@@ -1,5 +1,7 @@
 <template>
-  <div class="grid grid-cols-3 gap-10 items-start max-w-[850px] mx-auto">
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 items-start max-w-[850px] mx-auto"
+  >
     <game-header-data :current-game="currentGame" :started="gameHaveStarted" />
     <game-choices-card v-if="gameHaveStarted" />
     <game-status-card

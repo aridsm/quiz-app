@@ -7,7 +7,7 @@
       :value="currentGame.currentQuestionIndex"
       class="w-full"
     />
-    <div class="p-6">
+    <div class="p-3 md:p-6">
       <game-question-section
         :current-question="currentQuestion"
         :current-game="currentGame"
@@ -42,7 +42,9 @@
         :disabled="answerIsCorrect || answerIsIncorrect"
         :selected-answer="selectedAnswer"
       />
-      <div class="text-sm leading-none mt-3 h-4 text-right tracking-wide">
+      <div
+        class="text-xs md:text-sm leading-none mt-3 h-3 md:h-4 text-right tracking-wide"
+      >
         <p v-if="answerIsSimilar" class="text-orange-400">
           Quase! Tente outra vez!
         </p>
@@ -65,7 +67,7 @@
           </p>
         </div>
       </div>
-      <div class="flex justify-between items-center mt-4">
+      <div class="flex justify-between items-center mt-3 md:mt-4">
         <quiz-btn
           class="bg-quiz-pink text-quiz-white"
           :disabled="

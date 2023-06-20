@@ -1,9 +1,9 @@
 <template>
   <div>
     <div
-      class="text-center text-[1.6rem] leading-none"
+      class="text-center text-xl lg:text-[1.6rem] leading-none"
       :class="{
-        'bg-quiz-grey-200 py-4 px-6 mb-8 leading-snug tracking-wide rounded-md':
+        'bg-quiz-grey-200 py-4 px-3 md:px-6 mb-3 md:mb-8 leading-snug tracking-wide rounded-md':
           !categoryIsGeography,
       }"
     >
@@ -18,7 +18,7 @@
     </div>
 
     <div v-if="questionIsFlag">
-      <div class="h-28 mx-auto my-6">
+      <div class="h-20 md:h-28 mx-auto my-4 md:my-6">
         <img
           :src="String(currentQuestion.item).replace('/static', '')"
           class="h-full mx-auto pointer-events-none object-fill"
@@ -28,7 +28,7 @@
 
     <div v-else-if="!questionIsFlag && categoryIsGeography">
       <p
-        class="text-center bg-quiz-grey-200 rounded-md py-4 px-6 text-quiz-blue text-[1.6rem] my-4"
+        class="text-center bg-quiz-grey-200 rounded-md py-2 md:py-4 px-3 md:px-6 text-quiz-blue text-xl lg:text-[1.6rem] my-4"
       >
         {{ itemQuestion }}
       </p>
