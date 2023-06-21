@@ -15,7 +15,7 @@
       </p>
       <a
         href="https://github.com/aridsm"
-        class="bg-quiz-blue text-quiz-blue-dark mt-4 block rounded-md py-3 px-7 text-center"
+        class="bg-quiz-blue text-quiz-blue-dark mt-4 block rounded-md py-2 md:py-3 px-3 md:px-7 text-center"
       >
         Acessar github
       </a>

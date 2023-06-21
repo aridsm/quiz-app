@@ -17,7 +17,7 @@
         </span>
         <div class="flex justify-between items-center flex-1">
           <p
-            class="tracking-wide"
+            class="tracking-wide text-left"
             :class="{
               'text-quiz-blue': answerIsTheCorrect(answer),
             }"

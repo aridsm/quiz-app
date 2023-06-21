@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <the-header />
-    <quiz-page-layout class="pt-24 md:pt-[9rem] lg:pt-[10.5rem]">
+    <quiz-page-layout class="pt-24 sm:pt-28 md:pt-[9rem] lg:pt-[10.5rem]">
       <nuxt />
     </quiz-page-layout>
     <the-footer />
@@ -10,7 +10,7 @@
     <the-modal-alert />
     <the-modal-search />
     <the-modal-infos />
-    <div class="fixed bottom-4 right-4 flex flex-col items-end gap-4">
+    <div class="hidden xl:flex fixed bottom-4 right-4 flex-col items-end gap-4">
       <button
         v-title="'sobre o projeto'"
         aria-label="sobre o projeto"
@@ -29,7 +29,7 @@
     <div
       class="w-52 h-52 lg:w-80 lg:h-80 fixed blur-[120px] lg:blur-[440px] -top-14 lg:-top-28 bg-blur pointer-events-none"
     />
-    <the-tooltip v-if="tooltip.isShown" />
+    <the-tooltip v-if="tooltip.isShown" class="hidden lg:block" />
   </div>
 </template>
 

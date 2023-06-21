@@ -7,7 +7,7 @@
     name="input-text"
     :placeholder="placeholder"
     :required="required"
-    class="p-2 sm:p-3 lg:p-4 rounded-md input bg-quiz-grey-200 border-2 border-quiz-border inline-block outline-none placeholder:text-quiz-grey-100"
+    class="p-3 lg:p-4 rounded-md input bg-quiz-grey-200 border-2 border-quiz-border inline-block outline-none placeholder:text-quiz-grey-100"
     @input="updateValue"
     @change="$emit('change', model)"
     @keypress.enter="$emit('pressenter', model)"
