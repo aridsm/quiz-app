@@ -8,59 +8,51 @@ import { QuizCategory } from "~/interfaces/QuizCategory";
 import getLocalStorageItem from "~/utilities/getLocalStorageItem";
 import normalizeString from "~/utilities/normalizeString";
 
+const defaultData = [
+  {
+    name: "Bandeiras de Países",
+    status: CurrentGameStatus.Done,
+    totalQuestions: 5,
+    correctQuestions: 5,
+    earnedCoins: 1,
+    earnedXp: 5,
+    category: QuizCategoryType.Geography,
+    id: 1,
+  },
+  {
+    name: "O corpo humano",
+    status: CurrentGameStatus.Failed,
+    totalQuestions: 20,
+    correctQuestions: 6,
+    earnedCoins: 2,
+    earnedXp: 20,
+    category: QuizCategoryType.Biology,
+    id: 2,
+  },
+  {
+    name: "Raízes e Potências",
+    status: CurrentGameStatus.Done,
+    totalQuestions: 15,
+    correctQuestions: 14,
+    earnedCoins: 4,
+    earnedXp: 15,
+    category: QuizCategoryType.Mathematics,
+    id: 3,
+  },
+  {
+    name: "Reino Animal",
+    status: CurrentGameStatus.Done,
+    totalQuestions: 14,
+    correctQuestions: 15,
+    earnedCoins: 5,
+    earnedXp: 14,
+    category: QuizCategoryType.Biology,
+    id: 4,
+  },
+];
+
 export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
-  const lastGamesPlayed = ref<GamePlayed[]>([
-    {
-      name: "Bandeiras de Países",
-      status: CurrentGameStatus.Done,
-      totalQuestions: 5,
-      correctQuestions: 5,
-      earnedCoins: 3,
-      earnedXp: 5,
-      category: QuizCategoryType.Geography,
-      id: 1,
-    },
-    {
-      name: "O corpo humano",
-      status: CurrentGameStatus.Failed,
-      totalQuestions: 20,
-      correctQuestions: 6,
-      earnedCoins: 3,
-      earnedXp: 6,
-      category: QuizCategoryType.Biology,
-      id: 2,
-    },
-    {
-      name: "Raízes e Potências",
-      status: CurrentGameStatus.Done,
-      totalQuestions: 14,
-      correctQuestions: 15,
-      earnedCoins: 14,
-      earnedXp: 8,
-      category: QuizCategoryType.Mathematics,
-      id: 3,
-    },
-    {
-      name: "Bandeiras de Estados do Brasil",
-      status: CurrentGameStatus.Failed,
-      totalQuestions: 10,
-      correctQuestions: 5,
-      earnedCoins: 1,
-      earnedXp: 1,
-      category: QuizCategoryType.Geography,
-      id: 4,
-    },
-    {
-      name: "Bandeiras de Estados do Brasil",
-      status: CurrentGameStatus.Done,
-      totalQuestions: 5,
-      correctQuestions: 5,
-      earnedCoins: 5,
-      earnedXp: 5,
-      category: QuizCategoryType.Geography,
-      id: 5,
-    },
-  ]);
+  const lastGamesPlayed = ref<GamePlayed[]>([...defaultData]);
 
   onMounted(async () => {
     const gamesStored = await getLocalStorageItem("gamesPlayed");
@@ -161,6 +153,10 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
     return gamesFiltered;
   }
 
+  function resetLastGamesPlayed() {
+    lastGamesPlayed.value = defaultData;
+  }
+
   return {
     lastGamesPlayed,
     addGameToHistory,
@@ -169,5 +165,6 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
     totalGamesPlayed,
     totalVictories,
     mostPlayedCategories,
+    resetLastGamesPlayed,
   };
 });

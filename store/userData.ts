@@ -2,6 +2,8 @@ import { defineStore } from "pinia";
 import { computed, reactive, onMounted } from "vue";
 import { User } from "../interfaces/User";
 import { useFriends } from "./friends";
+import { useNotifications } from "./notifications";
+import { useLastGamesPlayed } from "./lastGamesPlayed";
 import { useUsers } from "./users";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 import { UserDefault } from "~/interfaces/UserDefault";
@@ -13,6 +15,8 @@ const regexValidation = /^[a-zA-Z0-9@_!]{3,10}$/;
 export const useUserDataStore = defineStore("userData", () => {
   const friendsStore = useFriends();
   const usersStore = useUsers();
+  const notifications = useNotifications();
+  const lastGamesPlayed = useLastGamesPlayed();
 
   const data = reactive<User>({
     userName: "user1838",
@@ -105,6 +109,20 @@ export const useUserDataStore = defineStore("userData", () => {
     window.localStorage.removeItem("gamesPlayed");
     window.localStorage.removeItem("notificationsQuiz");
     window.localStorage.removeItem("usersList");
+    usersStore.users[3].isFriend = false;
+    resetUserData();
+    notifications.resetNotifications();
+    lastGamesPlayed.resetLastGamesPlayed();
+  }
+
+  function resetUserData() {
+    data.userName = "";
+    data.avatarUrl = "av-7";
+    data.level = 1;
+    data.currentXp = 5;
+    data.trophiesCount = 2;
+    data.coinsCount = 216;
+    data.isLogged = false;
   }
 
   function changeAvatar(avatar: string) {

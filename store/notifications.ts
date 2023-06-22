@@ -34,5 +34,17 @@ export const useNotifications = defineStore("useNotifications", () => {
     window.localStorage.setItem("notificationsQuiz", notificationList);
   }
 
-  return { notifications, deleteNotification };
+  function resetNotifications() {
+    notifications.value = [
+      {
+        type: NotificationType.FriendRequest,
+        friendRequestId: 4,
+        friendName: "gabe817",
+        message: "",
+        id: 1,
+      },
+    ];
+  }
+
+  return { notifications, deleteNotification, resetNotifications };
 });
