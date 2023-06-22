@@ -16,7 +16,7 @@
             Editar foto de perfil
           </button>
         </div>
-        <div>
+        <div class="flex-1">
           <p class="leading-none">{{ user.userName }}</p>
           <button
             class="text-quiz-grey-100 text-sm sm:text-base hover:text-quiz-blue"
@@ -25,23 +25,34 @@
             Editar nome de usuário
           </button>
 
-          <div class="mt-1 sm:mt-2">
+          <div class="mt-1 sm:mt-2 w-full">
             <span class="text-quiz-blue text-sm sm:text-base">
               Nível {{ user.level }}
             </span>
-            <p class="text-sm sm:text-base">
-              {{ totalXpInCurrentLevel - user.currentXp }} XP para o próximo
-              nível
-            </p>
+            <div
+              class="flex justify-between items-center text-sm sm:text-base w-full"
+            >
+              <p>
+                {{ totalXpInCurrentLevel - user.currentXp }} XP para o próximo
+                nível
+              </p>
+              <p
+                :aria-label="`${user.coinsCount} moedas`"
+                class="flex text-quiz-blue"
+              >
+                {{ user.coinsCount }}
+                <icon-quiz-coins class="w-3 ml-1" />
+              </p>
+            </div>
           </div>
         </div>
       </div>
       <div class="mt-4">
-        <div class="flex h-10 sm:h-12">
+        <div class="flex gap-2 h-10 sm:h-[3.2rem]">
           <button
             v-for="option in profileOptions"
             :key="option.id"
-            class="h-full px-3 sm:px-6 rounded-t-md ml-1 sm:ml-3 hover:text-quiz-blue"
+            class="h-full px-3 sm:px-6 rounded-t-md hover:text-quiz-blue"
             :class="{
               'bg-quiz-grey-400 text-quiz-blue': option.id === tabSelected,
             }"
@@ -50,12 +61,13 @@
             {{ option.name }}
           </button>
         </div>
-        <component :is="tabComponentSelected" />
+        <component :is="tabComponentSelected" class="-mt-[.2rem]" />
       </div>
 
       <quiz-modal-overlay
         style="width: 100%; height: 100%; background: transparent"
         :model.sync="modalAvatarImagesIsOpen"
+        :border="true"
       >
         <div class="flex flex-col sm:flex-row gap-6">
           <div class="flex flex-col">
@@ -104,6 +116,7 @@
       <quiz-modal-overlay
         style="width: 100%; height: 100%; background: transparent"
         :model.sync="modalUsernameIsOpen"
+        :border="true"
       >
         <div class="flex flex-col">
           <p class="mb-4 text-quiz-white">

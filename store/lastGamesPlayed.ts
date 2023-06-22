@@ -6,6 +6,7 @@ import { CurrentGame } from "~/interfaces/CurrentGame";
 import { GamePlayed } from "~/interfaces/GamePlayed";
 import { QuizCategory } from "~/interfaces/QuizCategory";
 import getLocalStorageItem from "~/utilities/getLocalStorageItem";
+import normalizeString from "~/utilities/normalizeString";
 
 export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
   const lastGamesPlayed = ref<GamePlayed[]>([
@@ -151,10 +152,10 @@ export const useLastGamesPlayed = defineStore("useLastGamesPlayed", () => {
   }
 
   function searchGame(name: string) {
-    const searchValue = name.trim().toLowerCase();
+    const searchValue = normalizeString(name);
 
     const gamesFiltered = lastGamesPlayed.value.filter((game: GamePlayed) =>
-      game.name.toLowerCase().includes(searchValue)
+      normalizeString(game.name).includes(searchValue)
     );
 
     return gamesFiltered;

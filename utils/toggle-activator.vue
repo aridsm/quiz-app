@@ -117,8 +117,8 @@ function openToggleHandler() {
   top: calc(100% + 2rem);
   transition: all 0.1s ease-in;
   pointer-events: none;
-  box-shadow: 4px 4px 10px 0 rgba(13, 10, 31, 0.2);
-  @apply opacity-0;
+  box-shadow: 4px 4px 15px 0 rgba(13, 10, 31, 0.3);
+  @apply opacity-0 border border-quiz-border;
 }
 
 .toggle-content.on-right-side {
@@ -134,7 +134,7 @@ function openToggleHandler() {
 
 .toggle-content::after {
   content: "";
-  @apply block w-3 h-3 absolute -top-[7px] left-3 bg-quiz-grey-300 rotate-45;
+  @apply block w-3 h-3 absolute -top-[7px] left-3 bg-quiz-grey-300 rotate-45 border-t border-l border-quiz-border;
 }
 
 .toggle-content.on-right-side::after {

@@ -22,7 +22,9 @@
         </li>
       </ul>
     </div>
-    <div class="mt-6 flex justify-between">
+    <div
+      class="mt-6 flex gap-y-3 gap-x-8 flex-wrap justify-center sm:justify-between"
+    >
       <div>
         <p class="text-quiz-grey-100">Total vitórias</p>
         <span class="text-quiz-blue text-base">

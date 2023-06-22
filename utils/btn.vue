@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="button w-fit active:scale-95 hover:quiz-blue-hover inline-block overflow-hidden rounded-md transition cursor-pointer text-quiz-blue-dark bg-quiz-blue"
+    class="button w-fit active:scale-95 hover:bg-quiz-blue-hover active:bg-quiz-blue-active inline-block overflow-hidden rounded-md transition cursor-pointer text-quiz-blue-dark bg-quiz-blue"
     @click="$emit('click')"
   >
     <div class="py-2 md:py-3 px-3 md:px-7 z-10">

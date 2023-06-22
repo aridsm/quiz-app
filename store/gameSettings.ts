@@ -32,5 +32,15 @@ export const useGameSettings = defineStore("useGameSettings", () => {
     storeModals.modals.modalGameSettingsIsOpen = true;
   }
 
-  return { gameSettings, openModalGameSettings };
+  function resetGameSettings() {
+    gameSettings.value.quizId = undefined;
+    gameSettings.value.quizName = "";
+    gameSettings.value.category = null;
+    gameSettings.value.answerMode = AnswerMode.MultipleChoice;
+    gameSettings.value.numberOfQuestions = 5;
+    gameSettings.value.acceptAnswerMode = true;
+    gameSettings.value.geoQuizType = null;
+  }
+
+  return { gameSettings, openModalGameSettings, resetGameSettings };
 });

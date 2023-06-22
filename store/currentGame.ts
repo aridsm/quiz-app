@@ -239,6 +239,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.answerSimilarity = defaultData.answerSimilarity;
     currentGame.stars = defaultData.stars;
     currentGame.skipChances = defaultData.skipChances;
+    storeGameSettings.resetGameSettings();
   }
 
   return {

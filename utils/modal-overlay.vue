@@ -9,6 +9,7 @@
   >
     <quiz-x-card
       class="card-modal transition relative h-screen sm:h-auto w-screen rounded-none sm:rounded-md sm:w-auto"
+      :class="{ ' border border-quiz-border': border }"
     >
       <slot />
       <button
@@ -26,11 +27,13 @@
 interface Props {
   model: boolean;
   center?: boolean;
+  border?: boolean;
 }
 
 withDefaults(defineProps<Props>(), {
   model: false,
   center: false,
+  border: false,
 });
 
 const emit = defineEmits(["update:model"]);
