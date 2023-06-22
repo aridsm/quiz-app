@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-12 sm:mt-16 md:mt-28">
+  <section class="mt-12 sm:mt-16 md:mt-20">
     <div class="flex items-center justify-between mb-4 leading-none">
       <quiz-x-title>Últimos jogos</quiz-x-title>
       <button class="text-quiz-blue flex items-center" @click="openHistory">
@@ -7,7 +7,7 @@
         <icon-quiz-arrow class="ml-1 md:ml-2 w-2 md:w-3 -rotate-90" />
       </button>
     </div>
-    <ul class="flex flex-col gap-2 md:gap-3">
+    <ul class="flex flex-col gap-1 sm:gap-2 md:gap-3">
       <li v-for="game in lastGamesPlayedList" :key="game.id">
         <quiz-x-card
           class="w-full flex flex-col md:flex-row md:items-center justify-end md:gap-5 md:py-6 md:px-8"

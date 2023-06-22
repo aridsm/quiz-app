@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center justify-center">
     <quiz-x-card
-      class="p-3 sm:p-5 md:p-8 max-w-[26rem] md:max-w-[30rem] w-full login-card relative"
+      class="p-5 md:p-8 max-w-[26rem] md:max-w-[30rem] w-full login-card relative"
     >
       <div class="flex justify-between items-center">
         <h2 class="text-lg sm:text-xl md:text-2xl">Vamos começar!</h2>
@@ -20,7 +20,7 @@
       <quiz-input-text
         :model.sync="model"
         placeholder="Digite um nome de usuário"
-        class="bg-quiz-grey-200 w-full mt-2 md:mt-4"
+        class="w-full mt-2 md:mt-4"
         @input="usernameIsValid = undefined"
       />
       <p

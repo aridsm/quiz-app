@@ -102,7 +102,7 @@
     "otherAnswers": ["36", "42", "22", "18", "12"]
   },
   {
-    "question": "Selecciona um número ao acaso do conjunto {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}. Qual é a probabilidade deste número ser divisível por 2 ou 3?",
+    "question": "Selecionando um número ao acaso do conjunto {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, qual é a probabilidade deste número ser divisível por 2 ou 3?",
     "item": "",
     "correctAnswer": "7/10",
     "otherAnswers": ["2/5", "1/2", "6/10", "1", "3/10"]
@@ -139,7 +139,7 @@
       "1,2474 × 10⁽⁻¹⁾",
       "1,2474 × 10²",
       "1,2474 × 10⁴",
-      "1,2474 × 10³"
+      "1,2474 × 10⁽⁻²⁾"
     ]
   }
 ]

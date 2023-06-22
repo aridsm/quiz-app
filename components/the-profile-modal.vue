@@ -57,29 +57,32 @@
         style="width: 100%; height: 100%; background: transparent"
         :model.sync="modalAvatarImagesIsOpen"
       >
-        <div class="flex gap-6">
+        <div class="flex flex-col sm:flex-row gap-6">
           <div class="flex flex-col">
-            <div class="w-36 h-36 rounded-md relative">
+            <div class="w-36 h-36 mx-auto rounded-md relative">
               <img
                 :src="`/avatars/${imageSelected}.svg`"
                 :alt="imageSelected"
                 class="h-full w-full block object-cover rounded-md"
               />
             </div>
-            <quiz-btn class="mt-auto w-full" @click="changeProfileAvatar">
+            <quiz-btn
+              class="mt-auto w-full sm:block hidden"
+              @click="changeProfileAvatar"
+            >
               Confirmar
             </quiz-btn>
           </div>
           <div>
             <p class="mb-3">Avatares disponíveis</p>
-            <ul class="grid-cols-5 grid gap-4">
+            <ul class="grid-cols-5 grid gap-2 sm:gap-4">
               <li
                 v-for="avatar in avatarImages"
                 :key="avatar"
                 class="cursor-pointer"
                 @click="imageSelected = avatar"
               >
-                <div class="w-14 h-14 rounded-sm relative">
+                <div class="flex-1 sm:w-14 sm:h-14 rounded-sm relative">
                   <img
                     :src="`/avatars/${avatar}.svg`"
                     :alt="avatar"
@@ -89,6 +92,12 @@
               </li>
             </ul>
           </div>
+          <quiz-btn
+            class="mt-auto w-full sm:hidden block"
+            @click="changeProfileAvatar"
+          >
+            Confirmar
+          </quiz-btn>
         </div>
       </quiz-modal-overlay>
 
@@ -105,15 +114,19 @@
                 'De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !'
               "
               aria-label="De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !"
-              class="hover:text-quiz-blue text-quiz-grey-100 ml-2"
+              class="hover:text-quiz-blue text-quiz-grey-100 ml-2 hidden lg:inline-block"
             >
               <icon-quiz-infos class="w-4" />
             </button>
           </p>
+          <p
+            class="block lg:hidden mb-1 text-xs sm:text-sm md:text-base text-quiz-blue"
+          >
+            De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !
+          </p>
           <quiz-input-text
             :model.sync="newUserValue"
-            class="py-3 text-base"
-            style="width: 20rem"
+            class="py-3 text-base sm:min-w-[20rem] w-full"
           />
           <p v-if="newUsernameIsInvalid" class="mt-1 text-quiz-pink text-sm">
             {{ errorNewUsername }}

@@ -14,7 +14,7 @@
         <div v-if="searchValue">"{{ searchValue }}"</div>
       </div>
     </div>
-    <ul v-if="quizzes.length" class="grid grid-cols-2 gap-2 lg:gap-3">
+    <ul v-if="quizzes.length" class="grid grid-cols-2 gap-1 sm:gap-2 lg:gap-3">
       <li v-for="quiz in quizzes" :key="quiz.id" class="w-full">
         <quiz-x-quiz-card
           :quiz="quiz"

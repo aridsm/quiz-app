@@ -11,7 +11,7 @@
       />
     </div>
     <div class="py-4 px-3 sm:px-6 pt-0 sm:h-[20rem] overflow-auto list-history">
-      <ul class="flex flex-col gap-2">
+      <ul class="flex flex-col gap-1 sm:gap-2">
         <li
           v-for="game in gamesList"
           :key="game.id"

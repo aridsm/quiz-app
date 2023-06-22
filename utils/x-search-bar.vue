@@ -3,7 +3,7 @@
     <div ref="searchBar" class="flex items-center relative">
       <quiz-input-text
         :model.sync="inputValue"
-        class="bg-quiz-grey-300 w-full"
+        class="w-full"
         placeholder="Procurar quiz..."
         @input="onChangeInputValue"
       />

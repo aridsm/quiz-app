@@ -5,14 +5,14 @@
         <quiz-x-title class="grid-2 mb-4 leading-none">
           Maiores pontuações dessa semana
         </quiz-x-title>
-        <ul class="flex flex-col gap-2 md:gap-3 w-full">
+        <ul class="flex flex-col gap-1 sm:gap-2 md:gap-3 w-full">
           <li
             v-for="user in biggestScoresUsers"
             :key="user.userName"
             class="w-full"
           >
             <quiz-x-card
-              class="w-full flex items-center gap-4 md:gap-8 md:px-9 py-4 md:py-6"
+              class="w-full flex items-center gap-3 md:gap-8 md:px-9 py-4 md:py-6"
             >
               <quiz-x-avatar :avatar="user.avatarUrl" />
               <div class="flex flex-col md:flex-row md:gap-8">
@@ -43,7 +43,9 @@
         <quiz-x-title class="grid-2 mb-4 leading-none">
           Seu progresso
         </quiz-x-title>
-        <ul class="flex-1 grid grid-cols-2 md:flex xl:flex-col gap-2 md:gap-3">
+        <ul
+          class="flex-1 grid grid-cols-2 md:flex xl:flex-col gap-1 sm:gap-2 md:gap-3"
+        >
           <li class="w-full col-span-2 flex-1">
             <quiz-x-card
               class="lg:px-6 w-full h-full flex flex-col xl:flex-row text-center items-center justify-center xl:justify-between"

@@ -4,11 +4,11 @@
   >
     <div>
       <p class="mb-3 sm:mb-6 text-quiz-grey-100">Categorias jogadas</p>
-      <ul class="flex flex-col gap-2">
+      <ul class="flex flex-col gap-1 sm:gap-2">
         <li
           v-for="category in storeGamesPlayed.categoriesPlayed"
           :key="category.id"
-          class="flex items-center text-base p-4 bg-quiz-grey-300 border-2 border-quiz-border rounded-md"
+          class="flex items-center text-base p-3 sm:p-4 bg-quiz-grey-300 border-2 border-quiz-border rounded-md"
         >
           <p>{{ category.name }}</p>
           <span class="ml-auto text-quiz-blue text-base w-24 text-end">

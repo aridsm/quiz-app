@@ -29,7 +29,7 @@
               {{ option.name }}
               <icon-quiz-exit
                 v-if="option.id === ProfileOptions.Exit"
-                class="w-4 ml-3 -mt-[3px]"
+                class="h-3 md:h-4 ml-2 md:ml-3"
               />
             </button>
           </li>
