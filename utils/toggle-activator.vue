@@ -134,7 +134,7 @@ function openToggleHandler() {
 
 .toggle-content::after {
   content: "";
-  @apply block w-3 h-3 absolute -top-[7px] left-3 bg-quiz-grey-300 border-l-2 border-t-2 border-quiz-border rotate-45;
+  @apply block w-3 h-3 absolute -top-[7px] left-3 bg-quiz-grey-300 rotate-45;
 }
 
 .toggle-content.on-right-side::after {

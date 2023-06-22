@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-quiz-grey-400 rounded-md border-2 border-quiz-border">
+  <div class="bg-quiz-grey-400 rounded-md">
     <div class="flex justify-between items-center px-3 sm:px-6 py-4">
       <p class="text-quiz-grey-100">Seu histórico</p>
       <quiz-input-text
@@ -15,7 +15,7 @@
         <li
           v-for="game in gamesList"
           :key="game.id"
-          class="flex flex-col sm:flex-row sm:items-center p-3 sm:p-4 bg-quiz-grey-300 border-2 border-quiz-border rounded-md"
+          class="flex flex-col sm:flex-row sm:items-center p-3 sm:p-4 bg-quiz-grey-300 rounded-md"
         >
           <p class="leading-none block sm:hidden">{{ game.name }}</p>
           <div class="w-full flex items-center justify-between">

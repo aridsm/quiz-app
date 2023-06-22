@@ -41,7 +41,7 @@
           <button
             v-for="option in profileOptions"
             :key="option.id"
-            class="h-full px-3 sm:px-6 rounded-t-md ml-1 sm:ml-3 hover:text-quiz-blue border-2 border-b-0 border-quiz-border"
+            class="h-full px-3 sm:px-6 rounded-t-md ml-1 sm:ml-3 hover:text-quiz-blue"
             :class="{
               'bg-quiz-grey-400 text-quiz-blue': option.id === tabSelected,
             }"

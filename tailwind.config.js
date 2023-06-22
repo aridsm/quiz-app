@@ -11,10 +11,10 @@ module.exports = {
     extend: {
       colors: {
         "quiz-grey-100": "#66637B",
-        "quiz-grey-200": "#313242",
-        "quiz-grey-300": "#1F202C",
+        "quiz-grey-200": "#2E3342",
+        "quiz-grey-300": "#222431",
         "quiz-grey-400": "#181922",
-        "quiz-white": "#DDDAF7",
+        "quiz-white": "#DEDAFF",
         "quiz-pink": "#FF629A",
         "quiz-blue": "#4ED7F5",
         "quiz-blue-dark": "#295862",

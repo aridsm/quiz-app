@@ -1,7 +1,5 @@
 <template>
-  <header
-    class="fixed w-full bg-quiz-grey-300 border-b-2 border-quiz-border z-50 the-header"
-  >
+  <header class="fixed w-full bg-quiz-grey-300 z-50 the-header">
     <div
       class="max-w-[1340px] w-full mx-auto h-[4.5rem] lg:h-[5.5rem] flex items-center px-5"
     >

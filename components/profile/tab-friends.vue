@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-quiz-grey-400 rounded-md border-2 border-quiz-border">
+  <div class="bg-quiz-grey-400 rounded-md">
     <div class="flex justify-between items-center px-3 sm:px-6 py-4">
       <p class="text-quiz-grey-100">Seus amigos</p>
       <quiz-input-text
@@ -16,7 +16,7 @@
         <li
           v-for="friend in friendsOnlineFirst"
           :key="friend.id"
-          class="flex items-center p-3 sm:p-4 bg-quiz-grey-300 border-2 border-quiz-border rounded-md"
+          class="flex items-center p-3 sm:p-4 bg-quiz-grey-300 rounded-md"
         >
           <quiz-x-avatar :avatar="friend.avatarUrl" />
           <p class="w-auto ml-5">
