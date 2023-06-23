@@ -27,7 +27,7 @@ export const useUsers = defineStore("useUsers", () => {
     },
     {
       userName: "prijx",
-      avatarUrl: "av-9",
+      avatarUrl: "av-1",
       level: 40,
       score: 315,
       trophiesCount: 8,

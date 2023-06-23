@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col h-screen">
+  <div class="flex flex-col h-screen relative">
     <header
       class="h-[4.5rem] lg:h-[5.5rem] flex justify-center items-center text-2xl"
     >
@@ -13,7 +13,7 @@
     </quiz-page-layout>
     <the-footer />
     <div
-      class="w-80 h-80 bg-quiz-grey-100 fixed -top-28 bg-blur pointer-events-none"
+      class="w-52 h-52 lg:w-80 lg:h-80 fixed blur-[160px] lg:blur-[250px] left-1/2 -top-14 lg:-top-28 bg-blur pointer-events-none"
     />
     <the-tooltip v-if="tooltip.isShown" class="hidden lg:block" />
   </div>
@@ -27,10 +27,9 @@ const tooltipStore = useTooltip();
 const { tooltip } = storeToRefs(tooltipStore);
 </script>
 
-<style>
+<style scoped>
 .bg-blur {
-  left: calc(50% - 9rem);
   z-index: 99;
-  filter: blur(260px);
+  background: #6b60ac9f;
 }
 </style>

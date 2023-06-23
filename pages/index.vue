@@ -49,7 +49,7 @@
           <li class="w-full col-span-2 flex-1">
             <quiz-x-card
               class="lg:px-6 w-full h-full flex flex-col xl:flex-row text-center items-center justify-center xl:justify-between"
-              style="background: #313242"
+              style="background: #333646"
             >
               <span class="text-quiz-blue">Nível {{ data.level }}</span>
               <p>

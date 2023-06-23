@@ -16,7 +16,7 @@
   },
   {
     "place": "Benim",
-    "capital": ["Porto-Novo", "Cotonu"],
+    "capital": ["Porto-Novo"],
     "flagPath": "/static/countries_flags/benin.png"
   },
   {
@@ -31,7 +31,7 @@
   },
   {
     "place": "Burundi",
-    "capital": ["Bujumbura"],
+    "capital": ["Guitega"],
     "flagPath": "/static/countries_flags/burundi.png"
   },
   {
@@ -41,7 +41,7 @@
   },
   {
     "place": "Camarões",
-    "capital": ["Yaoundé"],
+    "capital": ["Iaoundé"],
     "flagPath": "/static/countries_flags/camaroes.png"
   },
   {
@@ -131,12 +131,12 @@
   },
   {
     "place": "Malawi",
-    "capital": ["Lilongwe"],
+    "capital": ["Lilongué"],
     "flagPath": "/static/countries_flags/malawi.png"
   },
   {
     "place": "Mali",
-    "capital": ["Bamako"],
+    "capital": ["Bamaco"],
     "flagPath": "/static/countries_flags/mali.png"
   },
   {
@@ -146,12 +146,12 @@
   },
   {
     "place": "Mauritânia",
-    "capital": ["Nouakchott"],
+    "capital": ["Nuaquexote"],
     "flagPath": "/static/countries_flags/mauritania.png"
   },
   {
     "place": "Maurícia",
-    "capital": ["Port Louis"],
+    "capital": ["Porto Luís"],
     "flagPath": "/static/countries_flags/mauricia.png"
   },
   {
@@ -161,7 +161,7 @@
   },
   {
     "place": "Namíbia",
-    "capital": ["Windhoek"],
+    "capital": ["Vinduque"],
     "flagPath": "/static/countries_flags/namibia.png"
   },
   {
@@ -171,7 +171,7 @@
   },
   {
     "place": "Níger",
-    "capital": ["Niamey"],
+    "capital": ["Niamei"],
     "flagPath": "/static/countries_flags/niger.png"
   },
   {
@@ -211,7 +211,7 @@
   },
   {
     "place": "Seychelles",
-    "capital": ["Victoria"],
+    "capital": ["Vitória"],
     "flagPath": "/static/countries_flags/seychelles.png"
   },
   {
@@ -241,7 +241,7 @@
   },
   {
     "place": "Tanzânia",
-    "capital": ["Dar es Salaam", "Dodoma"],
+    "capital": ["Dodoma"],
     "flagPath": "/static/countries_flags/tanzania.png"
   },
   {
@@ -251,12 +251,12 @@
   },
   {
     "place": "Tunísia",
-    "capital": ["Tunis"],
+    "capital": ["Túnis"],
     "flagPath": "/static/countries_flags/tunisia.png"
   },
   {
     "place": "Uganda",
-    "capital": ["Kampala"],
+    "capital": ["Campala"],
     "flagPath": "/static/countries_flags/uganda.png"
   },
   {
@@ -281,7 +281,7 @@
   },
   {
     "place": "México",
-    "capital": ["México"],
+    "capital": ["Cidade do México"],
     "flagPath": "/static/countries_flags/mexico.png"
   },
   {
@@ -306,7 +306,7 @@
   },
   {
     "place": "Costa Rica",
-    "capital": ["São José"],
+    "capital": ["San José"],
     "flagPath": "/static/countries_flags/costa_rica.png"
   },
   {
@@ -321,7 +321,7 @@
   },
   {
     "place": "El Salvador",
-    "capital": ["São Salvador"],
+    "capital": ["San Salvador"],
     "flagPath": "/static/countries_flags/el_salvador.png"
   },
   {
@@ -331,7 +331,7 @@
   },
   {
     "place": "Guatemala",
-    "capital": ["Guatemala"],
+    "capital": ["Cidade da Guatemala"],
     "flagPath": "/static/countries_flags/guatemala.png"
   },
   {
@@ -381,7 +381,7 @@
   },
   {
     "place": "Trinidad e Tobago",
-    "capital": ["Porto de Espanha"],
+    "capital": ["Porto da Espanha"],
     "flagPath": "/static/countries_flags/trinidad_e_tobago.png"
   },
   {
@@ -391,7 +391,7 @@
   },
   {
     "place": "Bolívia",
-    "capital": ["La Paz", "Sucre"],
+    "capital": ["Sucre"],
     "flagPath": "/static/countries_flags/bolivia.png"
   },
   {
@@ -476,7 +476,7 @@
   },
   {
     "place": "Butão",
-    "capital": ["Timphu"],
+    "capital": ["Thimphu"],
     "flagPath": "/static/countries_flags/butao.png"
   },
   {
@@ -500,8 +500,8 @@
     "flagPath": "/static/countries_flags/china.png"
   },
   {
-    "place": "Cingapura",
-    "capital": ["Cidade de Cingapura"],
+    "place": "Singapura",
+    "capital": ["Singapura"],
     "flagPath": "/static/countries_flags/cingapura.png"
   },
   {
@@ -526,7 +526,7 @@
   },
   {
     "place": "Iêmen",
-    "capital": ["Sana"],
+    "capital": ["Saná"],
     "flagPath": "/static/countries_flags/iemen.png"
   },
   {
@@ -586,12 +586,12 @@
   },
   {
     "place": "Maldivas",
-    "capital": ["Male"],
+    "capital": ["Malé"],
     "flagPath": "/static/countries_flags/maldivas.png"
   },
   {
     "place": "Myanmar",
-    "capital": ["Nay Puy Taw"],
+    "capital": ["Nay Pyi Taw", "Nepiedó", "Naypyidaw"],
     "flagPath": "/static/countries_flags/myanmar.png"
   },
   {
@@ -601,7 +601,7 @@
   },
   {
     "place": "Nepal",
-    "capital": ["Katmandu"],
+    "capital": ["Catmandu"],
     "flagPath": "/static/countries_flags/nepal.png"
   },
   {
@@ -631,27 +631,27 @@
   },
   {
     "place": "Sri Lanka",
-    "capital": ["Colombo"],
+    "capital": ["Seri Jaiavardenapura-Cota", "Cota"],
     "flagPath": "/static/countries_flags/sri_lanka.png"
   },
   {
-    "place": "Tailãndia",
+    "place": "Tailândia",
     "capital": ["Bangkok"],
     "flagPath": "/static/countries_flags/tailandia.png"
   },
   {
     "place": "Tajiquistão",
-    "capital": ["Muchambe"],
+    "capital": ["Dushanbe"],
     "flagPath": "/static/countries_flags/tajiquistao.png"
   },
   {
     "place": "Timor Leste",
-    "capital": ["Dili"],
+    "capital": ["Díli"],
     "flagPath": "/static/countries_flags/timor_leste.png"
   },
   {
     "place": "Turcomenistão",
-    "capital": ["Ashkhabad"],
+    "capital": ["Asgabade"],
     "flagPath": "/static/countries_flags/turcomenistao.png"
   },
   {
@@ -686,18 +686,13 @@
   },
   {
     "place": "Armênia",
-    "capital": ["Erevan"],
+    "capital": ["Yerevan"],
     "flagPath": "/static/countries_flags/armenia.png"
   },
   {
     "place": "Áustria",
     "capital": ["Viena"],
     "flagPath": "/static/countries_flags/austria.png"
-  },
-  {
-    "place": "Azerbaijão",
-    "capital": ["Baku"],
-    "flagPath": "/static/countries_flags/azerbaijao.png"
   },
   {
     "place": "Bielorússia",
@@ -736,7 +731,7 @@
   },
   {
     "place": "Dinamarca",
-    "capital": ["Copenhagem"],
+    "capital": ["Copenhague"],
     "flagPath": "/static/countries_flags/dinamarca.png"
   },
   {
@@ -831,7 +826,7 @@
   },
   {
     "place": "Mônaco",
-    "capital": ["Monaco-Ville"],
+    "capital": ["Cidade de Mônaco"],
     "flagPath": "/static/countries_flags/monaco.png"
   },
   {
@@ -921,17 +916,17 @@
   },
   {
     "place": "Kiribati",
-    "capital": ["Taraua"],
+    "capital": ["Tarawa"],
     "flagPath": "/static/countries_flags/kiribati.png"
   },
   {
     "place": "Micronésia",
-    "capital": ["Paliquir"],
+    "capital": ["Palikir"],
     "flagPath": "/static/countries_flags/micronesia.png"
   },
   {
     "place": "Nauru",
-    "capital": ["Yaren"],
+    "capital": ["Iarém"],
     "flagPath": "/static/countries_flags/nauru.png"
   },
   {
@@ -941,12 +936,12 @@
   },
   {
     "place": "Palau",
-    "capital": ["Melequeoque"],
+    "capital": ["Ngerulmud"],
     "flagPath": "/static/countries_flags/palau.png"
   },
   {
     "place": "Papua Nova Guiné",
-    "capital": ["Porto Moresby"],
+    "capital": ["Port Moresby"],
     "flagPath": "/static/countries_flags/papua_nova_guine.png"
   },
   {

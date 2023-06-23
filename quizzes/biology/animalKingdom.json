@@ -5,12 +5,7 @@
     "otherAnswers": ["Cavalo", "Leopardo", "Jaguar", "Onça", "Tigre"]
   },
   {
-    "question": "Qual é o nome do animal que é capaz de mudar sua forma e sua cor?",
-    "correctAnswer": "Lula",
-    "otherAnswers": ["Camaleão", "Ouriço", "Porco-espinho", "Carpa", "Lince"]
-  },
-  {
-    "question": "Qual é o nome do animal que é capaz de correr sobre a água?",
+    "question": "Qual desses animais abaixo é capaz de correr sobre a água?",
     "correctAnswer": "Basilisco",
     "otherAnswers": [
       "Canguru",
@@ -18,17 +13,6 @@
       "Serpente",
       "Aranha",
       "Salamandra"
-    ]
-  },
-  {
-    "question": "Qual é o nome do animal que é capaz de viver por vários anos sem consumir água?",
-    "correctAnswer": "Camelo",
-    "otherAnswers": [
-      "Beija-flor",
-      "Canguru",
-      "Tartaruga",
-      "Formiga",
-      "Crocodilo"
     ]
   },
   {
@@ -77,6 +61,21 @@
     ]
   },
   {
+    "question": "Qual dessas características estão presentes em todos os membros do reino animal?",
+    "correctAnswer": "Heterotróficos",
+    "otherAnswers": [
+      "Células procarióticas",
+      "Presença de parede celular",
+      "Obtenção de energia a partir da fixação do carbono",
+      "Presença de coluna vertebral"
+    ]
+  },
+  {
+    "question": "A que filo animal pertencem os seres humanos?",
+    "correctAnswer": "Chordata",
+    "otherAnswers": ["Primates", "Mammalia", "Hominidae", "Homo sapiens"]
+  },
+  {
     "question": "Qual é o nome do animal que tem a maior língua comparado ao seu tamanho?",
     "correctAnswer": "Camaleão",
     "otherAnswers": [
@@ -103,8 +102,8 @@
     "correctAnswer": "Peixe-palhaço",
     "otherAnswers": [
       "Cobra-coral",
-      "Tubarão",
-      "Peixe-pedra",
+      "Tubarão-martelo",
+      "Urso pardo",
       "Axolote",
       "Rã",
       "Água-viva"
@@ -113,18 +112,7 @@
   {
     "question": "Qual desses animais evoluíram dos dinossauros?",
     "correctAnswer": "Aves",
-    "otherAnswers": [
-      "Crocodilos",
-      "Jacarés",
-      "Lagartos",
-      "Mamíferos",
-      "Anfíbios"
-    ]
-  },
-  {
-    "question": "Qual destes animais é um mamífero carnívoro que vive na floresta?",
-    "correctAnswer": "Puma",
-    "otherAnswers": ["Tubarão", "Cavalo", "Águia", "Cobra"]
+    "otherAnswers": ["Crocodilos", "Jacarés", "Cobras", "Mamíferos", "Anfíbios"]
   },
   {
     "question": "Qual destes animais é um peixe cartilaginoso?",
@@ -139,7 +127,7 @@
   {
     "question": "Qual destes animais é um mamífero monotremado?",
     "correctAnswer": "Ornitorrinco",
-    "otherAnswers": ["Baleia", "Golfinho", "Golfinho", "Canguru"]
+    "otherAnswers": ["Baleia", "Golfinho", "Raposa", "Canguru"]
   },
   {
     "question": "Qual desses animais possui uma espécie que é considerado biologicamente imortal, renovando constantemente o tecido do seu corpo e impedindo o envelhecimento?",
@@ -161,6 +149,17 @@
       "Náutilos",
       "Crustáceos",
       "Caracóis"
+    ]
+  },
+  {
+    "question": "Qual é considerado atualmente o filo animal mais basal?",
+    "correctAnswer": "Porifera (ex: esponjas-do-mar)",
+    "otherAnswers": [
+      "Cnidaria (ex: águas-vivas)",
+      "Arthropoda (ex: insetos)",
+      "Mollusca (ex: polvos)",
+      "Annelida (ex: minhocas)",
+      "Platyhelminthes (ex: planária)"
     ]
   }
 ]

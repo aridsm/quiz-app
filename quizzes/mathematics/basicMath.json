@@ -15,7 +15,7 @@
     "question": "Qual é o perímetro de um retângulo de base 6 cm e altura 4 cm?",
     "item": "",
     "correctAnswer": "20 cm",
-    "otherAnswers": ["24cm", "22cm", "36cm", "26cm", "24cm"]
+    "otherAnswers": ["24 cm", "22 cm", "36 cm", "26 cm", "21 cm"]
   },
   {
     "question": "Qual é a área de um quadrado de lado 4 cm?",
@@ -39,7 +39,7 @@
     "question": "Qual é o resultado da divisão abaixo?",
     "item": "6/0,5",
     "correctAnswer": "12",
-    "otherAnswers": ["6", "3", "2", "30", "5"]
+    "otherAnswers": ["6", "3", "2", "30", "18"]
   },
   {
     "question": "Qual é o resultado da expressão abaixo?",
@@ -81,13 +81,13 @@
     "question": "Qual é a próxima sequência de números na série 2, 4, 6, 8, 10…?",
     "item": "",
     "correctAnswer": "12",
-    "otherAnswers": ["10", "11", "0", "9"]
+    "otherAnswers": ["10", "11", "0", "9", "14", "20"]
   },
   {
     "question": "Qual o valor de x na expressão abaixo?",
     "item": "2x + 3 = 11",
     "correctAnswer": "4",
-    "otherAnswers": ["3", "8", "6", "8"]
+    "otherAnswers": ["3", "8", "6", "10", "5"]
   },
   {
     "question": "Qual é o valor de seno de 60 graus?",

@@ -15,13 +15,18 @@
     "otherAnswers": ["Epiderme", "Esclerênquima", "Colênquima", "Meristema"]
   },
   {
-    "question": "Qual é o nome da estrutura das células vegetais responsável pela síntese de proteínas?",
-    "correctAnswer": "Retículo endoplasmático rugoso",
+    "question": "Qual é o grupo de plantas conhecido por não possuir sementes, flores ou frutos, porém conseguem atingir grande porte?",
+    "correctAnswer": "Pteridófitas",
+    "otherAnswers": ["Briófitas", "Angiospermas", "Gimnospermas", "Clorófitas"]
+  },
+  {
+    "question": "O que são anterozoides?",
+    "correctAnswer": "Gametas masculinos",
     "otherAnswers": [
-      "Mitocôndria",
-      "Retículo endoplasmático rugoso",
-      "Cloroplasto",
-      "Peroxissomo"
+      "Gametas femininos",
+      "Estrutura produtora de gametas femininos",
+      "Estrutura produtora de gametas masculinos",
+      "Células responsáveis pela reprodução assexuada"
     ]
   },
   {
@@ -32,7 +37,7 @@
   {
     "question": "Qual é o nome do processo pelo qual as plantas produzem mudas a partir de uma parte do ramo ou caule?",
     "correctAnswer": "Propagação",
-    "otherAnswers": ["Enraizamento", "Clonagem", "Adubação", "Poda"]
+    "otherAnswers": ["Enraizamento", "Germinação", "Adubação", "Poda"]
   },
   {
     "question": "Qual é o nome do pigmento responsável pela cor verde das plantas?",
@@ -61,7 +66,7 @@
   },
   {
     "question": "Qual é o nome do tipo de fruto presente nas plantas em que a parte comestível é formada pela parede do ovário?",
-    "correctAnswer": "Carnoso",
+    "correctAnswer": "Fruto verdadeiro",
     "otherAnswers": ["Drupa", "Seco", "Indeiscente", "Deiscente"]
   },
   {
@@ -86,7 +91,7 @@
   },
   {
     "question": "Qual é o nome do processo pelo qual as plantas perdem folhas no outono?",
-    "correctAnswer": "Senescência",
+    "correctAnswer": "Abscisão foliar",
     "otherAnswers": [
       "Florescência",
       "Fotossíntese",
@@ -135,18 +140,8 @@
     "otherAnswers": ["Respiração celular", "Fermentação", "Osmose", "Difusão"]
   },
   {
-    "question": "Quais são os dois tipos de tecidos vasculares encontrados nas plantas?",
-    "correctAnswer": "Xilema e floema",
-    "otherAnswers": [
-      "Xilema e câmbio",
-      "Parênquima e colênquima",
-      "Floema e meristema",
-      "Epiderme e periderme"
-    ]
-  },
-  {
     "question": "O que é uma planta xerófita?",
-    "correctAnswer": "Planta adaptada a ambientes secos",
+    "correctAnswer": "Planta adaptada a ambientes áridos ou secos",
     "otherAnswers": [
       "Planta adaptada a ambientes úmidos",
       "Planta que vive em ambientes com baixas temperaturas",
