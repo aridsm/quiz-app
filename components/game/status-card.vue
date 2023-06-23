@@ -42,6 +42,7 @@
 </template>
 
 <script lang="ts" setup>
+import { useRouter } from "@nuxtjs/composition-api";
 import { CurrentGame } from "~/interfaces/CurrentGame";
 import { useCurrentGame } from "~/store/currentGame";
 
@@ -50,11 +51,13 @@ interface Props {
   isSuccess: boolean;
 }
 
+const router = useRouter();
 const currentGameStore = useCurrentGame();
 
 function playAgainHandler() {
-  currentGameStore.resetQuiz();
+  currentGameStore.resetQuiz(true);
   currentGameStore.createNewGame();
+  // router.push("/game");
 }
 
 defineProps<Props>();

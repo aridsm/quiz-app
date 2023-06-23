@@ -221,7 +221,7 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     nextQuestion();
   }
 
-  function resetQuiz() {
+  function resetQuiz(playAgain: boolean = false) {
     currentGame.title = defaultData.title;
     currentGame.totalQuestions = defaultData.totalQuestions;
     currentGame.correctAnswers = defaultData.correctAnswers;
@@ -235,11 +235,16 @@ export const useCurrentGame = defineStore("useCurrentGame", () => {
     currentGame.answerMode = defaultData.answerMode;
     currentGame.category = defaultData.category;
     currentGame.currentQuestionIndex = defaultData.currentQuestionIndex;
-    currentGame.status = defaultData.status;
     currentGame.answerSimilarity = defaultData.answerSimilarity;
     currentGame.stars = defaultData.stars;
     currentGame.skipChances = defaultData.skipChances;
-    storeGameSettings.resetGameSettings();
+
+    if (playAgain) {
+      currentGame.status = CurrentGameStatus.Started;
+    } else {
+      currentGame.status = defaultData.status;
+      storeGameSettings.resetGameSettings();
+    }
   }
 
   return {
