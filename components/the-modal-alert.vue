@@ -7,7 +7,7 @@
       </p>
       <div class="flex justify-between mt-2">
         <quiz-btn
-          class="bg-quiz-grey-200 text-quiz-grey-100"
+          class="bg-quiz-grey-200 hover:bg-quiz-grey-200 active:bg-quiz-grey-200 text-quiz-grey-100 hover:text-quiz-grey-100"
           @click="modals.modalAlert.isOpen = false"
         >
           Cancelar

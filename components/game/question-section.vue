@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="text-center text-xl lg:text-[1.6rem] leading-none"
+      class="text-center text-base md:text-xl lg:text-[1.6rem] leading-none"
       :class="{
         'bg-quiz-grey-400 py-4 px-3 md:px-6 mb-3 md:mb-8 leading-snug tracking-wide rounded-md':
           !categoryIsGeography,
@@ -28,7 +28,7 @@
 
     <div v-else-if="!questionIsFlag && categoryIsGeography">
       <p
-        class="text-center bg-quiz-grey-400 rounded-md py-2 md:py-4 px-3 md:px-6 text-quiz-blue text-xl lg:text-[1.6rem] my-4"
+        class="text-center bg-quiz-grey-400 rounded-md py-2 md:py-4 px-3 md:px-6 text-quiz-blue text-base md:text-xl lg:text-[1.6rem] my-4"
       >
         {{ itemQuestion }}
       </p>

@@ -46,11 +46,11 @@
             </div>
             <icon-quiz-xmark
               v-if="game.status === CurrentGameStatus.Failed"
-              class="ml-auto w-4 md:w-5 text-quiz-pink"
+              class="md:ml-auto w-4 md:w-5 text-quiz-pink"
             />
             <icon-quiz-checkmark
               v-if="game.status === CurrentGameStatus.Done"
-              class="ml-auto w-4 md:w-5 text-quiz-blue"
+              class="md:ml-auto w-4 md:w-5 text-quiz-blue"
             />
           </div>
         </quiz-x-card>

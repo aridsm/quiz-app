@@ -69,9 +69,11 @@
       </div>
       <div class="flex justify-between items-center mt-3 md:mt-4">
         <quiz-btn
-          class="bg-quiz-pink text-quiz-white"
+          class="bg-quiz-pink hover:bg-quiz-pink active:bg-quiz-pink text-quiz-white"
           :disabled="
-            (answerWasValidated && answerIsCorrect) || !currentGame.skipChances
+            (answerWasValidated && answerIsCorrect) ||
+            !currentGame.skipChances ||
+            answerWasValidated
           "
           @click="skipQuestion"
         >
