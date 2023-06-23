@@ -20,7 +20,7 @@
         <ul class="flex flex-col gap-1 sm:gap-2">
           <li v-for="option in profileOptions" :key="option.name">
             <button
-              class="flex items-center hover:text-quiz-blue"
+              class="flex items-center hover:text-quiz-blue py-1 sm:py-0"
               :class="{
                 'text-quiz-blue': option.id === ProfileOptions.Exit,
               }"
@@ -63,20 +63,20 @@
       <template #content>
         <ul class="flex flex-col gap-1">
           <li>
-            <nuxt-link to="/"> Home </nuxt-link>
+            <nuxt-link to="/" class="py-1"> Home </nuxt-link>
           </li>
-          <li>
+          <li class="py-1">
             <span>Categorias</span>
             <ul class="flex flex-col gap-1 text-quiz-grey-100 ml-2">
               <li v-for="link in links" :key="link.name">
-                <nuxt-link :to="link.route">
+                <nuxt-link :to="link.route" class="py-1">
                   {{ link.name }}
                 </nuxt-link>
               </li>
             </ul>
           </li>
           <li>
-            <button class="hover:text-quiz-blue" @click="openInfosModal">
+            <button class="hover:text-quiz-blue py-1" @click="openInfosModal">
               Sobre o projeto
             </button>
           </li>

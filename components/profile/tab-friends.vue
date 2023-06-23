@@ -108,7 +108,7 @@ function deleteFriendHandler(friendId: number) {
 
 @media all and (max-width: 640px) {
   .list_friends {
-    max-height: calc(100vh - 17rem);
+    max-height: calc(100vh - 16rem);
   }
 }
 </style>

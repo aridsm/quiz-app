@@ -98,7 +98,7 @@ function onSearchHistory() {
 
 @media all and (max-width: 640px) {
   .list-history {
-    max-height: calc(100vh - 17rem);
+    max-height: calc(100vh - 16rem);
   }
 }
 </style>

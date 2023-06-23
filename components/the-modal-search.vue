@@ -1,7 +1,7 @@
 <template>
   <quiz-modal-overlay :model.sync="storeModals.modals.modalSearchIsOpen">
     <div class="flex flex-col">
-      <p class="mb-4 text-quiz-white">Pesquise pelo o nome de um jogo</p>
+      <p class="mb-4 text-quiz-white">Pesquise pelo nome de um quiz</p>
       <quiz-input-text
         :model.sync="searchValue"
         class="py-3 text-base sm:min-w-[20rem] w-full"
@@ -17,7 +17,7 @@
           class="text-base hover:text-quiz-blue"
         >
           <button
-            class="flex justify-between w-full"
+            class="flex justify-between w-full py-1 sm:py-0"
             @click="() => openModalGameSettings(quiz)"
           >
             <p class="text-left">{{ quiz.name }}</p>

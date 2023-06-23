@@ -24,7 +24,7 @@
         @input="usernameIsValid = undefined"
       />
       <p
-        class="block lg:hidden mt-1 text-xs sm:text-sm md:text-base text-quiz-blue"
+        class="block lg:hidden mt-2 text-xs sm:text-sm md:text-base text-quiz-blue"
       >
         De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !
       </p>
