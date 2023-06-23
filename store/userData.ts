@@ -19,12 +19,12 @@ export const useUserDataStore = defineStore("userData", () => {
   const lastGamesPlayed = useLastGamesPlayed();
 
   const data = reactive<User>({
-    userName: "user1838",
+    userName: "",
     avatarUrl: "av-7",
     level: 1,
-    currentXp: 5,
-    trophiesCount: 2,
-    coinsCount: 216,
+    currentXp: 0,
+    trophiesCount: 0,
+    coinsCount: 10,
     isLogged: false,
   });
 
@@ -46,7 +46,7 @@ export const useUserDataStore = defineStore("userData", () => {
   });
 
   const totalXpInCurrentLevel = computed<number>(() => {
-    const totalXp = 25 + data.level;
+    const totalXp = 10 + data.level * 2;
     return totalXp;
   });
 
@@ -80,20 +80,21 @@ export const useUserDataStore = defineStore("userData", () => {
     };
   }
 
-  function calculateXpGained() {
-    if (data.currentXp > totalXpInCurrentLevel.value) {
-      ++data.level;
+  function calculateXpGained(xpGained: number) {
+    const newXpAdded = data.currentXp + xpGained;
+    if (newXpAdded >= totalXpInCurrentLevel.value) {
       data.currentXp -= totalXpInCurrentLevel.value;
-      calculateXpGained();
+      ++data.level;
+      calculateXpGained(xpGained);
+    } else {
+      data.currentXp += xpGained;
     }
   }
 
   function getRewards(currentGame: CurrentGame) {
     data.coinsCount += currentGame.coinsGained;
 
-    data.currentXp += currentGame.xpGained;
-
-    calculateXpGained();
+    calculateXpGained(currentGame.xpGained);
 
     saveToLocalStorage();
   }
@@ -119,9 +120,9 @@ export const useUserDataStore = defineStore("userData", () => {
     data.userName = "";
     data.avatarUrl = "av-7";
     data.level = 1;
-    data.currentXp = 5;
-    data.trophiesCount = 2;
-    data.coinsCount = 216;
+    data.currentXp = 0;
+    data.trophiesCount = 0;
+    data.coinsCount = 10;
     data.isLogged = false;
   }
 

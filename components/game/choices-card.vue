@@ -54,7 +54,7 @@
         >
           Muito bem! Resposta correta!
           <span v-if="correctAnswersIsMoreThanOne">
-            Todas: {{ correctAnswer }}
+            Outras respostas: {{ correctAnswer }}
           </span>
         </p>
         <div v-if="answerIsIncorrect" class="flex items-center justify-between">

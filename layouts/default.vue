@@ -63,9 +63,9 @@ function logout() {
 </script>
 
 <script lang="ts">
-export default Vue.extend({
+export default {
   middleware: ["auth"],
-});
+};
 </script>
 
 <style scoped>
