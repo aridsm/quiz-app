@@ -76,13 +76,21 @@ function loginUser() {
   }
 }
 </script>
-
 <script lang="ts">
-export default Vue.extend({
+export default {
   layout: "login",
-});
+  head: {
+    title: "Quiz - Login",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Entre e comece a jogar!",
+      },
+    ],
+  },
+};
 </script>
-
 <style scoped>
 .login-card {
   box-shadow: 4px 4px 25px 0 rgba(13, 10, 31, 0.2);

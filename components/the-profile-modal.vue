@@ -87,7 +87,7 @@
           </div>
           <div>
             <p class="mb-3">Avatares disponíveis</p>
-            <ul class="grid-cols-5 grid gap-2 sm:gap-4">
+            <ul class="grid-cols-5 grid gap-2 sm:gap-3">
               <li
                 v-for="avatar in avatarImages"
                 :key="avatar"
@@ -172,7 +172,7 @@ const {
 } = storeToRefs(storeUserData);
 
 const modalAvatarImagesIsOpen = ref<boolean>(false);
-const imageSelected = ref<string>("");
+const imageSelected = ref<string>(user.value.avatarUrl);
 
 const modalUsernameIsOpen = ref<boolean>(false);
 const newUsernameIsInvalid = ref<boolean>(false);

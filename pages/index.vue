@@ -122,3 +122,17 @@ const biggestScoresUsers = ref<UserDefault[]>(
   usersStore.usersBiggestsScores.slice(0, 3)
 );
 </script>
+<script lang="ts">
+export default {
+  head: {
+    title: "Quiz - Home",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Página inicial",
+      },
+    ],
+  },
+};
+</script>

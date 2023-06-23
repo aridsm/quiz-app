@@ -9,3 +9,17 @@
     </div>
   </quiz-page-layout>
 </template>
+<script lang="ts">
+export default {
+  head: {
+    title: "Quiz - Página não encontrada",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "404",
+      },
+    ],
+  },
+};
+</script>

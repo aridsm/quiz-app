@@ -49,3 +49,17 @@ onBeforeUnmount(() => {
   storeCurrentGame.resetQuiz();
 });
 </script>
+<script lang="ts">
+export default {
+  head: {
+    title: "Quiz - Partida",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Iniciando partida",
+      },
+    ],
+  },
+};
+</script>
