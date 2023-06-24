@@ -21,9 +21,11 @@ export const useGameSettings = defineStore("useGameSettings", () => {
   const storeModals = useModals();
 
   function openModalGameSettings(quiz: Quiz) {
-    gameSettings.value.category = quiz.category;
     gameSettings.value.quizId = quiz.id;
     gameSettings.value.quizName = quiz.name;
+    gameSettings.value.category = quiz.category;
+    gameSettings.value.answerMode = AnswerMode.MultipleChoice;
+    gameSettings.value.numberOfQuestions = 5;
     gameSettings.value.acceptAnswerMode = quiz.acceptAnswerMode;
     gameSettings.value.geoQuizType =
       quiz.category === QuizCategoryType.Geography

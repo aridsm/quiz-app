@@ -46,7 +46,7 @@ export const useQuizzes = defineStore("useQuizzes", () => {
       name: "Raízes e Potências",
       category: QuizCategoryType.Mathematics,
       id: QuizType.RootsAndPowers,
-      acceptAnswerMode: true,
+      acceptAnswerMode: false,
       source: "quizzes/mathematics/rootAndPowers.json",
     },
     {

@@ -69,7 +69,7 @@
         :model.sync="modalAvatarImagesIsOpen"
         :border="true"
       >
-        <div class="flex flex-col sm:flex-row gap-6">
+        <div class="flex flex-col sm:flex-row gap-4">
           <div class="flex flex-col">
             <div class="w-36 h-36 mx-auto rounded-md relative">
               <img
@@ -119,7 +119,7 @@
         :border="true"
       >
         <div class="flex flex-col">
-          <p class="mb-4 text-quiz-white">
+          <p class="mb-3 text-quiz-white">
             Escolha um nome de usuário
 
             <button
@@ -132,9 +132,7 @@
               <icon-quiz-infos class="w-4" />
             </button>
           </p>
-          <p
-            class="block lg:hidden mb-1 text-xs sm:text-sm md:text-base text-quiz-blue"
-          >
+          <p class="block lg:hidden mb-1 text-xs sm:text-sm text-quiz-blue">
             De 3 a 10 caracteres, apenas letras, números e os símbolos _ @ ou !
           </p>
           <quiz-input-text

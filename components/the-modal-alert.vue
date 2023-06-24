@@ -1,8 +1,12 @@
 <template>
-  <quiz-modal-overlay :center="true" :model.sync="modals.modalAlert.isOpen">
+  <quiz-modal-overlay
+    :center="true"
+    :model.sync="modals.modalAlert.isOpen"
+    :border="true"
+  >
     <div class="flex flex-col gap-3">
       <p>Tem certeza?</p>
-      <p class="text-quiz-grey-100">
+      <p class="text-quiz-grey-100 leading-none">
         {{ modals.modalAlert.message }}
       </p>
       <div class="flex justify-between mt-2">
