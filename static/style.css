@@ -2,6 +2,7 @@
 
 body {
   font-family: "Barlow Condensed", sans-serif;
+  font-weight: 500;
   @apply bg-quiz-grey-400 text-quiz-white text-base md:text-lg lg:text-xl;
 }
 
@@ -26,4 +27,17 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-quiz-grey-100;
+}
+
+.bg-blur {
+  @apply w-52 h-52 lg:w-80 lg:h-80 fixed blur-[160px] left-1/2 -top-14 lg:-top-28 pointer-events-none;
+  z-index: 99;
+  background: #6b60ac9f;
+  filter: blur(250px);
+}
+
+@media all and (max-width: 1024px) {
+  .bg-blur {
+    filter: blur(160px);
+  }
 }

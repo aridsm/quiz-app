@@ -26,9 +26,7 @@
         </div>
       </button>
     </div>
-    <div
-      class="w-52 h-52 lg:w-80 lg:h-80 fixed blur-[160px] lg:blur-[250px] left-1/2 -top-14 lg:-top-28 bg-blur pointer-events-none"
-    />
+    <div class="blur" />
     <the-tooltip v-if="tooltip.isShown" class="hidden lg:block" />
   </div>
 </template>
@@ -36,7 +34,6 @@
 <script setup lang="ts">
 import { useRouter } from "@nuxtjs/composition-api";
 import { storeToRefs } from "pinia";
-import Vue from "vue";
 import { useModals } from "~/store/modals";
 import { useTooltip } from "~/store/tooltip";
 import { useUserDataStore } from "~/store/userData";
@@ -67,10 +64,3 @@ export default {
   middleware: ["auth"],
 };
 </script>
-
-<style scoped>
-.bg-blur {
-  z-index: 99;
-  background: #6b60ac9f;
-}
-</style>
