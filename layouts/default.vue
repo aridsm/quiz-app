@@ -26,7 +26,7 @@
         </div>
       </button>
     </div>
-    <div class="blur" />
+    <div class="bg-blur" />
     <the-tooltip v-if="tooltip.isShown" class="hidden lg:block" />
   </div>
 </template>
