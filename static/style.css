@@ -28,10 +28,13 @@ a {
 }
 
 .bg-blur {
-  @apply w-52 h-52 lg:w-80 lg:h-80 fixed blur-[160px] left-1/2 -top-14 lg:-top-28 pointer-events-none;
+  @apply w-[800px] h-[500px] fixed left-1/3 -top-56 pointer-events-none rounded-full;
   z-index: 99;
-  background: #6b60ac9f;
-  filter: blur(250px);
+  background: #6b60ac2e;
+  filter: blur(150px);
+  -webkit-filter: blur(150px);
+  -ms-filter: blur(150px);
+  -moz-filter: blur(150px);
 }
 
 @media all and (max-width: 1024px) {
